@@ -18,7 +18,7 @@ week-XX/
 | Week | Topic | Status |
 |------|-------|--------|
 | [01](week-01/) | TBD | Empty — add materials |
-| [02](week-02/) | TBD | Empty — add materials |
+| [02](week-02/) | Structural & institutional invariance (Sciulli) | Sciulli (2008) PDF added |
 | [03](week-03/) | TBD | Empty — add materials |
 | [04](week-04/) | TBD | Empty — add materials |
 | [05](week-05/) | TBD | Empty — add materials |
