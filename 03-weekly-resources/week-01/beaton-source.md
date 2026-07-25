@@ -1,8 +1,11 @@
 # Beaton — Why Professionalism is Still Relevant
 
-## Can we find the source? Yes
+## Can we find the source? Yes — and it is already in this repo
 
-Your class slide title matches **Dr George Beaton’s** 2010 essay:
+**Local PDF (uploaded to Week 1):**  
+`Pre_reading week 1_GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf`
+
+Your class slide title matches **Dr George Beaton’s** 2010 essay. The Assessment 1 brief also cites it (pp. 4–5):
 
 | Field | Detail |
 |-------|--------|

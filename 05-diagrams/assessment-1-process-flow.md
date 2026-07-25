@@ -1,51 +1,56 @@
-# Diagram: Week 1 → Assessment 1 process
+# Diagram: Assessment 1 process — Week 1 to submission
 
-- **Purpose:** Ordered process from Week 1 professionalism inquiry to Assessment 1 submission
-- **Source(s):** `03-weekly-resources/week-01/`, `05-diagrams/assessment-1-process-prep.md`
+- **Purpose:** Ordered process to produce the Disciplinary Matrix + 150-word critical note
+- **Source(s):** Assessment 1 brief; Week 1 Beaton + class questions
 - **Date:** 2026-07-26
 - **Type:** flowchart
 
-## Diagram
+## A. Submission process
 
 ```mermaid
 flowchart TD
-  A[1. Gather Week 1 materials<br/>Beaton PDF + class questions] --> B[2. Define profession vs business]
-  B --> C[3. Map obligations beyond paying client]
-  C --> D[4. Map who holds power<br/>now vs should]
-  D --> E[5. Position architecture<br/>classic ↔ neo-profession]
-  E --> F[6. Name commercial vs<br/>professional tensions]
-  F --> G[7. Synthesize into<br/>Assessment 1 outline]
-  G --> H[8. Draw concept / process diagrams]
-  H --> I[9. Build Chicago reference list]
-  I --> J[10. Recheck brief + rubric]
-  J --> K{Gaps?}
-  K -->|Yes| G
-  K -->|No| L[Submit Assessment 1]
+  W1[Week 1: Read Beaton + class questions] --> S1[Stage 1: Messy sketch of current understanding]
+  S1 --> S2[Stage 2: Choose framework<br/>pathway / ecosystem / layers...]
+  S2 --> LOOP[Weeks 2–4: After each lecture<br/>reorganise — do not only add]
+  LOOP --> VER{Structure still clear?}
+  VER -->|No| REDRAW[Redraw matrix — new version]
+  REDRAW --> LOOP
+  VER -->|Yes| SPINE[Verify Victoria registration spine<br/>times · gateways · contingencies]
+  SPINE --> CRIT[Strengthen critical position<br/>power · tensions · what should change]
+  CRIT --> WORDS[Draft 150-word<br/>How to read + Critical Position]
+  WORDS --> PRES[Week 5 Mon: Verbal presentation]
+  PRES --> FINAL[Finalise diagram + Chicago refs]
+  FINAL --> SUB[Submit Week 5 Sun 23 Aug 2026]
+```
 
-  B -. uses .-> B1[11 characteristics<br/>cited via Beaton]
-  E -. uses .-> E1[Classic professions<br/>vs neo-professions]
-  F -. uses .-> F1[Profit must not<br/>trump altruism]
+## B. What the matrix itself should contain (starter layout)
+
+```mermaid
+flowchart TB
+  subgraph SPINE["Organising spine — pathway to registration VIC"]
+    EDU[Accredited education] --> EXP[Supervised experience / logbook]
+    EXP --> APE[APE exam + interview]
+    APE --> REG[ARBV registration]
+    REG --> CPD[CPD + PI insurance ongoing]
+  end
+
+  EDU --- UNI[University / accreditation]
+  EXP --- EMP[Employment / practice]
+  REG --- BOD[Professional bodies · legislation · ethics]
+  CPD --- PUB[Public value · who is served]
+  EMP -.->|commercial pressure| TENSE[Tension with professional obligation]
+  BOD -.->|standards / power| TENSE
+  PUB -.->|duty beyond paying client| TENSE
 ```
 
 ## How to read this
 
-1. Top path (1→10) is your **submission process** — do these in order.
-2. Dotted side notes are **theory anchors** from Beaton to drop into Assessment 1 writing.
-3. The loop at stage 10 means: if the rubric check finds gaps, return to outline/synthesis — do not submit yet.
+1. Diagram **A** is your **work process** to get the assignment done.  
+2. Diagram **B** is a **starter content layout** for the disciplinary matrix — replace placeholders with your research and critical arrows.  
+3. Assessment rewards **relationships and critique**, not graphic polish or max entities.
 
-## Optional second diagram — concept spine
+## Notes
 
-```mermaid
-flowchart LR
-  K[Specialised knowledge] --> P[Power over client]
-  P --> E[Ethics + altruism]
-  E --> T[Trust]
-  T --> I[Integrity]
-  P --> R[Regulation + professional body]
-  E --> R
-```
-
-## Notes / assumptions
-
-- Assessment 1 official brief not yet filed — insert due dates/word limits when you add it.
-- Adapt stage names to match your unit’s Assessment 1 wording (e.g. reflective essay, poster, portfolio).
+- Keep versions (`v01`, `v02`…) — thought process is part of the task.  
+- Beaton PDF is already in `03-weekly-resources/week-01/`.  
+- Confirm exact AACA/ARBV pathway details before final submission.

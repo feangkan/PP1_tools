@@ -1,119 +1,176 @@
-# Diagram prep — Week 1 → Assessment 1 submission process
+# Diagram prep — Assessment 1 Disciplinary Matrix (from Week 1)
 
-- **Purpose:** Give you the building blocks to draw the process that turns Week 1 inquiry into Assessment 1 submission.
-- **Source(s):** `03-weekly-resources/week-01/` (Beaton + class questions)
+- **Purpose:** Building blocks to start Stage 1–2 of Assessment 1 (not the final polished matrix)
+- **Source(s):** Assessment 1 brief; Beaton (2010); Week 1 class questions; Week 1 lecture recording notes
 - **Date:** 2026-07-26
-- **Status:** Prep notes — draft the final diagram in `assessment-1-process-flow.md` (or your preferred tool)
-
-> Assessment 1 brief is not yet in `02-assessment-tasks/`. This process is built from Week 1 tasks as the **front end** of Assessment 1. Drop the official brief in when you have it and we can re-align stages/deadlines.
+- **Type:** prep for hand/digital iterative diagram
 
 ---
 
-## What the diagram should show (one job)
+## Beaton — you already have it (and it is online)
 
-**How you move from class inquiry → professional position → evidence → Assessment 1 submission.**
+Local file in this repo:
 
----
+`03-weekly-resources/week-01/Pre_reading week 1_GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf`
 
-## Recommended process stages (in order)
+Public copies:
 
-| Stage | What you do | Inputs | Output / evidence |
-|-------|-------------|--------|-------------------|
-| **1. Gather** | Collect Week 1 materials | Beaton PDF, class questions, lecture notes | Files in `week-01/` |
-| **2. Define** | Answer: profession vs business | Beaton 11 traits + your words | Short definition card |
-| **3. Map obligations** | List duties beyond paying client | Ethics / public good ideas from Beaton | Stakeholder / duty list |
-| **4. Map power** | Who holds power now vs who should | Associations, clients, firms, regulators, public | Power map notes |
-| **5. Position architecture** | Classic profession ↔ neo-profession | Beaton on classic / neo / design professions | One clear thesis sentence |
-| **6. Surface tension** | Commercial pressure vs professional duty (incl. student examples) | Class Q5 + Beaton “profit vs altruism” | Tension examples |
-| **7. Synthesize** | Turn 2–6 into Assessment 1 argument structure | All above | Outline / storyboard |
-| **8. Diagram** | Draw the process + key concept maps | This prep file | Mermaid / hand sketch |
-| **9. Reference** | Chicago bibliography | Beaton + Cheetham & Chivers + unit readings | `06-references/` |
-| **10. Recheck & submit** | Check against Assessment 1 brief/rubric | Brief + draft | Requirement check → submit |
+- https://www.professions.org.au/wp-content/uploads/Why_Professionalism_is_still_Relevant_Beaton.pdf  
+- https://doi.org/10.2139/ssrn.1545509  
+
+Your Assessment brief cites: **Beaton, G. (2010). *Why Professionalism is Still Relevant*. U of Melbourne Legal Studies Research Paper No. 445, pp. 4–5.**
+
+The 11-point “A profession, they say…” list in Beaton is compiled from **Cheetham & Chivers (2005)** — cite carefully (see `06-references/week-01-bibliography.md`).
 
 ---
 
-## Concept clusters to put on the diagram
+## What Assessment 1 is really asking for
 
-### A. Profession vs business (split node)
+Not a pretty org-chart of every acronym. One **conceptual framework** that shows:
 
-```
-PROFESSION                         BUSINESS
-- service / altruism               - profit primary
-- ethical code                     - market competition
-- client + public duty             - customer / shareholder
-- self-regulation + body           - less public mandate
-- learned / specialised            - may still be skilled
-```
+| Question the diagram answers | Week 1 material that feeds it |
+|------------------------------|-------------------------------|
+| How does the profession operate? | Bodies, registration path, codes, employment |
+| Why does it exist? | Public good, trust, asymmetrical knowledge (Beaton) |
+| Who does it serve? | Client + users + public + society (beyond paying client) |
+| How might it evolve? | Neo-professions, ARBV/regulator debates, your critical position |
 
-### B. Power & knowledge (flow)
+**Organising spine (required):** pathway to **registration in Victoria**.
 
-```
-Specialised training → Asymmetrical knowledge → Power over client
-        → must be balanced by Ethics + Altruism → Trust
-        → Associations + Regulation reinforce standards
-```
+---
 
-### C. Architecture placement (spectrum)
+## Suggested organising spine (Victoria — draft nodes)
+
+Fill exact years/hours from AACA / ARBV materials as you research Weeks 1–5.
 
 ```
-Classic (law, medicine)  ←———— Architecture ? ———→  Neo-profession
-[strong public duty,        [design profession in      [commercialised,
- registration, ethics]       Beaton's examples]         contested status]
+Accredited architecture education (Part 1 / Bachelor + Part 2 / Master — confirm your pathway)
+        ↓
+Graduation (eligible for logbook / experience stage)
+        ↓
+Supervised practical experience (AACA logbook / NSCA competencies)
+        ↓
+Architectural Practice Examination (APE) — written + interview (gateways)
+        ↓
+Registration with ARBV (Architects Registration Board of Victoria)
+        ↓
+Use of title “Architect” + PI insurance expectations + CPD ongoing
 ```
 
-### D. Stakeholder / obligation ring (beyond paying client)
+**Contingencies to show:** fail/repeat exam; incomplete experience; interstate/overseas qualifications; working as graduate vs registered; losing registration / complaints pathway.
 
-Suggested nodes to place around “Architect”:
+---
+
+## Clusters to hang off the spine (Week 1 starter set)
+
+Use relational arrows (*enables / limits / depends upon / influences / causes / prevents*).
+
+### 1. Profession vs business (Beaton + class Q1)
+
+| Profession | Business |
+|------------|----------|
+| Ethical code + public duty | Profit / market primary |
+| Client-focused + altruistic ideal | Customer / shareholder focus |
+| Self-regulation + professional body | Less public mandate |
+| Learned specialised knowledge | May still be skilled |
+
+### 2. Obligations beyond paying client (class Q2)
 
 - Building users / occupants  
-- Public / community  
+- Public / community safety & amenity  
 - Environment / future generations  
-- Colleagues / profession  
-- Regulators / registration board  
-- Consultant team / contractors  
-- *(Paying client remains important — but not the only duty)*
+- Profession’s reputation / colleagues  
+- Regulators / registration standards  
 
-### E. Tension examples (student level — customise)
+### 3. Power holders (class Q3) — place around the spine
 
-| Commercial pressure | Professional obligation |
-|---------------------|-------------------------|
-| Cheap / fast studio output | Rigorous, ethical design thinking |
-| Client wants max yield | Amenity, safety, accessibility, context |
-| Portfolio / marks focus | Honest collaboration, credit, critique |
-| Unpaid overtime culture | Wellbeing + sustainable practice norms |
+| Actor | Possible power |
+|-------|----------------|
+| Client / developer | Fees, scope, programme |
+| Practice owners / employers | Labour, culture, what gets signed |
+| ARBV / registration | Title, discipline, standards |
+| AACA | Competency standards, accreditation |
+| Institutes (e.g. AIA) / ACA | Advocacy, contracts, culture |
+| University / accreditation | Entry to pathway |
+| Insurers | Risk appetite, what work is coverable |
+| Government / planning / NCC | Legal constraints |
+| Public / media | Trust, reputation after failures |
 
----
+### 4. Classic vs neo-profession (Beaton + class Q4)
 
-## Suggested diagram set (you may draw 1 combined or 3 small)
+Architecture sits in Beaton as a **design profession**; classic trio = divinity, law, medicine. Your diagram can show a **spectrum** and your position.
 
-1. **Process flowchart** — Stages 1→10 (Assessment 1 pathway) ← start here  
-2. **Concept map** — Profession characteristics (11 traits) grouped  
-3. **Power / obligation map** — Architect at centre, stakeholders around  
+### 5. Commercial ↔ professional tension (class Q5 + manifesto themes)
 
-Starter Mermaid for (1): `assessment-1-process-flow.md`
+Examples to annotate (customise):
 
----
-
-## Labels you can copy onto boxes
-
-- Gather Beaton + class questions  
-- Define profession  
-- Obligations beyond client  
-- Power: who holds it?  
-- Classic vs neo position  
-- Name the tension  
-- Build Assessment 1 outline  
-- Draw diagrams  
-- Chicago references  
-- Rubric check → Submit  
+- Reduced scope / fees vs undiminished public expectation of judgement  
+- Speed / portfolio marks vs ethical care and honesty  
+- Proprietary firm knowledge vs collective professional knowledge  
 
 ---
 
-## Checklist before you draw
+## Stage 1 sketch recipe (do this now — ~20 minutes)
 
-- [ ] Read Beaton PDF (at least Intro + “Meaning of Professionalism”)  
-- [ ] Draft answers to the 5 class questions  
-- [ ] Write one thesis: where architecture sits + why  
-- [ ] List 3 obligations beyond the paying client  
-- [ ] List 2 student-level commercial vs professional tensions  
-- [ ] Add Assessment 1 brief to `02-assessment-tasks/` when available  
+On one A3 / tablet page, draw quickly:
+
+1. **Horizontal or vertical spine** = registration pathway (5–7 boxes)  
+2. **Left side** = education + university + CPD  
+3. **Right side** = employment / practice / fees  
+4. **Top** = regulators + legislation + codes  
+5. **Bottom** = public value / who is served  
+6. Circle **one tension** in red (e.g. profit vs altruism)  
+7. Write 3 words for your temporary thesis (e.g. “judgement over competency”)
+
+Do **not** polish. Photo it into Padlet / keep as `v01`.
+
+---
+
+## Framework options (Stage 2 — pick one primary)
+
+| Framework | Good if you want to emphasise… |
+|-----------|--------------------------------|
+| **Pathways** | Registration spine + gateways (brief’s default) |
+| **Ecosystem** | Mutual dependence of bodies / public / market |
+| **Layered systems** | Law under practice under culture |
+| **Network** | Influence without hierarchy |
+| **Cycle** | Education → practice → CPD → standards → education |
+| **Hierarchy** | Who overrules whom (power critique) |
+
+Hybrid tip: **Pathway spine + ecosystem satellites** often works for this brief.
+
+---
+
+## Process to submission (ordered)
+
+1. Week 1 Stage 1 sketch (Beaton + class questions)  
+2. Choose framework in tutorial  
+3. After each lecture (W2–W4): reorganise matrix; keep versions  
+4. Flesh Victoria registration gateways with accurate sources  
+5. Strengthen critical position (power / gaps / change)  
+6. Draft 150-word “How to read + Critical Position”  
+7. Week 5 Monday verbal presentation  
+8. Finalise diagram + references → submit Sunday 23 Aug 2026  
+
+Starter Mermaid of this process: `assessment-1-process-flow.md`
+
+---
+
+## Labels you can put on arrows
+
+- enables registration  
+- limits who may use the title  
+- depends upon supervised experience  
+- influences public trust  
+- causes tension with fee-driven scope cuts  
+- prevents unqualified practice (in theory)  
+
+---
+
+## Checklist before Week 2
+
+- [ ] Open local Beaton PDF and highlight definition of professionalism + 11 traits  
+- [ ] Draft answers in `03-weekly-resources/week-01/class-discussion-questions.md`  
+- [ ] Complete Stage 1 messy sketch  
+- [ ] List Victoria registration nodes you still need to verify (times, exam names)  
+- [ ] Note 1 critical tension you care about for the whole semester  
