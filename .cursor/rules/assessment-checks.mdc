@@ -1,0 +1,20 @@
+---
+description: Assessment requirement-check workflow
+globs:
+  - 02-assessment-tasks/**
+  - templates/requirement-check.md
+  - templates/assessment-brief.md
+alwaysApply: false
+---
+
+# Assessment requirement checks
+
+When the user asks to recheck a draft against a brief/rubric:
+
+1. Read brief + rubric + draft from `02-assessment-tasks/`.
+2. Extract discrete requirements (content, structure, word count, sources, LO alignment, format).
+3. Score each as **Met / Partial / Missing** with evidence quotes or section refs from the draft.
+4. Map likely rubric band per criterion and explain why.
+5. End with a short **Priority fixes** list (highest impact first).
+6. Save as `assessment-N-requirement-check.md` using `templates/requirement-check.md`.
+7. Do not mark “Met” without evidence in the draft.

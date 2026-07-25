@@ -1,0 +1,19 @@
+---
+description: Chicago notes-bibliography citation helper for PP1
+globs:
+  - 06-references/**
+  - templates/chicago-reference.md
+alwaysApply: false
+---
+
+# Chicago citation helper
+
+When editing or creating files under `06-references/`:
+
+1. Use **Chicago notes-bibliography** (not author-date), unless the assessment brief specifies otherwise.
+2. Bibliography entries: hanging-indent style described in plain Markdown (indent continuation lines with two spaces if useful).
+3. Order alphabetically by first author’s surname; works with no author go under title.
+4. Include DOI as URL when available (`https://doi.org/...`).
+5. For web sources, include access date when no publication date is clear.
+6. Never invent bibliographic data. List **Missing details to verify** for gaps.
+7. Follow examples in `templates/chicago-reference.md`.
