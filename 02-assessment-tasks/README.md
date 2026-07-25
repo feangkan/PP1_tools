@@ -16,7 +16,7 @@ assessment-1-final.md
 
 | Task | Weight | Due | Status | Files |
 |------|--------|-----|--------|-------|
-| Assessment 1 | | | Not started | |
+| Assessment 1 | | | In progress (Week 1 process mapped) | `assessment-1-brief.md` (placeholder) |
 | Assessment 2 | | | Not started | |
 | Assessment 3 | | | Not started | |
 

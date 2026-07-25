@@ -7,7 +7,7 @@
 | Field | Value |
 |-------|-------|
 | Subject code | PP1 / _TBD_ |
-| Subject name | |
+| Subject name | Professional Practice 1 (Architecture — confirm from outline) |
 | Institution / faculty | |
 | Teaching period | |
 | Credit points | |
@@ -39,7 +39,7 @@
 
 | Week | Topic | Resources folder |
 |------|-------|------------------|
-| 1 | | `03-weekly-resources/week-01/` |
+| 1 | What is a profession? (Beaton) | `03-weekly-resources/week-01/` |
 | 2 | | `03-weekly-resources/week-02/` |
 | 3 | | `03-weekly-resources/week-03/` |
 | 4 | | `03-weekly-resources/week-04/` |
