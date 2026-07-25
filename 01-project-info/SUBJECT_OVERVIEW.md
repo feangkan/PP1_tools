@@ -6,9 +6,9 @@
 
 | Field | Value |
 |-------|-------|
-| Subject code | PP1 / _TBD_ |
-| Subject name | Professional Practice 1 (Architecture — confirm from outline) |
-| Institution / faculty | |
+| Subject code | 2650 (Architecture Professional Practice 1) |
+| Subject name | Architecture Professional Practice 1 |
+| Institution / faculty | RMIT |
 | Teaching period | |
 | Credit points | |
 | Mode | Online / On-campus / Hybrid |
@@ -31,7 +31,7 @@
 
 | # | Task | Weight | Due | Folder |
 |---|------|--------|-----|--------|
-| 1 | | % | | `02-assessment-tasks/` |
+| 1 | Disciplinary Matrix of Architecture | 25% | Week 5 — Sun 23 Aug 2026 | `02-assessment-tasks/` |
 | 2 | | % | | `02-assessment-tasks/` |
 | 3 | | % | | `02-assessment-tasks/` |
 

@@ -6,7 +6,7 @@
 
 ## Bibliography
 
-Beaton, George. “Why Professionalism Is Still Relevant.” Working paper, University of Melbourne / Beaton Research + Consulting, January 2010. https://doi.org/10.2139/ssrn.1545509.
+Beaton, George. “Why Professionalism Is Still Relevant.” University of Melbourne Legal Studies Research Paper No. 445, January 2010. https://doi.org/10.2139/ssrn.1545509.
 
 Beaton, George. “Why Professionalism Matters More Than Ever.” White paper, Australian Council of Professions, 2022. https://www.professions.org.au/wp-content/uploads/Why-Professionalism-Matters-more-than-ever-George-Beaton-2022.pdf.
 
