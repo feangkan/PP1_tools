@@ -30,16 +30,19 @@ Develop an original **A1 Disciplinary Matrix diagram** that explains how the arc
 
 
 
-## Critical questions (from brief + Week 1 class)
+## Week 1 class questions (exact — from your slide)
 
-- What distinguishes a profession from a business?  
-- What obligations do architects have beyond their clients?  
-- How is professional judgement developed?  
-- Who maintains professional standards?  
-- How does the profession continue to evolve?  
-- Who currently holds power — and should they?  
-- Classic profession or neo-profession?  
-- Where is commercial vs professional tension (even as a student)?
+1. What distinguishes a profession from a business, in their own words?
+2. What obligations does an architect have beyond the paying client?
+3. Who currently holds power over the architecture profession — and is that where it should sit?
+4. Is architecture more like the "classic" professions (law, medicine) or more like a neo-profession? Why?
+5. Where do they see tension between commercial pressure and professional obligation, even at student level?
+
+## Extra critical prompts from Assessment 1 brief (not on the class slide)
+
+- How is professional judgement developed?
+- Who maintains professional standards?
+- How does the profession continue to evolve?
 
 
 

@@ -65,6 +65,14 @@ Use of title “Architect” + PI insurance expectations + CPD ongoing
 
 Use relational arrows (*enables / limits / depends upon / influences / causes / prevents*).
 
+### Exact Week 1 class questions (from your slide)
+
+1. What distinguishes a profession from a business, in their own words?
+2. What obligations does an architect have beyond the paying client?
+3. Who currently holds power over the architecture profession — and is that where it should sit?
+4. Is architecture more like the "classic" professions (law, medicine) or more like a neo-profession? Why?
+5. Where do they see tension between commercial pressure and professional obligation, even at student level?
+
 ### 1. Profession vs business (Beaton + class Q1)
 
 | Profession | Business |
@@ -74,7 +82,7 @@ Use relational arrows (*enables / limits / depends upon / influences / causes / 
 | Self-regulation + professional body | Less public mandate |
 | Learned specialised knowledge | May still be skilled |
 
-### 2. Obligations beyond paying client (class Q2)
+### 2. Obligations beyond the paying client (class Q2)
 
 - Building users / occupants  
 - Public / community safety & amenity  
@@ -82,7 +90,7 @@ Use relational arrows (*enables / limits / depends upon / influences / causes / 
 - Profession’s reputation / colleagues  
 - Regulators / registration standards  
 
-### 3. Power holders (class Q3) — place around the spine
+### 3. Who holds power over the architecture profession (class Q3) — place around the spine
 
 | Actor | Possible power |
 |-------|----------------|
