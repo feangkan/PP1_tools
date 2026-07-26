@@ -51,13 +51,23 @@ Copy `templates/week-readme.md` into each new week’s `README.md`.
 
 ---
 
-## 5. Make diagrams
+## 5. Weekly diagram pack (your hybrid style)
+
+Style rules live in `08-diagram-style/` (learned from your Proprac II Task 3B-2 diagrams).
+
+Each week produce **5 files** under `05-diagrams/week-XX/`:
+
+1. Diagram (short-form nodes + networked links)  
+2. Explanation (for you)  
+3. Presentation script  
+4. Topics context (where ideas came from)  
+5. References (Chicago)
 
 **Prompt:**  
-> Create a Mermaid diagram of [process / concept / assessment workflow] from [source].  
-> Save to `05-diagrams/<name>.md` using `templates/diagram.md`.
+> Using only `03-weekly-resources/week-01/`, produce a weekly diagram pack in my hybrid style (`08-diagram-style/`).  
+> Save all 5 files under `05-diagrams/week-01/` using `templates/weekly-diagram-pack/`.
 
-Supported types: flowchart, sequence, mindmap, class, ER, timeline.
+For a single quick Mermaid sketch only, you can still use `templates/diagram.md`.
 
 ---
 
@@ -91,3 +101,4 @@ Also available: footnote / endnote examples in the same template.
 - Keep drafts and finals separate (`*-draft.md` vs `*-final.md`).
 - For multi-file tasks, point the agent at a folder, not a single file.
 - Prefer “use only these resources” when you need citation-faithful answers for assessment work.
+- Weekly packs should follow your hybrid style: short-form → network links → full picture.
