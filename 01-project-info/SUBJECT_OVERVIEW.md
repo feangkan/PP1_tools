@@ -40,7 +40,7 @@
 | Week | Topic | Resources folder |
 |------|-------|------------------|
 | 1 | What is a profession? (Beaton) | `03-weekly-resources/week-01/` |
-| 2 | | `03-weekly-resources/week-02/` |
+| 2 | Structural & institutional invariance (Sciulli) | `03-weekly-resources/week-02/` |
 | 3 | | `03-weekly-resources/week-03/` |
 | 4 | | `03-weekly-resources/week-04/` |
 | 5 | | `03-weekly-resources/week-05/` |
