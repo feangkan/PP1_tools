@@ -2,6 +2,7 @@
 
 ## Beaton (primary)
 
+- Local: `GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf`
 - PDF: https://www.professions.org.au/wp-content/uploads/Why_Professionalism_is_still_Relevant_Beaton.pdf
 - PSC page: https://psc.gov.au/professional-standards-research/why-professionalism-still-relevant-0
 - SSRN: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1545509

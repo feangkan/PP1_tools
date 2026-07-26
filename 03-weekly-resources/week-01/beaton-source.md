@@ -2,8 +2,9 @@
 
 ## Can we find the source? Yes — and it is already in this repo
 
-**Local PDF (uploaded to Week 1):**  
-`Pre_reading week 1_GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf`
+**Local PDFs (Week 1):**  
+- `GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf` (preferred filename)  
+- `Pre_reading week 1_GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf` (same file, LMS name)
 
 Your class slide title matches **Dr George Beaton’s** 2010 essay. The Assessment 1 brief also cites it (pp. 4–5):
 

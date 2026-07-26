@@ -16,7 +16,8 @@ Professionalism in architecture: what distinguishes a profession from a business
 | File | Type | Notes |
 |------|------|-------|
 | `README.md` | Index | This file |
-| `Pre_reading week 1_GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf` | Pre-reading | **Beaton (2010)** — primary Week 1 source |
+| `GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf` | Pre-reading | **Beaton (2010)** — primary Week 1 source |
+| `Pre_reading week 1_GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf` | Pre-reading | Same Beaton PDF (LMS filename duplicate) |
 | `beaton-source.md` | Reading guide + links | Summary + public PDF mirrors |
 | `class-discussion-questions.md` | Seminar prompts | From class slide / Assessment 1 |
 | `2026_Introduction_Manifesto_Architect Acts.pdf` | Lecture | Week 1 manifesto |

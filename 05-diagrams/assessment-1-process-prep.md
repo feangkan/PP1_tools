@@ -11,7 +11,7 @@
 
 Local file in this repo:
 
-`03-weekly-resources/week-01/Pre_reading week 1_GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf`
+`03-weekly-resources/week-01/GeorgeBeaton_Why_professionalism_is_still_relevant-1.pdf`
 
 Public copies:
 
