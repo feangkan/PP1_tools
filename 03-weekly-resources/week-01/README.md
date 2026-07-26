@@ -30,6 +30,7 @@ Professionalism in architecture: what distinguishes a profession from a business
 
 | Output | Path |
 |--------|------|
+| **Weekly diagram pack (5 files)** | `05-diagrams/week-01/` |
 | Diagram prep (Assessment 1 process) | `05-diagrams/assessment-1-process-prep.md` |
 | Starter Mermaid diagram | `05-diagrams/assessment-1-process-flow.md` |
 | Summary | `04-summaries/week-01-beaton-summary.md` |
