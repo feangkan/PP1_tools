@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# Office temp
+~$*
+*.tmp
+
+# Large binaries (optional — remove these lines if you want PDFs in git)
+# *.pdf
+# *.pptx
+# *.mp4
+
+# Local env
+.env
+.venv/
+__pycache__/

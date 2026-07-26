@@ -1,0 +1,24 @@
+---
+description: Weekly hybrid diagram pack workflow (5 deliverables)
+globs:
+  - 05-diagrams/**
+  - 08-diagram-style/**
+  - templates/weekly-diagram-pack/**
+alwaysApply: false
+---
+
+# Weekly diagram pack
+
+When the user asks for a week diagram / tutorial presentation / weekly output:
+
+1. Read `08-diagram-style/STYLE_GUIDE.md` and `legend.md`.
+2. Use **only** scoped resources under `03-weekly-resources/week-XX/` (plus Assessment brief if they ask to link A1).
+3. Produce **all five** files in `05-diagrams/week-XX/`:
+   - `01-diagram.md` — short-form hybrid diagram + legend
+   - `02-explanation.md` — explanation for the student
+   - `03-presentation-script.md` — speakable class script
+   - `04-topics-context.md` — provenance table (file + location)
+   - `05-references.md` — Chicago bibliography
+4. Follow the user’s hybrid style: short nodes, networked links, colour/hierarchy via legend, mix circular/mindmap/timeline/left-right as needed.
+5. Never invent citations. Mark inferences explicitly in topics-context.
+6. Prefer fewer clear relationships over dense decoration.

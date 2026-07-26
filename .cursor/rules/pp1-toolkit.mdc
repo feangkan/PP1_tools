@@ -1,0 +1,42 @@
+---
+description: PP1 study toolkit — how the agent should use this repo
+alwaysApply: true
+---
+
+# PP1 Tools agent guide
+
+This repository is a **student study toolkit** for PP1. Help the user study, summarise, diagram, recheck assessment requirements, answer questions from fed resources, and build **Chicago (notes-bibliography)** reference lists.
+
+## Folder roles
+
+| Path | Use |
+|------|-----|
+| `01-project-info/` | Subject facts, outcomes, schedule |
+| `02-assessment-tasks/` | Briefs, rubrics, drafts, requirement checks |
+| `03-weekly-resources/week-XX/` | Source materials the student feeds in |
+| `04-summaries/` | Written summaries (agent output OK) |
+| `05-diagrams/` | Weekly hybrid packs (`week-XX/01–05`) + assessment diagrams |
+| `06-references/` | Chicago bibliographies |
+| `07-q-and-a/` | Resource-grounded answers |
+| `08-diagram-style/` | Hybrid diagram style guide + pack rules |
+| `templates/` | Preferred output shapes |
+
+## Hard rules
+
+1. **Prefer repo resources.** When the user scopes a week/folder/file, answer from those materials. If something is not covered, say so clearly — do not invent lecture content or fabricated citations.
+2. **Do not overwrite sources.** Write new outputs under `04-` / `05-` / `06-` / `07-` / `08-` docs or as `*-requirement-check.md` beside assessments. Leave PDFs and student source notes intact unless asked to edit them.
+3. **Use templates.** Match `templates/summary.md`, `diagram.md`, `weekly-diagram-pack/`, `requirement-check.md`, `qa.md`, and `chicago-reference.md` unless the user asks otherwise.
+4. **Chicago by default.** Reference lists = bibliography, alphabetical by author surname. Offer footnotes only when asked. Flag missing citation fields instead of guessing DOIs/pages.
+5. **Requirement checks** must be a Met / Partial / Missing table tied to the brief and rubric, plus priority fixes.
+6. **Weekly diagram requests** produce the full **5-file pack** under `05-diagrams/week-XX/` using `08-diagram-style/` (short-form nodes, networked links, legend).
+7. **New weeks:** create `03-weekly-resources/week-XX/` from `templates/week-readme.md` when the user advances past week 06.
+8. **Academic integrity:** help the student learn and organise; do not submit work pretending to be the student. Remind them to follow their unit’s AI-use policy when producing assessable text.
+
+## Prompt shortcuts (recognise intent)
+
+- “summarise …” → `04-summaries/`
+- “weekly pack / diagram pack / tutorial diagram …” → `05-diagrams/week-XX/` (all 5 files)
+- “diagram / flowchart / mindmap …” (single) → `05-diagrams/`
+- “recheck / check requirements / rubric …” → `02-assessment-tasks/*-requirement-check.md`
+- “answer using week N / only these files …” → `07-q-and-a/`
+- “Chicago / bibliography / reference list …” → `06-references/`
