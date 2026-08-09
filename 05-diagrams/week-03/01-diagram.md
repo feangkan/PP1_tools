@@ -86,9 +86,9 @@ flowchart TB
     S6d["Parlour — gender equity guides.\nOnly 21% registered architects\nare women vs ~40% of graduates"]
     S6e[ACA — Australian Consulting\nArchitects: business, procurement,\nemployment conditions]
     S6f[AACA — National Standard of\nCompetency, coordinates\nstate/territory boards]
-    S7a[International: national regulation —\nAustralia, Canada, Germany,\nUS via NCARB (state-based)]
+    S7a["International: national regulation —\nAustralia, Canada, Germany,\nUS via NCARB (state-based)"]
     S7b[International: voluntary —\nDenmark, Sweden, Finland]
-    S7c[India: Council of Architecture\n(statutory register) + Indian\nInstitute of Architects (assoc.)\n— mirrors Australia's split]
+    S7c["India: Council of Architecture\n(statutory register) + Indian\nInstitute of Architects (assoc.)\n— mirrors Australia's split"]
     S8[Peggy Deamer critique: US\nlicensure regulates entry, not\nwages/hours/insecure employment]
     S1 --> S3
     S1 --> S1a
@@ -192,14 +192,14 @@ flowchart TB
   subgraph MOLANDER["🟢 Molander et al. — discretion & accountability [hierarchy]"]
     M1[Discretion = structural\nspace to judge +\nepistemic reasoning\nunder uncertainty]
     M6["Norwegian GP case study: 360 GPs,\nwide variation in disability-pension\njudgments, correlated with\npersonal values"]
-    M2[Two tensions: discretion vs\nrule of law · discretion vs\ndemocratic control (Rothstein's\n'democracy's black hole')]
+    M2["Two tensions: discretion vs\nrule of law · discretion vs\ndemocratic control (Rothstein's\n'democracy's black hole')"]
     M3[Accountability = duty to\njustify to those with a\nright to demand it]
     M4[Structural measures:\nconstrain the space —\nregistration, Tribunal]
     M5a[Formative — education, CPD]
     M5b[Supportive — evidence-based\npractice, decision-support systems]
     M5c["Motivational — incentives,\nnudge (Thaler & Sunstein);\nrisk: 'gaming' / multi-task problem"]
-    M5d[Deliberative (narrow) —\ncollegial bodies, court-like\ninstitutions e.g. the Tribunal]
-    M5e[Deliberative (wide) —\npublic sphere, deliberative\npolling (Fishkin)]
+    M5d["Deliberative (narrow) —\ncollegial bodies, court-like\ninstitutions e.g. the Tribunal"]
+    M5e["Deliberative (wide) —\npublic sphere, deliberative\npolling (Fishkin)"]
     M5f[Participatory — co-decision\nprocedures with affected parties]
     M1 --> M6
     M1 --> M2
