@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Weeks 1-2 — Synthesis Map</title>
+<style>
+  html, body { margin:0; padding:0; height:100%; background:#0d0d0d; overflow:hidden; font-family:sans-serif; }
+  #toolbar { position:fixed; top:12px; left:12px; z-index:10; display:flex; gap:8px; }
+  #toolbar button {
+    background:#2c2c2a; color:#eee; border:1px solid #555; border-radius:6px;
+    padding:8px 14px; font-size:14px; cursor:pointer;
+  }
+  #toolbar button:hover { background:#3c3c3a; }
+  #hint { position:fixed; bottom:12px; left:12px; color:#999; font-size:12px; z-index:10; }
+  #canvas-wrap { width:100%; height:100%; cursor:grab; }
+  #canvas-wrap:active { cursor:grabbing; }
+  #diagram-inner { transform-origin: 0 0; }
+</style>
+</head>
+<body>
+<div id="toolbar">
+  <button onclick="zoomBy(1.25)">Zoom in (+)</button>
+  <button onclick="zoomBy(0.8)">Zoom out (-)</button>
+  <button onclick="resetView()">Reset</button>
+</div>
+<div id="hint">Scroll to zoom &middot; click and drag to pan &middot; buttons top-left</div>
+
+<div id="canvas-wrap">
+  <div id="diagram-inner">
+    <div id="dg"></div>
+  </div>
+</div>
+
+<script type="module">
+import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.1/mermaid.esm.min.mjs';
+
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'dark',
+  fontFamily: 'sans-serif',
+  themeVariables: {
+    fontSize: '15px',
+    primaryColor: '#3C3489',
+    primaryTextColor: '#EEEDFE',
+    primaryBorderColor: '#AFA9EC',
+    lineColor: '#9c9a92',
+    textColor: '#e5e5e0',
+    clusterBkg: '#1e1e1c',
+    clusterBorder: '#555',
+  },
+});
+
+const src = `flowchart TB
+  subgraph LEGEND["Legend"]
+    direction LR
+    LG1["Week 1 only"] --- LG2["Week 2 only"]
+    LG2 --- LG3["Reconciled"]
+    LG3 --- LG4["Cross-week thread"]
+  end
+
+  subgraph W1CORE["Week 1 core loop"]
+    direction LR
+    W1K["Specialised knowledge"] --> W1PWR["Asymmetrical power"] --> W1ETH["Ethics + altruism"] --> W1TR["Trust"] --> W1JUD["Professional judgment"] --> W1PUB["Public interest"]
+    W1PUB -.->|feeds back| W1K
+  end
+
+  subgraph W2CORE["Week 2 core question"]
+    direction LR
+    W2Q{"Six lenses: which organising principle explains the system?"}
+  end
+
+  W1CORE ==>|Week 2 asks HOW to organise what Week 1 established| W2CORE
+
+  subgraph TRAITS["Reconciled - traits of a profession"]
+    TR1["Week 1: Beaton's 11 traits, integrity = head + heart + hand"]
+    TR2["Week 2: 5-trait evidence method - disciplinary knowledge, regulation, autonomy, altruism, higher learning"]
+    TR3["Not the same list - Week 2's 5 are a working subset of Beaton's 11, reframed with an evidence-finding method"]
+    TR1 --- TR3 --- TR2
+  end
+
+  subgraph POWER["Reconciled - who holds power"]
+    PW1["Week 1 Q3: client, practice owner, ARBV, AACA, university, government"]
+    PW2["Week 2 Apparatus: same bodies + live poll + Acts/Regs/Codes/Contracts"]
+    PW3["Week 2 adds the answer Week 1 left open: power sits in the relationship between actors, not one"]
+    PW1 --> PW2 --> PW3
+  end
+
+  subgraph ETHICS["Thread - ethics, altruism, public trust"]
+    ET1["Week 1 core loop: ethics feeds trust feeds judgment"]
+    ET2["Week 2 Continuum: service ideal + public trust"]
+    ET3["Week 2 Traits: altruism as one of five evidence points"]
+    ET1 -.-> ET2
+    ET1 -.-> ET3
+  end
+
+  subgraph LEGIT["Thread - historical legitimacy"]
+    LE1["Week 1 Q4: classic professions law/medicine/divinity vs neo-pressure"]
+    LE2["Week 2 Sciulli case: Paris Academie professionalised 2 centuries before English law"]
+    LE1 -.->|same underlying question, different evidence| LE2
+  end
+
+  subgraph STRAIN["Thread - strain forces change"]
+    ST1["Week 1 tension: reduced scope/fees, judgment does not shrink"]
+    ST2["Week 2 Kuhn: anomalies accumulate into crisis, then paradigm shift"]
+    ST1 -.->|commercial pressure is one kind of anomaly Kuhn's model predicts| ST2
+  end
+
+  subgraph W1ONLY["Week 1 only - not yet recurring"]
+    W1A["Q1: profession vs business"]
+    W1B["Q2: obligations beyond paying client"]
+    W1C["Manifesto: judgment over competency, codes as instruments"]
+  end
+
+  subgraph W2ONLY["Week 2 only - not yet recurring"]
+    W2A["Continuum spectrum mechanic: skill vs judgment-intensity"]
+    W2B["Divided Line: abstract/physical split, drawings+contract as instrument"]
+    W2C["Sciulli structural qualities + institutional consequences"]
+    W2D["Tutor design guidance for building the diagrams themselves"]
+  end
+
+  subgraph SPINE["Reconciled - canonical registration spine"]
+    direction LR
+    S1["Accredited education"] --> S2["Experience / logbook"] --> S3["APE exam + interview"] --> S4["ARBV registration"] --> S5["CPD + PI insurance"]
+  end
+
+  subgraph A1["Reconciled - Assessment 1 link"]
+    A1N["Disciplinary Matrix - only ONE spine needed, drawn once"]
+    A1N --> S1
+  end
+
+  W1CORE --> TRAITS
+  W2CORE --> TRAITS
+  W1CORE --> POWER
+  W2CORE --> POWER
+  W1CORE --> ETHICS
+  W2CORE --> ETHICS
+  W1CORE --> LEGIT
+  W2CORE --> LEGIT
+  W1CORE --> STRAIN
+  W2CORE --> STRAIN
+  W1CORE --> W1ONLY
+  W2CORE --> W2ONLY
+  TRAITS --> A1N
+  POWER --> A1N
+  W2ONLY --> A1N
+`;
+
+const { svg } = await mermaid.render('synthesis-svg', src);
+document.getElementById('dg').innerHTML = svg;
+
+// ---- pan & zoom ----
+let scale = 1, panX = 0, panY = 0, isPanning = false, startX = 0, startY = 0;
+const inner = document.getElementById('diagram-inner');
+const wrap = document.getElementById('canvas-wrap');
+
+function applyTransform() {
+  inner.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+}
+
+function zoomBy(factor) {
+  scale = Math.min(Math.max(scale * factor, 0.2), 6);
+  applyTransform();
+}
+
+function resetView() {
+  scale = 1; panX = 40; panY = 40;
+  applyTransform();
+}
+
+window.zoomBy = zoomBy;
+window.resetView = resetView;
+
+wrap.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const factor = e.deltaY < 0 ? 1.1 : 0.9;
+  scale = Math.min(Math.max(scale * factor, 0.2), 6);
+  applyTransform();
+}, { passive: false });
+
+wrap.addEventListener('mousedown', (e) => {
+  isPanning = true;
+  startX = e.clientX - panX;
+  startY = e.clientY - panY;
+});
+window.addEventListener('mousemove', (e) => {
+  if (!isPanning) return;
+  panX = e.clientX - startX;
+  panY = e.clientY - startY;
+  applyTransform();
+});
+window.addEventListener('mouseup', () => { isPanning = false; });
+
+resetView();
+</script>
+</body>
+</html>
