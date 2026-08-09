@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Weeks 1-2 — Synthesis Map</title>
+<title>Weeks 1-3 — Synthesis Map</title>
 <style>
   html, body { margin:0; padding:0; height:100%; background:#0d0d0d; overflow:hidden; font-family:sans-serif; }
   #toolbar { position:fixed; top:12px; left:12px; z-index:10; display:flex; gap:8px; }
@@ -54,8 +54,9 @@ const src = `flowchart TB
   subgraph LEGEND["Legend"]
     direction LR
     LG1["Week 1 only"] --- LG2["Week 2 only"]
-    LG2 --- LG3["Reconciled"]
-    LG3 --- LG4["Cross-week thread"]
+    LG2 --- LG3["Week 3 only"]
+    LG3 --- LG4["Reconciled"]
+    LG4 --- LG5["Cross-week thread"]
   end
 
   subgraph W1CORE["Week 1 core loop"]
@@ -69,58 +70,93 @@ const src = `flowchart TB
     W2Q{"Six lenses: which organising principle explains the system?"}
   end
 
+  subgraph W3CORE["Week 3 core question"]
+    direction LR
+    W3Q{"Why does the Act exist? Gives legal form to knowledge, authority, responsibility"}
+  end
+
   W1CORE ==>|Week 2 asks HOW to organise what Week 1 established| W2CORE
+  W2CORE ==>|Week 3 shows the actual legal mechanism the frameworks were pointing at| W3CORE
 
   subgraph TRAITS["Reconciled - traits of a profession"]
     TR1["Week 1: Beaton's 11 traits, integrity = head + heart + hand"]
     TR2["Week 2: 5-trait evidence method - disciplinary knowledge, regulation, autonomy, altruism, higher learning"]
     TR3["Not the same list - Week 2's 5 are a working subset of Beaton's 11, reframed with an evidence-finding method"]
+    TR4["Week 3: traits become enforceable Act clauses - CPD, sign-off rule, conflict-of-interest disclosure, duty to resign a contract"]
     TR1 --- TR3 --- TR2
+    TR2 -->|Week 3 supplies the legal clause behind each trait| TR4
   end
 
   subgraph POWER["Reconciled - who holds power"]
     PW1["Week 1 Q3: client, practice owner, ARBV, AACA, university, government"]
     PW2["Week 2 Apparatus: same bodies + live poll + Acts/Regs/Codes/Contracts"]
     PW3["Week 2 adds the answer Week 1 left open: power sits in the relationship between actors, not one"]
+    PW4["Week 3: explains WHY the apparatus has this shape - Institute advances the discipline, Board holds accountability; now fragmented further"]
     PW1 --> PW2 --> PW3
+    PW3 -->|Week 3 explains the historical origin of this split| PW4
   end
 
   subgraph ETHICS["Thread - ethics, altruism, public trust"]
     ET1["Week 1 core loop: ethics feeds trust feeds judgment"]
     ET2["Week 2 Continuum: service ideal + public trust"]
     ET3["Week 2 Traits: altruism as one of five evidence points"]
+    ET4["Week 3: legal teeth - conflict of interest disclosure, duty to RESIGN a contract rather than breach the Act, fire-isolated-stair case"]
     ET1 -.-> ET2
     ET1 -.-> ET3
+    ET3 -.->|thread gets concrete legal mechanism| ET4
+  end
+
+  subgraph CLIENTROOM["Reconciled - RESOLVED - obligations beyond the paying client"]
+    CR1["Week 1 Q2: future occupants, neighbours, community - client not in the room - left open"]
+    CR2["Week 3: resolved - architect ultimately serves the public and not just the paying client (fire-stair case, duty to withdraw)"]
+    CR1 ==>|Week 1's open question answered with an actual legal mechanism| CR2
   end
 
   subgraph LEGIT["Thread - historical legitimacy"]
     LE1["Week 1 Q4: classic professions law/medicine/divinity vs neo-pressure"]
     LE2["Week 2 Sciulli case: Paris Academie professionalised 2 centuries before English law"]
+    LE3["Week 3: RIBA 1834/37 (advance knowledge, not license) + Australia's fragmented 1856-1929 founding + Vic statutory registration 1922/23"]
     LE1 -.->|same underlying question, different evidence| LE2
+    LE2 -.->|third independent historical case| LE3
   end
 
   subgraph STRAIN["Thread - strain forces change"]
     ST1["Week 1 tension: reduced scope/fees, judgment does not shrink"]
     ST2["Week 2 Kuhn: anomalies accumulate into crisis, then paradigm shift"]
+    ST3["Week 3: NSW 2024-25 proposal to fold the Architects Act into a Building Bill - a live, current-events instance"]
     ST1 -.->|commercial pressure is one kind of anomaly Kuhn's model predicts| ST2
+    ST2 -.->|Kuhn's crisis stage, happening in real time| ST3
   end
 
   subgraph W1ONLY["Week 1 only - not yet recurring"]
     W1A["Q1: profession vs business"]
-    W1B["Q2: obligations beyond paying client"]
-    W1C["Manifesto: judgment over competency, codes as instruments"]
+    W1B["Manifesto: judgment over competency, codes as instruments"]
   end
 
   subgraph W2ONLY["Week 2 only - not yet recurring"]
     W2A["Continuum spectrum mechanic: skill vs judgment-intensity"]
-    W2B["Divided Line: abstract/physical split, drawings+contract as instrument"]
+    W2B["Divided Line: abstract/physical split, drawings+contract as instrument - still open, not touched Wk3"]
     W2C["Sciulli structural qualities + institutional consequences"]
     W2D["Tutor design guidance for building the diagrams themselves"]
+  end
+
+  subgraph W3ONLY["Week 3 only - not yet recurring, watch for Week 4+"]
+    W3A["Institute vs Board - two connected but distinct bodies (voluntary advancement vs statutory accountability)"]
+    W3B["Compliance culture / compliance mindset - regulation as an ongoing, cultivated mindset, not a one-off gate"]
+    W3C["Molander et al.: discretion has a structural side (the space) and an epistemic side (the reasoning) - accountability needs both kinds of measure"]
+    W3A -.->|theory explains why both kinds of body exist| W3C
+    W3B -.->|compliance culture IS an epistemic accountability strategy| W3C
   end
 
   subgraph SPINE["Reconciled - canonical registration spine"]
     direction LR
     S1["Accredited education"] --> S2["Experience / logbook"] --> S3["APE exam + interview"] --> S4["ARBV registration"] --> S5["CPD + PI insurance"]
+  end
+
+  subgraph W3REG["Week 3 - actual mechanism behind the spine"]
+    direction LR
+    R1["5 statutory requirements"] --> R2["3 pathways - APE most common"]
+    R2 --> R3["APE: logbook/SOPE (3,300hrs) -> National Exam Paper -> interview"]
   end
 
   subgraph A1["Reconciled - Assessment 1 link"]
@@ -130,19 +166,29 @@ const src = `flowchart TB
 
   W1CORE --> TRAITS
   W2CORE --> TRAITS
+  W3CORE --> TRAITS
   W1CORE --> POWER
   W2CORE --> POWER
+  W3CORE --> POWER
   W1CORE --> ETHICS
   W2CORE --> ETHICS
+  W3CORE --> ETHICS
+  ETHICS --> CLIENTROOM
   W1CORE --> LEGIT
   W2CORE --> LEGIT
+  W3CORE --> LEGIT
   W1CORE --> STRAIN
   W2CORE --> STRAIN
+  W3CORE --> STRAIN
   W1CORE --> W1ONLY
   W2CORE --> W2ONLY
+  W3CORE --> W3ONLY
   TRAITS --> A1N
   POWER --> A1N
   W2ONLY --> A1N
+  W3REG -->|supplies the mechanism Weeks 1-2 only sketched| SPINE
+  W3CORE --> W3REG
+  W3ONLY -.->|explains why the ARBV system needs BOTH the Tribunal AND CPD/the interview| W3REG
 `;
 
 const { svg } = await mermaid.render('synthesis-svg', src);

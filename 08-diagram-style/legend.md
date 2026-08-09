@@ -21,6 +21,8 @@ Copy this box onto each weekly diagram.
 | coloured solid | **Cross-link** | Connects clusters or weeks |
 | coloured dashed | **A1 connection** | Ties to Disciplinary Matrix |
 
+Cross-*week* relationships are not drawn inside a weekly pack — that lives in the synthesis layer (`05-diagrams/synthesis/`, see `.cursor/rules/synthesis-map.mdc`), which has its own legend (Week-N-only / Reconciled / Thread). A weekly pack stays scoped to its own week's sources only.
+
 ## Suggested relational labels on arrows
 
 enables · limits · depends upon · influences · causes · prevents · feeds back into

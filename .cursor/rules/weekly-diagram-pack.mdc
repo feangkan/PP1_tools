@@ -11,14 +11,16 @@ alwaysApply: false
 
 When the user asks for a week diagram / tutorial presentation / weekly output:
 
-1. Read `08-diagram-style/STYLE_GUIDE.md` and `legend.md`.
-2. Use **only** scoped resources under `03-weekly-resources/week-XX/` (plus Assessment brief if they ask to link A1).
-3. Produce **all five** files in `05-diagrams/week-XX/`:
+1. Read `08-diagram-style/STYLE_GUIDE.md` and `legend.md`, including the **3 D's** (Depth, Detail, Direction) and two-pass workflow sections.
+2. Use **only** scoped resources under `03-weekly-resources/week-XX/` (plus Assessment brief if asked to link A1). Do not pull in or link to other weeks here — that is the synthesis layer's job (see step 7).
+3. Build in two passes per the style guide: **dump** (apply Detail — pull in every sourced interfacing party/mechanism) then **refine** (apply Density rules — merge, cut, or move overflow into `02-explanation.md`) before saving.
+4. Produce **all five** files in `05-diagrams/week-XX/`:
    - `01-diagram.md` — short-form hybrid diagram + legend
-   - `02-explanation.md` — explanation for the student
+   - `02-explanation.md` — explanation for the student, closing with a Direction / "critical point" the student can argue
    - `03-presentation-script.md` — speakable class script
    - `04-topics-context.md` — provenance table (file + location)
    - `05-references.md` — Chicago bibliography
-4. Follow the user’s hybrid style: short nodes, networked links, colour/hierarchy via legend, mix circular/mindmap/timeline/left-right as needed.
-5. Never invent citations. Mark inferences explicitly in topics-context.
-6. Prefer fewer clear relationships over dense decoration.
+5. Follow the user's hybrid style: short nodes, networked links, colour/hierarchy via legend, mix circular/mindmap/timeline/left-right as needed. Tag Depth lenses (ethical / professional / historical) inline rather than adding new legend colours.
+6. Never invent citations or lecture content. Mark inferences explicitly in topics-context.
+7. Final refined diagram: prefer fewer clear relationships over dense decoration — density is for the dump pass, not the saved output.
+8. After the pack is done, run the cross-week synthesis update (`.cursor/rules/synthesis-map.mdc`) so this week's overlaps/threads with prior weeks get captured — in `05-diagrams/synthesis/`, not by editing this week's pack.
