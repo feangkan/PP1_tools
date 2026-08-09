@@ -19,15 +19,14 @@ This folder is the second layer: it never introduces new claims, it only draws t
 2. Skim `02-concept-index.md` — does anything in the new week touch a concept already listed?
 3. Update `02-concept-index.md`: add new rows for anything recurring; leave one-off concepts unlisted (they get an "Open" row only if they look likely to recur).
 4. Log the update in `03-changelog.md` — one entry, what changed and why.
-5. **Don't rebuild `01-master-map.md` every single week.** See scaling plan below — it gets rebuilt at milestones, not continuously.
+5. **Rebuild `01-master-map.md` every week, stacking the new week's relationships onto the existing map.** The map is a continuously growing record of Week 1 → 2 → 3 → 4 ... — each week adds its own core-loop cluster and draws links from it back into whatever's already there (reconciled duplicates, threads, and one-off "only" clusters), rather than waiting for a milestone. See the scaling plan below for what to do once this stops being readable as one diagram.
 
-## Scaling plan — because a 6-week single diagram won't stay readable
+## Scaling plan — what to do once continuous stacking stops being readable
 
-A master map with 2 weeks of overlaps is already a lot of clusters. By Week 5 or 6, cramming every week into one diagram will fail the same "readable at 3 distances" test your tutor flagged for Assessment 1. The plan:
+Stacking every week into one diagram is the default. But a map with every week's clusters piled on will eventually fail the "readable at 3 distances" test your tutor flagged for Assessment 1 — likely somewhere around Week 5–6. When that happens (not before):
 
-- **Weekly:** only touch `02-concept-index.md` (a table — scales fine, doesn't get visually cluttered).
-- **At milestones (roughly every 3 weeks, or before Assessment 1 drafting):** rebuild `01-master-map.md` from scratch using the concept index as the source list — not by bolting new clusters onto the old diagram.
-- **Once threads outgrow one diagram (likely by Week 4–5):** split the master map by *thread*, not by week. Instead of one diagram with every week's clusters, build one small diagram per recurring thread — e.g. `power-thread.md` tracing how "who holds power" evolves week by week, `ethics-thread.md` tracing altruism/public trust across weeks. Each thread diagram stays small and readable; `01-master-map.md` becomes a short index pointing to each thread file rather than trying to hold everything itself.
+- **Split the master map by *thread*, not by week.** Instead of one diagram with every week's clusters, build one small diagram per recurring thread — e.g. `power-thread.md` tracing how "who holds power" evolves week by week, `ethics-thread.md` tracing altruism/public trust across weeks. Each thread diagram stays small and readable; `01-master-map.md` becomes a short index pointing to each thread file rather than trying to hold everything itself.
+- Until that split happens, `02-concept-index.md` is still the thing to skim first each week — it's what tells you which existing clusters in the stacked map a new week should link into.
 
 ## Why this matters for Assessment 1
 

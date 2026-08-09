@@ -8,12 +8,13 @@ alwaysApply: false
 
 # Cross-week synthesis
 
-After completing a weekly diagram pack (`weekly-diagram-pack.mdc`), and only when the user asks to update synthesis, or after finishing week 3, 6, or before Assessment 1 drafting:
+After completing a weekly diagram pack (`weekly-diagram-pack.mdc`), and whenever the user asks to update synthesis:
 
 1. Read `05-diagrams/synthesis/02-concept-index.md`.
 2. Compare the new week's `04-topics-context.md` against existing index rows — flag genuine overlaps (same claim, same registration/body/framework) vs mere thematic similarity. Don't over-flag — two weeks both mentioning "ARBV" is expected, not an overlap worth a row.
 3. Add/update rows in `02-concept-index.md`. Mark status: Duplicate / Reconciled / Thread / Open.
 4. Log the change in `03-changelog.md`.
-5. Only rebuild `01-master-map.md` at a milestone (roughly every 3 weeks, or on explicit request) — not after every single week. Past ~4 weeks of overlaps, split into per-thread diagrams (e.g. `power-thread.md`) rather than one dense master diagram, and turn `01-master-map.md` into a short index pointing to each thread file.
-6. Synthesis files never introduce a claim that isn't already sourced in a weekly pack's `04-topics-context.md` — synthesis only draws relationships between existing claims, it does not add new source material.
-7. Weekly packs themselves stay untouched by this process — synthesis is additive, never edits `05-diagrams/week-XX/*`.
+5. **Rebuild `01-master-map.md` every week, stacking the new week's relationships onto the existing map** — add the new week's core-loop cluster and draw links from it into whatever's already there (reconciled duplicates, threads, one-off "only" clusters). This is a continuously growing diagram from Week 1 → 2 → 3 → 4 ..., not a periodic rebuild.
+6. Once the stacked map stops being readable at a glance (likely ~Week 5–6), switch to splitting it into per-thread diagrams (e.g. `power-thread.md`) instead of one dense master diagram, and turn `01-master-map.md` into a short index pointing to each thread file. Don't split pre-emptively — only once the single-diagram approach genuinely breaks down.
+7. Synthesis files never introduce a claim that isn't already sourced in a weekly pack's `04-topics-context.md` — synthesis only draws relationships between existing claims, it does not add new source material.
+8. Weekly packs themselves stay untouched by this process — synthesis is additive, never edits `05-diagrams/week-XX/*`.
