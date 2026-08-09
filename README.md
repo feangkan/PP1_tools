@@ -10,7 +10,7 @@ Study toolkit for **PP1** — feed resources here, then ask the agent to summari
 | [`02-assessment-tasks/`](02-assessment-tasks/) | Briefs, rubrics, checklists, drafts |
 | [`03-weekly-resources/`](03-weekly-resources/) | Week-by-week readings, slides, notes, links |
 | [`04-summaries/`](04-summaries/) | Agent-generated or your own summaries |
-| [`05-diagrams/`](05-diagrams/) | Weekly hybrid diagram packs + Assessment 1 diagrams |
+| [`05-diagrams/`](05-diagrams/) | Weekly hybrid diagram packs + Assessment 1 diagrams + cross-week synthesis (`05-diagrams/synthesis/`) |
 | [`06-references/`](06-references/) | Chicago (notes-bibliography) reference lists |
 | [`07-q-and-a/`](07-q-and-a/) | Questions answered from your fed resources |
 | [`08-diagram-style/`](08-diagram-style/) | Your hybrid diagram style + weekly 5-file pack rules |

@@ -71,6 +71,20 @@ For a single quick Mermaid sketch only, you can still use `templates/diagram.md`
 
 ---
 
+## 5b. Cross-week synthesis (as weeks stack up)
+
+Weekly packs stay scoped to one week each — overlaps between weeks (like a repeated registration spine, or the same "who holds power" question resurfacing) don't get caught automatically. `05-diagrams/synthesis/` is the second layer that catches them.
+
+**Prompt (after finishing a new week's pack):**
+> Update the synthesis layer — check `05-diagrams/synthesis/02-concept-index.md` against this week's pack and log any overlaps.
+
+**Prompt (milestone rebuild, e.g. every 3 weeks or before Assessment 1 drafting):**
+> Rebuild `05-diagrams/synthesis/01-master-map.md` from the current concept index.
+
+See `05-diagrams/synthesis/README.md` for the full process and how it scales past a few weeks.
+
+---
+
 ## 6. Answer questions from resources
 
 **Prompt:**  
