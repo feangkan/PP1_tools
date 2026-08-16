@@ -98,9 +98,11 @@ flowchart TB
     E3[CPD — only mandated\nARBV-wide since ~2022]
     E4["Molander: CPD is a FORMATIVE\nepistemic measure — builds\njudgment before it's tested"]
     E1 --> E2
-    E2 -.->|feeds| RS1
-    E3 -.->|feeds| RS5
     E4 -.-> E3
+    %% E2's and E3's specific feeds into Registration Mountain (RS1, RS5)
+    %% are stated in their own node text and in prose, not as graph edges
+    %% back into RIDE — RIDE already reaches every required land via the
+    %% spine, and a reverse edge here closed a 2-zone cycle with RIDE.
   end
   class E1 main
   class E4 theory
@@ -110,12 +112,14 @@ flowchart TB
     P2["Project management — ceded\nby the profession in the\n1960s-70s, now a separate,\nmore lucrative field (Week 4)"]
     P3["ACA — business, procurement,\nemployment conditions"]
     P4[Professionals Australia\n— union]
-    P1 -.->|depends upon| RS2
     P1 -.->|limits, if scope ceded| P2
     P3 -.-> P1
     P4 -.-> P1
   end
   class P1 main
+  %% P1's dependency on RS2 (logged hours require Registration Mountain's
+  %% experience stage) is stated in prose, not as a graph edge back into
+  %% RIDE — same reasoning as APPRENTICELAND above.
 
   subgraph FLUME["⬜ THE PROJECT FLUME — a small ride inside Practice Square, run once per project [linear, gated, iterative — tutorial whiteboard]"]
     direction LR
@@ -148,10 +152,13 @@ flowchart TB
     L4[Planning and Environment Act\n/ OVGA / DELWP-VPA]
     L5["Duty to public (s.17-18) +\nduty to resign a contract\nrather than breach the Act\n(fire-isolated-stair case)"]
     L1 --> L5
-    L1 -.->|enables| RS4
-    L2 & L3 & L4 -.->|constrain, alongside L1| RS4
   end
   class L1,L5 main
+  %% L1/L2/L3/L4's role enabling and constraining ARBV registration (RS4)
+  %% is stated in prose, not as graph edges back into RIDE — REGULATION
+  %% already reaches RIDE's territory via the Flume's Council/Building-
+  %% Surveyor gates, and a second reverse edge here closed a 2-zone cycle
+  %% directly with RIDE (on top of the Flume-mediated path).
 
   subgraph GUILD["🟡 GUILD QUARTER — professional bodies [list-network]"]
     G1[AIA — voluntary,\nadvances the discipline]
@@ -171,9 +178,13 @@ flowchart TB
     T3["Bailey/Shaw/Bruhn: 'Architecture,\nnot Architects' — recognition\nshould serve public value, not\nmanufacture individual reputation"]
     T4["Stead: searchlight or lantern?\nDoes the profession's own record\nreflect the public it serves?"]
     T1 --> T2 --> T3 --> T4
-    T4 -.->|the real test for every\nland in this park| HQ
   end
   class T1,T3 main
+  %% T4's point — this is the real test for every land in the park — is
+  %% argued in prose (see "Primary links to say aloud" #6) rather than as
+  %% a graph edge back to HQ: that edge closed a cycle through HUB->RIDE->
+  %% GUILD->TOWNHALL, and dagre's auto-layout resolves cycles by flipping
+  %% an edge, which is what was throwing zones to unpredictable positions.
 
   subgraph INNOVATION["🟡 INNOVATION PAVILION — research + innovation [timeline]"]
     direction LR
@@ -182,8 +193,11 @@ flowchart TB
     N3["Dan Hill: 200,000 homes/yr at\ncurrent practice = 200% of\nAustralia's whole emissions\nbudget — Roadmap proposes\ncascading NCC emissions limits,\n461.8 → 6.63 kgCO2e/m²·a by 2028"]
     N4["'Fire, Water, Building'\nexhibition — 13 practices\nreframe fire/water from pure\nrisk-aversion toward\necologically-attuned design"]
     N1 --> N2 --> N3 --> N4
-    N2 -.->|codes are amendable —\nby whoever shows up| REGULATION
-    N3 -.->|proposes changing L3\ndirectly| L3
+    %% N3's claim (proposes changing L3, the NCC, directly) is argued in
+    %% prose (see explanation file) rather than as a graph edge back into
+    %% REGULATION: REGULATION already reaches INNOVATION via GUILD and
+    %% TOWNHALL, so an edge the other way closed a 4-hop cycle that was
+    %% forcing dagre to flip a rank somewhere in that chain.
   end
   class N2,N3 theory
 
@@ -247,7 +261,11 @@ flowchart TB
   RIDE -.->|🔴 critical position, monorail| BACKSTAGE
   REGULATION -.->|🔴 critical position, monorail| BACKSTAGE
   PROCUREMENT -.->|🔴 critical position, monorail, unfinished bridge| BACKSTAGE
-  BACKSTAGE -.->|🔴 critical position, feeds back to| HQ
+  %% Control Booth "feeding back to" the hub question is this diagram's
+  %% thesis (see explanation file + "Primary links to say aloud" #5) —
+  %% deliberately not drawn as a graph edge back to HQ: that edge closed
+  %% the HUB->RIDE->BACKSTAGE->HUB cycle that was throwing Control Booth
+  %% to the top of the auto-layout instead of staying visually subordinate.
 ```
 
 ---
@@ -276,11 +294,10 @@ This Mermaid file is the thinking draft (per `08-diagram-style/STYLE_GUIDE.md`, 
 
 ---
 
-## Redraw notes (v05)
+## Redraw notes (v06)
 
+- **v06 (2026-08-17, same day):** removed every remaining graph edge that pointed "backward" against the Hub → Ride → lands flow (Town Hall → Hub, Control Booth → Hub, Innovation → Regulation, and each required land's specific feed into a Registration Mountain station: Apprenticeland → RS1/RS5, Practice → RS2, Regulation → RS4 twice). Those edges were thematically real but they closed cycles, and Mermaid's auto-layout (dagre) resolves a cycle by flipping an edge — which is exactly what was throwing Control Booth to the top of the page and tangling the Regulation/Guild/Town Hall/Innovation cluster instead of laying out top-to-bottom the way the brief's spine concept intends. The graph is now a clean DAG rooted at the Hub; the removed relationships are still stated in each node's own text and in the prose sections, just not as edges fighting the layout. If you want a diagram with full control over where every zone sits — not subject to any auto-layout algorithm's decisions — that's what `architectland-map.svg` is for; it's hand-placed, not auto-laid-out.
 - **v05 (2026-08-17, same day):** Control Booth rebuilt as an actual keyword network instead of two paragraph-length nodes — three small SCHOOLS/INSTITUTE/BOARD nodes converge on "same overlapping group," which fans out to two short contrast nodes (REGISTRATION: tightly gated vs CODE + CONTRACT: loosely gated), closing on a short `= CRITICAL POSITION` node — same logic as before, but every node is now a phrase, not a sentence. Same fix also applied to the hand-illustrated park-map SVG (`architectland-map.svg`).
-## Redraw notes (v04)
-
 - **v04 (2026-08-17, same day):** three fixes together. (1) Added `classDef default` — every previously-unclassed node (the Legend, most expansion-level nodes across every land) now gets an explicit light fill + black text, which fixes them rendering with GitHub's own dark-mode node default: GitHub strips `%%{init}%%` theme directives for security, so only real graph syntax (`classDef`/`class`/`style`) is reliable across every renderer, not theme config. (2) Added a `LINELEGEND` subgraph showing the two line types that actually exist in this diagram (solid = primary/enables/depends; dash-dot = relationship/limits/causes/feedback — there is no third, visually distinct "dotted," despite three verbs being listed in the prose legend elsewhere in this repo) plus the monorail marker key. (3) Added a `style` line per land so each zone is tinted its own pale colour, with Registration Mountain given the thickest border (4px, the one compulsory ride) and the Project Flume the thinnest (1.5px, a small ride run once per project) — so the hierarchy (one dominant ride > required lands > a nested sub-ride) still reads when the whole map is zoomed out to an overview.
 - **v03 (2026-08-17):** every cross-land "monorail" relationship label now carries a colour-category marker (🟡 spine, 🟢 regulation/knowledge, 🔵 practice/procurement, 🔴 critical position) — see the Legend's "Monorail link categories" table. This is deliberately a label marker, not a Mermaid `linkStyle` line-colour: this diagram has 130+ edges, and line-colouring needs an exact numeric index per edge — a miscount recolours the wrong link silently. If you want true coloured strokes on the hand-drawn A1, use these four categories directly as literal marker/highlighter colours along each monorail line.
 - **v02 (2026-08-16, same day):** added Registration Mountain's entrance signage (Trust/Risk) and The Project Flume inside Practice Square, from a tutorial whiteboard capture. The Risk equation ("knowledge + experience = risk") was visually emphasised/revised on the board — treat it as a prompt to discuss in your verbal presentation, not a settled formula to quote as-is; see `04-topics-context.md`.

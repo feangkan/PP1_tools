@@ -115,9 +115,11 @@ const src = `flowchart TB
     E3[CPD — only mandated ARBV-wide since ~2022]
     E4["Molander: CPD is a FORMATIVE epistemic measure — builds judgment before it's tested"]
     E1 --> E2
-    E2 -.->|feeds| RS1
-    E3 -.->|feeds| RS5
     E4 -.-> E3
+    %% E2's and E3's specific feeds into Registration Mountain (RS1, RS5)
+    %% are stated in their own node text and in prose, not as graph edges
+    %% back into RIDE — RIDE already reaches every required land via the
+    %% spine, and a reverse edge here closed a 2-zone cycle with RIDE.
   end
   class E1 main
   class E4 theory
@@ -127,12 +129,14 @@ const src = `flowchart TB
     P2["Project management — ceded by the profession in the 1960s-70s, now a separate, more lucrative field (Week 4)"]
     P3["ACA — business, procurement, employment conditions"]
     P4[Professionals Australia — union]
-    P1 -.->|depends upon| RS2
     P1 -.->|limits, if scope ceded| P2
     P3 -.-> P1
     P4 -.-> P1
   end
   class P1 main
+  %% P1's dependency on RS2 (logged hours require Registration Mountain's
+  %% experience stage) is stated in prose, not as a graph edge back into
+  %% RIDE — same reasoning as APPRENTICELAND above.
 
   subgraph FLUME["⬜ THE PROJECT FLUME — a small ride inside Practice Square, run once per project [linear, gated, iterative — tutorial whiteboard]"]
     direction LR
@@ -165,10 +169,13 @@ const src = `flowchart TB
     L4[Planning and Environment Act / OVGA / DELWP-VPA]
     L5["Duty to public (s.17-18) + duty to resign a contract rather than breach the Act (fire-isolated-stair case)"]
     L1 --> L5
-    L1 -.->|enables| RS4
-    L2 & L3 & L4 -.->|constrain, alongside L1| RS4
   end
   class L1,L5 main
+  %% L1/L2/L3/L4's role enabling and constraining ARBV registration (RS4)
+  %% is stated in prose, not as graph edges back into RIDE — REGULATION
+  %% already reaches RIDE's territory via the Flume's Council/Building-
+  %% Surveyor gates, and a second reverse edge here closed a 2-zone cycle
+  %% directly with RIDE (on top of the Flume-mediated path).
 
   subgraph GUILD["🟡 GUILD QUARTER — professional bodies [list-network]"]
     G1[AIA — voluntary, advances the discipline]
@@ -188,9 +195,13 @@ const src = `flowchart TB
     T3["Bailey/Shaw/Bruhn: 'Architecture, not Architects' — recognition should serve public value, not manufacture individual reputation"]
     T4["Stead: searchlight or lantern? Does the profession's own record reflect the public it serves?"]
     T1 --> T2 --> T3 --> T4
-    T4 -.->|the real test for every land in this park| HQ
   end
   class T1,T3 main
+  %% T4's point — this is the real test for every land in the park — is
+  %% argued in prose (see "Primary links to say aloud" #6) rather than as
+  %% a graph edge back to HQ: that edge closed a cycle through HUB->RIDE->
+  %% GUILD->TOWNHALL, and dagre's auto-layout resolves cycles by flipping
+  %% an edge, which is what was throwing zones to unpredictable positions.
 
   subgraph INNOVATION["🟡 INNOVATION PAVILION — research + innovation [timeline]"]
     direction LR
@@ -199,8 +210,11 @@ const src = `flowchart TB
     N3["Dan Hill: 200,000 homes/yr at current practice = 200% of Australia's whole emissions budget — Roadmap proposes cascading NCC emissions limits, 461.8 → 6.63 kgCO2e/m²·a by 2028"]
     N4["'Fire, Water, Building' exhibition — 13 practices reframe fire/water from pure risk-aversion toward ecologically-attuned design"]
     N1 --> N2 --> N3 --> N4
-    N2 -.->|codes are amendable — by whoever shows up| REGULATION
-    N3 -.->|proposes changing L3 directly| L3
+    %% N3's claim (proposes changing L3, the NCC, directly) is argued in
+    %% prose (see explanation file) rather than as a graph edge back into
+    %% REGULATION: REGULATION already reaches INNOVATION via GUILD and
+    %% TOWNHALL, so an edge the other way closed a 4-hop cycle that was
+    %% forcing dagre to flip a rank somewhere in that chain.
   end
   class N2,N3 theory
 
@@ -264,7 +278,11 @@ const src = `flowchart TB
   RIDE -.->|🔴 critical position, monorail| BACKSTAGE
   REGULATION -.->|🔴 critical position, monorail| BACKSTAGE
   PROCUREMENT -.->|🔴 critical position, monorail, unfinished bridge| BACKSTAGE
-  BACKSTAGE -.->|🔴 critical position, feeds back to| HQ`;
+  %% Control Booth "feeding back to" the hub question is this diagram's
+  %% thesis (see explanation file + "Primary links to say aloud" #5) —
+  %% deliberately not drawn as a graph edge back to HQ: that edge closed
+  %% the HUB->RIDE->BACKSTAGE->HUB cycle that was throwing Control Booth
+  %% to the top of the auto-layout instead of staying visually subordinate.`;
 
 const { svg } = await mermaid.render('architectland-svg', src);
 document.getElementById('dg').innerHTML = svg;
