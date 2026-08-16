@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ARCHITECTLAND — Assessment 1 Master Diagram</title>
+<style>
+  html, body { margin:0; padding:0; height:100%; background:#ffffff; overflow:hidden; font-family:sans-serif; }
+  #toolbar { position:fixed; top:12px; left:12px; z-index:10; display:flex; gap:8px; }
+  #toolbar button {
+    background:#f2f2ee; color:#1a1a1a; border:1px solid #ccc; border-radius:6px;
+    padding:8px 14px; font-size:14px; cursor:pointer;
+  }
+  #toolbar button:hover { background:#e6e6e0; }
+  #hint { position:fixed; bottom:12px; left:12px; color:#555; font-size:12px; z-index:10; }
+  #canvas-wrap { width:100%; height:100%; cursor:grab; }
+  #canvas-wrap:active { cursor:grabbing; }
+  #diagram-inner { transform-origin: 0 0; }
+</style>
+</head>
+<body>
+<div id="toolbar">
+  <button onclick="zoomBy(1.25)">Zoom in (+)</button>
+  <button onclick="zoomBy(0.8)">Zoom out (-)</button>
+  <button onclick="resetView()">Reset</button>
+</div>
+<div id="hint">Scroll to zoom &middot; click and drag to pan &middot; buttons top-left</div>
+
+<div id="canvas-wrap">
+  <div id="diagram-inner">
+    <div id="dg"></div>
+  </div>
+</div>
+
+<script type="module">
+import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.1/mermaid.esm.min.mjs';
+
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: 'sans-serif',
+  themeVariables: {
+    fontSize: '15px',
+    primaryColor: '#F4D35E',
+    primaryTextColor: '#1a1a1a',
+    primaryBorderColor: '#8a6c1f',
+    lineColor: '#555555',
+    textColor: '#1a1a1a',
+    clusterBkg: '#f7f6f2',
+    clusterBorder: '#999999',
+  },
+});
+
+const src = `flowchart TB
+  classDef main fill:#F4D35E,color:#1a1a1a,stroke:#8a6c1f,stroke-width:1px;
+  classDef theory fill:#8FBF8F,color:#1a1a1a,stroke:#3f5a3f,stroke-width:1px;
+  classDef transform fill:#9EC1D9,color:#1a1a1a,stroke:#345070,stroke-width:1px;
+  classDef backstage fill:#E07A5F,color:#1a1a1a,stroke:#7a3b28,stroke-width:1px;
+  classDef gate fill:#ffffff,color:#1a1a1a,stroke:#8a6c1f,stroke-width:2px,stroke-dasharray: 3 2;
+
+  subgraph LEGEND["Park Map Key"]
+    direction LR
+    K1[🟡 Land] --- K2[⬜ Attraction]
+    K2 --- K3[🟢 Integrated / theory]
+    K3 --- K4[🔵 New wing]
+    K4 --- K5[🔴 Backstage]
+  end
+
+  subgraph HUB["🟡 MAIN STREET, AU — the park entrance [radial hub]"]
+    direction LR
+    HQ{"What does it take to be trusted with the title 'Architect' — and trusted by whom, for what?"}
+    HQ1["Ticket booth: registration is the ONE compulsory ride — everything else in the park is optional, but shapes what that ride is actually worth"]
+    HQ --> HQ1
+  end
+  class HQ main
+
+  subgraph RIDE["🎢 REGISTRATION MOUNTAIN — Victoria's path to Architect [linear, gated]"]
+    direction LR
+    RSIGN1["⚠️ Entrance sign — TRUST: Autonomy · Discretion · Accountability. Every station on this ride tests one of these three, not just 'knowledge' (tutorial whiteboard)"]
+    RSIGN2["⚠️ Entrance sign — RISK: owed to the PUBLIC and to the PROFESSION. More knowledge + experience = more risk you're trusted to carry (tutorial whiteboard — see 04-topics- context.md for a reading note)"]
+    RS1["🚧 Station 1: Accredited education (AQF Part 1/2)"]
+    RS2["🚧 Station 2: Supervised experience — logbook, 3,300 hrs / 35 competencies"]
+    RS3["🚧 Station 3: APE — National Exam (80 MCQ) + interview (45-60min, probes gaps)"]
+    RS4["🚧 Station 4: ARBV registration granted"]
+    RS5["Station 5: CPD + PI insurance — the ride never fully ends, it loops"]
+    RQ1["Re-queue loop: fail/repeat exam, incomplete hours, interstate/overseas mutual recognition — sent back, not ejected"]
+    RQ2["🔴 Ejected from the park: Tribunal finding, discipline register, loss of title"]
+    RSIGN1 -.-> RS1
+    RSIGN2 -.-> RS1
+    RS1 -->|depends upon| RS2 -->|depends upon| RS3 -->|enables| RS4 -->|enables| RS5
+    RS3 -.->|limits — fail a gate| RQ1 -.->|re-attempt| RS3
+    RS5 -.->|causes, on serious breach| RQ2
+    RS5 -->|feeds back into| RS5
+  end
+  class RS1,RS3,RS4 main
+  class RQ2 backstage
+  class RSIGN1,RSIGN2 gate
+
+  subgraph APPRENTICELAND["🟡 APPRENTICELAND — education (incl. CPD) [hierarchy]"]
+    E1[University / accredited course — AQF-governed]
+    E2[Graduation → eligible for logbook stage]
+    E3[CPD — only mandated ARBV-wide since ~2022]
+    E4["Molander: CPD is a FORMATIVE epistemic measure — builds judgment before it's tested"]
+    E1 --> E2
+    E2 -.->|feeds| RS1
+    E3 -.->|feeds| RS5
+    E4 -.-> E3
+  end
+  class E1 main
+  class E4 theory
+
+  subgraph PRACTICE["🟡 PRACTICE SQUARE — employment [network]"]
+    P1[Practice / firm — where logged hours are earned]
+    P2["Project management — ceded by the profession in the 1960s-70s, now a separate, more lucrative field (Week 4)"]
+    P3["ACA — business, procurement, employment conditions"]
+    P4[Professionals Australia — union]
+    P1 -.->|depends upon| RS2
+    P1 -.->|limits, if scope ceded| P2
+    P3 -.-> P1
+    P4 -.-> P1
+  end
+  class P1 main
+
+  subgraph FLUME["⬜ THE PROJECT FLUME — a small ride inside Practice Square, run once per project [linear, gated, iterative — tutorial whiteboard]"]
+    direction LR
+    F0["Client + Stakeholders → the Brief"]
+    F1["Feasibility (F)"]
+    F2["Concept / Sketch Design (SK)"]
+    F3["Developed Design (DD)"]
+    F4["Construction Documentation (CD)"]
+    F5["Contract Administration (CA)"]
+    F6["🚧 Gate: Town Planning (Council) approval"]
+    F7["🚧 Gate: Building Surveyor (BS) sign-off"]
+    F8["NSCA competencies span BOTH the design process AND contract administration — not just design skill"]
+    F0 -->|depends upon| F1 -->|depends upon| F2 -->|depends upon| F3 -->|depends upon| F4 -->|depends upon| F5
+    F2 -.->|limits, until approved| F6
+    F4 -.->|limits, until signed off| F7
+    F6 & F7 -.->|feeds back into, ride is a loop not a straight line| F0
+    F8 -.-> F1
+    F8 -.-> F5
+  end
+  class F1,F4 main
+  class F8 theory
+  PRACTICE -.->|every project runs this loop| FLUME
+  FLUME -.->|Council + Building Surveyor are REGULATION ROW's checkpoints, playing out project by project| REGULATION
+  RS2 -.->|same 35 NSCA competencies, tested here in the abstract and there in practice| F8
+
+  subgraph REGULATION["🟡 REGULATION ROW — legislation [top-down]"]
+    L1[Architects Act 1991 + Regulations]
+    L2[Building Act / VBA]
+    L3["National Construction Code — amendable (see INNOVATION PAVILION, Dan Hill roadmap)"]
+    L4[Planning and Environment Act / OVGA / DELWP-VPA]
+    L5["Duty to public (s.17-18) + duty to resign a contract rather than breach the Act (fire-isolated-stair case)"]
+    L1 --> L5
+    L1 -.->|enables| RS4
+    L2 & L3 & L4 -.->|constrain, alongside L1| RS4
+  end
+  class L1,L5 main
+
+  subgraph GUILD["🟡 GUILD QUARTER — professional bodies [list-network]"]
+    G1[AIA — voluntary, advances the discipline]
+    G2[ARBV — statutory, public accountability]
+    G3[AACA — national competency standard, coordinates boards]
+    G4["Parlour · ArchiTeam · Architects Declare · AASA — fill gaps AIA alone can't cover"]
+    G5["Bates Smart Award, AIA categories — the RECOGNITION machinery, distinct from G2's REGULATION machinery (Week 4)"]
+    G1 -.->|contrast| G2
+    G4 -.-> G1
+    G1 --> G5
+  end
+  class G1,G2 main
+
+  subgraph TOWNHALL["🟡 TOWN HALL — ethics/codes + who the park serves [radial]"]
+    T1["Duty beyond the paying client — future occupants, neighbours, the public"]
+    T2["Loos 1910: before God, no good or bad architects — a matter of degree, not kind"]
+    T3["Bailey/Shaw/Bruhn: 'Architecture, not Architects' — recognition should serve public value, not manufacture individual reputation"]
+    T4["Stead: searchlight or lantern? Does the profession's own record reflect the public it serves?"]
+    T1 --> T2 --> T3 --> T4
+    T4 -.->|the real test for every land in this park| HQ
+  end
+  class T1,T3 main
+
+  subgraph INNOVATION["🟡 INNOVATION PAVILION — research + innovation [timeline]"]
+    direction LR
+    N1["What architecture IS (fit for purpose) vs what it DOES (performance) — Week 4"]
+    N2["Lui: building codes are a site of CO-AUTHORSHIP — gender- inclusive bathrooms (2018), post-Triangle Fire egress rules (1911), ADA accessibility, desegregation (1958-73) all changed codes through activism"]
+    N3["Dan Hill: 200,000 homes/yr at current practice = 200% of Australia's whole emissions budget — Roadmap proposes cascading NCC emissions limits, 461.8 → 6.63 kgCO2e/m²·a by 2028"]
+    N4["'Fire, Water, Building' exhibition — 13 practices reframe fire/water from pure risk-aversion toward ecologically-attuned design"]
+    N1 --> N2 --> N3 --> N4
+    N2 -.->|codes are amendable — by whoever shows up| REGULATION
+    N3 -.->|proposes changing L3 directly| L3
+  end
+  class N2,N3 theory
+
+  subgraph PROCUREMENT["🔵 PROCUREMENT ANNEX — new wing, bridge unfinished [small linear]"]
+    U1["🔵 Traditional (AS4000) vs Design & Construct (AS4902) vs Novated D&C"]
+    U2["🔵 AIA National Novation Survey 2019: 266 practices, 484 novated projects — 'enormous opportunity to address building quality and prevent risk'"]
+    U3["🔵 Novation can diminish design intent — lost direct client contact, restricted site access, excluded from value management"]
+    U4["🔵 A registered architect can lose creative control WITHOUT losing registration — a different kind of vulnerability than anything on the ride"]
+    U1 --> U2 --> U3 --> U4
+  end
+  class U1,U4 transform
+
+  subgraph BACKSTAGE["🔴 CONTROL BOOTH — who actually operates the park [hierarchy, drawn behind everything else]"]
+    direction LR
+    B1["'TheyRule' pattern: a small, overlapping group sits across schools, the Institute AND the Board at once (Week 4)"]
+    B2["Registration Mountain is the most heavily gated part of the whole park — 5 requirements, 3 pathways, 3-part exam"]
+    B3["Regulation Row and Procurement Annex are far more loosely guarded — codes are amendable by whoever shows up (Lui); design authority can be novated away by contract (U3-U4)"]
+    B4{"CRITICAL POSITION: the profession protects the one gate it can see (who becomes an architect) far more tightly than the two gates that actually decide what gets built (who writes the code, who keeps design control after novation)"}
+    B1 --> B2
+    B1 --> B3
+    B2 -.->|contrast — tightly gated vs loosely gated| B3
+    B2 --> B4
+    B3 --> B4
+  end
+  class B1,B2,B3 backstage
+
+  HUB --> RIDE
+  RIDE --> APPRENTICELAND
+  RIDE --> PRACTICE
+  RIDE --> REGULATION
+  RIDE --> GUILD
+  APPRENTICELAND -.->|monorail| PRACTICE
+  PRACTICE -.->|monorail, depends upon| PROCUREMENT
+  REGULATION -.->|monorail| GUILD
+  GUILD -.->|monorail| TOWNHALL
+  REGULATION -.->|monorail| INNOVATION
+  TOWNHALL -.->|monorail| INNOVATION
+  RIDE -.->|monorail| BACKSTAGE
+  REGULATION -.->|monorail| BACKSTAGE
+  PROCUREMENT -.->|monorail, unfinished bridge| BACKSTAGE
+  BACKSTAGE -.->|feeds the critical position back to| HQ`;
+
+const { svg } = await mermaid.render('architectland-svg', src);
+document.getElementById('dg').innerHTML = svg;
+
+// ---- pan & zoom ----
+let scale = 1, panX = 0, panY = 0, isPanning = false, startX = 0, startY = 0;
+const inner = document.getElementById('diagram-inner');
+const wrap = document.getElementById('canvas-wrap');
+
+function applyTransform() {
+  inner.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+}
+
+function zoomBy(factor) {
+  scale = Math.min(Math.max(scale * factor, 0.2), 6);
+  applyTransform();
+}
+
+function resetView() {
+  scale = 1; panX = 40; panY = 40;
+  applyTransform();
+}
+
+window.zoomBy = zoomBy;
+window.resetView = resetView;
+
+wrap.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const factor = e.deltaY < 0 ? 1.1 : 0.9;
+  scale = Math.min(Math.max(scale * factor, 0.2), 6);
+  applyTransform();
+}, { passive: false });
+
+wrap.addEventListener('mousedown', (e) => {
+  isPanning = true;
+  startX = e.clientX - panX;
+  startY = e.clientY - panY;
+});
+window.addEventListener('mousemove', (e) => {
+  if (!isPanning) return;
+  panX = e.clientX - startX;
+  panY = e.clientY - startY;
+  applyTransform();
+});
+window.addEventListener('mouseup', () => { isPanning = false; });
+
+resetView();
+</script>
+</body>
+</html>
