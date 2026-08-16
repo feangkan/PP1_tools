@@ -39,19 +39,28 @@
 
 ```mermaid
 flowchart TB
+  classDef default fill:#ffffff,color:#1a1a1a,stroke:#999999,stroke-width:1px;
   classDef main fill:#F4D35E,color:#1a1a1a,stroke:#8a6c1f,stroke-width:1px;
   classDef theory fill:#8FBF8F,color:#1a1a1a,stroke:#3f5a3f,stroke-width:1px;
   classDef transform fill:#9EC1D9,color:#1a1a1a,stroke:#345070,stroke-width:1px;
   classDef backstage fill:#E07A5F,color:#1a1a1a,stroke:#7a3b28,stroke-width:1px;
   classDef gate fill:#ffffff,color:#1a1a1a,stroke:#8a6c1f,stroke-width:2px,stroke-dasharray: 3 2;
 
-  subgraph LEGEND["Park Map Key"]
+  subgraph LEGEND["Park Map Key — node colour"]
     direction LR
     K1[🟡 Land] --- K2[⬜ Attraction]
     K2 --- K3[🟢 Integrated / theory]
     K3 --- K4[🔵 New wing]
     K4 --- K5[🔴 Backstage]
   end
+
+  subgraph LINELEGEND["Park Map Key — lines + monorail markers"]
+    direction LR
+    LL1[Primary] -->|enables / depends upon| LL2[Flow]
+    LL3[Relates] -.->|limits / causes / feedback| LL4[Influence]
+    LL5["🟡 spine · 🟢 regulation/knowledge · 🔵 practice/procurement · 🔴 critical position — monorail label prefix, see cross-land links"]
+  end
+  LEGEND --- LINELEGEND
 
   subgraph HUB["🟡 MAIN STREET, AU — the park entrance [radial hub]"]
     direction LR
@@ -201,6 +210,24 @@ flowchart TB
   end
   class B1,B2,B3 backstage
 
+  %% ZONE COLOUR WASH — each land tinted so it reads as its own coloured
+  %% zone at a glance, plus visual hierarchy: Registration Mountain gets
+  %% the thickest border (the one compulsory ride), the Project Flume the
+  %% thinnest (a small ride run once per project, not a land you walk into).
+  style LEGEND fill:#f7f6f2,stroke:#999999,color:#1a1a1a
+  style LINELEGEND fill:#f7f6f2,stroke:#999999,color:#1a1a1a
+  style HUB fill:#FFF6DA,stroke:#C9A227,stroke-width:2px,color:#1a1a1a
+  style RIDE fill:#FCE9B0,stroke:#8a6c1f,stroke-width:4px,color:#1a1a1a
+  style APPRENTICELAND fill:#E6F2E6,stroke:#6b9b6b,stroke-width:2px,color:#1a1a1a
+  style PRACTICE fill:#F3EDE3,stroke:#a68a5b,stroke-width:2px,color:#1a1a1a
+  style FLUME fill:#E3F2F0,stroke:#4a9b91,stroke-width:1.5px,color:#1a1a1a
+  style REGULATION fill:#E7EDF2,stroke:#5b7c99,stroke-width:2px,color:#1a1a1a
+  style GUILD fill:#EFE7F5,stroke:#8a6ba8,stroke-width:2px,color:#1a1a1a
+  style TOWNHALL fill:#F7E9EC,stroke:#b06a7a,stroke-width:2px,color:#1a1a1a
+  style INNOVATION fill:#E4F5E9,stroke:#4d8f6a,stroke-width:2px,color:#1a1a1a
+  style PROCUREMENT fill:#E4EEF5,stroke:#345070,stroke-width:2px,stroke-dasharray:5 3,color:#1a1a1a
+  style BACKSTAGE fill:#F2E4DE,stroke:#7a3b28,stroke-width:1.5px,color:#1a1a1a
+
   HUB -->|🟡 spine| RIDE
   RIDE -->|🟡 spine| APPRENTICELAND
   RIDE -->|🟡 spine| PRACTICE
@@ -244,8 +271,9 @@ This Mermaid file is the thinking draft (per `08-diagram-style/STYLE_GUIDE.md`, 
 
 ---
 
-## Redraw notes (v03)
+## Redraw notes (v04)
 
+- **v04 (2026-08-17, same day):** three fixes together. (1) Added `classDef default` — every previously-unclassed node (the Legend, most expansion-level nodes across every land) now gets an explicit light fill + black text, which fixes them rendering with GitHub's own dark-mode node default: GitHub strips `%%{init}%%` theme directives for security, so only real graph syntax (`classDef`/`class`/`style`) is reliable across every renderer, not theme config. (2) Added a `LINELEGEND` subgraph showing the two line types that actually exist in this diagram (solid = primary/enables/depends; dash-dot = relationship/limits/causes/feedback — there is no third, visually distinct "dotted," despite three verbs being listed in the prose legend elsewhere in this repo) plus the monorail marker key. (3) Added a `style` line per land so each zone is tinted its own pale colour, with Registration Mountain given the thickest border (4px, the one compulsory ride) and the Project Flume the thinnest (1.5px, a small ride run once per project) — so the hierarchy (one dominant ride > required lands > a nested sub-ride) still reads when the whole map is zoomed out to an overview.
 - **v03 (2026-08-17):** every cross-land "monorail" relationship label now carries a colour-category marker (🟡 spine, 🟢 regulation/knowledge, 🔵 practice/procurement, 🔴 critical position) — see the Legend's "Monorail link categories" table. This is deliberately a label marker, not a Mermaid `linkStyle` line-colour: this diagram has 130+ edges, and line-colouring needs an exact numeric index per edge — a miscount recolours the wrong link silently. If you want true coloured strokes on the hand-drawn A1, use these four categories directly as literal marker/highlighter colours along each monorail line.
 - **v02 (2026-08-16, same day):** added Registration Mountain's entrance signage (Trust/Risk) and The Project Flume inside Practice Square, from a tutorial whiteboard capture. The Risk equation ("knowledge + experience = risk") was visually emphasised/revised on the board — treat it as a prompt to discuss in your verbal presentation, not a settled formula to quote as-is; see `04-topics-context.md`.
 - This is a first full pass at the assessment master — expect at least one more version before Week 5's submission, especially once Week 5 is actually lectured (currently only pre-reading material is included, clearly tagged).
