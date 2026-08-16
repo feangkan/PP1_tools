@@ -196,19 +196,24 @@ flowchart TB
   end
   class U1,U4 transform
 
-  subgraph BACKSTAGE["🔴 CONTROL BOOTH — who actually operates the park [hierarchy, drawn behind everything else]"]
-    direction LR
-    B1["'TheyRule' pattern: a small,\noverlapping group sits across\nschools, the Institute AND the\nBoard at once (Week 4)"]
-    B2["Registration Mountain is the\nmost heavily gated part of the\nwhole park — 5 requirements,\n3 pathways, 3-part exam"]
-    B3["Regulation Row and Procurement\nAnnex are far more loosely\nguarded — codes are amendable\nby whoever shows up (Lui);\ndesign authority can be novated\naway by contract (U3-U4)"]
-    B4{"CRITICAL POSITION: the profession\nprotects the one gate it can see\n(who becomes an architect) far\nmore tightly than the two gates\nthat actually decide what gets\nbuilt (who writes the code, who\nkeeps design control after\nnovation)"}
-    B1 --> B2
-    B1 --> B3
-    B2 -.->|contrast — tightly gated\nvs loosely gated| B3
-    B2 --> B4
-    B3 --> B4
+  subgraph BACKSTAGE["🔴 CONTROL BOOTH — who actually operates the park [keyword network, drawn behind everything else]"]
+    direction TB
+    BS1[SCHOOLS]
+    BS2[INSTITUTE]
+    BS3[BOARD]
+    BSAME["same overlapping group\n(Week 4, 'TheyRule' pattern)"]
+    BREG["REGISTRATION\ntightly gated —\n5 reqs · 3 pathways · 3-part exam"]
+    BCODE["CODE + CONTRACT\nloosely gated —\namendable by whoever shows up (Lui);\nnovated away by contract (U3-U4)"]
+    B4{"= CRITICAL POSITION"}
+    BS1 & BS2 & BS3 --> BSAME
+    BSAME --> BREG
+    BSAME --> BCODE
+    BREG -.->|≠| BCODE
+    BREG --> B4
+    BCODE --> B4
   end
-  class B1,B2,B3 backstage
+  class BREG,BCODE backstage
+  class BSAME,BS1,BS2,BS3 default
 
   %% ZONE COLOUR WASH — each land tinted so it reads as its own coloured
   %% zone at a glance, plus visual hierarchy: Registration Mountain gets
@@ -271,6 +276,9 @@ This Mermaid file is the thinking draft (per `08-diagram-style/STYLE_GUIDE.md`, 
 
 ---
 
+## Redraw notes (v05)
+
+- **v05 (2026-08-17, same day):** Control Booth rebuilt as an actual keyword network instead of two paragraph-length nodes — three small SCHOOLS/INSTITUTE/BOARD nodes converge on "same overlapping group," which fans out to two short contrast nodes (REGISTRATION: tightly gated vs CODE + CONTRACT: loosely gated), closing on a short `= CRITICAL POSITION` node — same logic as before, but every node is now a phrase, not a sentence. Same fix also applied to the hand-illustrated park-map SVG (`architectland-map.svg`).
 ## Redraw notes (v04)
 
 - **v04 (2026-08-17, same day):** three fixes together. (1) Added `classDef default` — every previously-unclassed node (the Legend, most expansion-level nodes across every land) now gets an explicit light fill + black text, which fixes them rendering with GitHub's own dark-mode node default: GitHub strips `%%{init}%%` theme directives for security, so only real graph syntax (`classDef`/`class`/`style`) is reliable across every renderer, not theme config. (2) Added a `LINELEGEND` subgraph showing the two line types that actually exist in this diagram (solid = primary/enables/depends; dash-dot = relationship/limits/causes/feedback — there is no third, visually distinct "dotted," despite three verbs being listed in the prose legend elsewhere in this repo) plus the monorail marker key. (3) Added a `style` line per land so each zone is tinted its own pale colour, with Registration Mountain given the thickest border (4px, the one compulsory ride) and the Project Flume the thinnest (1.5px, a small ride run once per project) — so the hierarchy (one dominant ride > required lands > a nested sub-ride) still reads when the whole map is zoomed out to an overview.

@@ -213,19 +213,24 @@ const src = `flowchart TB
   end
   class U1,U4 transform
 
-  subgraph BACKSTAGE["🔴 CONTROL BOOTH — who actually operates the park [hierarchy, drawn behind everything else]"]
-    direction LR
-    B1["'TheyRule' pattern: a small, overlapping group sits across schools, the Institute AND the Board at once (Week 4)"]
-    B2["Registration Mountain is the most heavily gated part of the whole park — 5 requirements, 3 pathways, 3-part exam"]
-    B3["Regulation Row and Procurement Annex are far more loosely guarded — codes are amendable by whoever shows up (Lui); design authority can be novated away by contract (U3-U4)"]
-    B4{"CRITICAL POSITION: the profession protects the one gate it can see (who becomes an architect) far more tightly than the two gates that actually decide what gets built (who writes the code, who keeps design control after novation)"}
-    B1 --> B2
-    B1 --> B3
-    B2 -.->|contrast — tightly gated vs loosely gated| B3
-    B2 --> B4
-    B3 --> B4
+  subgraph BACKSTAGE["🔴 CONTROL BOOTH — who actually operates the park [keyword network, drawn behind everything else]"]
+    direction TB
+    BS1[SCHOOLS]
+    BS2[INSTITUTE]
+    BS3[BOARD]
+    BSAME["same overlapping group (Week 4, 'TheyRule' pattern)"]
+    BREG["REGISTRATION tightly gated — 5 reqs · 3 pathways · 3-part exam"]
+    BCODE["CODE + CONTRACT loosely gated — amendable by whoever shows up (Lui); novated away by contract (U3-U4)"]
+    B4{"= CRITICAL POSITION"}
+    BS1 & BS2 & BS3 --> BSAME
+    BSAME --> BREG
+    BSAME --> BCODE
+    BREG -.->|≠| BCODE
+    BREG --> B4
+    BCODE --> B4
   end
-  class B1,B2,B3 backstage
+  class BREG,BCODE backstage
+  class BSAME,BS1,BS2,BS3 default
 
   %% ZONE COLOUR WASH — each land tinted so it reads as its own coloured
   %% zone at a glance, plus visual hierarchy: Registration Mountain gets
