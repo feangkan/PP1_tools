@@ -1,0 +1,345 @@
+<svg viewBox="0 0 841 594" xmlns="http://www.w3.org/2000/svg" font-family="'Trebuchet MS', Verdana, sans-serif" role="img" aria-label="ARCHITECTLAND, a theme-park map of the architecture profession's disciplinary matrix, with Registration Mountain as the dominant compulsory ride and eight themed lands for education, employment, legislation, professional bodies, ethics, research, procurement, and the Control Booth critical position">
+  <title>ARCHITECTLAND — A Disciplinary Matrix of Architecture</title>
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2B2318"/>
+    </marker>
+    <marker id="arwGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a6c1f"/>
+    </marker>
+    <marker id="arwGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2F6E62"/>
+    </marker>
+    <marker id="arwBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3E6E96"/>
+    </marker>
+    <marker id="arwRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a3b2e"/>
+    </marker>
+  </defs>
+
+  <!-- ================= GROUND ================= -->
+  <rect x="0" y="0" width="841" height="594" fill="#F5EFDE"/>
+
+  <!-- vintage double-line border -->
+  <rect x="10" y="10" width="821" height="574" fill="none" stroke="#2B2318" stroke-width="1.6"/>
+  <rect x="14.5" y="14.5" width="812" height="565" fill="none" stroke="#2B2318" stroke-width="0.5"/>
+
+  <!-- ================= MONORAIL LINKS (drawn under lands) ================= -->
+  <!-- spine: hub -> ride -->
+  <path d="M420,472 C420,430 420,390 420,300" fill="none" stroke="#8a6c1f" stroke-width="3.2" marker-end="url(#arwGold)"/>
+  <!-- spine: ride -> each required-topic land -->
+  <path d="M330,150 C230,140 165,130 128,128" fill="none" stroke="#8a6c1f" stroke-width="1.6" stroke-dasharray="1 0" marker-end="url(#arwGold)"/>
+  <path d="M300,230 C220,255 170,270 140,285" fill="none" stroke="#8a6c1f" stroke-width="1.6" marker-end="url(#arwGold)"/>
+  <path d="M520,150 C610,140 660,130 700,128" fill="none" stroke="#8a6c1f" stroke-width="1.6" marker-end="url(#arwGold)"/>
+  <path d="M540,220 C610,240 660,255 695,268" fill="none" stroke="#8a6c1f" stroke-width="1.6" marker-end="url(#arwGold)"/>
+
+  <!-- regulation/knowledge thread (green) -->
+  <path d="M140,345 C170,380 200,400 220,405" fill="none" stroke="#2F6E62" stroke-width="1.6" marker-end="url(#arwGreen)"/>
+  <path d="M700,345 C670,380 640,400 620,405" fill="none" stroke="#2F6E62" stroke-width="1.6" marker-end="url(#arwGreen)"/>
+  <path d="M140,405 C170,430 195,445 210,452" fill="none" stroke="#2F6E62" stroke-width="1.6" marker-end="url(#arwGreen)"/>
+
+  <!-- practice/procurement thread (blue) -->
+  <path d="M700,190 C740,205 765,215 782,225" fill="none" stroke="#3E6E96" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arwBlue)"/>
+
+  <!-- critical position thread (red), deliberately thin/quiet -->
+  <path d="M420,300 C420,330 400,345 385,355" fill="none" stroke="#8a3b2e" stroke-width="1.3" stroke-dasharray="2 2" marker-end="url(#arwRed)"/>
+  <path d="M140,285 C260,340 320,355 355,362" fill="none" stroke="#8a3b2e" stroke-width="1.1" stroke-dasharray="2 2" marker-end="url(#arwRed)"/>
+  <path d="M700,268 C580,335 500,352 460,360" fill="none" stroke="#8a3b2e" stroke-width="1.1" stroke-dasharray="2 2" marker-end="url(#arwRed)"/>
+
+  <!-- ================= TITLE CARTOUCHE ================= -->
+  <g font-family="'Palatino Linotype', Palatino, Georgia, serif">
+    <rect x="255" y="16" width="330" height="40" fill="#F5EFDE" stroke="#2B2318" stroke-width="1"/>
+    <text x="420" y="38" text-anchor="middle" font-size="17" letter-spacing="2" fill="#2B2318">ARCHITECTLAND</text>
+    <text x="420" y="51" text-anchor="middle" font-size="7" letter-spacing="1.5" fill="#5A5148">A DISCIPLINARY MATRIX OF ARCHITECTURE</text>
+  </g>
+
+  <!-- ================= REGISTRATION MOUNTAIN ================= -->
+  <g>
+    <!-- mountain silhouette -->
+    <path d="M255,300 L300,180 L340,225 L385,120 L420,175 L455,120 L500,225 L540,180 L585,300 Z"
+          fill="#EAD9A6" stroke="#8a6c1f" stroke-width="2.4"/>
+    <!-- coaster track -->
+    <path d="M280,292 C300,260 285,235 320,222 C355,209 345,180 380,172 C410,166 405,140 420,132
+             C435,140 430,166 460,172 C495,180 485,209 520,222 C555,235 540,260 560,292"
+          fill="none" stroke="#B8862E" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M280,292 C300,260 285,235 320,222 C355,209 345,180 380,172 C410,166 405,140 420,132
+             C435,140 430,166 460,172 C495,180 485,209 520,222 C555,235 540,260 560,292"
+          fill="none" stroke="#2B2318" stroke-width="0.6" stroke-dasharray="0.2 5" stroke-linecap="round"/>
+
+    <!-- 5 gated stations -->
+    <circle cx="280" cy="292" r="7" fill="#F5EFDE" stroke="#8a6c1f" stroke-width="2"/>
+    <circle cx="320" cy="222" r="7" fill="#F5EFDE" stroke="#8a6c1f" stroke-width="2"/>
+    <circle cx="420" cy="132" r="8" fill="#F4D35E" stroke="#8a6c1f" stroke-width="2.4"/>
+    <circle cx="520" cy="222" r="7" fill="#F5EFDE" stroke="#8a6c1f" stroke-width="2"/>
+    <circle cx="560" cy="292" r="7" fill="#F5EFDE" stroke="#8a6c1f" stroke-width="2"/>
+
+    <g font-size="6.4" fill="#2B2318" font-weight="bold">
+      <text x="266" y="303">① EDUCATION</text>
+      <text x="256" y="215">② EXPERIENCE — 3,300 hrs</text>
+      <text x="392" y="122">③ APE — EXAM + INTERVIEW</text>
+      <text x="524" y="215">④ ARBV REGISTRATION</text>
+      <text x="566" y="303">⑤ CPD + INSURANCE (loops)</text>
+    </g>
+    <g font-size="5.4" fill="#5A5148" font-style="italic">
+      <text x="252" y="220" text-anchor="end">re-queue: fail/repeat →</text>
+    </g>
+
+    <text x="420" y="105" text-anchor="middle" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="12" letter-spacing="1" fill="#6b5420">REGISTRATION MOUNTAIN</text>
+    <text x="420" y="115" text-anchor="middle" font-size="6" fill="#6b5420">Victoria's path to Architect — the ONE compulsory ride</text>
+
+    <!-- entrance signage -->
+    <rect x="330" y="255" width="180" height="24" rx="2" fill="#fff" stroke="#8a6c1f" stroke-width="1" stroke-dasharray="2 1.5"/>
+    <text x="420" y="264" text-anchor="middle" font-size="5.6" font-weight="bold" fill="#2B2318">⚠ TRUST: autonomy · discretion · accountability</text>
+    <text x="420" y="273" text-anchor="middle" font-size="5.6" fill="#2B2318">⚠ RISK: owed to public + profession, scales with experience</text>
+
+    <!-- ejection -->
+    <text x="420" y="320" text-anchor="middle" font-size="5.4" fill="#8a3b2e">serious breach → Tribunal, discipline register, ejected from the park</text>
+  </g>
+
+  <!-- ================= CONTROL BOOTH (muted, tucked behind) — keyword network, not prose ================= -->
+  <g opacity="0.94" font-family="'Trebuchet MS', Verdana, sans-serif">
+    <rect x="330" y="345" width="180" height="82" rx="4" fill="#5A5148" fill-opacity="0.14" stroke="#5A5148" stroke-width="1.2" stroke-dasharray="3 2"/>
+    <text x="420" y="357" text-anchor="middle" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="8" fill="#4a423a">CONTROL BOOTH</text>
+    <text x="420" y="365" text-anchor="middle" font-size="4.6" fill="#4a423a" font-style="italic">who operates the park (Week 4)</text>
+
+    <!-- row 1: overlap network -->
+    <line x1="376" y1="378" x2="396" y2="384" stroke="#4a423a" stroke-width="0.8"/>
+    <line x1="420" y1="374" x2="420" y2="384" stroke="#4a423a" stroke-width="0.8"/>
+    <line x1="464" y1="378" x2="444" y2="384" stroke="#4a423a" stroke-width="0.8"/>
+    <rect x="358" y="370" width="36" height="10" rx="5" fill="#fff" stroke="#5A5148" stroke-width="0.8"/>
+    <text x="376" y="377" text-anchor="middle" font-size="4.6" fill="#2B2318">SCHOOLS</text>
+    <rect x="402" y="370" width="36" height="10" rx="5" fill="#fff" stroke="#5A5148" stroke-width="0.8"/>
+    <text x="420" y="377" text-anchor="middle" font-size="4.6" fill="#2B2318">INSTITUTE</text>
+    <rect x="446" y="370" width="36" height="10" rx="5" fill="#fff" stroke="#5A5148" stroke-width="0.8"/>
+    <text x="464" y="377" text-anchor="middle" font-size="4.6" fill="#2B2318">BOARD</text>
+    <rect x="392" y="384" width="56" height="10" rx="5" fill="#5A5148" fill-opacity="0.25" stroke="#5A5148" stroke-width="0.8"/>
+    <text x="420" y="391" text-anchor="middle" font-size="4.6" fill="#2B2318" font-weight="bold">same people</text>
+
+    <!-- row 2: mismatch network -->
+    <rect x="340" y="401" width="62" height="12" rx="6" fill="#F4D35E" stroke="#8a6c1f" stroke-width="1"/>
+    <text x="371" y="409" text-anchor="middle" font-size="4.8" fill="#2B2318" font-weight="bold">REGISTRATION</text>
+    <text x="371" y="399" text-anchor="middle" font-size="4" fill="#4a423a">tightly gated</text>
+    <rect x="438" y="401" width="62" height="12" rx="6" fill="#fff" stroke="#8a3b2e" stroke-width="1" stroke-dasharray="2 1.5"/>
+    <text x="469" y="409" text-anchor="middle" font-size="4.6" fill="#2B2318" font-weight="bold">CODE + CONTRACT</text>
+    <text x="469" y="399" text-anchor="middle" font-size="4" fill="#8a3b2e">loosely gated</text>
+    <line x1="402" y1="407" x2="438" y2="407" stroke="#6e2f22" stroke-width="1" marker-end="url(#arwRed)"/>
+    <text x="420" y="420" text-anchor="middle" font-size="5" fill="#6e2f22" font-weight="bold">= the critical position</text>
+  </g>
+
+  <!-- ================= HUB ================= -->
+  <g>
+    <path d="M420,455 l10,15 l17,2 l-13,12 l4,17 l-18,-9 l-18,9 l4,-17 l-13,-12 l17,-2 z" fill="#F4D35E" stroke="#8a6c1f" stroke-width="1.6"/>
+    <text x="420" y="500" text-anchor="middle" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="9" fill="#2B2318">MAIN STREET, AU</text>
+    <text x="420" y="509" text-anchor="middle" font-size="5" fill="#5A5148" font-style="italic">trusted with the title "Architect" — trusted by whom, for what?</text>
+  </g>
+
+  <!-- ================= LEFT COLUMN LANDS — keyword chips + arrows, no bullets ================= -->
+  <!-- Apprenticeland -->
+  <g>
+    <rect x="45" y="70" width="166" height="116" rx="18" fill="#5C7A52" fill-opacity="0.22" stroke="#5C7A52" stroke-width="1.8"/>
+    <path d="M60,92 l14,-7 l14,7 l-14,7 z" fill="none" stroke="#3f5a3f" stroke-width="1.3"/>
+    <line x1="74" y1="99" x2="74" y2="108" stroke="#3f5a3f" stroke-width="1.1"/>
+    <text x="94" y="97" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="9.5" fill="#2f4a2a">APPRENTICELAND</text>
+    <text x="60" y="112" font-size="5.4" fill="#2f4a2a">education, incl. CPD</text>
+
+    <rect x="52" y="123" width="42" height="12" rx="6" fill="#fff" stroke="#3f5a3f" stroke-width="0.8"/>
+    <text x="73" y="131" text-anchor="middle" font-size="4.4" fill="#2B2318">UNIVERSITY</text>
+    <line x1="94" y1="129" x2="102" y2="129" stroke="#3f5a3f" stroke-width="0.9" marker-end="url(#arwGreen)"/>
+    <rect x="103" y="123" width="42" height="12" rx="6" fill="#fff" stroke="#3f5a3f" stroke-width="0.8"/>
+    <text x="124" y="131" text-anchor="middle" font-size="4.4" fill="#2B2318">GRADUATE</text>
+    <line x1="145" y1="129" x2="153" y2="129" stroke="#3f5a3f" stroke-width="0.9" marker-end="url(#arwGreen)"/>
+    <rect x="154" y="123" width="48" height="12" rx="6" fill="#fff" stroke="#3f5a3f" stroke-width="0.8"/>
+    <text x="178" y="131" text-anchor="middle" font-size="4.2" fill="#2B2318">LOGBOOK</text>
+
+    <line x1="178" y1="135" x2="178" y2="144" stroke="#3f5a3f" stroke-width="0.9" stroke-dasharray="1.5 1.5"/>
+    <line x1="94" y1="152" x2="176" y2="146" stroke="#3f5a3f" stroke-width="0.9" stroke-dasharray="1.5 1.5" marker-end="url(#arwGreen)"/>
+    <rect x="52" y="146" width="42" height="12" rx="6" fill="#fff" stroke="#3f5a3f" stroke-width="0.8"/>
+    <text x="73" y="154" text-anchor="middle" font-size="4.4" fill="#2B2318">CPD ~2022</text>
+
+    <line x1="73" y1="158" x2="73" y2="166" stroke="#3f5a3f" stroke-width="0.7" stroke-dasharray="1 1.5"/>
+    <text x="52" y="174" font-size="4.4" fill="#3f5a3f" font-style="italic">Molander: CPD = formative measure</text>
+  </g>
+
+  <!-- Regulation Row -->
+  <g>
+    <rect x="45" y="215" width="166" height="130" rx="18" fill="#4C6B87" fill-opacity="0.22" stroke="#4C6B87" stroke-width="1.8"/>
+    <path d="M60,236 h20 M70,236 v10 M62,246 h16" fill="none" stroke="#2e4a63" stroke-width="1.2"/>
+    <text x="94" y="242" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="9.5" fill="#2e4a63">REGULATION ROW</text>
+    <text x="60" y="257" font-size="5.4" fill="#2e4a63">legislation</text>
+
+    <rect x="52" y="266" width="68" height="12" rx="6" fill="#fff" stroke="#2e4a63" stroke-width="0.8"/>
+    <text x="86" y="274" text-anchor="middle" font-size="4.2" fill="#2B2318">ARCHITECTS ACT</text>
+    <line x1="120" y1="272" x2="128" y2="272" stroke="#2e4a63" stroke-width="0.9" marker-end="url(#arwGreen)"/>
+    <rect x="129" y="266" width="65" height="12" rx="6" fill="#fff" stroke="#2e4a63" stroke-width="0.8"/>
+    <text x="161" y="274" text-anchor="middle" font-size="4.2" fill="#2B2318">NCC + VBA</text>
+
+    <line x1="86" y1="278" x2="86" y2="286" stroke="#2e4a63" stroke-width="0.8"/>
+    <rect x="52" y="286" width="76" height="11" rx="5.5" fill="#fff" stroke="#2e4a63" stroke-width="0.8"/>
+    <text x="90" y="293.5" text-anchor="middle" font-size="4.1" fill="#2B2318">PLANNING ACT</text>
+
+    <line x1="90" y1="297" x2="90" y2="305" stroke="#2e4a63" stroke-width="0.9" marker-end="url(#arwGreen)"/>
+    <rect x="52" y="305" width="60" height="12" rx="6" fill="#fff" stroke="#2e4a63" stroke-width="0.8"/>
+    <text x="82" y="313" text-anchor="middle" font-size="4" fill="#2B2318">DUTY: PUBLIC</text>
+    <line x1="112" y1="311" x2="120" y2="311" stroke="#7a3b2e" stroke-width="0.9" marker-end="url(#arwRed)"/>
+    <rect x="121" y="305" width="72" height="12" rx="6" fill="#fff" stroke="#7a3b2e" stroke-width="0.9"/>
+    <text x="157" y="313" text-anchor="middle" font-size="4" fill="#2B2318">RESIGN &gt; BREACH</text>
+    <text x="121" y="322" font-size="3.8" fill="#7a3b2e" font-style="italic">[fire-isolated-stair case]</text>
+
+    <line x1="82" y1="317" x2="82" y2="330" stroke="#3E6E96" stroke-width="0.9" stroke-dasharray="1.5 1.5" marker-end="url(#arwBlue)"/>
+    <rect x="52" y="330" width="90" height="12" rx="6" fill="#fff" stroke="#3E6E96" stroke-width="0.9" stroke-dasharray="2 1.5"/>
+    <text x="97" y="338" text-anchor="middle" font-size="4" fill="#2B2318">GATES THE FLUME</text>
+  </g>
+
+  <!-- Guild Quarter -->
+  <g>
+    <rect x="45" y="385" width="166" height="134" rx="18" fill="#7A5C8C" fill-opacity="0.22" stroke="#7A5C8C" stroke-width="1.8"/>
+    <path d="M74,404 a10,10 0 1,1 0.01,0" fill="none" stroke="#4a3a56" stroke-width="1.2"/>
+    <path d="M74,404 l0,10" stroke="#4a3a56" stroke-width="1.2"/>
+    <text x="94" y="412" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="9.5" fill="#4a3a56">GUILD QUARTER</text>
+    <text x="60" y="427" font-size="5.4" fill="#4a3a56">professional bodies</text>
+
+    <rect x="52" y="436" width="46" height="12" rx="6" fill="#fff" stroke="#4a3a56" stroke-width="0.8"/>
+    <text x="75" y="444" text-anchor="middle" font-size="4.4" fill="#2B2318">AIA</text>
+    <text x="75" y="452" text-anchor="middle" font-size="3.6" fill="#4a3a56" font-style="italic">voluntary</text>
+    <line x1="98" y1="442" x2="106" y2="442" stroke="#4a3a56" stroke-width="0.9"/>
+    <text x="102" y="440" text-anchor="middle" font-size="3.6" fill="#4a3a56">≠</text>
+    <rect x="107" y="436" width="46" height="12" rx="6" fill="#fff" stroke="#4a3a56" stroke-width="0.8"/>
+    <text x="130" y="444" text-anchor="middle" font-size="4.4" fill="#2B2318">ARBV</text>
+    <text x="130" y="452" text-anchor="middle" font-size="3.6" fill="#4a3a56" font-style="italic">statutory</text>
+
+    <rect x="52" y="459" width="60" height="11" rx="5.5" fill="#fff" stroke="#4a3a56" stroke-width="0.8"/>
+    <text x="82" y="466.5" text-anchor="middle" font-size="4" fill="#2B2318">AACA</text>
+    <line x1="112" y1="464.5" x2="120" y2="464.5" stroke="#4a3a56" stroke-width="0.9" marker-end="url(#arwGreen)"/>
+    <rect x="121" y="459" width="60" height="11" rx="5.5" fill="#fff" stroke="#4a3a56" stroke-width="0.8"/>
+    <text x="151" y="466.5" text-anchor="middle" font-size="3.8" fill="#2B2318">STATE BOARDS</text>
+
+    <rect x="52" y="477" width="141" height="16" rx="6" fill="#fff" stroke="#4a3a56" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+    <text x="122" y="484" text-anchor="middle" font-size="4" fill="#2B2318" font-weight="bold">PARLOUR · ARCHITEAM · DECLARE · AASA</text>
+    <text x="122" y="491" text-anchor="middle" font-size="3.6" fill="#4a3a56" font-style="italic">fill AIA's gaps</text>
+
+    <rect x="52" y="500" width="55" height="11" rx="5.5" fill="#F4D35E" stroke="#8a6c1f" stroke-width="0.8"/>
+    <text x="79" y="507.5" text-anchor="middle" font-size="3.8" fill="#2B2318">AIA AWARDS</text>
+    <text x="112" y="507" text-anchor="middle" font-size="4" fill="#4a3a56">≠</text>
+    <rect x="118" y="500" width="75" height="11" rx="5.5" fill="#fff" stroke="#4a3a56" stroke-width="0.8"/>
+    <text x="155" y="507.5" text-anchor="middle" font-size="3.6" fill="#2B2318">ARBV REGULATION</text>
+  </g>
+
+  <!-- ================= RIGHT COLUMN LANDS (4 stacked, no overlap) — keyword chips, no bullets ================= -->
+  <!-- Practice Square + Project Flume -->
+  <g>
+    <rect x="629" y="70" width="166" height="104" rx="18" fill="#8C6A4E" fill-opacity="0.22" stroke="#8C6A4E" stroke-width="1.8"/>
+    <path d="M644,92 l16,0 l0,-6 l6,0 l0,6 l16,0" fill="none" stroke="#5c4530" stroke-width="1.2"/>
+    <text x="678" y="97" text-anchor="middle" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="9.5" fill="#5c4530">PRACTICE SQUARE</text>
+    <text x="678" y="108" text-anchor="middle" font-size="5.4" fill="#5c4530">employment</text>
+
+    <rect x="636" y="113" width="56" height="12" rx="6" fill="#fff" stroke="#5c4530" stroke-width="0.8"/>
+    <text x="664" y="121" text-anchor="middle" font-size="4.2" fill="#2B2318">PRACTICE/FIRM</text>
+    <line x1="692" y1="119" x2="700" y2="119" stroke="#7a3b2e" stroke-width="0.9" stroke-dasharray="1.5 1.5" marker-end="url(#arwRed)"/>
+    <rect x="701" y="113" width="82" height="12" rx="6" fill="#fff" stroke="#7a3b2e" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+    <text x="742" y="121" text-anchor="middle" font-size="3.8" fill="#2B2318">PROJECT MGMT ceded 1960s-70s</text>
+
+    <!-- nested small ride: the Project Flume, itself a 3-chip network -->
+    <rect x="644" y="130" width="138" height="38" rx="10" fill="#E3F2F0" stroke="#4a9b91" stroke-width="1"/>
+    <text x="713" y="139" text-anchor="middle" font-size="5" fill="#2b6058" font-weight="bold">THE PROJECT FLUME · once/project</text>
+    <rect x="650" y="144" width="34" height="10" rx="5" fill="#fff" stroke="#4a9b91" stroke-width="0.7"/>
+    <text x="667" y="151" text-anchor="middle" font-size="3.8" fill="#2B2318">BRIEF</text>
+    <line x1="684" y1="149" x2="691" y2="149" stroke="#4a9b91" stroke-width="0.8" marker-end="url(#arwGreen)"/>
+    <rect x="692" y="144" width="42" height="10" rx="5" fill="#fff" stroke="#4a9b91" stroke-width="0.7"/>
+    <text x="713" y="151" text-anchor="middle" font-size="3.6" fill="#2B2318">SK → DD</text>
+    <line x1="734" y1="149" x2="741" y2="149" stroke="#4a9b91" stroke-width="0.8" marker-end="url(#arwGreen)"/>
+    <rect x="742" y="144" width="34" height="10" rx="5" fill="#fff" stroke="#4a9b91" stroke-width="0.7"/>
+    <text x="759" y="151" text-anchor="middle" font-size="3.6" fill="#2B2318">CD → CA</text>
+    <text x="650" y="163" font-size="3.6" fill="#2b6058" font-style="italic">gated: Council + BS · loops to Brief</text>
+  </g>
+
+  <!-- Procurement Annex, flagged extension directly under Practice Square -->
+  <g>
+    <rect x="629" y="184" width="166" height="52" rx="12" fill="#3E6E96" fill-opacity="0.18" stroke="#3E6E96" stroke-width="1.6" stroke-dasharray="5 3"/>
+    <text x="712" y="196" text-anchor="middle" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="7.4" fill="#254a63">PROCUREMENT ANNEX</text>
+    <text x="712" y="204" text-anchor="middle" font-size="4.4" fill="#254a63" font-style="italic">new wing — bridge unfinished</text>
+    <rect x="638" y="209" width="34" height="9" rx="4.5" fill="#fff" stroke="#3E6E96" stroke-width="0.7"/>
+    <text x="655" y="215.5" text-anchor="middle" font-size="4" fill="#2B2318">AS4000</text>
+    <rect x="675" y="209" width="34" height="9" rx="4.5" fill="#fff" stroke="#3E6E96" stroke-width="0.7"/>
+    <text x="692" y="215.5" text-anchor="middle" font-size="4" fill="#2B2318">AS4902</text>
+    <rect x="712" y="209" width="46" height="9" rx="4.5" fill="#fff" stroke="#3E6E96" stroke-width="0.7"/>
+    <text x="735" y="215.5" text-anchor="middle" font-size="4" fill="#2B2318">novated D&amp;C</text>
+    <text x="712" y="227" text-anchor="middle" font-size="4.8" fill="#6e2f22" font-weight="bold">control ≠ registration</text>
+    <text x="712" y="233" text-anchor="middle" font-size="3.8" fill="#254a63" font-style="italic">AIA 2019 — 484 novated projects</text>
+  </g>
+
+  <!-- Town Hall -->
+  <g>
+    <rect x="629" y="248" width="166" height="104" rx="18" fill="#A6516B" fill-opacity="0.2" stroke="#A6516B" stroke-width="1.8"/>
+    <path d="M678,269 c-6,-6 -16,0 -8,9 c3,3 5,5 8,8 c3,-3 5,-5 8,-8 c8,-9 -2,-15 -8,-9 z" fill="none" stroke="#7a3550" stroke-width="1.1"/>
+    <text x="694" y="275" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="9.5" fill="#7a3550">TOWN HALL</text>
+    <text x="644" y="290" font-size="5.4" fill="#7a3550">ethics/codes — who the park serves</text>
+
+    <rect x="637" y="296" width="40" height="12" rx="6" fill="#fff" stroke="#7a3550" stroke-width="0.8"/>
+    <text x="657" y="304" text-anchor="middle" font-size="4.2" fill="#2B2318">DUTY</text>
+    <line x1="677" y1="302" x2="685" y2="302" stroke="#7a3550" stroke-width="0.9" marker-end="url(#arw)"/>
+    <rect x="686" y="296" width="96" height="12" rx="6" fill="#fff" stroke="#7a3550" stroke-width="0.8"/>
+    <text x="734" y="304" text-anchor="middle" font-size="3.8" fill="#2B2318">PUBLIC &gt; PAYING CLIENT</text>
+
+    <line x1="657" y1="308" x2="657" y2="315" stroke="#7a3550" stroke-width="0.7" stroke-dasharray="1 1.5"/>
+    <text x="637" y="321" font-size="4.2" fill="#7a3550" font-style="italic">Loos 1910: no good/bad — degree, not kind</text>
+    <text x="637" y="333" font-size="4.2" fill="#7a3550" font-style="italic">Bailey/Shaw/Stead: Architecture ≠ Architects</text>
+  </g>
+
+  <!-- Innovation Pavilion -->
+  <g>
+    <rect x="629" y="360" width="166" height="150" rx="18" fill="#3F8F6B" fill-opacity="0.2" stroke="#3F8F6B" stroke-width="1.8"/>
+    <path d="M678,379 c-5,0 -8,3 -8,7 c0,3 2,4 3,6 l0,3 l10,0 l0,-3 c1,-2 3,-3 3,-6 c0,-4 -3,-7 -8,-7 z" fill="none" stroke="#245c46" stroke-width="1.1"/>
+    <text x="694" y="387" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="9.5" fill="#245c46">INNOVATION PAVILION</text>
+    <text x="644" y="402" font-size="5.4" fill="#245c46">research + innovation</text>
+
+    <rect x="637" y="408" width="48" height="12" rx="6" fill="#fff" stroke="#245c46" stroke-width="0.8"/>
+    <text x="661" y="416" text-anchor="middle" font-size="4" fill="#2B2318">ARCH. IS</text>
+    <line x1="685" y1="414" x2="693" y2="414" stroke="#245c46" stroke-width="0.9" marker-end="url(#arwGreen)"/>
+    <rect x="694" y="408" width="56" height="12" rx="6" fill="#fff" stroke="#245c46" stroke-width="0.8"/>
+    <text x="722" y="416" text-anchor="middle" font-size="4" fill="#2B2318">ARCH. DOES</text>
+
+    <rect x="637" y="426" width="52" height="11" rx="5.5" fill="#fff" stroke="#245c46" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+    <text x="663" y="433.5" text-anchor="middle" font-size="3.8" fill="#2B2318">CODES</text>
+    <text x="637" y="443" font-size="3.8" fill="#245c46" font-style="italic">Lui: co-authored (egress·ADA·desegr.)</text>
+
+    <rect x="637" y="452" width="66" height="11" rx="5.5" fill="#fff" stroke="#245c46" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+    <text x="670" y="459.5" text-anchor="middle" font-size="3.8" fill="#2B2318">EMISSIONS</text>
+    <text x="637" y="469" font-size="3.8" fill="#245c46" font-style="italic">Hill: 200k homes/yr = 200% AU → NCC</text>
+
+    <rect x="637" y="478" width="80" height="11" rx="5.5" fill="#fff" stroke="#245c46" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+    <text x="677" y="485.5" text-anchor="middle" font-size="3.8" fill="#2B2318">RISK → ECOLOGY</text>
+    <text x="637" y="495" font-size="3.8" fill="#245c46" font-style="italic">"Fire, Water, Building": 13 practices</text>
+  </g>
+
+  <!-- ================= COMPASS ROSE ================= -->
+  <g transform="translate(95,543) scale(0.82)">
+    <circle r="26" fill="#F5EFDE" stroke="#2F6E62" stroke-width="1.4"/>
+    <circle r="19" fill="none" stroke="#2F6E62" stroke-width="0.6"/>
+    <path d="M0,-24 L5,-5 L0,0 L-5,-5 Z" fill="#2F6E62"/>
+    <path d="M0,24 L5,5 L0,0 L-5,5 Z" fill="#2F6E62" fill-opacity="0.5"/>
+    <path d="M-24,0 L-5,5 L0,0 L-5,-5 Z" fill="#2F6E62" fill-opacity="0.5"/>
+    <path d="M24,0 L5,5 L0,0 L5,-5 Z" fill="#2F6E62" fill-opacity="0.5"/>
+    <text x="0" y="-30" text-anchor="middle" font-size="6" fill="#2B2318">N</text>
+  </g>
+  <text x="95" y="578" text-anchor="middle" font-size="5" fill="#5A5148" font-style="italic">RMIT Architecture · Professional Practice 1</text>
+
+  <!-- ================= LEGEND CARTOUCHE ================= -->
+  <g>
+    <rect x="613" y="530" width="215" height="50" fill="#F5EFDE" stroke="#2B2318" stroke-width="1"/>
+    <text x="620" y="540" font-family="'Palatino Linotype', Palatino, Georgia, serif" font-size="6.5" fill="#2B2318">PARK MAP KEY</text>
+    <line x1="620" y1="547" x2="638" y2="547" stroke="#8a6c1f" stroke-width="2.6"/>
+    <text x="641" y="549" font-size="4.6" fill="#2B2318">spine — required-topic backbone</text>
+    <line x1="620" y1="555" x2="638" y2="555" stroke="#2F6E62" stroke-width="1.6"/>
+    <text x="641" y="557" font-size="4.6" fill="#2B2318">regulation / knowledge thread</text>
+    <line x1="620" y1="563" x2="638" y2="563" stroke="#3E6E96" stroke-width="1.6" stroke-dasharray="3 2"/>
+    <text x="641" y="565" font-size="4.6" fill="#2B2318">practice / procurement thread</text>
+    <line x1="620" y1="571" x2="638" y2="571" stroke="#8a3b2e" stroke-width="1.3" stroke-dasharray="2 2"/>
+    <text x="641" y="573" font-size="4.6" fill="#2B2318">critical position (deliberately quiet)</text>
+    <text x="740" y="540" font-size="4.4" fill="#5A5148" font-style="italic">Registration Mountain's border</text>
+    <text x="740" y="547" font-size="4.4" fill="#5A5148" font-style="italic">weight = the one compulsory ride.</text>
+    <text x="740" y="557" font-size="4.4" fill="#5A5148" font-style="italic">The Flume's thin border = a small</text>
+    <text x="740" y="564" font-size="4.4" fill="#5A5148" font-style="italic">ride run once per project.</text>
+    <text x="740" y="574" font-size="4.4" fill="#5A5148" font-style="italic">Control Booth is muted on purpose.</text>
+  </g>
+</svg>
