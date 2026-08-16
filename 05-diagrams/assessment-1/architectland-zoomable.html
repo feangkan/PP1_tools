@@ -47,6 +47,11 @@ mermaid.initialize({
     textColor: '#1a1a1a',
     clusterBkg: '#f7f6f2',
     clusterBorder: '#999999',
+    titleColor: '#000000',
+    edgeLabelBackground: '#ffffff',
+    nodeTextColor: '#000000',
+    secondaryColor: '#f7f6f2',
+    tertiaryColor: '#ffffff',
   },
 });
 
@@ -140,9 +145,9 @@ const src = `flowchart TB
   end
   class F1,F4 main
   class F8 theory
-  PRACTICE -.->|every project runs this loop| FLUME
-  FLUME -.->|Council + Building Surveyor are REGULATION ROW's checkpoints, playing out project by project| REGULATION
-  RS2 -.->|same 35 NSCA competencies, tested here in the abstract and there in practice| F8
+  PRACTICE -.->|🔵 practice/procurement, every project runs this loop| FLUME
+  FLUME -.->|🟢 regulation/knowledge, Council + Building Surveyor are REGULATION ROW's checkpoints, playing out project by project| REGULATION
+  RS2 -.->|🔵 practice/procurement, same 35 NSCA competencies, tested here in the abstract and there in practice| F8
 
   subgraph REGULATION["🟡 REGULATION ROW — legislation [top-down]"]
     L1[Architects Act 1991 + Regulations]
@@ -213,21 +218,21 @@ const src = `flowchart TB
   end
   class B1,B2,B3 backstage
 
-  HUB --> RIDE
-  RIDE --> APPRENTICELAND
-  RIDE --> PRACTICE
-  RIDE --> REGULATION
-  RIDE --> GUILD
-  APPRENTICELAND -.->|monorail| PRACTICE
-  PRACTICE -.->|monorail, depends upon| PROCUREMENT
-  REGULATION -.->|monorail| GUILD
-  GUILD -.->|monorail| TOWNHALL
-  REGULATION -.->|monorail| INNOVATION
-  TOWNHALL -.->|monorail| INNOVATION
-  RIDE -.->|monorail| BACKSTAGE
-  REGULATION -.->|monorail| BACKSTAGE
-  PROCUREMENT -.->|monorail, unfinished bridge| BACKSTAGE
-  BACKSTAGE -.->|feeds the critical position back to| HQ`;
+  HUB -->|🟡 spine| RIDE
+  RIDE -->|🟡 spine| APPRENTICELAND
+  RIDE -->|🟡 spine| PRACTICE
+  RIDE -->|🟡 spine| REGULATION
+  RIDE -->|🟡 spine| GUILD
+  APPRENTICELAND -.->|🟡 spine, monorail| PRACTICE
+  PRACTICE -.->|🔵 practice/procurement, monorail, depends upon| PROCUREMENT
+  REGULATION -.->|🟢 regulation/knowledge, monorail| GUILD
+  GUILD -.->|🟢 regulation/knowledge, monorail| TOWNHALL
+  REGULATION -.->|🟢 regulation/knowledge, monorail| INNOVATION
+  TOWNHALL -.->|🟢 regulation/knowledge, monorail| INNOVATION
+  RIDE -.->|🔴 critical position, monorail| BACKSTAGE
+  REGULATION -.->|🔴 critical position, monorail| BACKSTAGE
+  PROCUREMENT -.->|🔴 critical position, monorail, unfinished bridge| BACKSTAGE
+  BACKSTAGE -.->|🔴 critical position, feeds back to| HQ`;
 
 const { svg } = await mermaid.render('architectland-svg', src);
 document.getElementById('dg').innerHTML = svg;

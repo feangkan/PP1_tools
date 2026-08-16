@@ -22,6 +22,15 @@
 | 🚧 | Gate / turnstile — a real competency or legal checkpoint, not decoration |
 | ⚠️ | Entrance / warning signage — what a ride is actually testing or risking (Trust, Risk) |
 
+**Monorail link categories** (the cross-land relationship labels are prefixed with one of these — a safe stand-in for coloured line *strokes*: this diagram has 130+ edges, and Mermaid's line-colouring needs an exact numeric index per edge counted across the whole file — one miscount silently recolours the wrong link rather than erroring, so labels carry the colour instead):
+
+| Marker | Category | Covers |
+|--------|----------|--------|
+| 🟡 spine | Required-topic backbone | Hub → Registration Mountain → each required land (education, employment, legislation, professional bodies) |
+| 🟢 regulation/knowledge | Codes, standards, competencies, research | Regulation Row ↔ Guild Quarter ↔ Town Hall ↔ Innovation Pavilion, and the Project Flume's regulatory gates |
+| 🔵 practice/procurement | What happens once you're working | Practice Square ↔ Procurement Annex ↔ The Project Flume |
+| 🔴 critical position | Power, critique, backstage | Registration Mountain / Regulation Row / Procurement Annex → Control Booth, and back to the hub question |
+
 **Layout type per zone**: HUB = radial; RIDE (Registration Mountain) = linear process with gated stations, entrance signage, and re-queue loops; APPRENTICELAND (education) = hierarchy; PRACTICE SQUARE (employment) = network, with THE PROJECT FLUME nested inside it as a small linear/iterative sub-ride; REGULATION ROW (legislation) = top-down; GUILD QUARTER (professional bodies) = list-network; TOWN HALL (ethics + public value) = radial; INNOVATION PAVILION (research/innovation) = left→right timeline; PROCUREMENT ANNEX = small linear, drawn attached by an unfinished bridge; BACKSTAGE (power/critique) = top-down hierarchy, visually behind everything else. Cross-links (the monorail) are relationship claims, not one uniform flow, per `08-diagram-style/STYLE_GUIDE.md` "Composite layering."
 
 ---
@@ -119,9 +128,9 @@ flowchart TB
   end
   class F1,F4 main
   class F8 theory
-  PRACTICE -.->|every project\nruns this loop| FLUME
-  FLUME -.->|Council + Building\nSurveyor are REGULATION\nROW's checkpoints,\nplaying out project by\nproject| REGULATION
-  RS2 -.->|same 35 NSCA\ncompetencies, tested here\nin the abstract and\nthere in practice| F8
+  PRACTICE -.->|🔵 practice/procurement,\nevery project runs this loop| FLUME
+  FLUME -.->|🟢 regulation/knowledge,\nCouncil + Building\nSurveyor are REGULATION\nROW's checkpoints,\nplaying out project by\nproject| REGULATION
+  RS2 -.->|🔵 practice/procurement,\nsame 35 NSCA\ncompetencies, tested here\nin the abstract and\nthere in practice| F8
 
   subgraph REGULATION["🟡 REGULATION ROW — legislation [top-down]"]
     L1[Architects Act 1991\n+ Regulations]
@@ -192,21 +201,21 @@ flowchart TB
   end
   class B1,B2,B3 backstage
 
-  HUB --> RIDE
-  RIDE --> APPRENTICELAND
-  RIDE --> PRACTICE
-  RIDE --> REGULATION
-  RIDE --> GUILD
-  APPRENTICELAND -.->|monorail| PRACTICE
-  PRACTICE -.->|monorail, depends upon| PROCUREMENT
-  REGULATION -.->|monorail| GUILD
-  GUILD -.->|monorail| TOWNHALL
-  REGULATION -.->|monorail| INNOVATION
-  TOWNHALL -.->|monorail| INNOVATION
-  RIDE -.->|monorail| BACKSTAGE
-  REGULATION -.->|monorail| BACKSTAGE
-  PROCUREMENT -.->|monorail, unfinished bridge| BACKSTAGE
-  BACKSTAGE -.->|feeds the critical\nposition back to| HQ
+  HUB -->|🟡 spine| RIDE
+  RIDE -->|🟡 spine| APPRENTICELAND
+  RIDE -->|🟡 spine| PRACTICE
+  RIDE -->|🟡 spine| REGULATION
+  RIDE -->|🟡 spine| GUILD
+  APPRENTICELAND -.->|🟡 spine, monorail| PRACTICE
+  PRACTICE -.->|🔵 practice/procurement, monorail, depends upon| PROCUREMENT
+  REGULATION -.->|🟢 regulation/knowledge, monorail| GUILD
+  GUILD -.->|🟢 regulation/knowledge, monorail| TOWNHALL
+  REGULATION -.->|🟢 regulation/knowledge, monorail| INNOVATION
+  TOWNHALL -.->|🟢 regulation/knowledge, monorail| INNOVATION
+  RIDE -.->|🔴 critical position, monorail| BACKSTAGE
+  REGULATION -.->|🔴 critical position, monorail| BACKSTAGE
+  PROCUREMENT -.->|🔴 critical position, monorail, unfinished bridge| BACKSTAGE
+  BACKSTAGE -.->|🔴 critical position, feeds back to| HQ
 ```
 
 ---
@@ -235,8 +244,9 @@ This Mermaid file is the thinking draft (per `08-diagram-style/STYLE_GUIDE.md`, 
 
 ---
 
-## Redraw notes (v02)
+## Redraw notes (v03)
 
+- **v03 (2026-08-17):** every cross-land "monorail" relationship label now carries a colour-category marker (🟡 spine, 🟢 regulation/knowledge, 🔵 practice/procurement, 🔴 critical position) — see the Legend's "Monorail link categories" table. This is deliberately a label marker, not a Mermaid `linkStyle` line-colour: this diagram has 130+ edges, and line-colouring needs an exact numeric index per edge — a miscount recolours the wrong link silently. If you want true coloured strokes on the hand-drawn A1, use these four categories directly as literal marker/highlighter colours along each monorail line.
 - **v02 (2026-08-16, same day):** added Registration Mountain's entrance signage (Trust/Risk) and The Project Flume inside Practice Square, from a tutorial whiteboard capture. The Risk equation ("knowledge + experience = risk") was visually emphasised/revised on the board — treat it as a prompt to discuss in your verbal presentation, not a settled formula to quote as-is; see `04-topics-context.md`.
 - This is a first full pass at the assessment master — expect at least one more version before Week 5's submission, especially once Week 5 is actually lectured (currently only pre-reading material is included, clearly tagged).
 - Victorian registration year (1922 vs 1923) is still unresolved from Week 3 — confirm before finalising Station 4's date, if a date is added to the hand-drawn version.
