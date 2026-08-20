@@ -49,6 +49,10 @@ flowchart TB
     K3 --- K4[Procurement — independent research]
     K4 --- K5[Power Structure — critical position]
   end
+  class K1 main
+  class K3 theory
+  class K4 transform
+  class K5 backstage
 
   subgraph LINELEGEND["Diagram Key — lines + cross-link markers"]
     direction LR
