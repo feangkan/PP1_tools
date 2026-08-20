@@ -1,18 +1,18 @@
-# 04 — Topics + context: Assessment 1 — ARCHITECTLAND
+# 04 — Topics + context: Assessment 1 — The Disciplinary Matrix of Architecture
 
-Provenance table — every land/cluster in `01-diagram.md` traces to one of these sources. This file exists so a marker (or you, checking your own work) can verify nothing was invented.
+Provenance table — every cluster in `01-diagram.md` traces to one of these sources. This file exists so a marker (or you, checking your own work) can verify nothing was invented.
 
-| Diagram land/cluster | Underlying source | Location |
+| Diagram cluster | Underlying source | Location |
 |---|---|---|
-| HUB, RIDE (Registration Mountain) | Synthesis map SPINE + W3REG clusters | `05-diagrams/synthesis/01-master-map.md`; full statutory detail in `05-diagrams/week-03/01-diagram.md` REG cluster |
-| APPRENTICELAND (education) | Synthesis TRAITS/SPINE + Week 3 Molander (CPD as formative measure) | `05-diagrams/week-03/01-diagram.md` M5a, C1 |
-| PRACTICE (employment) | Week 4 project-management scope claim; general ACA/union bodies from Week 3 SPLIT cluster | `05-diagrams/week-04/01-diagram.md` B5; `05-diagrams/week-03/01-diagram.md` S6e |
-| REGULATION (legislation) | Synthesis POWER cluster (Acts/Codes named); Week 3 CLAUSES (s.17-18 duty to public) | `05-diagrams/week-03/01-diagram.md` CLAUSES, C7/C8/C13 |
-| GUILD (professional bodies) | Week 3 SPLIT cluster; Week 4 recognition-vs-regulation distinction | `05-diagrams/week-03/01-diagram.md` SPLIT; `05-diagrams/week-04/01-diagram.md` W4A |
-| TOWNHALL (ethics + public value) | Week 4 CORE (Loos) + VOICES (Bailey/Shaw/Bruhn/Stead) | `05-diagrams/week-04/01-diagram.md` CORE, VOICES |
-| INNOVATION (research/innovation) | Week 4 fit-for-purpose/performance crossover; Week 5 pre-readings (Lui, Hill, Fire/Water/Building) | `05-diagrams/week-04/01-diagram.md` INNOVATION; this pack's own N2-N4 nodes, sourced directly to the three Week 5 pre-reading articles |
-| PROCUREMENT (annex) | Independent research, tagged | `02-assessment-tasks/procurement-research-note.md` |
-| BACKSTAGE (control booth / critical position) | Week 4 POWER apparatus ("TheyRule" reading) + this diagram's own synthesis of RIDE vs REGULATION/PROCUREMENT gating levels | `05-diagrams/week-04/01-diagram.md` POWER cluster (P1-P2); the specific contrast (B2 vs B3) is this diagram's own argument, built from sourced material, not itself a quoted claim |
+| Hub, Registration Pathway | Synthesis map SPINE + W3REG clusters | `05-diagrams/synthesis/01-master-map.md`; full statutory detail in `05-diagrams/week-03/01-diagram.md` REG cluster |
+| Education | Synthesis TRAITS/SPINE + Week 3 Molander (CPD as formative measure) | `05-diagrams/week-03/01-diagram.md` M5a, C1 |
+| Employment | Week 4 project-management scope claim; general ACA/union bodies from Week 3 SPLIT cluster | `05-diagrams/week-04/01-diagram.md` B5; `05-diagrams/week-03/01-diagram.md` S6e |
+| Legislation | Synthesis POWER cluster (Acts/Codes named); Week 3 CLAUSES (s.17-18 duty to public) | `05-diagrams/week-03/01-diagram.md` CLAUSES, C7/C8/C13 |
+| Professional Bodies | Week 3 SPLIT cluster; Week 4 recognition-vs-regulation distinction | `05-diagrams/week-03/01-diagram.md` SPLIT; `05-diagrams/week-04/01-diagram.md` W4A |
+| Ethics & Public Value | Week 4 CORE (Loos) + VOICES (Bailey/Shaw/Bruhn/Stead) | `05-diagrams/week-04/01-diagram.md` CORE, VOICES |
+| Research & Innovation | Week 4 fit-for-purpose/performance crossover; Week 5 pre-readings (Lui, Hill, Fire/Water/Building) | `05-diagrams/week-04/01-diagram.md` INNOVATION; this pack's own N2-N4 nodes, sourced directly to the three Week 5 pre-reading articles |
+| Procurement | Independent research, tagged | `02-assessment-tasks/procurement-research-note.md` |
+| Power Structure (critical position) | Week 4 POWER apparatus ("TheyRule" reading) + this diagram's own synthesis of Registration Pathway vs Legislation/Procurement gating levels | `05-diagrams/week-04/01-diagram.md` POWER cluster (P1-P2); the specific contrast (B2 vs B3) is this diagram's own argument, built from sourced material, not itself a quoted claim |
 
 ## Tutorial whiteboard capture (2026-08-16, added same day as v02)
 
@@ -40,7 +40,7 @@ This capture is new-project-level detail, not a new week's lecture content — i
 
 ## Open gaps / unverified — carried over, do not resolve silently
 
-- Victorian registration year (1922 vs 1923) — unresolved since Week 3, affects Station 4 if a date is added to the hand-drawn version.
+- Victorian registration year (1922 vs 1923) — unresolved since Week 3, affects Stage 4 if a date is added to the hand-drawn version.
 - Sciulli's structural-qualities count — unresolved since Week 2, not directly load-bearing for this diagram but flagged for consistency.
 - Loos's essay citation is incomplete (no collection/page numbers) — see `05-diagrams/week-04/05-references.md`.
 - Procurement Annex's AS4000/AS4902 comparison table relies on third-party legal-industry summaries, not the Standards Australia text itself — see `02-assessment-tasks/procurement-research-note.md` referencing note.

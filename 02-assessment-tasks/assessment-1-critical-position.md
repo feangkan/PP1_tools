@@ -1,12 +1,12 @@
 # Assessment 1 — "How to read your diagram and Critical Position" (150 words)
 
-Paired diagram: `05-diagrams/assessment-1/01-diagram.md` ("ARCHITECTLAND")
+Paired diagram: `05-diagrams/assessment-1/01-diagram.md`
 
-**Word count: 146 words (excludes this heading and the reference list below, per the brief).**
+**Word count: 143 words (excludes this heading and the reference list below, per the brief).**
 
 ---
 
-ARCHITECTLAND maps the profession as a theme park. Registration Mountain (Victoria's education, logged-experience, APE and ARBV pathway) is the one compulsory, heavily gated ride, surrounded by required lands: education, employment, legislation, professional bodies, and ethics. Loos (1910) argued no architect is truly good or bad, only guilty in degree, so gatekeeping alone cannot guarantee good outcomes. Two newer lands test that claim. Innovation Pavilion draws on Lui's argument that building codes are amended through activism, not expertise alone, and on proposed National Construction Code emissions limits. Procurement Annex, built from the AIA's 2019 novation research (266 practices), shows a fully registered architect can lose design authority through contract alone. My critical position: the profession polices its one visible gate, registration, far more tightly than its less visible ones — who writes the code, and who retains control after novation — and that mismatch is where real power sits.
+This diagram maps the profession around one organising pathway. Registration (Victoria's education, logged-experience, APE and ARBV pathway) is the one compulsory, heavily gated route, surrounded by required topics: education, employment, legislation, professional bodies, and ethics. Loos (1910) argued no architect is truly good or bad, only guilty in degree, so gatekeeping alone cannot guarantee good outcomes. Two newer clusters test that claim. Research & Innovation draws on Lui's argument that building codes are amended through activism, not expertise alone, and on proposed National Construction Code emissions limits. Procurement, built from the AIA's 2019 novation research (266 practices), shows a fully registered architect can lose design authority through contract alone. My critical position: the profession polices its one visible gate, registration, far more tightly than its less visible ones — who writes the code, and who retains control after novation — and that mismatch is where real power sits.
 
 ---
 

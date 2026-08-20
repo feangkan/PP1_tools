@@ -1,4 +1,4 @@
-# 05 — References: Assessment 1 — ARCHITECTLAND
+# 05 — References: Assessment 1 — The Disciplinary Matrix of Architecture
 
 Chicago (notes-bibliography), alphabetical by author surname. Consolidated from Weeks 1–4 reference lists, the Week 5 pre-readings, and the procurement research note — cite only what you actually use in your 150-word note or verbal presentation. Fields flagged `[confirm]` need verification before submission.
 
