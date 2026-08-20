@@ -137,9 +137,9 @@ flowchart TB
   end
   class F1,F4 main
   class F8 theory
-  PRACTICE -.->|[practice],\nevery project runs this loop| FLUME
-  FLUME -.->|[regulation],\nCouncil + Building\nSurveyor are LEGISLATION's\ncheckpoints, playing out\nproject by project| REGULATION
-  RS2 -.->|[practice],\nsame 35 NSCA\ncompetencies, tested here\nin the abstract and\nthere in practice| F8
+  PRACTICE -.->|"[practice],\nevery project runs this loop"| FLUME
+  FLUME -.->|"[regulation],\nCouncil + Building\nSurveyor are LEGISLATION's\ncheckpoints, playing out\nproject by project"| REGULATION
+  RS2 -.->|"[practice],\nsame 35 NSCA\ncompetencies, tested here\nin the abstract and\nthere in practice"| F8
 
   subgraph REGULATION["LEGISLATION [top-down]"]
     L1[Architects Act 1991\n+ Regulations]
@@ -244,20 +244,20 @@ flowchart TB
   style PROCUREMENT fill:#E4EEF5,stroke:#345070,stroke-width:2px,stroke-dasharray:5 3,color:#1a1a1a
   style BACKSTAGE fill:#F2E4DE,stroke:#7a3b28,stroke-width:1.5px,color:#1a1a1a
 
-  HUB -->|[spine]| RIDE
-  RIDE -->|[spine]| APPRENTICELAND
-  RIDE -->|[spine]| PRACTICE
-  RIDE -->|[spine]| REGULATION
-  RIDE -->|[spine]| GUILD
-  APPRENTICELAND -.->|[spine]| PRACTICE
-  PRACTICE -.->|[practice], depends upon| PROCUREMENT
-  REGULATION -.->|[regulation]| GUILD
-  GUILD -.->|[regulation]| TOWNHALL
-  REGULATION -.->|[regulation]| INNOVATION
-  TOWNHALL -.->|[regulation]| INNOVATION
-  RIDE -.->|[critical]| BACKSTAGE
-  REGULATION -.->|[critical]| BACKSTAGE
-  PROCUREMENT -.->|[critical], unfinished connector| BACKSTAGE
+  HUB -->|"[spine]"| RIDE
+  RIDE -->|"[spine]"| APPRENTICELAND
+  RIDE -->|"[spine]"| PRACTICE
+  RIDE -->|"[spine]"| REGULATION
+  RIDE -->|"[spine]"| GUILD
+  APPRENTICELAND -.->|"[spine]"| PRACTICE
+  PRACTICE -.->|"[practice], depends upon"| PROCUREMENT
+  REGULATION -.->|"[regulation]"| GUILD
+  GUILD -.->|"[regulation]"| TOWNHALL
+  REGULATION -.->|"[regulation]"| INNOVATION
+  TOWNHALL -.->|"[regulation]"| INNOVATION
+  RIDE -.->|"[critical]"| BACKSTAGE
+  REGULATION -.->|"[critical]"| BACKSTAGE
+  PROCUREMENT -.->|"[critical], unfinished connector"| BACKSTAGE
   %% Power Structure "feeding back to" the hub question is this diagram's
   %% thesis (see explanation file + "Primary links to say aloud" #5) —
   %% deliberately not drawn as a graph edge back to HQ: that edge closed
