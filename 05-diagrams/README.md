@@ -20,4 +20,6 @@ Templates: [`../templates/weekly-diagram-pack/`](../templates/weekly-diagram-pac
 
 Assessment / one-off flows can sit beside week folders, e.g. `assessment-1-process-flow.md`.
 
+Hand-draw compilation of **all weekly contents** (Weeks 1–5, separated), for designing Assessment 1 without editing the main pack: [`../02-assessment-tasks/assessment-1-development/`](../02-assessment-tasks/assessment-1-development/). The current master remains `assessment-1/`.
+
 Simple single-diagram template: [`../templates/diagram.md`](../templates/diagram.md).
