@@ -9,7 +9,7 @@
 | Tool | What it does |
 |---|---|
 | `stigmergy-generator.py` in Rhino | **Lines and coloured dots only.** No letters. Annotation scale cannot be trusted. |
-| `stigmergy-guide.html` | **The picture / web app.** Zoom out for main claims, zoom in for subtopics, click a dot for the sentence to type. Same clock and colours as Rhino. |
+| `stigmergy-guide.html` | **The picture / web app.** Zoom out for main claims, zoom in for subtopics, click a dot for the sentence to type. Same hub positions and colours as Rhino. |
 | `stigmergy-text-catalog.md` | Full typed catalog if you prefer a printout. |
 
 You type every word by hand on the Rhino bake (or on a print of it).
@@ -19,15 +19,15 @@ You type every word by hand on the Rhino bake (or on a print of it).
 ## 1. Generate the drawing (Rhino 8)
 
 1. Script Editor → open `stigmergy-generator.py` → Run.  
-2. Leave defaults. Click **Generate**.  
-3. You should see **thick pipes** (not hairline curves) and **filled seats** at every place you type. Zoom out: trunks and seats stay visible.  
+2. Leave defaults (v0.6 nerve layout). Click **Generate**. Optional: tick **Animate while generating**.  
+3. You should see **thick highway trunks**, **organic capillary branches**, and **filled seats** at every place you type. Zoom out: weight and seats stay visible.  
 4. **Where to letter**
-   - Centre disc + crosshair = title  
+   - Upper void disc + crosshair = title  
    - Large filled disc + halo = main claim (that colour)  
-   - Smaller filled disc on the fan = subtopic (catalog order)  
-   - Grey **diamond** on a wrap-arc = relation verb  
-5. Gold (bottom) = Registration. Terracotta (inner) = Power.  
-6. If you lose an ID: select the seat → **Properties → Name**. No letters are drawn. Wiggly mid-hair is texture only.
+   - Smaller filled disc on an **organic branch tip** = subtopic (catalog order left-to-right along each zone)  
+   - Grey **diamond** on a curved relation path = relation verb  
+5. Gold (lower-centre, **largest hub**) = Registration spine. Terracotta (overlap hub, **smaller**) = Power.  
+6. If you lose an ID: select the seat → **Properties → Name**. No letters are drawn.
 
 ---
 
@@ -39,7 +39,7 @@ Open `stigmergy-guide.html` in Chrome / Edge / Safari (double-click the file).
 |---|---|
 | **Zoom out** | Only main topics — what to write large on each trunk |
 | **Zoom in** | All subtopic IDs and short labels |
-| **Relations** | Grey wrap-arcs with *enables / limits / depends upon / influences / contrasts* |
+| **Relations** | Grey curved paths between hubs with *enables / limits / depends upon / influences / contrasts* |
 | Click a dot | Side panel shows the **typed sentence** to letter |
 | Print / PDF | Save a still picture if you want the guide on paper beside Rhino |
 
@@ -49,33 +49,37 @@ Scroll to zoom, drag to pan.
 
 ## 3. Allocate (your hand)
 
-1. Centre hole → *DISCIPLINARY MATRIX* / *Trusted with the title — by whom, for what?*  
+1. Upper void → *DISCIPLINARY MATRIX* / *Trusted with the title — by whom, for what?*  
 2. Each large coloured dot → that group’s **zoom-out claim** (from the panel).  
-3. Small dots of the same colour, **farthest first** → R1… R12 on gold, L1… on blue, and so on.  
-4. Grey arc mid-dots → one verb (X3 *enables*, X7 *limits*…). Arcs wrap the title; they do not cut it.  
+3. Small dots of the same colour → catalog order along each zone (R1… R12 on gold, L1… on blue, and so on). Tips sit on organic branches, not straight fan spokes.  
+4. Grey path mid-dots → one verb (X3 *enables*, X7 *limits*…). Paths run **between hubs**, not around a central ring.  
 5. Power stays visually smaller than Registration.
 
 ---
 
-## Clock (same in both tools)
+## Hub map (same in both tools — nerve layout, not a clock)
 
-| Clock | Colour | Group |
+Horizontal spread (~2:1). West → east:
+
+| Region | Colour | Group |
 |---|---|---|
-| 12 | Rose | Ethics |
-| 1–2 | Blue | Legislation |
-| 3 | Teal | Research |
-| 4–5 (inner) | Terracotta | Power |
-| 6 | Gold | **Registration (spine)** |
-| 7–8 | Tan | Employment |
-| 9 | Green | Education |
-| 10–11 | Purple | Bodies |
-| 11 (outer) | Navy | Procurement |
+| Far west (upper) | Rose | Ethics |
+| Far west (lower) | Navy | Procurement |
+| West-centre (upper) | Blue | Legislation |
+| West-centre (lower) | Teal | Research |
+| South-west | Tan | Employment |
+| North-centre | Green | Education |
+| **Lower-centre (largest)** | Gold | **Registration (spine)** |
+| Overlap (smaller) | Terracotta | Power |
+| East | Purple | Bodies |
+
+Thick **highways** bundle between these hubs. Fine **capillaries** grow outward from each hub into its zone.
 
 ---
 
 ## What the relations are doing
 
-The wrap-arcs are the argument, not decoration:
+The relation paths are the argument, not decoration:
 
 - Education and employment **depend upon** / **enable** registration.  
 - Legislation **enables** the title and **limits** a project (Council / surveyor).  
@@ -107,7 +111,7 @@ Use **Print → PDF (Vector)** or **Export AI / SVG**. Do not Export PNG/JPG if 
 10. Print widths: **Use object print widths** (the script set these on every centerline).  
 11. Save. Open the PDF in Illustrator or Acrobat and zoom — strokes should stay sharp.
 
-If a stroke looks too thin in the PDF, in Rhino select that curve → Properties → **Print Width** (try 0.7–2.0 mm) and print again. Or raise **Trunk / near-root** in the GUI and Generate again.
+If a stroke looks too thin in the PDF, in Rhino select that curve → Properties → **Print Width** (try 0.7–2.0 mm) and print again. Or raise **Highway trunks** / **Near-root branches** in the GUI and Generate again.
 
 ### B. Adobe Illustrator (`.ai`) or SVG
 
@@ -116,7 +120,7 @@ If a stroke looks too thin in the PDF, in Rhino select that curve → Properties
 3. Format: **Adobe Illustrator (*.ai)** or **SVG (*.svg)**.  
 4. View: **Top**.  
 5. In the options, export **curves** (not meshes). If there is “Preserve print widths” / “Use linetypes”, turn it on.  
-6. Open in Illustrator. If strokes came in at 0.25 pt, select by colour/layer and set stroke: trunks ~ **2–4 pt**, spokes ~ **1–1.5 pt**, wrap-arcs ~ **1 pt**. That is still vector.
+6. Open in Illustrator. If strokes came in at 0.25 pt, select by colour/layer and set stroke: highways ~ **3–5 pt**, near-root branches ~ **2–3 pt**, capillaries ~ **0.5–1 pt**, relation paths ~ **1 pt**. That is still vector.
 
 SVG from Rhino sometimes drops print width. Fix strokes in Illustrator, or use the PDF from method A and `Open` that PDF in Illustrator (usually cleaner).
 

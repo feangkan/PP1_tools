@@ -76,27 +76,35 @@
       <button type="button" id="btn-reset">Reset view</button>
       <button type="button" id="btn-print">Print / PDF</button>
     </div>
-    <div id="hint">This is the placement guide — not the Rhino bake. Scroll to zoom · drag to pan · click a dot to see what to letter. Same clock as the generator: gold at the bottom.</div>
-    <div id="svg-wrap"><svg id="map" viewBox="0 0 1000 1000" width="1000" height="1000"></svg></div>
+    <div id="hint">Placement guide — not the Rhino bake. Scroll to zoom · drag to pan · click a dot for the sentence. Nerve layout: horizontal hubs, gold REGISTRATION spine lower-centre.</div>
+    <div id="svg-wrap"><svg id="map" viewBox="0 0 1200 720" width="1200" height="720"></svg></div>
   </div>
   <aside id="panel">
     <h1>Placement guide</h1>
     <p>Open this beside Rhino. The script draws <strong>lines and dots only</strong>. After Generate, type on those dots. Click a colour here to see the sentence.</p>
     <h2>How it maps to Rhino</h2>
-    <p>Same colours, same clock, same fan order. Large dot = main claim. Small dots run <strong>catalog order across the fan</strong> (first ID on one side, last ID on the other) — R1 then R2 then R3 on gold, and so on. Wiggly lines in Rhino are look only. Select a circle → Properties → <span class="id">Name</span> if you lose your place.</p>
+    <p>Same colours and hub positions as the generator. Large dot = main claim. Small dots sit on <strong>organic branch tips</strong> (catalog order left-to-right along each zone). Thick highways bundle between hubs. Select a circle → Properties → <span class="id">Name</span> if you lose your place.</p>
     <div id="detail">
-      <h2>Title (centre hole)</h2>
+      <h2>Title (upper void)</h2>
       <p><strong>DISCIPLINARY MATRIX</strong><br>Trusted with the title — by whom, for what?</p>
-      <h2>Critical position (inner, terracotta)</h2>
+      <h2>Critical position (terracotta overlap hub)</h2>
       <p>The profession polices the visible gate more tightly than who writes the code, or who keeps design after novation.</p>
     </div>
   </aside>
 </div>
 
 <script>
-const CX = 500, CY = 500, RING = 250, KEEPOUT = 108;
+const CX = 600, CY = 360, S = 2.15, KEEPOUT = 60;
+function hub(x, y) { return [CX + x * S, CY - y * S]; }
+const HIGHWAYS = [
+  ["ETHICS","LEGISLATION"],["LEGISLATION","EDUCATION"],["LEGISLATION","REGISTRATION"],
+  ["EDUCATION","REGISTRATION"],["REGISTRATION","EMPLOYMENT"],["REGISTRATION","BODIES"],
+  ["RESEARCH","LEGISLATION"],["RESEARCH","REGISTRATION"],["PROCUREMENT","EMPLOYMENT"],
+  ["PROCUREMENT","REGISTRATION"],["BODIES","LEGISLATION"],["POWER","REGISTRATION"],
+  ["POWER","LEGISLATION"],["POWER","PROCUREMENT"]
+];
 const GROUPS = [
-  { key: "ETHICS", angle: 90, ring: 1, color: "#b06a7a",
+  { key: "ETHICS", hub: [-165, 38], hubScale: 1, growDir: [-0.85, 0.35], color: "#b06a7a",
     zoom: "Duty runs past the fee-payer; “good architect” is a degree, not a kind.",
     subs: [
       ["H1", "Knowledge becomes power", "Specialised knowledge → power → ethics → trust → judgment → public interest, then back into knowledge."],
@@ -108,7 +116,7 @@ const GROUPS = [
       ["H7", "Searchlight or lantern", "A magazine can miss housing, climate, country, labour, procurement, public trust."],
       ["H8", "Collective test", "Does this make architecture more useful — or only one architect more marketable?"]
     ]},
-  { key: "LEGISLATION", angle: 50, ring: 1, color: "#5b7c99",
+  { key: "LEGISLATION", hub: [-78, 48], hubScale: 1.05, growDir: [-0.25, 0.95], color: "#5b7c99",
     zoom: "The Act and the NCC are instruments — they enable buildings, and they can be rewritten.",
     subs: [
       ["L1", "Act gives legal form", "Legal form to knowledge, authority and responsibility — not consumer protection only."],
@@ -124,7 +132,7 @@ const GROUPS = [
       ["L11", "Law is provisional", "Written → interpreted → amended → repealed. Not optional. Not fixed."],
       ["L12", "Subject, interpreter, co-author", "What must I do? Why does this rule exist? Who may change its assumptions?"]
     ]},
-  { key: "RESEARCH", angle: 10, ring: 1, color: "#4d8f6a",
+  { key: "RESEARCH", hub: [-52, -52], hubScale: 1, growDir: [-0.35, -0.90], color: "#4d8f6a",
     zoom: "Codes and performance change what architecture is allowed to be.",
     subs: [
       ["N1", "Fit for purpose, then performance", "What a building is is not the same as what it does."],
@@ -134,7 +142,7 @@ const GROUPS = [
       ["N5", "Optional becomes ordinary", "Livable housing: easy to enter and adapt; step-free path with exemptions."],
       ["N6", "One good, another problem", "Tight envelopes can trap moisture. A new rule answers the last rule."]
     ]},
-  { key: "PROCUREMENT", angle: 330, ring: 1, color: "#345070",
+  { key: "PROCUREMENT", hub: [-158, -42], hubScale: 1, growDir: [-0.92, -0.25], color: "#345070",
     zoom: "A registered architect can lose design control by contract alone.",
     note: "Independent research — not lecture-sourced.",
     subs: [
@@ -144,7 +152,7 @@ const GROUPS = [
       ["P4", "Institute survey 2019", "266 practices, 484 novated projects. The Institute found novation can weaken design intent."],
       ["P5", "What is lost after novation", "Direct client line, site access, value-management. Registration can stay perfect."]
     ]},
-  { key: "REGISTRATION", angle: 270, ring: 1, color: "#c9a227",
+  { key: "REGISTRATION", hub: [28, -28], hubScale: 1.35, growDir: [0.15, -0.88], color: "#c9a227",
     zoom: "The one compulsory gate — education, hours, exam, title, then a loop.",
     subs: [
       ["R1", "Accredited education first", "Part 1 / Part 2 accredited course. Without this the later gates do not open."],
@@ -160,7 +168,7 @@ const GROUPS = [
       ["R11", "Fail repeats the stage", "Incomplete hours or a failed paper send you back — not out."],
       ["R12", "CPD and insurance loop", "Ongoing CPD (~2022 mandate) and PI. Tribunal can exclude."]
     ]},
-  { key: "EMPLOYMENT", angle: 225, ring: 1, color: "#a68a5b",
+  { key: "EMPLOYMENT", hub: [-92, -68], hubScale: 1, growDir: [-0.55, -0.80], color: "#a68a5b",
     zoom: "Hours are earned in practice; a project is a loop with legal gates.",
     subs: [
       ["W1", "Firm is where hours live", "The logbook can only be filled in supervised practice."],
@@ -170,7 +178,7 @@ const GROUPS = [
       ["W5", "Two external gates", "Council and the Building Surveyor. Findings return to the brief."],
       ["W6", "Competencies span both ends", "NSCA covers design and contract administration."]
     ]},
-  { key: "EDUCATION", angle: 185, ring: 1, color: "#6b9b6b",
+  { key: "EDUCATION", hub: [-8, 52], hubScale: 1, growDir: [0.05, 0.98], color: "#6b9b6b",
     zoom: "Judgment is trained, then kept alive — not a one-off competency stamp.",
     subs: [
       ["E1", "University under AQF", "Accredited higher learning. Inquiry is not always practice’s first priority."],
@@ -180,7 +188,7 @@ const GROUPS = [
       ["E5", "Knowledge should be collective", "Codes and contracts are instruments to interpret."],
       ["E6", "Classic or neo-profession", "Design profession. Commercial drift pulls toward a neo-profession. Mark your position."]
     ]},
-  { key: "BODIES", angle: 140, ring: 1, color: "#8a6ba8",
+  { key: "BODIES", hub: [125, 38], hubScale: 1.05, growDir: [0.90, 0.35], color: "#8a6ba8",
     zoom: "Institute advances the discipline; the Board holds it accountable; awards manufacture “good.”",
     subs: [
       ["B1", "AIA is voluntary", "Architects act together. Code of Professional Conduct (2006)."],
@@ -192,8 +200,8 @@ const GROUPS = [
       ["B7", "Outside juries disagree", "Social Impact and LEA do not copy the Institute’s taste."],
       ["B8", "Six media channels", "Awards, journals, global sites, PR, TikTok, LinkedIn."]
     ]},
-  { key: "POWER", angle: 305, ring: 0.62, color: "#b05040",
-    zoom: "A small overlapping group sits across school, Institute, and Board. Draw this smaller.",
+  { key: "POWER", hub: [62, 8], hubScale: 0.72, growDir: [0.65, 0.15], color: "#b05040",
+    zoom: "A small overlapping group sits across school, Institute, and Board. Smaller hub near Registration.",
     subs: [
       ["K1", "Interlocking seats", "The same few people can sit on school, Institute, and Board at once."],
       ["K2", "Influence sits in relations", "Client, builder, architect, regulator, finance. No single throne."],
@@ -219,13 +227,16 @@ const RELS = [
   ["X12", "POWER", "PROCUREMENT", "contrasts", "Control after novation is a commercial gate, not an ARBV gate."]
 ];
 
-function polar(r, deg) {
-  const a = deg * Math.PI / 180;
-  return [CX + r * Math.cos(a), CY - r * Math.sin(a)];
-}
 function rootOf(key) {
   const g = GROUPS.find(x => x.key === key);
-  return polar(RING * g.ring, g.angle);
+  return hub(g.hub[0], g.hub[1]);
+}
+function curveMid(p1, p2, bulge) {
+  const mx = (p1[0]+p2[0])/2, my = (p1[1]+p2[1])/2;
+  const dx = p2[0]-p1[0], dy = p2[1]-p1[1];
+  const L = Math.hypot(dx, dy) || 1;
+  const sign = (p1[0]+p2[0]) % 2 ? 1 : -1;
+  return [mx - dy/L*bulge*sign, my + dx/L*bulge*sign];
 }
 
 const svg = document.getElementById("map");
@@ -237,53 +248,30 @@ function el(name, attrs, text) {
   return n;
 }
 
+const gHighways = el("g", { class: "highways" });
 const gRels = el("g", { class: "rels" });
 const gBranches = el("g", { class: "branches" });
 const gNodes = el("g", { class: "nodes" });
-svg.appendChild(el("circle", { cx: CX, cy: CY, r: KEEPOUT, fill: "none", stroke: "#888", "stroke-dasharray": "4 4" }));
-svg.appendChild(el("text", { x: CX, y: CY - 8, "text-anchor": "middle", class: "label-main" }, "DISCIPLINARY MATRIX"));
-svg.appendChild(el("text", { x: CX, y: CY + 12, "text-anchor": "middle", class: "label-sub", fill: "#555" }, "Trusted with the title — by whom, for what?"));
 
-const wrap = GROUPS.filter(g => g.ring >= 1)
-  .sort((a, b) => a.angle - b.angle)
-  .map(g => polar(RING, g.angle));
-let dWrap = "";
-wrap.forEach((p, i) => { dWrap += (i ? " L " : "M ") + p[0] + " " + p[1]; });
-dWrap += " Z";
-svg.appendChild(el("path", { d: dWrap, fill: "none", stroke: "#bbb", "stroke-dasharray": "6 5", "stroke-width": 1.2 }));
+const titlePt = hub(0, 72);
+svg.appendChild(el("ellipse", { cx: titlePt[0], cy: titlePt[1], rx: KEEPOUT*1.55, ry: KEEPOUT*0.75, fill: "none", stroke: "#888", "stroke-dasharray": "4 4" }));
+svg.appendChild(el("text", { x: titlePt[0], y: titlePt[1] - 8, "text-anchor": "middle", class: "label-main" }, "DISCIPLINARY MATRIX"));
+svg.appendChild(el("text", { x: titlePt[0], y: titlePt[1] + 12, "text-anchor": "middle", class: "label-sub", fill: "#555" }, "Trusted with the title — by whom, for what?"));
 
-function arcPath(a, b, r) {
-  const p1 = polar(r, GROUPS.find(g => g.key === a).angle);
-  const p2 = polar(r, GROUPS.find(g => g.key === b).angle);
-  const a1 = GROUPS.find(g => g.key === a).angle * Math.PI / 180;
-  const a2 = GROUPS.find(g => g.key === b).angle * Math.PI / 180;
-  let da = a2 - a1;
-  while (da > Math.PI) da -= 2 * Math.PI;
-  while (da < -Math.PI) da += 2 * Math.PI;
-  const large = Math.abs(da) > Math.PI ? 1 : 0;
-  const sweep = da < 0 ? 0 : 1;
-  return { d: `M ${p1[0]} ${p1[1]} A ${r} ${r} 0 ${large} ${sweep} ${p2[0]} ${p2[1]}`, mid: polar(r, (GROUPS.find(g => g.key === a).angle + da * 90 / Math.PI) ) };
-}
+HIGHWAYS.forEach(([a, b]) => {
+  const p1 = rootOf(a), p2 = rootOf(b);
+  const c = curveMid(p1, p2, 28);
+  gHighways.appendChild(el("path", { d: `M ${p1[0]} ${p1[1]} Q ${c[0]} ${c[1]} ${p2[0]} ${p2[1]}`, fill: "none", stroke: "#aaa", "stroke-width": 3.2, opacity: 0.55 }));
+});
 
 RELS.forEach(rel => {
   const [id, a, b, verb] = rel;
-  const r = KEEPOUT + (RING - KEEPOUT) * 0.42;
-  const ga = GROUPS.find(g => g.key === a);
-  const gb = GROUPS.find(g => g.key === b);
-  let a1 = ga.angle, a2 = gb.angle;
-  let da = a2 - a1;
-  while (da > 180) da -= 360;
-  while (da < -180) da += 360;
-  const p1 = polar(r, a1), p2 = polar(r, a2);
-  const midA = a1 + da / 2;
-  const mid = polar(r, midA);
-  const large = Math.abs(da) > 180 ? 1 : 0;
-  const sweep = da < 0 ? 0 : 1;
-  const path = el("path", { d: `M ${p1[0]} ${p1[1]} A ${r} ${r} 0 ${large} ${sweep} ${p2[0]} ${p2[1]}`, fill: "none", stroke: "#777", "stroke-dasharray": "3 3", "stroke-width": 1.1, class: "rel-arc" });
-  gRels.appendChild(path);
+  const p1 = rootOf(a), p2 = rootOf(b);
+  const c = curveMid(p1, p2, 42);
+  const mid = [(p1[0]+p2[0]+c[0])/3, (p1[1]+p2[1]+c[1])/3];
+  gRels.appendChild(el("path", { d: `M ${p1[0]} ${p1[1]} Q ${c[0]} ${c[1]} ${p2[0]} ${p2[1]}`, fill: "none", stroke: "#777", "stroke-dasharray": "3 3", "stroke-width": 1.1, class: "rel-arc" }));
   const t = el("text", { x: mid[0], y: mid[1] - 4, "text-anchor": "middle", class: "label-rel" }, id + "  " + verb);
-  t.dataset.kind = "rel";
-  t.dataset.id = id;
+  t.dataset.kind = "rel"; t.dataset.id = id;
   gRels.appendChild(t);
   const hit = el("g", { class: "node", "data-kind": "rel", "data-id": id });
   hit.appendChild(el("circle", { cx: mid[0], cy: mid[1], r: 5, fill: "#777" }));
@@ -291,40 +279,38 @@ RELS.forEach(rel => {
 });
 
 GROUPS.forEach(g => {
-  const root = polar(RING * g.ring, g.angle);
+  const root = hub(g.hub[0], g.hub[1]);
   const [rx, ry] = root;
-  const vx = rx - CX, vy = ry - CY;
-  const L = Math.hypot(vx, vy);
-  const ux = vx / L, uy = vy / L;
+  const grow = g.growDir || [0, 1];
   const n = g.subs.length;
   g.subs.forEach((sub, i) => {
     const t = n === 1 ? 0 : (i / (n - 1) - 0.5);
-    const ang = t * 0.95;
-    const c = Math.cos(ang), s = Math.sin(ang);
-    const ox = ux * c - uy * s, oy = ux * s + uy * c;
-    const len = 118 + (i % 3) * 10;
-    const tx = rx + ox * len, ty = ry + oy * len;
-    const cx2 = rx + ox * len * 0.45 - oy * 18;
-    const cy2 = ry + oy * len * 0.45 + ox * 18;
-    const br = el("path", { d: `M ${rx} ${ry} Q ${cx2} ${cy2} ${tx} ${ty}`, fill: "none", stroke: g.color, "stroke-width": 1.15, class: "sub-branch" });
-    gBranches.appendChild(br);
-    const lab = el("text", { x: tx + ox * 10, y: ty + oy * 10, class: "label-sub", fill: g.color }, sub[0] + "  " + sub[1]);
-    if (ox < -0.2) lab.setAttribute("text-anchor", "end");
+    const perp = [-grow[1], grow[0]];
+    const len = 95 + (i % 3) * 12;
+    const tx = rx + grow[0]*len*0.85 + perp[0]*t*55;
+    const ty = ry + grow[1]*len*0.85 + perp[1]*t*55;
+    const cx2 = rx + grow[0]*len*0.4 + perp[0]*t*30;
+    const cy2 = ry + grow[1]*len*0.4 + perp[1]*t*30;
+    gBranches.appendChild(el("path", { d: `M ${rx} ${ry} Q ${cx2} ${cy2} ${tx} ${ty}`, fill: "none", stroke: g.color, "stroke-width": 1.15, class: "sub-branch" }));
+    const lab = el("text", { x: tx + grow[0]*10, y: ty + grow[1]*10, class: "label-sub", fill: g.color }, sub[0] + "  " + sub[1]);
+    if (grow[0] < -0.2) lab.setAttribute("text-anchor", "end");
     gBranches.appendChild(lab);
     const hit = el("g", { class: "node", "data-kind": "sub", "data-group": g.key, "data-id": sub[0] });
     hit.appendChild(el("circle", { cx: tx, cy: ty, r: 5.5, fill: g.color, stroke: "#fff", "stroke-width": 1 }));
     gNodes.appendChild(hit);
   });
+  const mainR = 8.5 * (g.hubScale || 1);
   const main = el("g", { class: "node", "data-kind": "main", "data-group": g.key, "data-id": g.key });
-  main.appendChild(el("circle", { cx: rx, cy: ry, r: g.key === "REGISTRATION" ? 11 : 8.5, fill: g.color, stroke: "#fff", "stroke-width": 1.5 }));
-  const mx = rx + ux * 16, my = ry + uy * 16;
+  main.appendChild(el("circle", { cx: rx, cy: ry, r: mainR, fill: g.color, stroke: "#fff", "stroke-width": 1.5 }));
+  const mx = rx + grow[0]*18, my = ry + grow[1]*18;
   const mt = el("text", { x: mx, y: my, class: "label-main", fill: g.color }, g.key);
-  if (ux < -0.15) mt.setAttribute("text-anchor", "end");
+  if (grow[0] < -0.15) mt.setAttribute("text-anchor", "end");
   gBranches.appendChild(mt);
   gNodes.appendChild(main);
 });
 
-svg.insertBefore(gRels, svg.firstChild);
+svg.insertBefore(gHighways, svg.firstChild);
+svg.insertBefore(gRels, svg.firstChild.nextSibling);
 svg.appendChild(gBranches);
 svg.appendChild(gNodes);
 
@@ -335,7 +321,7 @@ function showDetail(kind, id, groupKey) {
     box.innerHTML = `<h2>Relation ${r[0]}</h2>
       <p><span class="id">${r[1]}</span> <span class="verb">${r[3]}</span> <span class="id">${r[2]}</span></p>
       <p>${r[4]}</p>
-      <p>Letter the verb on the grey wrap-arc. Do not draw the arc through the title.</p>`;
+      <p>Letter the verb on the grey relation path between the two hubs.</p>`;
     return;
   }
   if (kind === "main") {
@@ -367,7 +353,7 @@ document.querySelectorAll(".node").forEach(n => {
 
 const wrapEl = document.getElementById("svg-wrap");
 const stage = document.getElementById("stage");
-let scale = 0.72, tx = 20, ty = 8, drag = null;
+let scale = 0.85, tx = 10, ty = 10, drag = null;
 function applyView() { wrapEl.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; }
 applyView();
 stage.addEventListener("wheel", e => {
@@ -386,7 +372,7 @@ document.getElementById("btn-in").onclick = () => { mapEl.classList.remove("dim"
 document.getElementById("btn-rel").onclick = () => { mapEl.classList.toggle("hide-rel"); document.getElementById("btn-rel").classList.toggle("on"); };
 document.getElementById("btn-plus").onclick = () => { scale = Math.min(2.8, scale * 1.2); applyView(); };
 document.getElementById("btn-minus").onclick = () => { scale = Math.max(0.35, scale * 0.8); applyView(); };
-document.getElementById("btn-reset").onclick = () => { scale = 0.72; tx = 20; ty = 8; applyView(); };
+document.getElementById("btn-reset").onclick = () => { scale = 0.85; tx = 10; ty = 10; applyView(); };
 document.getElementById("btn-print").onclick = () => window.print();
 document.getElementById("btn-in").classList.add("on");
 </script>

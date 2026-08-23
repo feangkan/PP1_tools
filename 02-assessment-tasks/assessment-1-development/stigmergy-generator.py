@@ -1,5 +1,5 @@
 """
-Assessment 1 stigmergy generator  v0.4
+Assessment 1 stigmergy generator  v0.6
 Development copy -- does not overwrite 05-diagrams/assessment-1/stigmergy-generator.py
 
 Rhino 8 Script Editor (Python 3 / CPython). Run to open the control panel.
@@ -7,23 +7,24 @@ Rhino 8 Script Editor (Python 3 / CPython). Run to open the control panel.
 NO TEXT IS BAKED
 ----------------
 Rhino annotation scale cannot be trusted for readable type. This script
-draws coloured geometry only: keep-out circle, ring wrap, trunks, branches,
-tip dots, relation arcs. Object names (Properties panel) hold catalog IDs
-so a selected dot can be matched to the web guide -- nothing is drawn as
-letters.
+draws coloured geometry only: title seat, thick highways, organic branches,
+tip dots, relation paths. Object names (Properties panel) hold catalog IDs.
 
 Place words by hand using:
   stigmergy-guide.html  (zoomable picture / web app)
   stigmergy-text-catalog.md
 
-LAYOUT
-------
-Same clock as the web guide: gold REGISTRATION at the bottom, terracotta
-POWER on a smaller inner ring, wrap-arcs around the title (not through it).
+LAYOUT  v0.6 -- nerve style (not radial / galaxy)
+-------------------------------------------------
+Distributed hubs on a horizontal canvas (~2:1). Thick bundled highways
+between regions; fine capillary branches at organic tips. REGISTRATION
+is the largest spine hub (lower-centre). POWER is a smaller overlap hub.
+Title sits in the upper void -- not a central ring hole.
 """
 
 import math
 import random
+import time
 import traceback
 
 import Rhino
@@ -125,13 +126,6 @@ class Widgets(object):
         lay.BackgroundColor = TH["bg_form"]
         return lay
 
-    def combo(self, items, index=0, width=160):
-        cb = eforms.ComboBox()
-        cb.DataStore = list(items)
-        cb.SelectedIndex = index
-        cb.Width = width
-        return cb
-
     def check(self, text, on=True):
         c = eforms.CheckBox()
         c.Text = text
@@ -154,45 +148,59 @@ def make_logger(text_area, keep_lines=160):
 class GrowthParams(object):
     def __init__(self):
         self.seed = 7
-        self.influence_radius = 16.0
-        self.kill_distance = 3.5
-        self.segment_length = 2.6
-        self.max_iterations = 550
-        self.attractors_per_zone = 110
-        self.ring_radius = 95.0
-        self.title_keepout = 40.0
-        self.outward_bias = 0.45
-        self.tip_dot_radius = 3.4
-        self.trunk_dot_radius = 6.5
+        self.influence_radius = 18.0
+        self.kill_distance = 3.8
+        self.segment_length = 2.4
+        self.max_iterations = 650
+        self.attractors_per_zone = 130
+        self.canvas_scale = 1.0
+        self.title_y = 72.0
+        self.title_keepout = 28.0
+        self.grow_bias = 0.55
+        self.tip_dot_radius = 3.0
+        self.trunk_dot_radius = 6.0
         self.rel_dot_radius = 3.0
-        self.trunk_line = 0.90
-        self.spoke_line = 0.42
-        self.wrap_line = 0.38
-        self.hair_line = 0.20
-        self.draw_title_circle = True
-        self.draw_wrap_arcs = True
+        self.highway_line = 1.35
+        self.trunk_line = 0.85
+        self.branch_line = 0.28
+        self.hair_line = 0.10
+        self.rel_line = 0.55
+        self.draw_title_ellipse = True
+        self.draw_highways = True
+        self.draw_relations = True
+        self.animate = False
 
 
 ORIGIN = rg.Point3d(0, 0, 0)
 
 
-def polar(radius, deg):
-    a = math.radians(deg)
-    return rg.Point3d(radius * math.cos(a), radius * math.sin(a), 0)
+def hub_pt(cat, scale):
+    x, y = cat["hub"]
+    return rg.Point3d(x * scale, y * scale, 0)
+
+
+def grow_vec(cat):
+    gx, gy = cat["grow_dir"]
+    v = rg.Vector3d(gx, gy, 0)
+    if v.Length > 1e-9:
+        v.Unitize()
+    return v
 
 
 # -----------------------------------------------------------------
 # Content -- IDs match stigmergy-text-catalog.md
-# angle = degrees from +X, CCW (90 = top, 270 = bottom)
+# hub = (x, y) on nerve canvas; grow_dir = attractor / branch bias
+# hub_scale: REGISTRATION largest; POWER smaller overlap hub
 # -----------------------------------------------------------------
 CATEGORIES = [
     {
         "key": "ETHICS",
         "zoom": "Duty past the fee-payer",
         "colour": (176, 106, 122),
-        "angle": 90,
-        "ring_scale": 1.0,
-        "zone_radius": 30,
+        "hub": (-165, 38),
+        "grow_dir": (-0.85, 0.35),
+        "zone_radius": 36,
+        "hub_scale": 1.0,
         "subs": [
             ("H1", "Knowledge becomes power"),
             ("H2", "Client not in the room"),
@@ -208,9 +216,10 @@ CATEGORIES = [
         "key": "LEGISLATION",
         "zoom": "Instruments that can be rewritten",
         "colour": (91, 124, 153),
-        "angle": 50,
-        "ring_scale": 1.0,
-        "zone_radius": 34,
+        "hub": (-78, 48),
+        "grow_dir": (-0.25, 0.95),
+        "zone_radius": 40,
+        "hub_scale": 1.05,
         "subs": [
             ("L1", "Act gives legal form"),
             ("L2", "RIBA was not a licence"),
@@ -230,9 +239,10 @@ CATEGORIES = [
         "key": "RESEARCH",
         "zoom": "Codes change what may be built",
         "colour": (77, 143, 106),
-        "angle": 10,
-        "ring_scale": 1.0,
-        "zone_radius": 26,
+        "hub": (-52, -52),
+        "grow_dir": (-0.35, -0.90),
+        "zone_radius": 32,
+        "hub_scale": 1.0,
         "subs": [
             ("N1", "Fit for purpose, then performance"),
             ("N2", "Codes are co-authored"),
@@ -246,9 +256,10 @@ CATEGORIES = [
         "key": "PROCUREMENT",
         "zoom": "Contract can strip design control",
         "colour": (52, 80, 112),
-        "angle": 330,
-        "ring_scale": 1.0,
-        "zone_radius": 22,
+        "hub": (-158, -42),
+        "grow_dir": (-0.92, -0.25),
+        "zone_radius": 28,
+        "hub_scale": 1.0,
         "subs": [
             ("P1", "Bringing a building into being"),
             ("P2", "Design and construct"),
@@ -261,9 +272,10 @@ CATEGORIES = [
         "key": "REGISTRATION",
         "zoom": "The one compulsory gate",
         "colour": (201, 162, 39),
-        "angle": 270,
-        "ring_scale": 1.0,
-        "zone_radius": 40,
+        "hub": (28, -28),
+        "grow_dir": (0.15, -0.88),
+        "zone_radius": 52,
+        "hub_scale": 1.35,
         "subs": [
             ("R1", "Accredited education first"),
             ("R2", "Five statutory requirements"),
@@ -283,9 +295,10 @@ CATEGORIES = [
         "key": "EMPLOYMENT",
         "zoom": "Hours in practice; project is a loop",
         "colour": (166, 138, 91),
-        "angle": 225,
-        "ring_scale": 1.0,
-        "zone_radius": 26,
+        "hub": (-92, -68),
+        "grow_dir": (-0.55, -0.80),
+        "zone_radius": 30,
+        "hub_scale": 1.0,
         "subs": [
             ("W1", "Firm is where hours live"),
             ("W2", "Project management walked off"),
@@ -299,9 +312,10 @@ CATEGORIES = [
         "key": "EDUCATION",
         "zoom": "Judgment trained, then kept alive",
         "colour": (107, 155, 107),
-        "angle": 185,
-        "ring_scale": 1.0,
-        "zone_radius": 26,
+        "hub": (-8, 52),
+        "grow_dir": (0.05, 0.98),
+        "zone_radius": 30,
+        "hub_scale": 1.0,
         "subs": [
             ("E1", "University under AQF"),
             ("E2", "Judgment over competency"),
@@ -315,9 +329,10 @@ CATEGORIES = [
         "key": "BODIES",
         "zoom": "Institute advances; Board accounts",
         "colour": (138, 107, 168),
-        "angle": 140,
-        "ring_scale": 1.0,
-        "zone_radius": 28,
+        "hub": (125, 38),
+        "grow_dir": (0.90, 0.35),
+        "zone_radius": 34,
+        "hub_scale": 1.05,
         "subs": [
             ("B1", "AIA is voluntary"),
             ("B2", "ARBV is statutory"),
@@ -333,9 +348,10 @@ CATEGORIES = [
         "key": "POWER",
         "zoom": "Tight title, loose code and contract",
         "colour": (176, 80, 64),
-        "angle": 305,
-        "ring_scale": 0.62,
-        "zone_radius": 20,
+        "hub": (62, 8),
+        "grow_dir": (0.65, 0.15),
+        "zone_radius": 24,
+        "hub_scale": 0.72,
         "subs": [
             ("K1", "Interlocking seats"),
             ("K2", "Influence sits in relations"),
@@ -345,6 +361,24 @@ CATEGORIES = [
             ("K6", "What should change"),
         ],
     },
+]
+
+# Thick bundled highways between hubs (weight multiplier)
+HIGHWAYS = [
+    ("ETHICS", "LEGISLATION", 1.0),
+    ("LEGISLATION", "EDUCATION", 0.95),
+    ("LEGISLATION", "REGISTRATION", 1.0),
+    ("EDUCATION", "REGISTRATION", 0.92),
+    ("REGISTRATION", "EMPLOYMENT", 0.88),
+    ("REGISTRATION", "BODIES", 1.0),
+    ("RESEARCH", "LEGISLATION", 0.85),
+    ("RESEARCH", "REGISTRATION", 0.80),
+    ("PROCUREMENT", "EMPLOYMENT", 0.75),
+    ("PROCUREMENT", "REGISTRATION", 0.70),
+    ("BODIES", "LEGISLATION", 0.78),
+    ("POWER", "REGISTRATION", 0.65),
+    ("POWER", "LEGISLATION", 0.60),
+    ("POWER", "PROCUREMENT", 0.58),
 ]
 
 # (from_key, to_key, rel_id, verb)
@@ -401,27 +435,55 @@ def force_annotation_scale_to_one(status_cb):
         status_cb("Could not auto-fix annotation scale:\n" + traceback.format_exc())
 
 
+def title_center(params):
+    return rg.Point3d(0, params.title_y * params.canvas_scale, 0)
+
+
+def push_outside_title(pt, params):
+    center = title_center(params)
+    keep = params.title_keepout * params.canvas_scale
+    d = pt.DistanceTo(center)
+    if d >= keep:
+        return pt
+    if d < 1e-9:
+        return rg.Point3d(center.X, center.Y - keep - 1.0, 0)
+    scale = (keep + 1.2) / d
+    dx = pt.X - center.X
+    dy = pt.Y - center.Y
+    return rg.Point3d(center.X + dx * scale, center.Y + dy * scale, 0)
+
+
 def random_point_in_disc(center, radius):
     r = radius * math.sqrt(random.random())
     a = random.random() * 2.0 * math.pi
     return rg.Point3d(center.X + r * math.cos(a), center.Y + r * math.sin(a), 0)
 
 
-def push_outside_keepout(pt, keepout):
-    d = pt.DistanceTo(ORIGIN)
-    if d >= keepout:
-        return pt
-    if d < 1e-9:
-        return rg.Point3d(keepout, 0, 0)
-    scale = (keepout + 0.8) / d
-    return rg.Point3d(pt.X * scale, pt.Y * scale, 0)
+def random_point_in_zone(root, grow_dir, zone_radius, scale):
+    gd = grow_vec({"grow_dir": grow_dir})
+    perp = rg.Vector3d(-gd.Y, gd.X, 0)
+    # Elliptical cloud: long along grow_dir, wide perpendicular
+    along = (random.random() - 0.15) * zone_radius * scale * 1.35
+    across = (random.random() - 0.5) * zone_radius * scale * 0.85
+    return rg.Point3d(
+        root.X + gd.X * along + perp.X * across,
+        root.Y + gd.Y * along + perp.Y * across,
+        0,
+    )
 
 
-def grow_branches(root_pt, zone_center, zone_radius, n_attractors, params):
+def grow_branches(root_pt, grow_dir, zone_radius, n_attractors, params, scale):
+    gd = grow_vec({"grow_dir": grow_dir})
+    zone_center = rg.Point3d(
+        root_pt.X + gd.X * zone_radius * scale * 0.55,
+        root_pt.Y + gd.Y * zone_radius * scale * 0.55,
+        0,
+    )
+
     attractors = []
     for _ in range(n_attractors):
-        p = random_point_in_disc(zone_center, zone_radius)
-        p = push_outside_keepout(p, params.title_keepout + 2.0)
+        p = random_point_in_zone(root_pt, grow_dir, zone_radius, scale)
+        p = push_outside_title(p, params)
         attractors.append(p)
 
     nodes = [root_pt]
@@ -435,7 +497,7 @@ def grow_branches(root_pt, zone_center, zone_radius, n_attractors, params):
         node_count = {}
 
         for a in attractors:
-            nearest_i, nearest_d = -1, params.influence_radius
+            nearest_i, nearest_d = -1, params.influence_radius * scale
             for i, n in enumerate(nodes):
                 d = n.DistanceTo(a)
                 if d < nearest_d:
@@ -452,21 +514,24 @@ def grow_branches(root_pt, zone_center, zone_radius, n_attractors, params):
 
         for i, vsum in node_dir_sum.items():
             avg = vsum / node_count[i]
-            away = nodes[i] - ORIGIN
-            if away.Length > 1e-9:
-                away.Unitize()
-                avg = avg + away * params.outward_bias
+            avg = avg + gd * params.grow_bias
+            jitter = rg.Vector3d(
+                random.uniform(-0.18, 0.18),
+                random.uniform(-0.18, 0.18),
+                0,
+            )
+            avg = avg + jitter
             if avg.Length > 1e-9:
                 avg.Unitize()
-            new_pt = push_outside_keepout(
-                nodes[i] + avg * params.segment_length,
-                params.title_keepout + 1.0,
+            new_pt = push_outside_title(
+                nodes[i] + avg * params.segment_length * scale,
+                params,
             )
             nodes.append(new_pt)
             parent_of[len(nodes) - 1] = i
 
         attractors = [a for a in attractors
-                      if all(n.DistanceTo(a) >= params.kill_distance for n in nodes)]
+                      if all(n.DistanceTo(a) >= params.kill_distance * scale for n in nodes)]
 
     return nodes, parent_of
 
@@ -485,25 +550,31 @@ def node_depth(index, parent_of):
 def find_leaf_tips(nodes, parent_of):
     is_parent = set(parent_of.values())
     leaves = [i for i in range(len(nodes)) if i not in is_parent and i != 0]
-    leaves.sort(key=lambda i: nodes[i].DistanceTo(nodes[0]), reverse=True)
     return leaves
 
 
-def wrap_arc_points(p1, p2, radius):
-    a1 = math.atan2(p1.Y, p1.X)
-    a2 = math.atan2(p2.Y, p2.X)
-    da = a2 - a1
-    while da > math.pi:
-        da -= 2.0 * math.pi
-    while da < -math.pi:
-        da += 2.0 * math.pi
-    steps = max(10, int(abs(da) / 0.10))
-    pts = []
-    for i in range(steps + 1):
-        t = i / float(steps)
-        a = a1 + da * t
-        pts.append(rg.Point3d(radius * math.cos(a), radius * math.sin(a), 0))
-    return pts
+def curve_between(p1, p2, bulge_factor=0.22, scale=1.0):
+    mid = rg.Point3d(
+        (p1.X + p2.X) * 0.5,
+        (p1.Y + p2.Y) * 0.5,
+        0,
+    )
+    dx = p2.X - p1.X
+    dy = p2.Y - p1.Y
+    dist = math.hypot(dx, dy)
+    if dist < 1e-9:
+        return [p1, p2]
+    perp_x = -dy / dist
+    perp_y = dx / dist
+    bulge = dist * bulge_factor * scale
+    # Alternate bulge direction by hash of endpoints for variety
+    sign = 1.0 if (hash((round(p1.X, 1), round(p2.X, 1))) % 2) == 0 else -1.0
+    ctrl = rg.Point3d(
+        mid.X + perp_x * bulge * sign,
+        mid.Y + perp_y * bulge * sign,
+        0,
+    )
+    return [p1, ctrl, p2]
 
 
 def set_print_width(obj_id, width):
@@ -514,7 +585,6 @@ def set_print_width(obj_id, width):
 
 
 def name_obj(obj_id, name):
-    """Invisible ID -- shows in Properties, not on the drawing."""
     if not obj_id:
         return
     try:
@@ -551,9 +621,6 @@ def paint(obj_id, colour, layer, name=None):
 
 
 def thicken_curve(curve_id, radius, colour, layer, name=None, delete_curve=False):
-    """Keep the centerline (for vector PDF/AI/SVG print-width) AND add a
-    pipe on Diagram::Pipes so the weight is visible on screen. Hide the
-    Pipes layer before a curves-only export."""
     if not curve_id:
         return None
     paint(curve_id, colour, layer, name)
@@ -589,7 +656,6 @@ def add_thick_line(p1, p2, radius, colour, layer, name=None):
 
 
 def add_filled_disk(pt, radius, colour, layer, name):
-    """Solid seat for hand-lettering -- hatch, or a sphere if hatch fails."""
     circ = rs.AddCircle(pt, radius)
     if not circ:
         return None
@@ -649,27 +715,41 @@ def add_diamond(pt, size, colour, layer, name):
     return pl
 
 
-def add_text_seat(pt, colour, layer, name, kind, params):
-    """Every place you must letter gets a marker you can see zoomed out."""
+def add_text_seat(pt, colour, layer, name, kind, params, hub_scale=1.0):
+    base = params.trunk_dot_radius * params.canvas_scale * hub_scale
     if kind == "title":
-        add_filled_disk(pt, params.trunk_dot_radius * 0.85, (70, 70, 70), layer, name)
-        add_halo(pt, params.trunk_dot_radius * 1.35, (90, 90, 90), layer, name)
-        # crosshair so the hole reads as 'write here'
-        s = params.trunk_dot_radius * 1.8
+        add_filled_disk(pt, base * 0.85, (70, 70, 70), layer, name)
+        add_halo(pt, base * 1.35, (90, 90, 90), layer, name)
+        s = base * 1.8
         add_thick_line(rg.Point3d(pt.X - s, pt.Y, 0), rg.Point3d(pt.X + s, pt.Y, 0),
                        0.22, (70, 70, 70), layer, name)
         add_thick_line(rg.Point3d(pt.X, pt.Y - s, 0), rg.Point3d(pt.X, pt.Y + s, 0),
                        0.22, (70, 70, 70), layer, name)
         return
     if kind == "main":
-        add_filled_disk(pt, params.trunk_dot_radius, colour, layer, name)
-        add_halo(pt, params.trunk_dot_radius * 1.55, colour, layer, name)
+        add_filled_disk(pt, base, colour, layer, name)
+        add_halo(pt, base * 1.55, colour, layer, name)
         return
     if kind == "rel":
-        add_diamond(pt, params.rel_dot_radius, (90, 90, 90), layer, name)
+        add_diamond(pt, params.rel_dot_radius * params.canvas_scale, (90, 90, 90), layer, name)
         return
-    add_filled_disk(pt, params.tip_dot_radius, colour, layer, name)
-    add_halo(pt, params.tip_dot_radius * 1.45, colour, layer, name)
+    tip_r = params.tip_dot_radius * params.canvas_scale
+    add_filled_disk(pt, tip_r, colour, layer, name)
+    add_halo(pt, tip_r * 1.45, colour, layer, name)
+
+
+def line_weight_for_depth(depth, params):
+    if depth <= 2:
+        return params.trunk_line
+    if depth <= 6:
+        return params.branch_line
+    return params.hair_line
+
+
+def maybe_redraw(animate):
+    if animate:
+        sc.doc.Views.Redraw()
+        time.sleep(0.008)
 
 
 # -----------------------------------------------------------------
@@ -678,109 +758,167 @@ def add_text_seat(pt, colour, layer, name, kind, params):
 def bake_title(params, status_cb):
     layer = ensure_layer("Diagram::Title", (80, 80, 80))
     rs.CurrentLayer(layer)
-    add_text_seat(ORIGIN, (70, 70, 70), layer, "TITLE", "title", params)
-    if params.draw_title_circle:
-        cid = rs.AddCircle(ORIGIN, params.title_keepout)
-        paint(cid, (90, 90, 90), layer, "TITLE")
-        thicken_curve(cid, params.wrap_line, (90, 90, 90), layer, "TITLE")
-    status_cb("Title seat + keep-out ring -- letter in the centre hole.")
+    center = title_center(params)
+    add_text_seat(center, (70, 70, 70), layer, "TITLE", "title", params)
+    if params.draw_title_ellipse:
+        rx = params.title_keepout * params.canvas_scale * 1.55
+        ry = params.title_keepout * params.canvas_scale * 0.75
+        try:
+            plane = rg.Plane(center, rg.Vector3d.ZAxis)
+            ell = rg.Ellipse(plane, rx, ry)
+            crv = ell.ToNurbsCurve()
+            cid = rs.AddCurve(crv)
+            if cid:
+                thicken_curve(cid, params.hair_line, (90, 90, 90), layer, "TITLE")
+        except Exception:
+            cid = rs.AddCircle(center, params.title_keepout * params.canvas_scale)
+            if cid:
+                thicken_curve(cid, params.hair_line, (90, 90, 90), layer, "TITLE")
+    status_cb("Title seat in upper void -- letter DISCIPLINARY MATRIX here.")
 
 
-def bake_main_wrap(roots_sorted, params):
-    layer = ensure_layer("Diagram::MainWrap", (110, 110, 110))
-    rs.CurrentLayer(layer)
-    if len(roots_sorted) < 3:
+def bake_highways(zone_results, params, animate=False):
+    if not params.draw_highways:
         return
-    pts = list(roots_sorted) + [roots_sorted[0]]
-    crv = rs.AddInterpCurve(pts, 3)
-    if crv:
-        thicken_curve(crv, params.wrap_line, (110, 110, 110), layer, "MAIN_WRAP")
+    layer = ensure_layer("Diagram::Highways", (100, 100, 100))
+    rs.CurrentLayer(layer)
+    scale = params.canvas_scale
+
+    for a_key, b_key, weight in HIGHWAYS:
+        if a_key not in zone_results or b_key not in zone_results:
+            continue
+        p1 = zone_results[a_key]["root"]
+        p2 = zone_results[b_key]["root"]
+        pts = curve_between(p1, p2, bulge_factor=0.18, scale=scale)
+        crv = rs.AddInterpCurve(pts, 3)
+        if not crv:
+            continue
+        # Blend colours of the two zones
+        c1 = zone_results[a_key]["colour"]
+        c2 = zone_results[b_key]["colour"]
+        blend = (
+            int((c1[0] + c2[0]) * 0.5),
+            int((c1[1] + c2[1]) * 0.5),
+            int((c1[2] + c2[2]) * 0.5),
+        )
+        w = params.highway_line * weight * scale
+        thicken_curve(crv, w, blend, layer, "{}-{}".format(a_key, b_key))
+        maybe_redraw(animate)
 
 
-def bake_zone(cat, params):
+def assign_tips_to_subs(root, leaves, nodes, subs, grow_dir):
+    """Map catalog sub IDs to organic leaf tips (angle order for stability)."""
+    if not subs:
+        return []
+    gd = grow_vec({"grow_dir": grow_dir})
+    perp = rg.Vector3d(-gd.Y, gd.X, 0)
+
+    def sort_key(i):
+        tip = nodes[i]
+        rel = tip - root
+        along = rel.X * gd.X + rel.Y * gd.Y
+        across = rel.X * perp.X + rel.Y * perp.Y
+        dist = root.DistanceTo(tip)
+        return (round(across, 1), -dist, round(along, 1))
+
+    ranked = sorted(leaves, key=sort_key)
+    n_need = len(subs)
+    if len(ranked) >= n_need:
+        chosen = ranked[:n_need]
+    else:
+        chosen = list(ranked)
+        # Extend with synthetic tips along grow direction if growth was sparse
+        gd_len = max(root.DistanceTo(nodes[i]) for i in leaves) if leaves else 20.0
+        for k in range(n_need - len(ranked)):
+            t = (k + 1) / float(n_need + 1)
+            along = gd_len * (0.85 + t * 0.45)
+            across = (k - n_need * 0.5) * 4.5
+            pt_idx = len(nodes) + k
+            chosen.append(pt_idx)
+            nodes.append(rg.Point3d(
+                root.X + gd.X * along + perp.X * across,
+                root.Y + gd.Y * along + perp.Y * across,
+                0,
+            ))
+    chosen.sort(key=lambda i: sort_key(i) if i < len(nodes) else (0, 0, 0))
+    return [(subs[k][0], nodes[chosen[k]]) for k in range(len(subs))]
+
+
+def bake_zone(cat, params, animate=False):
     colour = cat["colour"]
     layer = ensure_layer("Diagram::" + cat["key"], colour)
     rs.CurrentLayer(layer)
+    scale = params.canvas_scale
 
-    root = polar(params.ring_radius * cat["ring_scale"], cat["angle"])
-    away = root - ORIGIN
-    if away.Length > 1e-9:
-        away.Unitize()
-    zone_center = root + away * (cat["zone_radius"] * 0.70)
+    root = hub_pt(cat, scale)
+    hub_scale = cat.get("hub_scale", 1.0)
 
-    add_text_seat(root, colour, layer, cat["key"], "main", params)
+    add_text_seat(root, colour, layer, cat["key"], "main", params, hub_scale)
 
     nodes, parent_of = grow_branches(
-        root, zone_center, cat["zone_radius"],
-        params.attractors_per_zone, params,
+        root, cat["grow_dir"], cat["zone_radius"],
+        params.attractors_per_zone, params, scale,
     )
 
     for i in range(1, len(nodes)):
+        if i not in parent_of or parent_of[i] < 0:
+            continue
         depth = node_depth(i, parent_of)
         lid = rs.AddLine(nodes[parent_of[i]], nodes[i])
         if not lid:
             continue
         paint(lid, colour, layer, cat["key"])
+        w = line_weight_for_depth(depth, params) * scale
         if depth <= 2:
-            thicken_curve(lid, params.trunk_line, colour, layer, cat["key"])
-        elif depth <= 5:
-            thicken_curve(lid, params.hair_line, colour, layer, cat["key"])
+            thicken_curve(lid, w, colour, layer, cat["key"])
+        elif depth <= 6:
+            thicken_curve(lid, w, colour, layer, cat["key"])
         else:
-            set_print_width(lid, 0.35)
+            thicken_curve(lid, w * 0.65, colour, layer, cat["key"])
+        maybe_redraw(animate)
 
-    # Content dots sit on a FIXED outward fan (same order as stigmergy-guide.html).
-    # Organic growth above is the look only -- it does not pick which sentence
-    # goes on which tip. Catalog order = left-to-right across the fan.
     marker_layer = ensure_layer("Diagram::Markers", colour)
     rs.CurrentLayer(marker_layer)
+
+    leaves = find_leaf_tips(nodes, parent_of)
+    tip_assignments = assign_tips_to_subs(root, leaves, nodes, cat["subs"], cat["grow_dir"])
+
     placed = 0
-    n = len(cat["subs"])
-    spread = 0.95  # radians -- matches the web guide
-    for k, (mid, _short) in enumerate(cat["subs"]):
-        t = 0.0 if n == 1 else (k / float(n - 1) - 0.5)
-        ang = t * spread
-        c, s = math.cos(ang), math.sin(ang)
-        ox = away.X * c - away.Y * s
-        oy = away.X * s + away.Y * c
-        length = cat["zone_radius"] * 1.15 + (k % 3) * 3.0
-        tip = rg.Point3d(root.X + ox * length, root.Y + oy * length, 0)
-        tip = push_outside_keepout(tip, params.title_keepout + 4.0)
-        add_thick_line(root, tip, params.spoke_line, colour, marker_layer, mid)
+    for mid, tip in tip_assignments:
         add_text_seat(tip, colour, marker_layer, mid, "sub", params)
         placed += 1
+        maybe_redraw(animate)
 
     return {
         "root": root,
         "colour": colour,
         "placed": placed,
-        "missing": [],
-        "angle": cat["angle"],
+        "hub_scale": hub_scale,
     }
 
 
-def bake_relations(zone_results, params, status_cb):
-    if not params.draw_wrap_arcs:
+def bake_relations(zone_results, params, status_cb, animate=False):
+    if not params.draw_relations:
         return
     layer = ensure_layer("Diagram::Relations", (120, 120, 120))
     rs.CurrentLayer(layer)
-    arc_r = params.title_keepout + (params.ring_radius - params.title_keepout) * 0.42
+    scale = params.canvas_scale
 
     for a_key, b_key, rid, verb in RELATIONS:
         if a_key not in zone_results or b_key not in zone_results:
             continue
         p1 = zone_results[a_key]["root"]
         p2 = zone_results[b_key]["root"]
-        pts = wrap_arc_points(p1, p2, arc_r)
-        if len(pts) < 2:
-            continue
-        crv = rs.AddInterpCurve(pts)
+        pts = curve_between(p1, p2, bulge_factor=0.32, scale=scale)
+        crv = rs.AddInterpCurve(pts, 3)
         if not crv:
             continue
         rel_name = "{} {}".format(rid, verb)
-        thicken_curve(crv, params.wrap_line * 0.85, (100, 100, 100), layer, rel_name)
+        thicken_curve(crv, params.rel_line * scale * 0.85, (100, 100, 100), layer, rel_name)
         mid = pts[len(pts) // 2]
         add_text_seat(mid, (90, 90, 90), layer, rel_name, "rel", params)
-    status_cb("Relation arcs thickened; grey diamonds are verb seats.")
+        maybe_redraw(animate)
+    status_cb("Relation paths between hubs; grey diamonds are verb seats.")
 
 
 def generate_diagram(params, status_cb):
@@ -788,27 +926,29 @@ def generate_diagram(params, status_cb):
     force_annotation_scale_to_one(status_cb)
     clear_diagram_layers(status_cb)
 
-    sc.doc.Views.RedrawEnabled = False
+    animate = params.animate
+    sc.doc.Views.RedrawEnabled = not animate
     try:
         bake_title(params, status_cb)
+
         zone_results = {}
-        roots_for_wrap = []
         for cat in CATEGORIES:
-            result = bake_zone(cat, params)
+            result = bake_zone(cat, params, animate)
             zone_results[cat["key"]] = result
-            if cat["ring_scale"] >= 0.95:
-                roots_for_wrap.append((cat["angle"], result["root"]))
-            status_cb("{} : {} content dots on the fan (catalog order).".format(
+            status_cb("{} : {} subtopic seats on organic tips.".format(
                 cat["key"], result["placed"]))
 
-        roots_for_wrap.sort(key=lambda t: t[0])
-        bake_main_wrap([p for _, p in roots_for_wrap], params)
-        bake_relations(zone_results, params, status_cb)
+        # Highways on top of zone roots but under relation markers
+        bake_highways(zone_results, params, animate)
+        bake_relations(zone_results, params, status_cb, animate)
     finally:
         sc.doc.Views.RedrawEnabled = True
 
     rs.ZoomExtents()
-    status_cb("Seats are filled. Pipes carry line weight on screen. Letter from stigmergy-guide.html.")
+    status_cb(
+        "Nerve layout v0.6. No ring. Highways + organic capillaries.\n"
+        "Letter from stigmergy-guide.html. Hide pipes before vector export."
+    )
 
 
 # -----------------------------------------------------------------
@@ -818,9 +958,9 @@ class StigmergyForm(eforms.Form):
 
     def __init__(self):
         eforms.Form.__init__(self)
-        self.Title = "A1 Stigmergy  v0.5  (thick lines + text seats)"
+        self.Title = "A1 Stigmergy  v0.6  (nerve layout)"
         self.Resizable = True
-        self.ClientSize = edrawing.Size(460, 720)
+        self.ClientSize = edrawing.Size(460, 760)
         self.Padding = edrawing.Padding(8)
         self.BackgroundColor = TH["bg_form"]
         self.params = GrowthParams()
@@ -830,17 +970,23 @@ class StigmergyForm(eforms.Form):
         w = Widgets()
         lay = w.layout()
 
-        lay.AddRow(w.section("Layout -- title in the hole, mains on a ring"))
-        self._ring = w.num(self.params.ring_radius, 40, 220, dec=1)
-        lay.AddRow(w.row("Ring radius", self._ring))
-        self._keepout = w.num(self.params.title_keepout, 12, 90, dec=1)
+        lay.AddRow(w.section("Layout -- nerve style (horizontal hubs)"))
+        self._scale = w.num(self.params.canvas_scale, 0.5, 2.0, dec=2, inc=0.05)
+        lay.AddRow(w.row("Canvas scale", self._scale))
+        self._title_y = w.num(self.params.title_y, 30, 120, dec=1)
+        lay.AddRow(w.row("Title Y (upper void)", self._title_y))
+        self._keepout = w.num(self.params.title_keepout, 12, 60, dec=1)
         lay.AddRow(w.row("Title keep-out", self._keepout))
-        self._outward = w.num(self.params.outward_bias, 0.0, 1.5, dec=2, inc=0.05)
-        lay.AddRow(w.row("Outward bias", self._outward))
-        self._draw_title = w.check("Draw title keep-out circle", True)
+        self._grow_bias = w.num(self.params.grow_bias, 0.0, 1.5, dec=2, inc=0.05)
+        lay.AddRow(w.row("Branch direction bias", self._grow_bias))
+        self._draw_title = w.check("Draw title keep-out ellipse", True)
         lay.AddRow(self._draw_title)
-        self._draw_arcs = w.check("Draw wrap-around relation arcs", True)
-        lay.AddRow(self._draw_arcs)
+        self._draw_hw = w.check("Draw bundled highways", True)
+        lay.AddRow(self._draw_hw)
+        self._draw_rel = w.check("Draw relation paths", True)
+        lay.AddRow(self._draw_rel)
+        self._animate = w.check("Animate while generating", False)
+        lay.AddRow(self._animate)
 
         lay.AddRow(w.section("Growth"))
         self._seed = w.num(self.params.seed, 0, 9999)
@@ -857,14 +1003,16 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(w.row("Attractors / zone", self._attractors))
 
         lay.AddRow(w.section("Line weight -- real pipes, visible zoomed out"))
+        self._highway = w.num(self.params.highway_line, 0.3, 4.0, dec=2, inc=0.05)
+        lay.AddRow(w.row("Highway trunks", self._highway))
         self._trunk_line = w.num(self.params.trunk_line, 0.15, 3.0, dec=2, inc=0.05)
-        lay.AddRow(w.row("Trunk / near-root", self._trunk_line))
-        self._spoke_line = w.num(self.params.spoke_line, 0.10, 2.0, dec=2, inc=0.05)
-        lay.AddRow(w.row("Fan spokes", self._spoke_line))
-        self._wrap_line = w.num(self.params.wrap_line, 0.10, 2.0, dec=2, inc=0.05)
-        lay.AddRow(w.row("Wrap + keep-out ring", self._wrap_line))
-        self._hair_line = w.num(self.params.hair_line, 0.05, 1.5, dec=2, inc=0.05)
-        lay.AddRow(w.row("Organic mid-hair", self._hair_line))
+        lay.AddRow(w.row("Near-root branches", self._trunk_line))
+        self._branch_line = w.num(self.params.branch_line, 0.05, 2.0, dec=2, inc=0.05)
+        lay.AddRow(w.row("Mid branches", self._branch_line))
+        self._hair_line = w.num(self.params.hair_line, 0.02, 1.5, dec=2, inc=0.05)
+        lay.AddRow(w.row("Terminal capillaries", self._hair_line))
+        self._rel_line = w.num(self.params.rel_line, 0.10, 2.0, dec=2, inc=0.05)
+        lay.AddRow(w.row("Relation paths", self._rel_line))
 
         lay.AddRow(w.section("Text seats -- filled dots, no letters"))
         self._trunk_r = w.num(self.params.trunk_dot_radius, 2.0, 16, dec=1)
@@ -881,15 +1029,15 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(w.button_row(self._btn_generate, self._btn_clear))
         lay.AddRow(w.button_row(self._btn_vector, self._btn_pipes))
 
-        self._log = w.log_area(height=150)
+        self._log = w.log_area(height=140)
         self.status_cb = make_logger(self._log)
         lay.AddRow(self._log)
         self.Content = lay
         self.status_cb(
-            "No letters. Filled seats mark every place to type.\n"
-            "Centre + = title. Large discs = main claims.\n"
-            "Small discs = subtopics. Grey diamonds = relation verbs.\n"
-            "Line weight is a pipe -- it stays visible when you zoom out."
+            "Nerve layout -- no central ring.\n"
+            "Gold REGISTRATION = largest spine hub (lower-centre).\n"
+            "Terracotta POWER = smaller overlap hub.\n"
+            "Subtopic dots sit on organic branch tips, not fan spokes."
         )
 
     def _read_params(self):
@@ -900,18 +1048,22 @@ class StigmergyForm(eforms.Form):
         p.segment_length = float(self._segment.Value)
         p.max_iterations = int(self._iterations.Value)
         p.attractors_per_zone = int(self._attractors.Value)
-        p.ring_radius = float(self._ring.Value)
+        p.canvas_scale = float(self._scale.Value)
+        p.title_y = float(self._title_y.Value)
         p.title_keepout = float(self._keepout.Value)
-        p.outward_bias = float(self._outward.Value)
+        p.grow_bias = float(self._grow_bias.Value)
         p.trunk_dot_radius = float(self._trunk_r.Value)
         p.tip_dot_radius = float(self._tip_r.Value)
         p.rel_dot_radius = float(self._rel_r.Value)
+        p.highway_line = float(self._highway.Value)
         p.trunk_line = float(self._trunk_line.Value)
-        p.spoke_line = float(self._spoke_line.Value)
-        p.wrap_line = float(self._wrap_line.Value)
+        p.branch_line = float(self._branch_line.Value)
         p.hair_line = float(self._hair_line.Value)
-        p.draw_title_circle = bool(self._draw_title.Checked)
-        p.draw_wrap_arcs = bool(self._draw_arcs.Checked)
+        p.rel_line = float(self._rel_line.Value)
+        p.draw_title_ellipse = bool(self._draw_title.Checked)
+        p.draw_highways = bool(self._draw_hw.Checked)
+        p.draw_relations = bool(self._draw_rel.Checked)
+        p.animate = bool(self._animate.Checked)
         return p
 
     def _on_generate(self, sender, e):
@@ -933,7 +1085,7 @@ class StigmergyForm(eforms.Form):
         try:
             if rs.IsLayer("Diagram::Pipes"):
                 rs.LayerVisible("Diagram::Pipes", False)
-            self.status_cb("Pipes hidden. Print/Export the coloured curves as Vector PDF or AI/SVG. See stigmergy-how-to.md section 4.")
+            self.status_cb("Pipes hidden. Export centreline curves as Vector PDF/AI/SVG.")
         except Exception:
             self.status_cb("ERROR:\n" + traceback.format_exc())
 
