@@ -1,12 +1,12 @@
 # Where is stigmergy?
 
-## Use this (newest — V6 / v0.9)
+## Use this (newest — V7 / v1.0)
 
 **Folder:** `02-assessment-tasks/assessment-1-development/`
 
 | File | Open with |
 |---|---|
-| `stigmergy-generator-V6.py` | **Rhino 8** → Script Editor → Run (version in the filename) |
+| `stigmergy-generator-V7.py` | **Rhino 8** → Script Editor → Run (version in the filename) |
 | `stigmergy-generator.py` | Same script (working copy name) |
 | `stigmergy-guide.html` | **Browser** (double-click) |
 | `stigmergy-text-catalog.md` | Any text editor |

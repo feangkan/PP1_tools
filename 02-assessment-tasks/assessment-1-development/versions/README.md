@@ -9,7 +9,8 @@
 | **V3** | v0.7 mycelial mesh | Cross-links, junctions, capillaries |
 | **V4** | v0.8 fast + animated | Fast centerlines, batched animation, deferred pipes |
 | **V5** | v0.8.1 scrollable UI | Scroll settings; Generate always visible |
-| **V6** | v0.9 nerve sub-links | **Latest** — branches grow toward other groups; organic sub-links |
+| **V6** | v0.9 nerve sub-links | Branches grow toward other groups; organic sub-links |
+| **V7** | v1.0 clean + Futura | **Latest** — pic-2 defaults; catalog text; legend |
 
 See [`VERSION-MANIFEST.md`](VERSION-MANIFEST.md) for git commits and dates.
 
