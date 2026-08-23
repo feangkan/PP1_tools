@@ -10,7 +10,8 @@
 | **V4** | v0.8 fast + animated | Fast centerlines, batched animation, deferred pipes |
 | **V5** | v0.8.1 scrollable UI | Scroll settings; Generate always visible |
 | **V6** | v0.9 nerve sub-links | Branches grow toward other groups; organic sub-links |
-| **V7** | v1.0 clean + Futura | **Latest** — pic-2 defaults; catalog text; legend |
+| **V7** | v1.0 clean + Futura | pic-2 defaults; catalog text; text legend (Gold / Green words) |
+| **V8** | v1.1 pathway + circles | **Latest** — Victoria flowchart on gold trunk; START/Stage/Gate/Loop on other groups; colour-circle legend |
 
 See [`VERSION-MANIFEST.md`](VERSION-MANIFEST.md) for git commits and dates.
 
