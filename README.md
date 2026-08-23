@@ -2,6 +2,8 @@
 
 Study toolkit for **PP1** — feed resources here, then ask the agent to summarise, diagram, check task requirements, answer questions from your materials, and build Chicago-style reference lists.
 
+**Stigmergy (Rhino + browser guide):** see [`STIGMERGY-WHERE.md`](STIGMERGY-WHERE.md) → `02-assessment-tasks/assessment-1-development/`
+
 ## Folder map
 
 | Folder | Purpose |
