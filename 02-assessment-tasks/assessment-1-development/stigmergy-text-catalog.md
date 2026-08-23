@@ -11,10 +11,10 @@ Use with: `stigmergy-guide.html` (placement picture) + `stigmergy-generator.py` 
 
 | Distance | What you write | Where |
 |---|---|---|
-| **Zoom out** | One claim per colour group — *your* position, not a contents page | Large, on the ring around the title |
-| **Zoom in** | Marker IDs (R1, L4…) then the short line + the typed sentence | Branch tips; you letter these by hand |
+| **Zoom out** | One claim per colour group — *your* position, not a contents page | Large, on each main hub |
+| **Zoom in** | Marker IDs (R1, L4…) then the short line + the typed sentence | Organic branch tips; you letter these by hand |
 
-**Title (centre — keep empty of branches):**  
+**Title (upper void — keep empty of branches):**  
 DISCIPLINARY MATRIX  
 *Trusted with the title — by whom, for what?*
 
@@ -39,9 +39,9 @@ The profession polices the visible gate (who may be called Architect) more tight
 
 ---
 
-## Relations (letter these on the wrap-around arcs)
+## Relations (letter these on the curved paths between hubs)
 
-Use the brief’s verbs. Arcs stay **outside** the title — they wrap; they do not cut through the centre.
+Use the brief’s verbs. Paths run **between colour hubs** — they do not wrap a central ring.
 
 | ID | From → To | Verb | Typed relation |
 |---|---|---|---|
