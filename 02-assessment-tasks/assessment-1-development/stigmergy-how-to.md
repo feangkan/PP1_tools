@@ -19,8 +19,8 @@ You type every word by hand on the Rhino bake (or on a print of it).
 ## 1. Generate the drawing (Rhino 8)
 
 1. Script Editor → open `stigmergy-generator.py` → Run.  
-2. Leave defaults (v0.7 mycelial mesh). Click **Generate**. Optional: tick **Animate while generating**.  
-3. You should see **thick highway trunks**, a **dense mesh with voids** near the gold spine, **cross-links**, **junction blobs**, and **fine reaching capillaries**. Zoom out: weight and seats stay visible.  
+2. Leave defaults (v0.8 — **fast + animated**). Click **Generate**.  
+3. Branches draw in **animated batches** (centerlines first — much faster). Trunk/highway **pipes bake at the end**. Click **Show pipes** for full screen weight on all branches.  
 4. **Where to letter**
    - Upper void disc + crosshair = title  
    - Large filled disc + halo = main claim (that colour)  

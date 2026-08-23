@@ -1,5 +1,5 @@
 """
-Assessment 1 stigmergy generator  v0.7
+Assessment 1 stigmergy generator  v0.8
 Development copy -- does not overwrite 05-diagrams/assessment-1/stigmergy-generator.py
 
 Rhino 8 Script Editor (Python 3 / CPython). Run to open the control panel.
@@ -14,12 +14,10 @@ Place words by hand using:
   stigmergy-guide.html  (zoomable picture / web app)
   stigmergy-text-catalog.md
 
-LAYOUT  v0.7 -- mycelial / nerve mesh (not radial / galaxy)
------------------------------------------------------------
-Distributed hubs on a horizontal canvas (~2:1). Thick bundled highways
-with side filaments; dense mesh with voids near the REGISTRATION spine;
-cross-links between zones; thickened junction nodes; fine reaching
-capillaries at the edges. Title in upper void.
+LAYOUT  v0.8 -- mycelial / nerve mesh (fast + animated)
+------------------------------------------------------------
+Fast generate: centerlines first, pipes batched at end. Animated draw
+shows growth in batches. Distributed hubs, mesh cross-links, capillaries.
 """
 
 import math
@@ -151,8 +149,8 @@ class GrowthParams(object):
         self.influence_radius = 17.0
         self.kill_distance = 3.2
         self.segment_length = 2.0
-        self.max_iterations = 780
-        self.attractors_per_zone = 165
+        self.max_iterations = 480
+        self.attractors_per_zone = 90
         self.canvas_scale = 1.0
         self.title_y = 72.0
         self.title_keepout = 28.0
@@ -168,7 +166,8 @@ class GrowthParams(object):
         self.hair_line = 0.08
         self.rel_line = 0.50
         self.mesh_link_dist = 8.5
-        self.capillary_hairs = 50
+        self.mesh_sample = 45
+        self.capillary_hairs = 24
         self.draw_title_ellipse = True
         self.draw_highways = True
         self.draw_highway_filaments = True
@@ -176,7 +175,95 @@ class GrowthParams(object):
         self.draw_capillaries = True
         self.draw_junctions = True
         self.draw_relations = True
-        self.animate = False
+        self.fast_mode = True
+        self.bake_pipes_at_end = True
+        self.animate = True
+        self.animate_batch = 28
+        self.animate_delay = 0.012
+
+
+class AnimateContext(object):
+    """Batch redraws so animation stays smooth and fast."""
+
+    def __init__(self, enabled, batch_size=28, delay=0.012):
+        self.enabled = bool(enabled)
+        self.batch_size = max(1, int(batch_size))
+        self.delay = float(delay)
+        self._count = 0
+
+    def tick(self, force=False):
+        if not self.enabled and not force:
+            return
+        if force:
+            sc.doc.Views.Redraw()
+            self._pump_ui()
+            return
+        self._count += 1
+        if self._count >= self.batch_size:
+            self._count = 0
+            sc.doc.Views.Redraw()
+            if self.delay > 0:
+                time.sleep(self.delay)
+            self._pump_ui()
+
+    @staticmethod
+    def _pump_ui():
+        try:
+            eforms.Application.Instance.RunIteration()
+        except Exception:
+            pass
+
+
+class BakeState(object):
+    """Shared bake flags -- skip per-segment pipes during fast/animated draw."""
+
+    skip_pipes = True
+    pending_pipes = []
+    anim = None
+
+    @classmethod
+    def reset(cls, params):
+        cls.skip_pipes = bool(params.fast_mode)
+        cls.pending_pipes = []
+        cls.anim = AnimateContext(
+            params.animate, params.animate_batch, params.animate_delay,
+        )
+
+    @classmethod
+    def queue_pipe(cls, curve_id, radius, colour, layer, name, kind="branch"):
+        if curve_id and cls.skip_pipes:
+            cls.pending_pipes.append((curve_id, radius, colour, layer, name, kind))
+
+    @classmethod
+    def flush_pipes(cls, status_cb, trunks_only=False):
+        if not cls.pending_pipes:
+            if status_cb:
+                status_cb("No pipes queued. Generate first, or pipes already baked.")
+            return 0
+        made = 0
+        pipe_layer = ensure_layer("Diagram::Pipes", (120, 120, 120))
+        keep = []
+        for curve_id, radius, colour, layer, name, kind in cls.pending_pipes:
+            if trunks_only and kind not in ("trunk", "highway", "relation"):
+                keep.append((curve_id, radius, colour, layer, name, kind))
+                continue
+            try:
+                pipes = rs.AddPipe(curve_id, [0.0, 1.0], [radius, radius], 0, 1)
+            except Exception:
+                try:
+                    pipes = rs.AddPipe(curve_id, 0, radius)
+                except Exception:
+                    pipes = None
+            for p in _as_list(pipes):
+                paint(p, colour, pipe_layer, name)
+                made += 1
+            if cls.anim:
+                cls.anim.tick()
+        cls.pending_pipes = keep if trunks_only else []
+        if status_cb and made:
+            scope = "trunks + highways" if trunks_only else "all queued"
+            status_cb("Baked {} screen pipes ({}).".format(made, scope))
+        return made
 
 
 ORIGIN = rg.Point3d(0, 0, 0)
@@ -498,11 +585,10 @@ def random_point_in_zone(root, grow_dir, zone_radius, scale, params=None):
 
 def grow_branches(root_pt, grow_dir, zone_radius, n_attractors, params, scale):
     gd = grow_vec({"grow_dir": grow_dir})
-    zone_center = rg.Point3d(
-        root_pt.X + gd.X * zone_radius * scale * 0.55,
-        root_pt.Y + gd.Y * zone_radius * scale * 0.55,
-        0,
-    )
+    influence = params.influence_radius * scale
+    kill = params.kill_distance * scale
+    seg_len = params.segment_length * scale
+    node_window = 140
 
     attractors = []
     for _ in range(n_attractors):
@@ -513,6 +599,22 @@ def grow_branches(root_pt, grow_dir, zone_radius, n_attractors, params, scale):
     nodes = [root_pt]
     parent_of = {0: -1}
 
+    def nearest_node_index(target):
+        best_i, best_d = -1, influence
+        n_nodes = len(nodes)
+        start = max(0, n_nodes - node_window)
+        for i in range(n_nodes - 1, start - 1, -1):
+            d = nodes[i].DistanceTo(target)
+            if d < best_d:
+                best_d, best_i = d, i
+        if best_i >= 0:
+            return best_i
+        for i in range(start - 1, -1, -1):
+            d = nodes[i].DistanceTo(target)
+            if d < best_d:
+                best_d, best_i = d, i
+        return best_i
+
     for _ in range(int(params.max_iterations)):
         if not attractors:
             break
@@ -521,16 +623,14 @@ def grow_branches(root_pt, grow_dir, zone_radius, n_attractors, params, scale):
         node_count = {}
 
         for a in attractors:
-            nearest_i, nearest_d = -1, params.influence_radius * scale
-            for i, n in enumerate(nodes):
-                d = n.DistanceTo(a)
-                if d < nearest_d:
-                    nearest_d, nearest_i = d, i
+            nearest_i = nearest_node_index(a)
             if nearest_i >= 0:
                 v = a - nodes[nearest_i]
                 if v.Length > 1e-9:
                     v.Unitize()
-                    node_dir_sum[nearest_i] = node_dir_sum.get(nearest_i, rg.Vector3d(0, 0, 0)) + v
+                    node_dir_sum[nearest_i] = node_dir_sum.get(
+                        nearest_i, rg.Vector3d(0, 0, 0),
+                    ) + v
                     node_count[nearest_i] = node_count.get(nearest_i, 0) + 1
 
         if not node_dir_sum:
@@ -547,15 +647,25 @@ def grow_branches(root_pt, grow_dir, zone_radius, n_attractors, params, scale):
             avg = avg + jitter
             if avg.Length > 1e-9:
                 avg.Unitize()
-            new_pt = push_outside_title(
-                nodes[i] + avg * params.segment_length * scale,
-                params,
-            )
+            new_pt = push_outside_title(nodes[i] + avg * seg_len, params)
             nodes.append(new_pt)
             parent_of[len(nodes) - 1] = i
 
-        attractors = [a for a in attractors
-                      if all(n.DistanceTo(a) >= params.kill_distance * scale for n in nodes)]
+        if kill > 0:
+            kd2 = kill * kill
+            alive = []
+            for a in attractors:
+                ax, ay = a.X, a.Y
+                ok = True
+                for n in nodes[-min(len(nodes), 80):]:
+                    dx = n.X - ax
+                    dy = n.Y - ay
+                    if dx * dx + dy * dy < kd2:
+                        ok = False
+                        break
+                if ok:
+                    alive.append(a)
+            attractors = alive
 
     return nodes, parent_of
 
@@ -644,11 +754,16 @@ def paint(obj_id, colour, layer, name=None):
         name_obj(obj_id, name)
 
 
-def thicken_curve(curve_id, radius, colour, layer, name=None, delete_curve=False):
+def thicken_curve(curve_id, radius, colour, layer, name=None, delete_curve=False, pipe_kind="branch"):
     if not curve_id:
         return None
     paint(curve_id, colour, layer, name)
     set_print_width(curve_id, max(radius * 2.2, 0.55))
+    if BakeState.skip_pipes:
+        BakeState.queue_pipe(curve_id, radius, colour, layer, name, pipe_kind)
+        if delete_curve:
+            pass  # keep centerline for vector export
+        return curve_id
     pipes = None
     try:
         pipes = rs.AddPipe(curve_id, [0.0, 1.0], [radius, radius], 0, 1)
@@ -712,7 +827,8 @@ def add_halo(pt, radius, colour, layer, name):
         return None
     paint(cid, colour, layer, name)
     set_print_width(cid, 0.8)
-    thicken_curve(cid, max(radius * 0.06, 0.18), colour, layer, name, delete_curve=True)
+    if not BakeState.skip_pipes:
+        thicken_curve(cid, max(radius * 0.06, 0.18), colour, layer, name, delete_curve=True)
     return cid
 
 
@@ -770,15 +886,24 @@ def line_weight_for_depth(depth, params):
     return params.hair_line
 
 
-def maybe_redraw(animate):
-    if animate:
-        sc.doc.Views.Redraw()
-        time.sleep(0.008)
+def anim_tick():
+    if BakeState.anim:
+        BakeState.anim.tick()
 
 
-# -----------------------------------------------------------------
-# Bake
-# -----------------------------------------------------------------
+def draw_segment(p1, p2, radius, colour, layer, name, pipe_kind="branch"):
+    lid = rs.AddLine(p1, p2)
+    if not lid:
+        return None
+    paint(lid, colour, layer, name)
+    if radius > 0.04:
+        thicken_curve(lid, radius, colour, layer, name, pipe_kind=pipe_kind)
+    else:
+        set_print_width(lid, max(radius * 2.0, 0.2))
+    anim_tick()
+    return lid
+
+
 def bake_title(params, status_cb):
     layer = ensure_layer("Diagram::Title", (80, 80, 80))
     rs.CurrentLayer(layer)
@@ -798,20 +923,8 @@ def bake_title(params, status_cb):
             cid = rs.AddCircle(center, params.title_keepout * params.canvas_scale)
             if cid:
                 thicken_curve(cid, params.hair_line, (90, 90, 90), layer, "TITLE")
+    anim_tick()
     status_cb("Title seat in upper void -- letter DISCIPLINARY MATRIX here.")
-
-
-def draw_segment(p1, p2, radius, colour, layer, name, animate=False):
-    lid = rs.AddLine(p1, p2)
-    if not lid:
-        return None
-    paint(lid, colour, layer, name)
-    if radius > 0.04:
-        thicken_curve(lid, radius, colour, layer, name)
-    else:
-        set_print_width(lid, max(radius * 2.0, 0.2))
-    maybe_redraw(animate)
-    return lid
 
 
 def sample_curve_points(p1, p2, n_samples, bulge=0.18, scale=1.0):
@@ -830,9 +943,9 @@ def sample_curve_points(p1, p2, n_samples, bulge=0.18, scale=1.0):
     return [p1, p2]
 
 
-def bake_highway_filaments(zone_results, params, animate=False):
+def bake_highway_filaments(zone_results, params):
     if not params.draw_highway_filaments:
-        return
+        return 0
     layer = ensure_layer("Diagram::Filaments", (110, 110, 110))
     rs.CurrentLayer(layer)
     scale = params.canvas_scale
@@ -842,7 +955,7 @@ def bake_highway_filaments(zone_results, params, animate=False):
             continue
         p1 = zone_results[a_key]["root"]
         p2 = zone_results[b_key]["root"]
-        samples = sample_curve_points(p1, p2, 7, bulge=0.18, scale=scale)
+        samples = sample_curve_points(p1, p2, 5, bulge=0.18, scale=scale)
         c1 = zone_results[a_key]["colour"]
         c2 = zone_results[b_key]["colour"]
         blend = (
@@ -851,42 +964,55 @@ def bake_highway_filaments(zone_results, params, animate=False):
             int((c1[2] + c2[2]) * 0.5),
         )
         for sp in samples[1:-1]:
-            for _ in range(2):
-                ang = random.random() * 2.0 * math.pi
-                length = random.uniform(4.0, 10.0) * scale
-                dx = math.cos(ang) * length
-                dy = math.sin(ang) * length
-                tip = push_outside_title(rg.Point3d(sp.X + dx, sp.Y + dy, 0), params)
-                w = params.hair_line * scale * random.uniform(0.6, 1.1)
-                draw_segment(sp, tip, w, blend, layer, "filament", animate)
-                count += 1
+            ang = random.random() * 2.0 * math.pi
+            length = random.uniform(4.0, 9.0) * scale
+            tip = push_outside_title(
+                rg.Point3d(sp.X + math.cos(ang) * length, sp.Y + math.sin(ang) * length, 0),
+                params,
+            )
+            w = params.hair_line * scale * random.uniform(0.6, 1.0)
+            draw_segment(sp, tip, w, blend, layer, "filament", "hair")
+            count += 1
     return count
 
 
-def bake_mesh_links(all_zones, params, animate=False):
-    """Cross-link nearby branches from different zones -- lattice / voids."""
+def _mesh_sample_indices(zd, max_count):
+    cands = [i for i in range(len(zd["nodes"]))
+             if i > 0 and zd["depths"].get(i, 0) >= 3]
+    if len(cands) <= max_count:
+        return cands
+    random.shuffle(cands)
+    return cands[:max_count]
+
+
+def bake_mesh_links(all_zones, params):
+    """Cross-link nearby branches -- sampled nodes for speed."""
     if not params.draw_mesh_links:
         return 0
     layer = ensure_layer("Diagram::Mesh", (100, 100, 100))
     rs.CurrentLayer(layer)
     scale = params.canvas_scale
     max_d = params.mesh_link_dist * scale
+    max_d2 = max_d * max_d
+    min_d2 = (1.5 * scale) ** 2
+    sample_n = int(params.mesh_sample)
     links = 0
     keys = list(all_zones.keys())
+    sampled = {k: _mesh_sample_indices(all_zones[k], sample_n) for k in keys}
     for i, ka in enumerate(keys):
         za = all_zones[ka]
         for kb in keys[i + 1:]:
             zb = all_zones[kb]
-            for ia, pa in enumerate(za["nodes"]):
-                if ia == 0 or za["depths"].get(ia, 0) < 3:
-                    continue
-                for ib, pb in enumerate(zb["nodes"]):
-                    if ib == 0 or zb["depths"].get(ib, 0) < 3:
+            for ia in sampled[ka]:
+                pa = za["nodes"][ia]
+                for ib in sampled[kb]:
+                    pb = zb["nodes"][ib]
+                    dx = pa.X - pb.X
+                    dy = pa.Y - pb.Y
+                    d2 = dx * dx + dy * dy
+                    if d2 > max_d2 or d2 < min_d2:
                         continue
-                    d = pa.DistanceTo(pb)
-                    if d > max_d or d < 1.5 * scale:
-                        continue
-                    if random.random() > 0.18:
+                    if random.random() > 0.22:
                         continue
                     c1, c2 = za["colour"], zb["colour"]
                     blend = (
@@ -895,14 +1021,14 @@ def bake_mesh_links(all_zones, params, animate=False):
                         int((c1[2] + c2[2]) * 0.5),
                     )
                     w = params.hair_line * scale * 1.3
-                    draw_segment(pa, pb, w, blend, layer, "mesh", animate)
+                    draw_segment(pa, pb, w, blend, layer, "mesh", "hair")
                     za["junctions"][ia] = za["junctions"].get(ia, 0) + 1
                     zb["junctions"][ib] = zb["junctions"].get(ib, 0) + 1
                     links += 1
     return links
 
 
-def bake_capillaries(all_zones, params, animate=False):
+def bake_capillaries(all_zones, params):
     """Fine reaching hairs from mid-branch and tip nodes (mycelial edge)."""
     if not params.draw_capillaries:
         return 0
@@ -913,7 +1039,7 @@ def bake_capillaries(all_zones, params, animate=False):
         rs.CurrentLayer(layer)
         colour = zd["colour"]
         nodes = zd["nodes"]
-        n_hairs = int(params.capillary_hairs * scale)
+        n_hairs = int(params.capillary_hairs * max(scale, 0.85))
         candidates = [i for i in range(len(nodes))
                       if zd["depths"].get(i, 0) >= 4]
         if not candidates:
@@ -928,10 +1054,10 @@ def bake_capillaries(all_zones, params, animate=False):
             )
             if direction.Length > 1e-9:
                 direction.Unitize()
-            steps = random.randint(2, 5)
+            steps = random.randint(2, 4)
             prev = base
             for s in range(steps):
-                reach = params.segment_length * scale * random.uniform(0.7, 1.3)
+                reach = params.segment_length * scale * random.uniform(0.7, 1.2)
                 nudge = rg.Vector3d(
                     random.uniform(-0.35, 0.35),
                     random.uniform(-0.35, 0.35),
@@ -939,13 +1065,13 @@ def bake_capillaries(all_zones, params, animate=False):
                 )
                 nxt = push_outside_title(prev + direction * reach + nudge, params)
                 w = params.hair_line * scale * (0.5 + s * 0.15)
-                draw_segment(prev, nxt, w, colour, layer, key, animate)
+                draw_segment(prev, nxt, w, colour, layer, key, "hair")
                 prev = nxt
                 count += 1
     return count
 
 
-def bake_junction_nodes(all_zones, params, animate=False):
+def bake_junction_nodes(all_zones, params):
     """Thickened nodes where multiple filaments meet."""
     if not params.draw_junctions:
         return 0
@@ -969,11 +1095,11 @@ def bake_junction_nodes(all_zones, params, animate=False):
                 r = params.junction_radius * scale * min(1.0 + degree * 0.12, 2.0)
                 add_filled_disk(node, r, colour, layer, "{}_j{}".format(key, i))
                 count += 1
-                maybe_redraw(animate)
+                anim_tick()
     return count
 
 
-def bake_highways(zone_results, params, animate=False):
+def bake_highways(zone_results, params):
     if not params.draw_highways:
         return
     layer = ensure_layer("Diagram::Highways", (100, 100, 100))
@@ -989,7 +1115,6 @@ def bake_highways(zone_results, params, animate=False):
         crv = rs.AddInterpCurve(pts, 3)
         if not crv:
             continue
-        # Blend colours of the two zones
         c1 = zone_results[a_key]["colour"]
         c2 = zone_results[b_key]["colour"]
         blend = (
@@ -998,8 +1123,8 @@ def bake_highways(zone_results, params, animate=False):
             int((c1[2] + c2[2]) * 0.5),
         )
         w = params.highway_line * weight * scale
-        thicken_curve(crv, w, blend, layer, "{}-{}".format(a_key, b_key))
-        maybe_redraw(animate)
+        thicken_curve(crv, w, blend, layer, "{}-{}".format(a_key, b_key), pipe_kind="highway")
+        anim_tick()
 
 
 def assign_tips_to_subs(root, leaves, nodes, subs, grow_dir):
@@ -1040,7 +1165,7 @@ def assign_tips_to_subs(root, leaves, nodes, subs, grow_dir):
     return [(subs[k][0], nodes[chosen[k]]) for k in range(len(subs))]
 
 
-def bake_zone(cat, params, animate=False):
+def bake_zone(cat, params):
     colour = cat["colour"]
     layer = ensure_layer("Diagram::" + cat["key"], colour)
     rs.CurrentLayer(layer)
@@ -1050,6 +1175,7 @@ def bake_zone(cat, params, animate=False):
     hub_scale = cat.get("hub_scale", 1.0)
 
     add_text_seat(root, colour, layer, cat["key"], "main", params, hub_scale)
+    anim_tick()
 
     nodes, parent_of = grow_branches(
         root, cat["grow_dir"], cat["zone_radius"],
@@ -1062,8 +1188,9 @@ def bake_zone(cat, params, animate=False):
         depth = node_depth(i, parent_of)
         depths[i] = depth
         w = line_weight_for_depth(depth, params) * scale
+        kind = "trunk" if depth <= 2 else "branch"
         draw_segment(
-            nodes[parent_of[i]], nodes[i], w, colour, layer, cat["key"], animate,
+            nodes[parent_of[i]], nodes[i], w, colour, layer, cat["key"], kind,
         )
 
     marker_layer = ensure_layer("Diagram::Markers", colour)
@@ -1076,7 +1203,7 @@ def bake_zone(cat, params, animate=False):
     for mid, tip in tip_assignments:
         add_text_seat(tip, colour, marker_layer, mid, "sub", params)
         placed += 1
-        maybe_redraw(animate)
+        anim_tick()
 
     return {
         "root": root,
@@ -1090,7 +1217,7 @@ def bake_zone(cat, params, animate=False):
     }
 
 
-def bake_relations(zone_results, params, status_cb, animate=False):
+def bake_relations(zone_results, params, status_cb):
     if not params.draw_relations:
         return
     layer = ensure_layer("Diagram::Relations", (120, 120, 120))
@@ -1107,10 +1234,13 @@ def bake_relations(zone_results, params, status_cb, animate=False):
         if not crv:
             continue
         rel_name = "{} {}".format(rid, verb)
-        thicken_curve(crv, params.rel_line * scale * 0.85, (100, 100, 100), layer, rel_name)
+        thicken_curve(
+            crv, params.rel_line * scale * 0.85,
+            (100, 100, 100), layer, rel_name, pipe_kind="relation",
+        )
         mid = pts[len(pts) // 2]
         add_text_seat(mid, (90, 90, 90), layer, rel_name, "rel", params)
-        maybe_redraw(animate)
+        anim_tick()
     status_cb("Relation paths between hubs; grey diamonds are verb seats.")
 
 
@@ -1119,34 +1249,45 @@ def generate_diagram(params, status_cb):
     force_annotation_scale_to_one(status_cb)
     clear_diagram_layers(status_cb)
 
-    animate = params.animate
-    sc.doc.Views.RedrawEnabled = not animate
+    BakeState.reset(params)
+    sc.doc.Views.RedrawEnabled = True
+    t0 = time.time()
     try:
         bake_title(params, status_cb)
 
         zone_results = {}
         for cat in CATEGORIES:
-            result = bake_zone(cat, params, animate)
+            result = bake_zone(cat, params)
             zone_results[cat["key"]] = result
-            status_cb("{} : {} subtopic seats on organic tips.".format(
-                cat["key"], result["placed"]))
+            status_cb("{} : {} subtopic seats.".format(cat["key"], result["placed"]))
 
-        bake_highways(zone_results, params, animate)
-        n_fil = bake_highway_filaments(zone_results, params, animate) or 0
-        n_mesh = bake_mesh_links(zone_results, params, animate) or 0
-        n_cap = bake_capillaries(zone_results, params, animate) or 0
-        n_junc = bake_junction_nodes(zone_results, params, animate) or 0
-        bake_relations(zone_results, params, status_cb, animate)
+        bake_highways(zone_results, params)
+        n_fil = bake_highway_filaments(zone_results, params) or 0
+        n_mesh = bake_mesh_links(zone_results, params) or 0
+        n_cap = bake_capillaries(zone_results, params) or 0
+        n_junc = bake_junction_nodes(zone_results, params) or 0
+        bake_relations(zone_results, params, status_cb)
 
-        status_cb("Mesh: {} cross-links, {} capillary hairs, {} junction nodes, {} highway filaments.".format(
+        if BakeState.anim:
+            BakeState.anim.tick(force=True)
+
+        if params.fast_mode and params.bake_pipes_at_end:
+            BakeState.flush_pipes(status_cb, trunks_only=True)
+
+        elapsed = time.time() - t0
+        status_cb("Mesh: {} links, {} capillaries, {} junctions, {} filaments.".format(
             n_mesh, n_cap, n_junc, n_fil))
+        status_cb("Done in {:.1f}s (fast centerlines{}).".format(
+            elapsed,
+            " + trunk pipes" if params.bake_pipes_at_end else "",
+        ))
     finally:
         sc.doc.Views.RedrawEnabled = True
 
     rs.ZoomExtents()
     status_cb(
-        "Mycelial mesh v0.7. Dense spine, voids, cross-links, reaching capillaries.\n"
-        "Letter from stigmergy-guide.html. Hide pipes before vector export."
+        "v0.8 fast + animated. Click Show pipes for full screen weight.\n"
+        "Hide pipes before vector export."
     )
 
 
@@ -1157,9 +1298,9 @@ class StigmergyForm(eforms.Form):
 
     def __init__(self):
         eforms.Form.__init__(self)
-        self.Title = "A1 Stigmergy  v0.7  (mycelial mesh)"
+        self.Title = "A1 Stigmergy  v0.8  (fast + animated)"
         self.Resizable = True
-        self.ClientSize = edrawing.Size(460, 820)
+        self.ClientSize = edrawing.Size(460, 860)
         self.Padding = edrawing.Padding(8)
         self.BackgroundColor = TH["bg_form"]
         self.params = GrowthParams()
@@ -1194,8 +1335,18 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(self._draw_junc)
         self._draw_rel = w.check("Draw relation paths", True)
         lay.AddRow(self._draw_rel)
-        self._animate = w.check("Animate while generating", False)
+
+        lay.AddRow(w.section("Speed + animation"))
+        self._fast = w.check("Fast mode (defer pipes)", True)
+        lay.AddRow(self._fast)
+        self._pipes_end = w.check("Bake trunk pipes at end", True)
+        lay.AddRow(self._pipes_end)
+        self._animate = w.check("Animate while generating", True)
         lay.AddRow(self._animate)
+        self._anim_batch = w.num(self.params.animate_batch, 5, 120, dec=0, inc=5)
+        lay.AddRow(w.row("Animate batch size", self._anim_batch))
+        self._anim_delay = w.num(self.params.animate_delay, 0.0, 0.08, dec=3, inc=0.005)
+        lay.AddRow(w.row("Animate delay (sec)", self._anim_delay))
 
         lay.AddRow(w.section("Growth"))
         self._seed = w.num(self.params.seed, 0, 9999)
@@ -1214,6 +1365,8 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(w.row("Mesh link distance", self._mesh_dist))
         self._cap_hairs = w.num(self.params.capillary_hairs, 0, 120, dec=0, inc=5)
         lay.AddRow(w.row("Capillary hairs / zone", self._cap_hairs))
+        self._mesh_sample = w.num(self.params.mesh_sample, 15, 120, dec=0, inc=5)
+        lay.AddRow(w.row("Mesh sample nodes", self._mesh_sample))
 
         lay.AddRow(w.section("Line weight -- real pipes, visible zoomed out"))
         self._highway = w.num(self.params.highway_line, 0.3, 4.0, dec=2, inc=0.05)
@@ -1249,9 +1402,9 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(self._log)
         self.Content = lay
         self.status_cb(
-            "Mycelial mesh -- dense spine, lattice voids, cross-links.\n"
-            "Gold REGISTRATION = largest hub. Thick trunks -> fine capillaries.\n"
-            "Junction blobs where filaments meet. Subtopic dots on branch tips."
+            "Fast + animated by default.\n"
+            "Centerlines draw in batches; trunk pipes bake at end.\n"
+            "Show pipes = add remaining screen weight."
         )
 
     def _read_params(self):
@@ -1278,6 +1431,12 @@ class StigmergyForm(eforms.Form):
         p.rel_line = float(self._rel_line.Value)
         p.mesh_link_dist = float(self._mesh_dist.Value)
         p.capillary_hairs = int(self._cap_hairs.Value)
+        p.mesh_sample = int(self._mesh_sample.Value)
+        p.fast_mode = bool(self._fast.Checked)
+        p.bake_pipes_at_end = bool(self._pipes_end.Checked)
+        p.animate = bool(self._animate.Checked)
+        p.animate_batch = int(self._anim_batch.Value)
+        p.animate_delay = float(self._anim_delay.Value)
         p.draw_title_ellipse = bool(self._draw_title.Checked)
         p.draw_highways = bool(self._draw_hw.Checked)
         p.draw_highway_filaments = bool(self._draw_fil.Checked)
@@ -1285,7 +1444,6 @@ class StigmergyForm(eforms.Form):
         p.draw_capillaries = bool(self._draw_cap.Checked)
         p.draw_junctions = bool(self._draw_junc.Checked)
         p.draw_relations = bool(self._draw_rel.Checked)
-        p.animate = bool(self._animate.Checked)
         return p
 
     def _on_generate(self, sender, e):
@@ -1313,9 +1471,13 @@ class StigmergyForm(eforms.Form):
 
     def _on_show_pipes(self, sender, e):
         try:
+            n = BakeState.flush_pipes(self.status_cb, trunks_only=False)
             if rs.IsLayer("Diagram::Pipes"):
                 rs.LayerVisible("Diagram::Pipes", True)
-            self.status_cb("Pipes visible again (screen weight).")
+            if n:
+                self.status_cb("All queued pipes baked and visible.")
+            else:
+                self.status_cb("Pipes layer visible (if any from last generate).")
         except Exception:
             self.status_cb("ERROR:\n" + traceback.format_exc())
 
