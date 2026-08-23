@@ -43,6 +43,9 @@ Follow your unit’s AI-use policy for any assessable text you write from this p
 | [`week-05-contents.md`](week-05-contents.md) | Instruments of Law lecture + Lui, Hill, Fire/Water/Building |
 | [`tutorial-whiteboard.md`](tutorial-whiteboard.md) | Trust / Risk + project delivery stages |
 | [`week-06-note.md`](week-06-note.md) | No lecture content in the repo yet |
+| [`stigmergy-text-catalog.md`](stigmergy-text-catalog.md) | **Hand-letter this** — zoom-out claims, IDs, typed sentences, wrap-arc verbs |
+| [`stigmergy-how-to.md`](stigmergy-how-to.md) | How to generate lines in Rhino and letter the catalog |
+| [`stigmergy-generator.py`](stigmergy-generator.py) | Rhino 8 GUI — markers around a title hole; does not overwrite the main generator |
 
 ---
 

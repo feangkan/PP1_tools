@@ -16,7 +16,7 @@ assessment-1-final.md
 
 | Task | Weight | Due | Status | Files |
 |------|--------|-----|--------|-------|
-| Assessment 1 | 25% | Week 5 — Sun 23 Aug 2026 | In progress | Brief + critical-position draft (main). Hand-draw compilation: [`assessment-1-development/`](assessment-1-development/) — **do not treat as the submission** |
+| Assessment 1 | 25% | Week 5 — Sun 23 Aug 2026 | In progress | Brief + critical-position draft (main). Development: [`assessment-1-development/`](assessment-1-development/) (week sheets + stigmergy catalog / Rhino script). Requirement check: [`assessment-1-requirement-check.md`](assessment-1-requirement-check.md) |
 | Assessment 2 | | | Not started | |
 | Assessment 3 | | | Not started | |
 
