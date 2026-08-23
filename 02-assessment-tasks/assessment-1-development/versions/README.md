@@ -8,7 +8,8 @@
 | **V2** | v0.6 nerve layout | Horizontal hubs, no galaxy ring, organic tips |
 | **V3** | v0.7 mycelial mesh | Cross-links, junctions, capillaries |
 | **V4** | v0.8 fast + animated | Fast centerlines, batched animation, deferred pipes |
-| **V5** | v0.8.1 scrollable UI | **Latest** — scroll settings; Generate always visible |
+| **V5** | v0.8.1 scrollable UI | Scroll settings; Generate always visible |
+| **V6** | v0.9 nerve sub-links | **Latest** — branches grow toward other groups; organic sub-links |
 
 See [`VERSION-MANIFEST.md`](VERSION-MANIFEST.md) for git commits and dates.
 
