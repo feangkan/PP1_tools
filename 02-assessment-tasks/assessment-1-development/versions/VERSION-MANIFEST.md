@@ -13,8 +13,9 @@
 | V9 | 2026-08-23 | `0948a17` | v1.2 | Own graphic language per group — not fake stages |
 | V10 | 2026-08-23 | `063b33b` | v1.3 | Dense stigmergy line linkages — no highway pipe polysurfaces |
 | V11 | 2026-08-23 | `30073c8` | v1.4 | Catalog text middle-centered on nodes, not beside them |
-| V12 | 2026-08-23 | (this commit) | v1.5 | Legend black; colour pickers; millimetre sizes (print-pt ×0.353 was the 0.5–1 look) |
+| V12 | 2026-08-23 | `ca297aa` | v1.5 | Legend black; colour pickers; millimetre default (print-pt option still present) |
+| V13 | 2026-08-23 | (this commit) | v1.6 | Text sizes are millimetres only — GUI 2.0 = 2.0 mm |
 
-**Latest:** V12 (see `LATEST.txt`)
+**Latest:** V13 (see `LATEST.txt`)
 
-**Next version:** V13 — copy `stigmergy-*` files into `versions/V13/`, update this table, increment `LATEST.txt`.
+**Next version:** V14 — copy `stigmergy-*` files into `versions/V14/`, update this table, increment `LATEST.txt`.
