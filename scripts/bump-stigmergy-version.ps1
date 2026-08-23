@@ -28,7 +28,6 @@ if (Test-Path $dest) {
 New-Item -ItemType Directory -Path $dest -Force | Out-Null
 
 $files = @(
-    "stigmergy-generator.py",
     "stigmergy-guide.html",
     "stigmergy-how-to.md",
     "stigmergy-text-catalog.md"
@@ -36,6 +35,9 @@ $files = @(
 foreach ($f in $files) {
     Copy-Item (Join-Path $DevDir $f) (Join-Path $dest $f)
 }
+Copy-Item (Join-Path $DevDir "stigmergy-generator.py") (Join-Path $dest "stigmergy-generator.py")
+Copy-Item (Join-Path $DevDir "stigmergy-generator.py") (Join-Path $dest "stigmergy-generator-$folder.py")
+Copy-Item (Join-Path $DevDir "stigmergy-generator.py") (Join-Path $DevDir "stigmergy-generator-$folder.py")
 
 $commit = (git -C $RepoRoot rev-parse --short HEAD)
 Set-Content -Path (Join-Path $dest "git-commit.txt") -Value $commit

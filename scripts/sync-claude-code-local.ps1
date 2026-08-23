@@ -36,14 +36,21 @@ $skipped = 0
 
 foreach ($dir in $versionDirs) {
     $dest = Join-Path $DestRoot $dir.Name
-    if (Test-Path $dest) {
-        Write-Host "  SKIP $($dir.Name) (already exists — not overwritten)"
-        $skipped++
+    if (-not (Test-Path $dest)) {
+        Copy-Item -Path $dir.FullName -Destination $dest -Recurse
+        Write-Host "  COPY $($dir.Name) -> $dest"
+        $copied++
         continue
     }
-    Copy-Item -Path $dir.FullName -Destination $dest -Recurse
-    Write-Host "  COPY $($dir.Name) -> $dest"
-    $copied++
+    Write-Host "  KEEP $($dir.Name) folder (no overwrite)"
+    $skipped++
+    Get-ChildItem -Path $dir.FullName -File | ForEach-Object {
+        $target = Join-Path $dest $_.Name
+        if (-not (Test-Path $target)) {
+            Copy-Item $_.FullName $target
+            Write-Host "    ADD new file $($_.Name)"
+        }
+    }
 }
 
 # Also sync live working copy (always updated) beside version folders
@@ -51,6 +58,7 @@ $LiveDest = Join-Path $DestRoot "_live"
 New-Item -ItemType Directory -Path $LiveDest -Force | Out-Null
 $liveFiles = @(
     "stigmergy-generator.py",
+    "stigmergy-generator-V$Latest.py",
     "stigmergy-guide.html",
     "stigmergy-how-to.md",
     "stigmergy-text-catalog.md"
@@ -66,5 +74,5 @@ Write-Host "  LIVE _live\ updated (working copy, overwrites OK)"
 
 Write-Host ""
 Write-Host "Done. Copied $copied new version(s), skipped $skipped existing."
-Write-Host "Open Rhino script: $DestRoot\V$Latest\stigmergy-generator.py"
-Write-Host "Or latest working: $LiveDest\stigmergy-generator.py"
+Write-Host "Open Rhino script: $DestRoot\V$Latest\stigmergy-generator-V$Latest.py"
+Write-Host "Or latest working: $LiveDest\stigmergy-generator-V$Latest.py"

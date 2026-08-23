@@ -8,6 +8,7 @@
 | **V2** | v0.6 nerve layout | Horizontal hubs, no galaxy ring, organic tips |
 | **V3** | v0.7 mycelial mesh | Cross-links, junctions, capillaries |
 | **V4** | v0.8 fast + animated | Fast centerlines, batched animation, deferred pipes |
+| **V5** | v0.8.1 scrollable UI | **Latest** — scroll settings; Generate always visible |
 
 See [`VERSION-MANIFEST.md`](VERSION-MANIFEST.md) for git commits and dates.
 
@@ -23,7 +24,7 @@ git clone https://github.com/feangkan/PP1_tools.git
 
 After each `git pull`, run the script again — it copies **only new** `Vn` folders into `D:\Claude code\PP1_stigmergy\Vn\` without touching older versions.
 
-**Use a version:** open `D:\Claude code\PP1_stigmergy\V4\stigmergy-generator.py` in Rhino (or whichever `Vn` you want).
+**Use a version:** open `D:\Claude code\PP1_stigmergy\V5\stigmergy-generator-V5.py` in Rhino (each folder has `stigmergy-generator-Vn.py`).
 
 ## For agents (next push)
 

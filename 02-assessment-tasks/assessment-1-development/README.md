@@ -46,7 +46,8 @@ Follow your unit’s AI-use policy for any assessable text you write from this p
 | [`stigmergy-text-catalog.md`](stigmergy-text-catalog.md) | Typed sentences for hand-lettering |
 | [`stigmergy-guide.html`](stigmergy-guide.html) | **Open in a browser** — zoomable placement picture; click a dot for what to type |
 | [`stigmergy-how-to.md`](stigmergy-how-to.md) | Rhino = geometry only; guide = words |
-| [`stigmergy-generator.py`](stigmergy-generator.py) | Rhino 8 GUI — **no text baked**; does not overwrite the main generator |
+| [`stigmergy-generator.py`](stigmergy-generator.py) | Rhino 8 GUI — working copy |
+| [`stigmergy-generator-V5.py`](stigmergy-generator-V5.py) | **Same as latest (V5)** — open this in Rhino if you want the version in the filename |
 | [`versions/`](versions/README.md) | **V1, V2, V3…** frozen snapshots — never overwritten |
 
 ### Local Windows copy (`D:\Claude code`)

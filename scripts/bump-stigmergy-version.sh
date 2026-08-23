@@ -17,9 +17,12 @@ if [[ -d "$DEST" ]]; then
   exit 1
 fi
 mkdir -p "$DEST"
-for f in stigmergy-generator.py stigmergy-guide.html stigmergy-how-to.md stigmergy-text-catalog.md; do
+for f in stigmergy-guide.html stigmergy-how-to.md stigmergy-text-catalog.md; do
   cp "$DEV/$f" "$DEST/$f"
 done
+cp "$DEV/stigmergy-generator.py" "$DEST/stigmergy-generator.py"
+cp "$DEV/stigmergy-generator.py" "$DEST/stigmergy-generator-V$NEXT.py"
+cp "$DEV/stigmergy-generator.py" "$DEV/stigmergy-generator-V$NEXT.py"
 COMMIT="$(git -C "$REPO_ROOT" rev-parse --short HEAD)"
 echo "$COMMIT" > "$DEST/git-commit.txt"
 {
