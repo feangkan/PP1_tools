@@ -18,7 +18,8 @@
 | **V12** | v1.5 text colour + mm | Legend black; colour chip per type; millimetre default (print-pt option still in the GUI) |
 | **V13** | v1.6 millimetres only | GUI numbers are mm; print-pt option removed |
 | **V14** | v1.7 labels mm, same numbers | Title/Heading/Subtopic/Branch/Legend labelled mm; values 2.0 / 2.0 / 2.0 / 0.1 / 1.0 |
-| **V15** | v1.8 update text | **Latest** — Update text restyles size and colour without regenerating |
+| **V15** | v1.8 update text | Update text restyles size and colour without regenerating |
+| **V16** | v1.9 clean highways | **Latest** — 3 smooth hub curves; mesh and side filaments off |
 
 See [`VERSION-MANIFEST.md`](VERSION-MANIFEST.md) for git commits and dates.
 
@@ -38,7 +39,7 @@ After each `git pull`, run the script again — it copies **only new** `Vn` fold
 
 ## For agents (next push)
 
-1. Bump `LATEST.txt` (e.g. `15` → `16`).
-2. Copy the four stigmergy files into `versions/V16/`.
+1. Bump `LATEST.txt` (e.g. `16` → `17`).
+2. Copy the four stigmergy files into `versions/V17/`.
 3. Add a row to `VERSION-MANIFEST.md`.
 4. Commit, push, remind user to run `sync-claude-code-local.ps1` locally.
