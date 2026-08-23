@@ -550,12 +550,14 @@ def paint(obj_id, colour, layer, name=None):
         name_obj(obj_id, name)
 
 
-def thicken_curve(curve_id, radius, colour, layer, name=None, delete_curve=True):
-    """Real 3D pipe so weight shows on screen when zoomed out.
-    Plot-width alone is print-only and disappears in a shaded/zoomed view."""
+def thicken_curve(curve_id, radius, colour, layer, name=None, delete_curve=False):
+    """Keep the centerline (for vector PDF/AI/SVG print-width) AND add a
+    pipe on Diagram::Pipes so the weight is visible on screen. Hide the
+    Pipes layer before a curves-only export."""
     if not curve_id:
         return None
-    set_print_width(curve_id, max(radius * 6.0, 0.8))
+    paint(curve_id, colour, layer, name)
+    set_print_width(curve_id, max(radius * 2.2, 0.55))
     pipes = None
     try:
         pipes = rs.AddPipe(curve_id, [0.0, 1.0], [radius, radius], 0, 1)
@@ -566,10 +568,10 @@ def thicken_curve(curve_id, radius, colour, layer, name=None, delete_curve=True)
             pipes = None
     made = _as_list(pipes)
     if not made:
-        paint(curve_id, colour, layer, name)
         return curve_id
+    pipe_layer = ensure_layer("Diagram::Pipes", colour)
     for p in made:
-        paint(p, colour, layer, name)
+        paint(p, colour, pipe_layer, name)
     if delete_curve:
         try:
             rs.DeleteObject(curve_id)
@@ -874,7 +876,10 @@ class StigmergyForm(eforms.Form):
 
         self._btn_generate = w.button("Generate", self._on_generate, width=110, primary=True)
         self._btn_clear = w.button("Clear only", self._on_clear, width=110)
+        self._btn_vector = w.button("Hide pipes (vector)", self._on_hide_pipes, width=130)
+        self._btn_pipes = w.button("Show pipes", self._on_show_pipes, width=100)
         lay.AddRow(w.button_row(self._btn_generate, self._btn_clear))
+        lay.AddRow(w.button_row(self._btn_vector, self._btn_pipes))
 
         self._log = w.log_area(height=150)
         self.status_cb = make_logger(self._log)
@@ -921,6 +926,22 @@ class StigmergyForm(eforms.Form):
     def _on_clear(self, sender, e):
         try:
             clear_diagram_layers(self.status_cb)
+        except Exception:
+            self.status_cb("ERROR:\n" + traceback.format_exc())
+
+    def _on_hide_pipes(self, sender, e):
+        try:
+            if rs.IsLayer("Diagram::Pipes"):
+                rs.LayerVisible("Diagram::Pipes", False)
+            self.status_cb("Pipes hidden. Print/Export the coloured curves as Vector PDF or AI/SVG. See stigmergy-how-to.md section 4.")
+        except Exception:
+            self.status_cb("ERROR:\n" + traceback.format_exc())
+
+    def _on_show_pipes(self, sender, e):
+        try:
+            if rs.IsLayer("Diagram::Pipes"):
+                rs.LayerVisible("Diagram::Pipes", True)
+            self.status_cb("Pipes visible again (screen weight).")
         except Exception:
             self.status_cb("ERROR:\n" + traceback.format_exc())
 
