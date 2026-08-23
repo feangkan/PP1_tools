@@ -24,14 +24,14 @@
 | **Education (incl. CPD)** | W1 manifesto; W2 traits/AQF; **W3 CPD + Molander formative** | W3 C1, M5a; W2 T5 (master’s-level inquiry) |
 | **Employment** | W3 ACA/unions; **W4 project management ceded 1960s–70s**; tutorial delivery loop | W4 B5; W3 S6e; tutorial F0–F7 |
 | **Registration + insurance** | **W3** (PII as a statutory requirement; practising / non-practising) | W3 R1, R6a, C10 |
-| **Legislation** | W1 NCC/gov; W2 apparatus; **W3 Act clauses + history**; W4 named Acts; W5 codes as amendable | W3 CLAUSES + HISTORY; W4 P3; W5 Lui + Hill |
+| **Legislation** | W1 NCC/gov; W2 apparatus; **W3 Act clauses + history**; W4 named Acts; **W5 NCC as instrument** (class/type/1666 parallel) | W3 CLAUSES + HISTORY; W4 P3; W5 lecture + Lui + Hill |
 | **Professional bodies** | W1 ARBV/AACA/institutes; **W3 Institute vs Board + specialist network**; W4 recognition machinery | W3 SPLIT; W4 AWARDS / MEDIAMAP |
 | **Ethics / codes** | **W1** core loop + “client not in the room”; **W3** duty to resign / fire stair; **W4** Loos + collective test | W1 CORE + Q2; W3 C3/C8; W4 CORE + B6 |
 | **Public value** | W1 manifesto (public contribution); W3 Act purpose / public inquiry; **W4** Bailey/Shaw/Stead/Bruhn | W4 VOICES + BRUHN |
-| **Research** | W2 exemplars/journals; W3 RIBA library / AASA; **W5 Lui** (codes as co-authorship) | W5 N2 |
-| **Innovation** | W1 manifesto (public-benefit innovation); **W4** fit-for-purpose → performance; **W5 Hill + Fire/Water/Building** | W4 I1–I3; W5 N3–N4 |
+| **Research** | W2 exemplars/journals; W3 RIBA library / AASA; **W5 Lui + lecture** (codes as co-authorship; subject → interpreter → co-author) | W5 lecture + Lui |
+| **Innovation** | W1 manifesto (public-benefit innovation); **W4** fit-for-purpose → performance; **W5** livable housing / moisture paradox + Hill + Fire/Water/Building | W4 I1–I3; W5 lecture + Hill |
 | **Procurement** | W4 names it once; **independent research note** fills the topic | `02-assessment-tasks/procurement-research-note.md` — tag as *not lecture-sourced* |
-| **Critical position / power** | W1 Q3; W2 apparatus poll; W3 Institute/Board + NSW repeal; **W4 TheyRule**; W5 who writes the code | W4 P1–P7; W5 Lui/Hill vs W3 APE gates |
+| **Critical position / power** | W1 Q3; W2 apparatus poll; W3 Institute/Board + NSW repeal; **W4 TheyRule**; **W5 who writes / interprets the code** | W4 P1–P7; W5 subject–interpreter–co-author vs W3 APE gates |
 
 ---
 

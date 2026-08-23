@@ -40,7 +40,7 @@ Follow your unit’s AI-use policy for any assessable text you write from this p
 | [`week-02-contents.md`](week-02-contents.md) | Six organising frameworks (Sciulli + tutor brief) |
 | [`week-03-contents.md`](week-03-contents.md) | Architects Act, APE, compliance culture |
 | [`week-04-contents.md`](week-04-contents.md) | Good/bad architect, awards, media, power |
-| [`week-05-contents.md`](week-05-contents.md) | Pre-readings only (Lui, Hill, Fire/Water/Building) |
+| [`week-05-contents.md`](week-05-contents.md) | Instruments of Law lecture + Lui, Hill, Fire/Water/Building |
 | [`tutorial-whiteboard.md`](tutorial-whiteboard.md) | Trust / Risk + project delivery stages |
 | [`week-06-note.md`](week-06-note.md) | No lecture content in the repo yet |
 

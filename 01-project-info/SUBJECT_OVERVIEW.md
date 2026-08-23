@@ -43,7 +43,7 @@
 | 2 | Structural & institutional invariance (Sciulli) | `03-weekly-resources/week-02/` |
 | 3 | | `03-weekly-resources/week-03/` |
 | 4 | | `03-weekly-resources/week-04/` |
-| 5 | | `03-weekly-resources/week-05/` |
+| 5 | Architecture and the Instruments of Law (The Building Code) | `03-weekly-resources/week-05/` |
 | 6 | | `03-weekly-resources/week-06/` |
 | … | | add weeks as needed |
 
