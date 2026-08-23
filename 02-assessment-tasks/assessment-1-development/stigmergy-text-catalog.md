@@ -3,7 +3,7 @@
 **This is the typed content for the A1 sheet. Do not write “see Week 2.”**  
 **This file is not the main diagram.** Leave `05-diagrams/assessment-1/` and the 150-word note alone.
 
-Use with: `stigmergy-how-to.md` + `stigmergy-generator.py`
+Use with: `stigmergy-guide.html` (placement picture) + `stigmergy-generator.py` (Rhino, no text) + `stigmergy-how-to.md`
 
 ---
 

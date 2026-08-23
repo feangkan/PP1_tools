@@ -1,28 +1,25 @@
 """
-Assessment 1 stigmergy generator  v0.3
+Assessment 1 stigmergy generator  v0.4
 Development copy -- does not overwrite 05-diagrams/assessment-1/stigmergy-generator.py
 
 Rhino 8 Script Editor (Python 3 / CPython). Run to open the control panel.
 
-WHAT THIS FIXES
----------------
-The earlier baker used AddText for long headings. Document annotation
-scale (often 1:50 on mm templates) blew those letters up and they ate
-neighbouring zones. Default here is Markers only: small TextDots with
-catalog IDs (R5, L4, X7). You hand-letter from stigmergy-text-catalog.md.
+NO TEXT IS BAKED
+----------------
+Rhino annotation scale cannot be trusted for readable type. This script
+draws coloured geometry only: keep-out circle, ring wrap, trunks, branches,
+tip dots, relation arcs. Object names (Properties panel) hold catalog IDs
+so a selected dot can be matched to the web guide -- nothing is drawn as
+letters.
 
-LAYOUT (matches the circular / bundled references)
---------------------------------------------------
-- Centre keep-out disk = title. Nothing grows through it.
-- Nine colour trunks sit on a ring and a closed wrap-curve joins them
-  around the title (main-topic links do not cut the centre).
-- Space-colonization branches grow OUTWARD from each trunk.
-- Relation arcs (X1-X12) also travel around the title, not through it.
-- Line print-width is thicker near the trunk, thinner at the tips.
+Place words by hand using:
+  stigmergy-guide.html  (zoomable picture / web app)
+  stigmergy-text-catalog.md
 
-HOW TO USE
-----------
-See stigmergy-how-to.md in this folder. Bake mode: Markers only first.
+LAYOUT
+------
+Same clock as the web guide: gold REGISTRATION at the bottom, terracotta
+POWER on a smaller inner ring, wrap-arcs around the title (not through it).
 """
 
 import math
@@ -162,12 +159,11 @@ class GrowthParams(object):
         self.segment_length = 2.6
         self.max_iterations = 550
         self.attractors_per_zone = 110
-        self.heading_height = 3.2
-        self.subtopic_height = 1.8
         self.ring_radius = 95.0
         self.title_keepout = 40.0
         self.outward_bias = 0.45
-        self.bake_mode = 0          # 0 markers, 1 short labels, 2 both
+        self.tip_dot_radius = 1.1
+        self.trunk_dot_radius = 2.4
         self.draw_title_circle = True
         self.draw_wrap_arcs = True
 
@@ -512,6 +508,34 @@ def set_print_width(obj_id, width):
         pass
 
 
+def name_obj(obj_id, name):
+    """Invisible ID -- shows in Properties, not on the drawing."""
+    if not obj_id:
+        return
+    try:
+        rs.ObjectName(obj_id, name)
+    except Exception:
+        pass
+    try:
+        rs.SetUserText(obj_id, "catalog", name)
+    except Exception:
+        pass
+
+
+def add_dot(pt, radius, colour, layer, name):
+    cid = rs.AddCircle(pt, radius)
+    if not cid:
+        return None
+    rs.ObjectLayer(cid, layer)
+    rs.ObjectColor(cid, colour)
+    try:
+        rs.ObjectPrintWidth(cid, 0.35)
+    except Exception:
+        pass
+    name_obj(cid, name)
+    return cid
+
+
 # -----------------------------------------------------------------
 # Bake
 # -----------------------------------------------------------------
@@ -521,14 +545,12 @@ def bake_title(params, status_cb):
     if params.draw_title_circle:
         cid = rs.AddCircle(ORIGIN, params.title_keepout)
         rs.ObjectColor(cid, (90, 90, 90))
+        name_obj(cid, "TITLE")
         try:
             rs.ObjectLinetype(cid, "Dashed")
         except Exception:
             pass
-    # Marker only -- you hand-letter the title in the disk
-    did = rs.AddTextDot("TITLE", ORIGIN)
-    rs.ObjectLayer(did, layer)
-    status_cb("Title keep-out circle r={:.0f}.".format(params.title_keepout))
+    status_cb("Title keep-out circle r={:.0f} -- no text baked.".format(params.title_keepout))
 
 
 def bake_main_wrap(roots_sorted, params):
@@ -558,15 +580,7 @@ def bake_zone(cat, params):
         away.Unitize()
     zone_center = root + away * (cat["zone_radius"] * 0.70)
 
-    # Trunk dot at the ring (zoom-out sits here when you letter)
-    trunk_dot = rs.AddTextDot(cat["key"][:3], root)
-    rs.ObjectLayer(trunk_dot, layer)
-    rs.ObjectColor(trunk_dot, colour)
-
-    if params.bake_mode in (1, 2):
-        hid = rs.AddText(cat["zoom"], root, params.heading_height, None, 1, 1)
-        rs.ObjectLayer(hid, layer)
-        rs.ObjectColor(hid, colour)
+    add_dot(root, params.trunk_dot_radius, colour, layer, cat["key"])
 
     nodes, parent_of = grow_branches(
         root, zone_center, cat["zone_radius"],
@@ -602,16 +616,8 @@ def bake_zone(cat, params):
             direction.Unitize()
         else:
             direction = away
-        label_pt = tip + direction * 2.2
-
-        if params.bake_mode in (0, 2):
-            did = rs.AddTextDot(mid, label_pt)
-            rs.ObjectLayer(did, marker_layer)
-            rs.ObjectColor(did, colour)
-        if params.bake_mode in (1, 2):
-            lid = rs.AddText(short, label_pt, params.subtopic_height, None, 0, 0)
-            rs.ObjectLayer(lid, marker_layer)
-            rs.ObjectColor(lid, colour)
+        label_pt = tip + direction * 1.4
+        add_dot(label_pt, params.tip_dot_radius, colour, marker_layer, mid)
         placed += 1
 
     return {
@@ -647,11 +653,10 @@ def bake_relations(zone_results, params, status_cb):
         except Exception:
             pass
         set_print_width(crv, 0.18)
+        name_obj(crv, "{} {}".format(rid, verb))
         mid = pts[len(pts) // 2]
-        did = rs.AddTextDot("{} {}".format(rid, verb), mid)
-        rs.ObjectLayer(did, layer)
-        rs.ObjectColor(did, (120, 120, 120))
-    status_cb("Wrap-around relations baked at r={:.0f}.".format(arc_r))
+        add_dot(mid, 0.9, (120, 120, 120), layer, "{} {}".format(rid, verb))
+    status_cb("Wrap-around relations baked at r={:.0f} -- no text.".format(arc_r))
 
 
 def generate_diagram(params, status_cb):
@@ -682,7 +687,7 @@ def generate_diagram(params, status_cb):
         sc.doc.Views.RedrawEnabled = True
 
     rs.ZoomExtents()
-    status_cb("Done. Letter words from stigmergy-text-catalog.md. IDs are R L E W H B P N K X.")
+    status_cb("Geometry only. Open stigmergy-guide.html to place words. Select a dot -- Properties name is the catalog ID.")
 
 
 # -----------------------------------------------------------------
@@ -692,9 +697,9 @@ class StigmergyForm(eforms.Form):
 
     def __init__(self):
         eforms.Form.__init__(self)
-        self.Title = "A1 Stigmergy  v0.3  (markers + wrap)"
+        self.Title = "A1 Stigmergy  v0.4  (geometry only)"
         self.Resizable = True
-        self.ClientSize = edrawing.Size(460, 700)
+        self.ClientSize = edrawing.Size(460, 640)
         self.Padding = edrawing.Padding(8)
         self.BackgroundColor = TH["bg_form"]
         self.params = GrowthParams()
@@ -730,13 +735,11 @@ class StigmergyForm(eforms.Form):
         self._attractors = w.num(self.params.attractors_per_zone, 20, 400, dec=0, inc=5)
         lay.AddRow(w.row("Attractors / zone", self._attractors))
 
-        lay.AddRow(w.section("Text -- default is IDs only (no blown-up words)"))
-        self._bake = w.combo(["Markers only", "Short labels", "Both"], 0)
-        lay.AddRow(w.row("Bake mode", self._bake))
-        self._heading_h = w.num(self.params.heading_height, 0.8, 20, dec=1)
-        lay.AddRow(w.row("Short-label height (if on)", self._heading_h))
-        self._subtopic_h = w.num(self.params.subtopic_height, 0.5, 12, dec=1)
-        lay.AddRow(w.row("Sub label height (if on)", self._subtopic_h))
+        lay.AddRow(w.section("Dots -- circles only, no letters"))
+        self._trunk_r = w.num(self.params.trunk_dot_radius, 0.6, 8, dec=1)
+        lay.AddRow(w.row("Main-topic dot", self._trunk_r))
+        self._tip_r = w.num(self.params.tip_dot_radius, 0.3, 5, dec=1)
+        lay.AddRow(w.row("Subtopic tip dot", self._tip_r))
 
         self._btn_generate = w.button("Generate", self._on_generate, width=110, primary=True)
         self._btn_clear = w.button("Clear only", self._on_clear, width=110)
@@ -747,9 +750,9 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(self._log)
         self.Content = lay
         self.status_cb(
-            "Markers only. Letter from stigmergy-text-catalog.md.\n"
-            "Gold REGISTRATION at the bottom is the spine.\n"
-            "Terracotta POWER sits on a smaller inner ring."
+            "No text will be drawn. Use stigmergy-guide.html as the map.\n"
+            "Gold REGISTRATION = bottom spine. POWER = inner ring.\n"
+            "Select a circle -- Properties > Name is the catalog ID."
         )
 
     def _read_params(self):
@@ -760,12 +763,11 @@ class StigmergyForm(eforms.Form):
         p.segment_length = float(self._segment.Value)
         p.max_iterations = int(self._iterations.Value)
         p.attractors_per_zone = int(self._attractors.Value)
-        p.heading_height = float(self._heading_h.Value)
-        p.subtopic_height = float(self._subtopic_h.Value)
         p.ring_radius = float(self._ring.Value)
         p.title_keepout = float(self._keepout.Value)
         p.outward_bias = float(self._outward.Value)
-        p.bake_mode = int(self._bake.SelectedIndex)
+        p.trunk_dot_radius = float(self._trunk_r.Value)
+        p.tip_dot_radius = float(self._tip_r.Value)
         p.draw_title_circle = bool(self._draw_title.Checked)
         p.draw_wrap_arcs = bool(self._draw_arcs.Checked)
         return p

@@ -1,114 +1,85 @@
-# How to use the stigmergy (catalog + Rhino)
+# How to use the stigmergy (geometry in Rhino + web guide)
 
-**Development only.** Does not replace `05-diagrams/assessment-1/stigmergy-generator.py` or the main thinking diagram.
-
----
-
-## What you are making
-
-A circular **stigmergy** (root / nerve / coral growth):
-
-1. **Empty centre** — title. Branches must not cross it.  
-2. **Ring of main topics** — nine colour trunks around the title. Those trunks *wrap* the title; they do not go through it.  
-3. **Subtopic branches** — thinner lines grow *outward* from each trunk. Tips get a small ID (R5, L4…).  
-4. **You letter the words by hand** from `stigmergy-text-catalog.md`.
-
-That matches the pictures you gave: a vacant middle, colour groups, thick trunks to thin branches, paths that bundle around rather than cut the centre.
+**Development only.** Does not replace `05-diagrams/assessment-1/stigmergy-generator.py`.
 
 ---
 
-## Why the old generator fought you
+## Split of labour (this is the point)
 
-The first script baked long `AddText` headings. Rhino’s **annotation scale** (often 1:50 on millimetre templates) multiplied those heights, so words sat fifty times too big and ate neighbouring zones.
-
-This version’s default is:
-
-- **No long text in Rhino**  
-- **TextDots** with catalog IDs only (R1, E3, X7) — dots stay screen-sized  
-- Optional short labels, off unless you tick them  
-- Title is a **keep-out circle**, not a huge annotation
-
-You add the real sentences on paper / Illustrator / the printed A1.
-
----
-
-## Files
-
-| File | Role |
+| Tool | What it does |
 |---|---|
-| `stigmergy-text-catalog.md` | Every ID, zoom-out claim, typed sentence, relation |
-| `stigmergy-generator.py` | Rhino 8 Script Editor — Python 3 / CPython |
-| This file | Order of work |
+| `stigmergy-generator.py` in Rhino | **Lines and coloured dots only.** No letters. Annotation scale cannot be trusted. |
+| `stigmergy-guide.html` | **The picture / web app.** Zoom out for main claims, zoom in for subtopics, click a dot for the sentence to type. Same clock and colours as Rhino. |
+| `stigmergy-text-catalog.md` | Full typed catalog if you prefer a printout. |
+
+You type every word by hand on the Rhino bake (or on a print of it).
 
 ---
 
-## In Rhino 8
+## 1. Generate the drawing (Rhino 8)
 
-1. New millimetre file (or your A1 template).  
-2. **ScriptEditor** → Open `stigmergy-generator.py` → Run.  
-3. A dark control panel opens.  
-4. Leave **Bake mode** on **Markers only** for the first pass.  
-5. Click **Generate**.  
-6. You should see: a centre keep-out circle, nine coloured trunks on a ring, outward branches, small dots with IDs, dashed wrap-arcs for relations.  
-7. Print or export a viewport. Take the catalog. Letter the zoom-out claims on the ring, then the short labels at the tips.  
-8. If a zone is too thin or too hairy: change seed, attractors, or ring radius and Generate again (it clears the last bake first).
+1. Script Editor → open `stigmergy-generator.py` → Run.  
+2. Leave defaults. Click **Generate**.  
+3. You should see: dashed title hole, dashed wrap around the hole, nine coloured trunks, outward branches, small circles at tips, grey relation arcs. **No text.**  
+4. Gold (bottom) = Registration spine. Terracotta (inner) = Power.  
+5. If you need to know which small circle is which: select it → **Properties → Name** (R5, X7, LEGISLATION). That name is not drawn.
 
-### GUI you can turn
+---
+
+## 2. Open the guide (browser)
+
+Open `stigmergy-guide.html` in Chrome / Edge / Safari (double-click the file).
 
 | Control | Use |
 |---|---|
-| Random seed | Different branch shapes, same IDs |
-| Influence / kill / segment | Hairier vs calmer growth |
-| Attractors / zone | More tips (need enough for every ID) |
-| Ring radius / title keep-out | How wide the wrap around the title is |
-| Outward bias | How strongly branches flee the centre |
-| Bake mode | Markers only · Short labels · Both |
-| Draw title circle | On = reminder where to hand-letter the title |
-| Draw wrap arcs | On = relation curves (X1–X12) around the title |
+| **Zoom out** | Only main topics — what to write large on each trunk |
+| **Zoom in** | All subtopic IDs and short labels |
+| **Relations** | Grey wrap-arcs with *enables / limits / depends upon / influences / contrasts* |
+| Click a dot | Side panel shows the **typed sentence** to letter |
+| Print / PDF | Save a still picture if you want the guide on paper beside Rhino |
 
-**Clear only** deletes `Diagram::` layers without growing a new tree.
+Scroll to zoom, drag to pan.
 
 ---
 
-## Hand-lettering order (do this on the print)
+## 3. Allocate (your hand)
 
-1. **Centre:** DISCIPLINARY MATRIX / *Trusted with the title — by whom, for what?*  
-2. **Ring, large, in each colour:** the nine zoom-out claims.  
-3. **Arcs:** one verb each (enables, limits, depends upon, influences, contrasts).  
-4. **Tips:** short label from the catalog. If space dies, letter the ID only and keep the sentence in your verbal script.  
-5. **Power** stays visually smaller than Registration.  
-6. **Procurement** can sit on a slightly unfinished connector (dashed into Power).  
-7. Legend: copy the colour table from the catalog.
+1. Centre hole → *DISCIPLINARY MATRIX* / *Trusted with the title — by whom, for what?*  
+2. Each large coloured dot → that group’s **zoom-out claim** (from the panel).  
+3. Small dots of the same colour, **farthest first** → R1… R12 on gold, L1… on blue, and so on.  
+4. Grey arc mid-dots → one verb (X3 *enables*, X7 *limits*…). Arcs wrap the title; they do not cut it.  
+5. Power stays visually smaller than Registration.
 
 ---
 
-## What “stigmergy” is doing as an argument
+## Clock (same in both tools)
 
-Branches **accrete toward unclaimed space**. That is the drawing’s claim as well as its look: the profession densely occupies the registration gate, and grows more thinly toward code-writing and novation — unless you *choose* to thicken those trunks. Colour tells the viewer which system they are in. The wrap around the title says the systems are one matrix, not nine posters.
-
----
-
-## Assessment 1 — do not forget
-
-The brief still wants:
-
-- A legible **Victoria registration pathway** (R1–R12 *in order* along that gold trunk helps)  
-- All required topics related with **enables / limits / depends upon / influences / causes / prevents**  
-- A **critical position** (terracotta + the 150-word note — still the main file, not this pack)  
-- Iteration (keep a v01 print before you letter v02)  
-- Chicago references on the sheet or the note  
-- Follow the unit AI-use policy for any assessable wording you copy from this catalog
+| Clock | Colour | Group |
+|---|---|---|
+| 12 | Rose | Ethics |
+| 1–2 | Blue | Legislation |
+| 3 | Teal | Research |
+| 4–5 (inner) | Terracotta | Power |
+| 6 | Gold | **Registration (spine)** |
+| 7–8 | Tan | Employment |
+| 9 | Green | Education |
+| 10–11 | Purple | Bodies |
+| 11 (outer) | Navy | Procurement |
 
 ---
 
-## If Rhino is not open today
+## What the relations are doing
 
-You can still draw the stigmergy by hand:
+The wrap-arcs are the argument, not decoration:
 
-1. Circle in the middle (title).  
-2. Nine dots on a larger circle.  
-3. Gold trunk at the bottom (Registration) drawn thicker.  
-4. Organic branches outward; write IDs as you go.  
-5. Letter from the catalog.
+- Education and employment **depend upon** / **enable** registration.  
+- Legislation **enables** the title and **limits** a project (Council / surveyor).  
+- Research **influences** legislation (the code can be rewritten).  
+- Procurement **limits** registration (title intact, authorship gone).  
+- Power **contrasts** the tight title-gate with the loose code and contract.
 
-The Python file is for repeating that geometry cleanly, not for writing the essay onto the screen.
+If a viewer only reads the gold trunk and the grey verbs, they should still get the critical position.
+
+---
+
+Follow the unit AI-use policy for any wording you copy onto the submitted sheet.
