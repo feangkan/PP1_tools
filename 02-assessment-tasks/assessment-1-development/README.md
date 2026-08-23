@@ -9,6 +9,7 @@ Do **not** use `05-diagrams/assessment-1/03-presentation-script.md` (older first
 | File | Use |
 |---|---|
 | [`03-presentation-script.md`](03-presentation-script.md) | **Speak this.** 60-second cut, then ~3 min if they let you. Backup Qs. |
+| [`04-practise-qa.md`](04-practise-qa.md) | **Drill this.** Full answers for likely tutor questions (third person). |
 | [`02-explanation.md`](02-explanation.md) | How to read the sheet (languages, gold path, sources). |
 | [`how-to-read-and-critical-position.md`](how-to-read-and-critical-position.md) | 150-word Canvas note (third person). |
 
@@ -60,7 +61,8 @@ Follow your unit’s AI-use policy for any assessable text you write from this p
 | [`how-to-read-and-critical-position.md`](how-to-read-and-critical-position.md) | **150-word** how-to-read + critical position for this stigmergy sheet |
 | [`02-explanation.md`](02-explanation.md) | How to read the Rhino sheet for the Week 5 verbal |
 | [`03-presentation-script.md`](03-presentation-script.md) | **Monday speaking script** (60 sec + ~3 min, third person) |
-| [`how-to-read-requirement-check.md`](how-to-read-requirement-check.md) | Brief/rubric check for that note + package |
+| [`04-practise-qa.md`](04-practise-qa.md) | **Monday practise Q&A** — drill before class |
+| [`how-to-read-requirement-check.md`](how-to-read-requirement-check.md) | Brief/rubric check for that note + package (refreshed for V16 + verbal) |
 | [`stigmergy-text-catalog.md`](stigmergy-text-catalog.md) | Typed sentences for hand-lettering |
 | [`stigmergy-guide.html`](stigmergy-guide.html) | **Open in a browser** — zoomable placement picture; click a dot for what to type |
 | [`stigmergy-how-to.md`](stigmergy-how-to.md) | Rhino = geometry only; guide = words |

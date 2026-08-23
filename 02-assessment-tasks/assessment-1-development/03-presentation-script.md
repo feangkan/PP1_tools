@@ -3,7 +3,8 @@
 **When:** Monday 24 August 2026 (Week 5 A1 verbal in class).  
 **What to open:** Rhino sheet (V16+), title readable, gold hub in view.  
 **Voice:** Third person. Point at the sheet. Do not say I / you / we.  
-**If they cut you at 60 seconds:** stop after Part A. If they give ~3 minutes, continue Part B then close.
+**If they cut you at 60 seconds:** stop after Part A. If they give ~3 minutes, continue Part B then close.  
+**Practise answers:** `04-practise-qa.md`.
 
 Academic integrity: this is a speaking aid. Follow the unit AI-use policy.
 
@@ -11,13 +12,15 @@ Academic integrity: this is a speaking aid. Follow the unit AI-use policy.
 
 ## 60-second version (Part A) — learn this first
 
-This diagram maps Victoria’s architecture **disciplinary matrix** as **stigmergy** — colour groups in one field.
+*[Point at title, then gold hub.]*
 
-Read **gold first**. **TRUST** and **RISK** sit before **START**. **Stage 1:** accredited education, AQF Part 1 and 2, **gated**. **Stage 2:** supervised logbook, **3,300 hours**, **35 competencies**, **ongoing**. **Stage 3:** the APE — **80** multiple choice, interview **45 to 60 minutes**, **gated**. **Fail** is a dotted loop: sent back, **not ejected**. **Stage 4:** ARBV grants the title. **Stage 5:** CPD and PI loop. **Ejection** is different: Tribunal, serious breach.
+This sheet is Victoria’s architecture **disciplinary matrix**, drawn as **stigmergy** — colour groups leaving marks in one field.
 
-Other colours **do not copy** this ladder. Grey verbs — enables, limits, depends upon — link groups.
+**Read gold first.** **TRUST** and **RISK** sit before **START**. **Stage 1:** accredited education, AQF Part 1 and 2 — **gated**. **Stage 2:** supervised logbook — **3,300 hours**, **35 competencies** — **ongoing**. **Stage 3:** the APE — **80** multiple choice, interview **45 to 60 minutes** — **gated**. **Fail** is the dotted loop: sent back, **not ejected**. **Stage 4:** ARBV grants the title. **Stage 5:** CPD and PI loop. **Ejection** is different — Tribunal, serious breach.
 
-The title asks: **trusted with the title — by whom, for what?** Registration is **tight**. The code of conduct and procurement stay **looser**. That is where trust and power sit.
+Other colours **do not copy** this ladder. Grey verbs — enables, limits, depends upon — link the groups.
+
+The title asks: **trusted with the title — by whom, for what?** Registration is **tight**. Conduct and procurement stay **looser**. That is where trust and power sit.
 
 *[Stop here if time is up.]*
 
@@ -49,13 +52,22 @@ Beaton treats the title as an **institution**, not a personal trait. Loos, on or
 
 ---
 
-## Timing marks (3-minute run)
+## Timing marks
+
+### 60-second cut only
+
+| Clock | Beat | Point at |
+|---|---|---|
+| 0:00–0:08 | Stigmergy + field | Title |
+| 0:08–0:42 | TRUST/RISK/START + Stages 1–5, fail vs eject | Gold hubs left → right |
+| 0:42–0:52 | Other languages + grey verbs | One other colour + a grey label |
+| 0:52–1:00 | Tight title / loose conduct–contract + title question | Title again |
+
+### 3-minute run (Part A + B)
 
 | Clock | Beat |
 |---|---|
-| 0:00–0:15 | Stigmergy + read gold first |
-| 0:15–0:50 | TRUST/RISK/START + Stages 1–5, fail vs eject |
-| 0:50–1:00 | Other languages + grey verbs + title question |
+| 0:00–1:00 | Part A as above |
 | 1:00–2:10 | Two or three other groups (Education, Bodies, Procurement) |
 | 2:10–2:40 | Tight title vs loose code/contract + Beaton / Lui / AIA |
 | 2:40–3:00 | Close on the title question |
@@ -63,6 +75,8 @@ Beaton treats the title as an **institution**, not a personal trait. Loos, on or
 ---
 
 ## If they ask questions (backup)
+
+Full practise answers: `04-practise-qa.md`. One-liners:
 
 | Question | One-sentence answer |
 |---|---|
