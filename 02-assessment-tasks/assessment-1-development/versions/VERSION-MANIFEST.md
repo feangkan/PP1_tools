@@ -15,8 +15,9 @@
 | V11 | 2026-08-23 | `30073c8` | v1.4 | Catalog text middle-centered on nodes, not beside them |
 | V12 | 2026-08-23 | `ca297aa` | v1.5 | Legend black; colour pickers; millimetre default (print-pt option still present) |
 | V13 | 2026-08-23 | `ff973c0` | v1.6 | Text sizes are millimetres only — GUI 2.0 = 2.0 mm |
-| V14 | 2026-08-23 | (this commit) | v1.7 | Same size values; labels say mm not pt; colour chips |
+| V14 | 2026-08-23 | `4d1a7fb` | v1.7 | Same size values; labels say mm not pt; colour chips |
+| V15 | 2026-08-23 | (this commit) | v1.8 | Update text restyles size and colour without regenerating |
 
-**Latest:** V14 (see `LATEST.txt`)
+**Latest:** V15 (see `LATEST.txt`)
 
-**Next version:** V15 — copy `stigmergy-*` files into `versions/V15/`, update this table, increment `LATEST.txt`.
+**Next version:** V16 — copy `stigmergy-*` files into `versions/V16/`, update this table, increment `LATEST.txt`.
