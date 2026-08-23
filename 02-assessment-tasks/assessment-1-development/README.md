@@ -4,7 +4,7 @@
 
 ## Monday verbal (24 August 2026) — open these
 
-Do **not** use `05-diagrams/assessment-1/03-presentation-script.md` (older first-person draft). Speak from this folder. Point at the Rhino sheet (V16+).
+Do **not** use `05-diagrams/assessment-1/03-presentation-script.md` (older first-person draft). Speak from this folder. Point at the Rhino sheet (V17+).
 
 | File | Use |
 |---|---|
@@ -67,7 +67,7 @@ Follow your unit’s AI-use policy for any assessable text you write from this p
 | [`stigmergy-guide.html`](stigmergy-guide.html) | **Open in a browser** — zoomable placement picture; click a dot for what to type |
 | [`stigmergy-how-to.md`](stigmergy-how-to.md) | Rhino = geometry only; guide = words |
 | [`stigmergy-generator.py`](stigmergy-generator.py) | Rhino 8 GUI — working copy |
-| [`stigmergy-generator-V16.py`](stigmergy-generator-V16.py) | **Latest (V16)** — clean highways (3 smooth curves); mesh/filaments off |
+| [`stigmergy-generator-V17.py`](stigmergy-generator-V17.py) | **Latest (V17)** — text in front + white stroke; relation/loop 1 mm; diamonds −70%; pic 2 black defaults |
 | [`versions/`](versions/README.md) | **V1, V2, V3…** frozen snapshots — never overwritten |
 
 ### Local Windows copy (`D:\Claude code`)

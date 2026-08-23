@@ -1,7 +1,7 @@
 # Presentation script — A1 stigmergy (Week 5 verbal)
 
 **When:** Monday 24 August 2026 (Week 5 A1 verbal in class).  
-**What to open:** Rhino sheet (V16+), title readable, gold hub in view.  
+**What to open:** Rhino sheet (V17+), title readable, gold hub in view.  
 **Voice:** Third person. Point at the sheet. Do not say I / you / we.  
 **If they cut you at 60 seconds:** stop after Part A. If they give ~3 minutes, continue Part B then close.  
 **Practise answers:** `04-practise-qa.md`.

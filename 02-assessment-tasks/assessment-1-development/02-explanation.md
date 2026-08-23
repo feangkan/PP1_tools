@@ -1,6 +1,6 @@
 # Explanation — A1 stigmergy (verbal, Week 5)
 
-Use this with the Rhino sheet (V16 or later). Spoken version: `03-presentation-script.md`.
+Use this with the Rhino sheet (V17 or later). Spoken version: `03-presentation-script.md`.
 
 ## What it is
 

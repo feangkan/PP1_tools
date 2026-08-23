@@ -1,0 +1,4 @@
+V17
+Notes: Text front + white stroke; relation/loop 1 mm GUI; diamonds -70%; pic 2 black defaults
+Internal: v2.0
+Git: 4c0322d

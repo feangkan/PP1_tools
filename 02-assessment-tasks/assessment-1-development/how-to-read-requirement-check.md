@@ -2,7 +2,7 @@
 
 - **Draft:** `02-assessment-tasks/assessment-1-development/how-to-read-and-critical-position.md`
 - **Brief:** `02-assessment-tasks/assessment-1-brief.md`
-- **Diagram pack:** `stigmergy-text-catalog.md` + Rhino generator **V16** in this folder
+- **Diagram pack:** `stigmergy-text-catalog.md` + Rhino generator **V17** in this folder
 - **Verbal pack:** `03-presentation-script.md`, `02-explanation.md`, `04-practise-qa.md`
 - **References:** `06-references/a1-stigmergy-bibliography.md`
 - **Date:** 2026-08-23 (refresh)
@@ -30,8 +30,8 @@ This check is for the **stigmergy development package**, not the older Town Hall
 | 5 | Framework (method stage 2): network / stigmergy, not one fake pathway copied nine times | Met | Opening: stigmergy network; gold read first; other colours keep own graphic languages | Keep graphic-language beats in Part B |
 | 6 | Chicago + unit-required reading (Beaton) | Partial | Beaton named in the 150 words; Loos, Lui, AIA in bibliography | Confirm Loos collection/page and Lui year/pages, or keep the missing-field flags. Procurement = independent |
 | 7 | ~150 words excl. references | Met | 150 words on whitespace count (2026-08-23) | Re-count in Canvas before submit |
-| 8 | Iterative versions (brief deliverable) | Met | Diagram versions V1–V16 in `versions/`; note iterated to narrative third person | Do not claim the Town Hall `01-diagram.md` as this sheet |
-| 9 | A1 diagram itself (PC1: regulatory requirements, codes, CPD, PI) | Met | Catalog R4–R10, L-group, CPD+PI loop; V16 clean highways | Submit Rhino/print sheet with the note |
+| 8 | Iterative versions (brief deliverable) | Met | Diagram versions V1–V17 in `versions/`; note iterated to narrative third person | Do not claim the Town Hall `01-diagram.md` as this sheet |
+| 9 | A1 diagram itself (PC1: regulatory requirements, codes, CPD, PI) | Met | Catalog R4–R10, L-group, CPD+PI loop; V17 text front + white stroke | Submit Rhino/print sheet with the note |
 | 10 | Week 5 verbal presentation | Met | `03-presentation-script.md` (60 s + ~3 min, third person); `02-explanation.md`; `04-practise-qa.md` | Speak from **this folder**, not `05-diagrams/assessment-1/03-presentation-script.md` |
 
 ## Rubric alignment
@@ -48,7 +48,7 @@ This check is for the **stigmergy development package**, not the older Town Hall
 1. Confirm Loos collection/page and Lui year/pages, or leave the incomplete fields flagged and keep Beaton + AIA.
 2. Re-count the 150 words in Canvas; hyphenated terms can drift.
 3. If Canvas is the stigmergy sheet, do not submit the Town Hall 143-word note beside it — copy this draft (in your own voice) into the submission file yourself.
-4. Monday: open this folder’s script + V16 Rhino sheet; drill `04-practise-qa.md` once.
+4. Monday: open this folder’s script + V17 Rhino sheet; drill `04-practise-qa.md` once.
 
 ## Strengths to keep
 

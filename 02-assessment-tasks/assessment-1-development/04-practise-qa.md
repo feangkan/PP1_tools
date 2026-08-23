@@ -1,7 +1,7 @@
 # Practise Q&A — A1 stigmergy (Monday verbal)
 
 - **Date:** 2026-08-23
-- **Use with:** Rhino sheet (V16+), `03-presentation-script.md`, `02-explanation.md`
+- **Use with:** Rhino sheet (V17+), `03-presentation-script.md`, `02-explanation.md`
 - **Resource scope:** this folder + tutorial whiteboard + set readings named in `06-references/a1-stigmergy-bibliography.md`
 - **Voice:** Third person in class. These answers are written that way so they can be spoken as-is.
 
