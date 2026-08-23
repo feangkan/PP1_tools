@@ -1,6 +1,6 @@
 # Where is stigmergy?
 
-## Use this (newest — V9 / v1.2)
+## Use this (newest — V10 / v1.3)
 
 **Folder:** `02-assessment-tasks/assessment-1-development/`
 
