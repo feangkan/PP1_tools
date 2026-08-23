@@ -49,7 +49,8 @@ Follow your unit’s AI-use policy for any assessable text you write from this p
 | [`stigmergy-guide.html`](stigmergy-guide.html) | **Open in a browser** — zoomable placement picture; click a dot for what to type |
 | [`stigmergy-how-to.md`](stigmergy-how-to.md) | Rhino = geometry only; guide = words |
 | [`stigmergy-generator.py`](stigmergy-generator.py) | Rhino 8 GUI — working copy |
-| [`stigmergy-generator-V11.py`](stigmergy-generator-V11.py) | **Latest (V11)** — labels centred on nodes |
+| [`stigmergy-generator-V12.py`](stigmergy-generator-V12.py) | **Latest (V12)** — black legend, colour chips, millimetre sizes |
+| [`stigmergy-generator-V11.py`](stigmergy-generator-V11.py) | Previous — labels centred on nodes |
 | [`versions/`](versions/README.md) | **V1, V2, V3…** frozen snapshots — never overwritten |
 
 ### Local Windows copy (`D:\Claude code`)

@@ -14,7 +14,8 @@
 | **V8** | v1.1 pathway + circles | Victoria flowchart on gold trunk; colour-circle legend |
 | **V9** | v1.2 own graphic language | stages only where they exist; cycle / loop / instrument / fork / split / contest / overlap |
 | **V10** | v1.3 dense line linkages | highway bundles are stigmergy curves, not pipe polysurfaces |
-| **V11** | v1.4 text on nodes | **Latest** — Futura labels middle-centered on each disc |
+| **V11** | v1.4 text on nodes | Futura labels middle-centered on each disc |
+| **V12** | v1.5 text colour + mm | **Latest** — legend black; colour chip per type; sizes in millimetres |
 
 See [`VERSION-MANIFEST.md`](VERSION-MANIFEST.md) for git commits and dates.
 
@@ -34,7 +35,7 @@ After each `git pull`, run the script again — it copies **only new** `Vn` fold
 
 ## For agents (next push)
 
-1. Bump `LATEST.txt` (e.g. `4` → `5`).
-2. Copy the four stigmergy files into `versions/V5/`.
+1. Bump `LATEST.txt` (e.g. `12` → `13`).
+2. Copy the four stigmergy files into `versions/V13/`.
 3. Add a row to `VERSION-MANIFEST.md`.
 4. Commit, push, remind user to run `sync-claude-code-local.ps1` locally.
