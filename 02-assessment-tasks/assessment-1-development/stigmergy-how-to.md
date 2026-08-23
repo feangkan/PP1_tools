@@ -19,8 +19,8 @@ You type every word by hand on the Rhino bake (or on a print of it).
 ## 1. Generate the drawing (Rhino 8)
 
 1. Script Editor → open `stigmergy-generator.py` → Run.  
-2. Leave defaults (v0.6 nerve layout). Click **Generate**. Optional: tick **Animate while generating**.  
-3. You should see **thick highway trunks**, **organic capillary branches**, and **filled seats** at every place you type. Zoom out: weight and seats stay visible.  
+2. Leave defaults (v0.7 mycelial mesh). Click **Generate**. Optional: tick **Animate while generating**.  
+3. You should see **thick highway trunks**, a **dense mesh with voids** near the gold spine, **cross-links**, **junction blobs**, and **fine reaching capillaries**. Zoom out: weight and seats stay visible.  
 4. **Where to letter**
    - Upper void disc + crosshair = title  
    - Large filled disc + halo = main claim (that colour)  
@@ -73,7 +73,7 @@ Horizontal spread (~2:1). West → east:
 | Overlap (smaller) | Terracotta | Power |
 | East | Purple | Bodies |
 
-Thick **highways** bundle between these hubs. Fine **capillaries** grow outward from each hub into its zone.
+Thick **highways** bundle between hubs. A **mycelial mesh** (cross-links + voids) grows densest near the gold REGISTRATION spine and opens toward the edges. Fine **capillaries** reach outward from branch tips.
 
 ---
 

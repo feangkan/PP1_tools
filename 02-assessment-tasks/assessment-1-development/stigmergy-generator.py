@@ -1,5 +1,5 @@
 """
-Assessment 1 stigmergy generator  v0.6
+Assessment 1 stigmergy generator  v0.7
 Development copy -- does not overwrite 05-diagrams/assessment-1/stigmergy-generator.py
 
 Rhino 8 Script Editor (Python 3 / CPython). Run to open the control panel.
@@ -7,19 +7,19 @@ Rhino 8 Script Editor (Python 3 / CPython). Run to open the control panel.
 NO TEXT IS BAKED
 ----------------
 Rhino annotation scale cannot be trusted for readable type. This script
-draws coloured geometry only: title seat, thick highways, organic branches,
-tip dots, relation paths. Object names (Properties panel) hold catalog IDs.
+draws coloured geometry only: title seat, thick highways, organic mesh,
+junction nodes, tip dots, relation paths. Object names hold catalog IDs.
 
 Place words by hand using:
   stigmergy-guide.html  (zoomable picture / web app)
   stigmergy-text-catalog.md
 
-LAYOUT  v0.6 -- nerve style (not radial / galaxy)
--------------------------------------------------
+LAYOUT  v0.7 -- mycelial / nerve mesh (not radial / galaxy)
+-----------------------------------------------------------
 Distributed hubs on a horizontal canvas (~2:1). Thick bundled highways
-between regions; fine capillary branches at organic tips. REGISTRATION
-is the largest spine hub (lower-centre). POWER is a smaller overlap hub.
-Title sits in the upper void -- not a central ring hole.
+with side filaments; dense mesh with voids near the REGISTRATION spine;
+cross-links between zones; thickened junction nodes; fine reaching
+capillaries at the edges. Title in upper void.
 """
 
 import math
@@ -148,25 +148,33 @@ def make_logger(text_area, keep_lines=160):
 class GrowthParams(object):
     def __init__(self):
         self.seed = 7
-        self.influence_radius = 18.0
-        self.kill_distance = 3.8
-        self.segment_length = 2.4
-        self.max_iterations = 650
-        self.attractors_per_zone = 130
+        self.influence_radius = 17.0
+        self.kill_distance = 3.2
+        self.segment_length = 2.0
+        self.max_iterations = 780
+        self.attractors_per_zone = 165
         self.canvas_scale = 1.0
         self.title_y = 72.0
         self.title_keepout = 28.0
-        self.grow_bias = 0.55
+        self.grow_bias = 0.50
+        self.density_pull = 0.30
         self.tip_dot_radius = 3.0
         self.trunk_dot_radius = 6.0
         self.rel_dot_radius = 3.0
-        self.highway_line = 1.35
-        self.trunk_line = 0.85
-        self.branch_line = 0.28
-        self.hair_line = 0.10
-        self.rel_line = 0.55
+        self.junction_radius = 2.2
+        self.highway_line = 1.45
+        self.trunk_line = 0.90
+        self.branch_line = 0.26
+        self.hair_line = 0.08
+        self.rel_line = 0.50
+        self.mesh_link_dist = 8.5
+        self.capillary_hairs = 50
         self.draw_title_ellipse = True
         self.draw_highways = True
+        self.draw_highway_filaments = True
+        self.draw_mesh_links = True
+        self.draw_capillaries = True
+        self.draw_junctions = True
         self.draw_relations = True
         self.animate = False
 
@@ -459,10 +467,26 @@ def random_point_in_disc(center, radius):
     return rg.Point3d(center.X + r * math.cos(a), center.Y + r * math.sin(a), 0)
 
 
-def random_point_in_zone(root, grow_dir, zone_radius, scale):
+def spine_center(params):
+    """Dense core anchor -- REGISTRATION hub."""
+    return hub_pt({"hub": (28, -28)}, params.canvas_scale)
+
+
+def random_point_in_zone(root, grow_dir, zone_radius, scale, params=None):
     gd = grow_vec({"grow_dir": grow_dir})
     perp = rg.Vector3d(-gd.Y, gd.X, 0)
-    # Elliptical cloud: long along grow_dir, wide perpendicular
+
+    # Pull some attractors toward the spine for mycelial density gradient
+    if params and params.density_pull > 0 and random.random() < params.density_pull:
+        core = spine_center(params)
+        t = random.random() * 0.55 + 0.15
+        spread = zone_radius * scale * 0.35 * (random.random() - 0.5)
+        return rg.Point3d(
+            root.X + (core.X - root.X) * t + perp.X * spread,
+            root.Y + (core.Y - root.Y) * t + perp.Y * spread,
+            0,
+        )
+
     along = (random.random() - 0.15) * zone_radius * scale * 1.35
     across = (random.random() - 0.5) * zone_radius * scale * 0.85
     return rg.Point3d(
@@ -482,7 +506,7 @@ def grow_branches(root_pt, grow_dir, zone_radius, n_attractors, params, scale):
 
     attractors = []
     for _ in range(n_attractors):
-        p = random_point_in_zone(root_pt, grow_dir, zone_radius, scale)
+        p = random_point_in_zone(root_pt, grow_dir, zone_radius, scale, params)
         p = push_outside_title(p, params)
         attractors.append(p)
 
@@ -516,8 +540,8 @@ def grow_branches(root_pt, grow_dir, zone_radius, n_attractors, params, scale):
             avg = vsum / node_count[i]
             avg = avg + gd * params.grow_bias
             jitter = rg.Vector3d(
-                random.uniform(-0.18, 0.18),
-                random.uniform(-0.18, 0.18),
+                random.uniform(-0.22, 0.22),
+                random.uniform(-0.22, 0.22),
                 0,
             )
             avg = avg + jitter
@@ -777,6 +801,178 @@ def bake_title(params, status_cb):
     status_cb("Title seat in upper void -- letter DISCIPLINARY MATRIX here.")
 
 
+def draw_segment(p1, p2, radius, colour, layer, name, animate=False):
+    lid = rs.AddLine(p1, p2)
+    if not lid:
+        return None
+    paint(lid, colour, layer, name)
+    if radius > 0.04:
+        thicken_curve(lid, radius, colour, layer, name)
+    else:
+        set_print_width(lid, max(radius * 2.0, 0.2))
+    maybe_redraw(animate)
+    return lid
+
+
+def sample_curve_points(p1, p2, n_samples, bulge=0.18, scale=1.0):
+    pts = curve_between(p1, p2, bulge_factor=bulge, scale=scale)
+    if len(pts) == 3:
+        # quadratic bezier samples
+        a, c, b = pts[0], pts[1], pts[2]
+        out = []
+        for i in range(n_samples):
+            t = i / float(max(n_samples - 1, 1))
+            u = 1.0 - t
+            x = u * u * a.X + 2 * u * t * c.X + t * t * b.X
+            y = u * u * a.Y + 2 * u * t * c.Y + t * t * b.Y
+            out.append(rg.Point3d(x, y, 0))
+        return out
+    return [p1, p2]
+
+
+def bake_highway_filaments(zone_results, params, animate=False):
+    if not params.draw_highway_filaments:
+        return
+    layer = ensure_layer("Diagram::Filaments", (110, 110, 110))
+    rs.CurrentLayer(layer)
+    scale = params.canvas_scale
+    count = 0
+    for a_key, b_key, weight in HIGHWAYS:
+        if a_key not in zone_results or b_key not in zone_results:
+            continue
+        p1 = zone_results[a_key]["root"]
+        p2 = zone_results[b_key]["root"]
+        samples = sample_curve_points(p1, p2, 7, bulge=0.18, scale=scale)
+        c1 = zone_results[a_key]["colour"]
+        c2 = zone_results[b_key]["colour"]
+        blend = (
+            int((c1[0] + c2[0]) * 0.5),
+            int((c1[1] + c2[1]) * 0.5),
+            int((c1[2] + c2[2]) * 0.5),
+        )
+        for sp in samples[1:-1]:
+            for _ in range(2):
+                ang = random.random() * 2.0 * math.pi
+                length = random.uniform(4.0, 10.0) * scale
+                dx = math.cos(ang) * length
+                dy = math.sin(ang) * length
+                tip = push_outside_title(rg.Point3d(sp.X + dx, sp.Y + dy, 0), params)
+                w = params.hair_line * scale * random.uniform(0.6, 1.1)
+                draw_segment(sp, tip, w, blend, layer, "filament", animate)
+                count += 1
+    return count
+
+
+def bake_mesh_links(all_zones, params, animate=False):
+    """Cross-link nearby branches from different zones -- lattice / voids."""
+    if not params.draw_mesh_links:
+        return 0
+    layer = ensure_layer("Diagram::Mesh", (100, 100, 100))
+    rs.CurrentLayer(layer)
+    scale = params.canvas_scale
+    max_d = params.mesh_link_dist * scale
+    links = 0
+    keys = list(all_zones.keys())
+    for i, ka in enumerate(keys):
+        za = all_zones[ka]
+        for kb in keys[i + 1:]:
+            zb = all_zones[kb]
+            for ia, pa in enumerate(za["nodes"]):
+                if ia == 0 or za["depths"].get(ia, 0) < 3:
+                    continue
+                for ib, pb in enumerate(zb["nodes"]):
+                    if ib == 0 or zb["depths"].get(ib, 0) < 3:
+                        continue
+                    d = pa.DistanceTo(pb)
+                    if d > max_d or d < 1.5 * scale:
+                        continue
+                    if random.random() > 0.18:
+                        continue
+                    c1, c2 = za["colour"], zb["colour"]
+                    blend = (
+                        int((c1[0] + c2[0]) * 0.5),
+                        int((c1[1] + c2[1]) * 0.5),
+                        int((c1[2] + c2[2]) * 0.5),
+                    )
+                    w = params.hair_line * scale * 1.3
+                    draw_segment(pa, pb, w, blend, layer, "mesh", animate)
+                    za["junctions"][ia] = za["junctions"].get(ia, 0) + 1
+                    zb["junctions"][ib] = zb["junctions"].get(ib, 0) + 1
+                    links += 1
+    return links
+
+
+def bake_capillaries(all_zones, params, animate=False):
+    """Fine reaching hairs from mid-branch and tip nodes (mycelial edge)."""
+    if not params.draw_capillaries:
+        return 0
+    count = 0
+    scale = params.canvas_scale
+    for key, zd in all_zones.items():
+        layer = ensure_layer("Diagram::" + key, zd["colour"])
+        rs.CurrentLayer(layer)
+        colour = zd["colour"]
+        nodes = zd["nodes"]
+        n_hairs = int(params.capillary_hairs * scale)
+        candidates = [i for i in range(len(nodes))
+                      if zd["depths"].get(i, 0) >= 4]
+        if not candidates:
+            continue
+        random.shuffle(candidates)
+        for idx in candidates[:n_hairs]:
+            base = nodes[idx]
+            direction = rg.Vector3d(
+                random.uniform(-1, 1),
+                random.uniform(-1, 1),
+                0,
+            )
+            if direction.Length > 1e-9:
+                direction.Unitize()
+            steps = random.randint(2, 5)
+            prev = base
+            for s in range(steps):
+                reach = params.segment_length * scale * random.uniform(0.7, 1.3)
+                nudge = rg.Vector3d(
+                    random.uniform(-0.35, 0.35),
+                    random.uniform(-0.35, 0.35),
+                    0,
+                )
+                nxt = push_outside_title(prev + direction * reach + nudge, params)
+                w = params.hair_line * scale * (0.5 + s * 0.15)
+                draw_segment(prev, nxt, w, colour, layer, key, animate)
+                prev = nxt
+                count += 1
+    return count
+
+
+def bake_junction_nodes(all_zones, params, animate=False):
+    """Thickened nodes where multiple filaments meet."""
+    if not params.draw_junctions:
+        return 0
+    layer = ensure_layer("Diagram::Junctions", (120, 120, 120))
+    rs.CurrentLayer(layer)
+    scale = params.canvas_scale
+    count = 0
+    for key, zd in all_zones.items():
+        colour = zd["colour"]
+        parent_of = zd["parent_of"]
+        child_count = {}
+        for i, p in parent_of.items():
+            if p >= 0:
+                child_count[p] = child_count.get(p, 0) + 1
+        for i, node in enumerate(zd["nodes"]):
+            degree = child_count.get(i, 0)
+            if i in parent_of and parent_of[i] >= 0:
+                degree += 1
+            degree += zd["junctions"].get(i, 0)
+            if degree >= 3:
+                r = params.junction_radius * scale * min(1.0 + degree * 0.12, 2.0)
+                add_filled_disk(node, r, colour, layer, "{}_j{}".format(key, i))
+                count += 1
+                maybe_redraw(animate)
+    return count
+
+
 def bake_highways(zone_results, params, animate=False):
     if not params.draw_highways:
         return
@@ -859,23 +1055,16 @@ def bake_zone(cat, params, animate=False):
         root, cat["grow_dir"], cat["zone_radius"],
         params.attractors_per_zone, params, scale,
     )
-
+    depths = {0: 0}
     for i in range(1, len(nodes)):
         if i not in parent_of or parent_of[i] < 0:
             continue
         depth = node_depth(i, parent_of)
-        lid = rs.AddLine(nodes[parent_of[i]], nodes[i])
-        if not lid:
-            continue
-        paint(lid, colour, layer, cat["key"])
+        depths[i] = depth
         w = line_weight_for_depth(depth, params) * scale
-        if depth <= 2:
-            thicken_curve(lid, w, colour, layer, cat["key"])
-        elif depth <= 6:
-            thicken_curve(lid, w, colour, layer, cat["key"])
-        else:
-            thicken_curve(lid, w * 0.65, colour, layer, cat["key"])
-        maybe_redraw(animate)
+        draw_segment(
+            nodes[parent_of[i]], nodes[i], w, colour, layer, cat["key"], animate,
+        )
 
     marker_layer = ensure_layer("Diagram::Markers", colour)
     rs.CurrentLayer(marker_layer)
@@ -894,6 +1083,10 @@ def bake_zone(cat, params, animate=False):
         "colour": colour,
         "placed": placed,
         "hub_scale": hub_scale,
+        "nodes": nodes,
+        "parent_of": parent_of,
+        "depths": depths,
+        "junctions": {},
     }
 
 
@@ -938,15 +1131,21 @@ def generate_diagram(params, status_cb):
             status_cb("{} : {} subtopic seats on organic tips.".format(
                 cat["key"], result["placed"]))
 
-        # Highways on top of zone roots but under relation markers
         bake_highways(zone_results, params, animate)
+        n_fil = bake_highway_filaments(zone_results, params, animate) or 0
+        n_mesh = bake_mesh_links(zone_results, params, animate) or 0
+        n_cap = bake_capillaries(zone_results, params, animate) or 0
+        n_junc = bake_junction_nodes(zone_results, params, animate) or 0
         bake_relations(zone_results, params, status_cb, animate)
+
+        status_cb("Mesh: {} cross-links, {} capillary hairs, {} junction nodes, {} highway filaments.".format(
+            n_mesh, n_cap, n_junc, n_fil))
     finally:
         sc.doc.Views.RedrawEnabled = True
 
     rs.ZoomExtents()
     status_cb(
-        "Nerve layout v0.6. No ring. Highways + organic capillaries.\n"
+        "Mycelial mesh v0.7. Dense spine, voids, cross-links, reaching capillaries.\n"
         "Letter from stigmergy-guide.html. Hide pipes before vector export."
     )
 
@@ -958,9 +1157,9 @@ class StigmergyForm(eforms.Form):
 
     def __init__(self):
         eforms.Form.__init__(self)
-        self.Title = "A1 Stigmergy  v0.6  (nerve layout)"
+        self.Title = "A1 Stigmergy  v0.7  (mycelial mesh)"
         self.Resizable = True
-        self.ClientSize = edrawing.Size(460, 760)
+        self.ClientSize = edrawing.Size(460, 820)
         self.Padding = edrawing.Padding(8)
         self.BackgroundColor = TH["bg_form"]
         self.params = GrowthParams()
@@ -970,7 +1169,7 @@ class StigmergyForm(eforms.Form):
         w = Widgets()
         lay = w.layout()
 
-        lay.AddRow(w.section("Layout -- nerve style (horizontal hubs)"))
+        lay.AddRow(w.section("Layout -- mycelial mesh (horizontal hubs)"))
         self._scale = w.num(self.params.canvas_scale, 0.5, 2.0, dec=2, inc=0.05)
         lay.AddRow(w.row("Canvas scale", self._scale))
         self._title_y = w.num(self.params.title_y, 30, 120, dec=1)
@@ -979,10 +1178,20 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(w.row("Title keep-out", self._keepout))
         self._grow_bias = w.num(self.params.grow_bias, 0.0, 1.5, dec=2, inc=0.05)
         lay.AddRow(w.row("Branch direction bias", self._grow_bias))
+        self._density = w.num(self.params.density_pull, 0.0, 0.8, dec=2, inc=0.05)
+        lay.AddRow(w.row("Spine density pull", self._density))
         self._draw_title = w.check("Draw title keep-out ellipse", True)
         lay.AddRow(self._draw_title)
         self._draw_hw = w.check("Draw bundled highways", True)
         lay.AddRow(self._draw_hw)
+        self._draw_fil = w.check("Highway side filaments", True)
+        lay.AddRow(self._draw_fil)
+        self._draw_mesh = w.check("Cross-link mesh (voids)", True)
+        lay.AddRow(self._draw_mesh)
+        self._draw_cap = w.check("Reaching capillary hairs", True)
+        lay.AddRow(self._draw_cap)
+        self._draw_junc = w.check("Thickened junction nodes", True)
+        lay.AddRow(self._draw_junc)
         self._draw_rel = w.check("Draw relation paths", True)
         lay.AddRow(self._draw_rel)
         self._animate = w.check("Animate while generating", False)
@@ -1001,6 +1210,10 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(w.row("Max iterations", self._iterations))
         self._attractors = w.num(self.params.attractors_per_zone, 20, 400, dec=0, inc=5)
         lay.AddRow(w.row("Attractors / zone", self._attractors))
+        self._mesh_dist = w.num(self.params.mesh_link_dist, 3, 25, dec=1)
+        lay.AddRow(w.row("Mesh link distance", self._mesh_dist))
+        self._cap_hairs = w.num(self.params.capillary_hairs, 0, 120, dec=0, inc=5)
+        lay.AddRow(w.row("Capillary hairs / zone", self._cap_hairs))
 
         lay.AddRow(w.section("Line weight -- real pipes, visible zoomed out"))
         self._highway = w.num(self.params.highway_line, 0.3, 4.0, dec=2, inc=0.05)
@@ -1021,6 +1234,8 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(w.row("Subtopic seat", self._tip_r))
         self._rel_r = w.num(self.params.rel_dot_radius, 1.0, 10, dec=1)
         lay.AddRow(w.row("Relation diamond", self._rel_r))
+        self._junc_r = w.num(self.params.junction_radius, 0.5, 8, dec=1)
+        lay.AddRow(w.row("Junction node", self._junc_r))
 
         self._btn_generate = w.button("Generate", self._on_generate, width=110, primary=True)
         self._btn_clear = w.button("Clear only", self._on_clear, width=110)
@@ -1034,10 +1249,9 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(self._log)
         self.Content = lay
         self.status_cb(
-            "Nerve layout -- no central ring.\n"
-            "Gold REGISTRATION = largest spine hub (lower-centre).\n"
-            "Terracotta POWER = smaller overlap hub.\n"
-            "Subtopic dots sit on organic branch tips, not fan spokes."
+            "Mycelial mesh -- dense spine, lattice voids, cross-links.\n"
+            "Gold REGISTRATION = largest hub. Thick trunks -> fine capillaries.\n"
+            "Junction blobs where filaments meet. Subtopic dots on branch tips."
         )
 
     def _read_params(self):
@@ -1052,16 +1266,24 @@ class StigmergyForm(eforms.Form):
         p.title_y = float(self._title_y.Value)
         p.title_keepout = float(self._keepout.Value)
         p.grow_bias = float(self._grow_bias.Value)
+        p.density_pull = float(self._density.Value)
         p.trunk_dot_radius = float(self._trunk_r.Value)
         p.tip_dot_radius = float(self._tip_r.Value)
         p.rel_dot_radius = float(self._rel_r.Value)
+        p.junction_radius = float(self._junc_r.Value)
         p.highway_line = float(self._highway.Value)
         p.trunk_line = float(self._trunk_line.Value)
         p.branch_line = float(self._branch_line.Value)
         p.hair_line = float(self._hair_line.Value)
         p.rel_line = float(self._rel_line.Value)
+        p.mesh_link_dist = float(self._mesh_dist.Value)
+        p.capillary_hairs = int(self._cap_hairs.Value)
         p.draw_title_ellipse = bool(self._draw_title.Checked)
         p.draw_highways = bool(self._draw_hw.Checked)
+        p.draw_highway_filaments = bool(self._draw_fil.Checked)
+        p.draw_mesh_links = bool(self._draw_mesh.Checked)
+        p.draw_capillaries = bool(self._draw_cap.Checked)
+        p.draw_junctions = bool(self._draw_junc.Checked)
         p.draw_relations = bool(self._draw_rel.Checked)
         p.animate = bool(self._animate.Checked)
         return p
