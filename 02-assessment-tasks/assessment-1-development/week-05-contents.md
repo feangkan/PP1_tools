@@ -3,14 +3,17 @@
 - **A1 topics fed:** legislation (NCC as instrument) · research · innovation · public value · critical position (who writes / interprets the code)
 - **Sources:** `03-weekly-resources/week-05/` — lecture slide deck + three pre-reading URLs
 - **Lecture file:** `(Lecture slide) Architecture and the Instruments of Law - Slides 2026.pdf` (Helen Duong + Peter Brew, 27 pages). **No recording/transcript in the repo** — nodes below are from slide text only
-- **There is no `05-diagrams/week-05/` pack.** This file does **not** rewrite the main A1 pack
-- **Date compiled:** 2026-08-23 (updated same day when the slide deck was added)
+- **Lecture pack:** `05-diagrams/week-05/` (01–05). **Monday A1 verbal** (stigmergy sheet): `02-explanation.md` + `03-presentation-script.md` in this folder
+- **This file does not rewrite** `05-diagrams/assessment-1/`
+- **Date compiled:** 2026-08-23 (updated when the slide deck was added; verbal pack same day)
 
 ## One-sentence
 
 Week 5 treats the Building Code / NCC as an **instrument of law** that enables buildings to exist: not a neutral manual, provisional (written → interpreted → amended → repealed), and a place where the architect is **subject**, then **interpreter**, then **co-author**.
 
 Week 5 is also the **verbal presentation + Sunday midnight submission** week for Assessment 1.
+
+**Monday in class:** speak [`03-presentation-script.md`](03-presentation-script.md) while pointing at the Rhino stigmergy sheet. Lecture-only backup: `05-diagrams/week-05/03-presentation-script.md`.
 
 ---
 

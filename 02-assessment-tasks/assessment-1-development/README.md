@@ -2,13 +2,27 @@
 
 **This folder is a working / hand-draw compilation. It is not the submission.**
 
+## Monday verbal (24 August 2026) — open these
+
+Do **not** use `05-diagrams/assessment-1/03-presentation-script.md` (older first-person draft). Speak from this folder. Point at the Rhino sheet (V16+).
+
+| File | Use |
+|---|---|
+| [`03-presentation-script.md`](03-presentation-script.md) | **Speak this.** 60-second cut, then ~3 min if they let you. Backup Qs. |
+| [`02-explanation.md`](02-explanation.md) | How to read the sheet (languages, gold path, sources). |
+| [`how-to-read-and-critical-position.md`](how-to-read-and-critical-position.md) | 150-word Canvas note (third person). |
+
+Week 5 **lecture** diagrams (NCC as instrument, not the stigmergy sheet): `05-diagrams/week-05/`.
+
+Follow your unit’s AI-use policy for any assessable text you speak or submit.
+
 | Leave these main files alone | What they are |
 |---|---|
 | `02-assessment-tasks/assessment-1-brief.md` | Official brief capture |
 | `02-assessment-tasks/assessment-1-critical-position.md` | Older 143-word Town Hall draft — do not overwrite from this pack |
 | `05-diagrams/assessment-1/01-diagram.md` | Current master thinking diagram |
 | `05-diagrams/assessment-1/02-explanation.md` | Master explanation |
-| `05-diagrams/assessment-1/03-presentation-script.md` | Verbal script |
+| `05-diagrams/assessment-1/03-presentation-script.md` | Older first-person verbal — **do not use Monday**; use this folder’s `03-presentation-script.md` |
 | `05-diagrams/assessment-1/04-topics-context.md` | Master provenance |
 | `05-diagrams/assessment-1/05-references.md` | Master bibliography |
 
@@ -44,6 +58,8 @@ Follow your unit’s AI-use policy for any assessable text you write from this p
 | [`tutorial-whiteboard.md`](tutorial-whiteboard.md) | Trust / Risk + project delivery stages |
 | [`week-06-note.md`](week-06-note.md) | No lecture content in the repo yet |
 | [`how-to-read-and-critical-position.md`](how-to-read-and-critical-position.md) | **150-word** how-to-read + critical position for this stigmergy sheet |
+| [`02-explanation.md`](02-explanation.md) | How to read the Rhino sheet for the Week 5 verbal |
+| [`03-presentation-script.md`](03-presentation-script.md) | **Monday speaking script** (60 sec + ~3 min, third person) |
 | [`how-to-read-requirement-check.md`](how-to-read-requirement-check.md) | Brief/rubric check for that note + package |
 | [`stigmergy-text-catalog.md`](stigmergy-text-catalog.md) | Typed sentences for hand-lettering |
 | [`stigmergy-guide.html`](stigmergy-guide.html) | **Open in a browser** — zoomable placement picture; click a dot for what to type |

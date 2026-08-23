@@ -49,6 +49,7 @@ Week 5 is also Assessment 1 verbal presentation (Monday) and final submission (S
 | Output | Path |
 |--------|------|
 | A1 development design sheet (not the main A1) | `02-assessment-tasks/assessment-1-development/week-05-contents.md` |
+| A1 verbal explanation + script (Monday stigmergy sheet) | `02-assessment-tasks/assessment-1-development/02-explanation.md` and `03-presentation-script.md` |
 | Summary | `04-summaries/week-05-summary.md` *(not built)* |
-| Diagram pack | `05-diagrams/week-05/` *(not built)* |
+| Diagram pack | `05-diagrams/week-05/` |
 | Q&A | `07-q-and-a/` |
