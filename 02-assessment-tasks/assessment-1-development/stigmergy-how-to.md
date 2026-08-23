@@ -20,9 +20,10 @@ You type every word by hand on the Rhino bake (or on a print of it).
 
 1. Script Editor → open `stigmergy-generator.py` → Run.  
 2. Leave defaults. Click **Generate**.  
-3. You should see: dashed title hole, dashed wrap around the hole, nine coloured trunks, outward branches, small circles at tips, grey relation arcs. **No text.**  
-4. Gold (bottom) = Registration spine. Terracotta (inner) = Power.  
-5. If you need to know which small circle is which: select it → **Properties → Name** (R5, X7, LEGISLATION). That name is not drawn.
+3. You should see: dashed title hole, dashed wrap, nine coloured trunks, organic hair, a **straight fan of small dots** on each colour, grey relation arcs. **No text.**  
+4. Gold (bottom) = Registration. Terracotta (inner) = Power.  
+5. **Put words on those generated dots.** Large dot = zoom-out claim. Small dots on that colour, left-to-right across the fan = catalog order (R1, R2, R3…). Same order as the web guide.  
+6. If you forget which small circle is which: select it → **Properties → Name** (`R5`). That name is not drawn. The wiggly lines are texture only — they do not choose the sentence.
 
 ---
 

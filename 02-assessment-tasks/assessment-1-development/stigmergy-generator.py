@@ -599,32 +599,37 @@ def bake_zone(cat, params):
         else:
             set_print_width(line_id, 0.14)
 
-    leaves = find_leaf_tips(nodes, parent_of)
-    marker_layer = ensure_layer("Diagram::Markers", (40, 40, 40))
+    # Content dots sit on a FIXED outward fan (same order as stigmergy-guide.html).
+    # Organic growth above is the look only -- it does not pick which sentence
+    # goes on which tip. Catalog order = left-to-right across the fan.
+    marker_layer = ensure_layer("Diagram::Markers", colour)
+    rs.CurrentLayer(marker_layer)
     placed = 0
-    missing = []
-
-    for k, (mid, short) in enumerate(cat["subs"]):
-        if k >= len(leaves):
-            missing.append(mid)
-            continue
-        tip_i = leaves[k]
-        tip = nodes[tip_i]
-        parent = nodes[parent_of[tip_i]]
-        direction = tip - parent
-        if direction.Length > 1e-9:
-            direction.Unitize()
-        else:
-            direction = away
-        label_pt = tip + direction * 1.4
-        add_dot(label_pt, params.tip_dot_radius, colour, marker_layer, mid)
+    n = len(cat["subs"])
+    spread = 0.95  # radians -- matches the web guide
+    for k, (mid, _short) in enumerate(cat["subs"]):
+        t = 0.0 if n == 1 else (k / float(n - 1) - 0.5)
+        ang = t * spread
+        c, s = math.cos(ang), math.sin(ang)
+        ox = away.X * c - away.Y * s
+        oy = away.X * s + away.Y * c
+        length = cat["zone_radius"] * 1.15 + (k % 3) * 3.0
+        tip = rg.Point3d(root.X + ox * length, root.Y + oy * length, 0)
+        tip = push_outside_keepout(tip, params.title_keepout + 4.0)
+        spoke = rs.AddLine(root, tip)
+        if spoke:
+            rs.ObjectLayer(spoke, marker_layer)
+            rs.ObjectColor(spoke, colour)
+            set_print_width(spoke, 0.22)
+            name_obj(spoke, mid)
+        add_dot(tip, params.tip_dot_radius, colour, marker_layer, mid)
         placed += 1
 
     return {
         "root": root,
         "colour": colour,
         "placed": placed,
-        "missing": missing,
+        "missing": [],
         "angle": cat["angle"],
     }
 
@@ -674,11 +679,8 @@ def generate_diagram(params, status_cb):
             zone_results[cat["key"]] = result
             if cat["ring_scale"] >= 0.95:
                 roots_for_wrap.append((cat["angle"], result["root"]))
-            if result["missing"]:
-                status_cb("{} missing tips: {} -- raise Attractors or Iterations.".format(
-                    cat["key"], ", ".join(result["missing"])))
-            else:
-                status_cb("{} : {} markers.".format(cat["key"], result["placed"]))
+            status_cb("{} : {} content dots on the fan (catalog order).".format(
+                cat["key"], result["placed"]))
 
         roots_for_wrap.sort(key=lambda t: t[0])
         bake_main_wrap([p for _, p in roots_for_wrap], params)
