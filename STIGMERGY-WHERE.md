@@ -1,19 +1,19 @@
 # Where is stigmergy?
 
-## Use this (newest — V8 / v1.1)
+## Use this (newest — V9 / v1.2)
 
 **Folder:** `02-assessment-tasks/assessment-1-development/`
 
 | File | Open with |
 |---|---|
-| `stigmergy-generator-V8.py` | **Rhino 8** → Script Editor → Run (version in the filename) |
+| `stigmergy-generator-V9.py` | **Rhino 8** → Script Editor → Run (version in the filename) |
 | `stigmergy-generator.py` | Same script (working copy name) |
 | `stigmergy-guide.html` | **Browser** (double-click) |
 | `stigmergy-text-catalog.md` | Any text editor |
 | `stigmergy-how-to.md` | Instructions |
 
 **Version snapshots (never deleted):**  
-`02-assessment-tasks/assessment-1-development/versions/V8/stigmergy-generator-V8.py` ← latest frozen copy
+`02-assessment-tasks/assessment-1-development/versions/V9/stigmergy-generator-V9.py` ← latest frozen copy
 
 ---
 
@@ -38,8 +38,8 @@ git pull
 
 Then open:
 
-- `D:\Claude code\PP1_stigmergy\V8\stigmergy-generator-V8.py` (Rhino)
-- `D:\Claude code\PP1_stigmergy\_live\stigmergy-generator-V8.py` (always newest after sync)
+- `D:\Claude code\PP1_stigmergy\V9\stigmergy-generator-V9.py` (Rhino)
+- `D:\Claude code\PP1_stigmergy\_live\stigmergy-generator-V9.py` (always newest after sync)
 
 If those folders are missing, the sync script has not been run yet.
 

@@ -9,8 +9,9 @@
 | V5 | 2026-08-23 | `1d6cfee` | v0.8.1 | Scrollable UI; Generate pinned at bottom |
 | V6 | 2026-08-23 | `7cc779b` | v0.9 | Nerve sub-links between colour groups |
 | V7 | 2026-08-23 | `71510ac` | v1.0 | Clean pic-2 defaults + Futura text + legend |
-| V8 | 2026-08-23 | (this commit) | v1.1 | Victoria gated pathway + circle legend; other groups use START/Stage/Gate/Loop |
+| V8 | 2026-08-23 | `d0d564c` | v1.1 | Victoria gated pathway + circle legend |
+| V9 | 2026-08-23 | (this commit) | v1.2 | Own graphic language per group — not fake stages |
 
-**Latest:** V8 (see `LATEST.txt`)
+**Latest:** V9 (see `LATEST.txt`)
 
-**Next version:** V9 — copy `stigmergy-*` files into `versions/V9/`, update this table, increment `LATEST.txt`.
+**Next version:** V10 — copy `stigmergy-*` files into `versions/V10/`, update this table, increment `LATEST.txt`.

@@ -47,7 +47,7 @@ Follow your unit’s AI-use policy for any assessable text you write from this p
 | [`stigmergy-guide.html`](stigmergy-guide.html) | **Open in a browser** — zoomable placement picture; click a dot for what to type |
 | [`stigmergy-how-to.md`](stigmergy-how-to.md) | Rhino = geometry only; guide = words |
 | [`stigmergy-generator.py`](stigmergy-generator.py) | Rhino 8 GUI — working copy |
-| [`stigmergy-generator-V8.py`](stigmergy-generator-V8.py) | **Latest (V8)** — Victoria pathway + circle legend |
+| [`stigmergy-generator-V9.py`](stigmergy-generator-V9.py) | **Latest (V9)** — own graphic language per group |
 | [`versions/`](versions/README.md) | **V1, V2, V3…** frozen snapshots — never overwritten |
 
 ### Local Windows copy (`D:\Claude code`)
