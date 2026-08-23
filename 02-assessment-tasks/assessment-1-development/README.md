@@ -5,7 +5,7 @@
 | Leave these main files alone | What they are |
 |---|---|
 | `02-assessment-tasks/assessment-1-brief.md` | Official brief capture |
-| `02-assessment-tasks/assessment-1-critical-position.md` | 150-word submission draft |
+| `02-assessment-tasks/assessment-1-critical-position.md` | Older 143-word Town Hall draft — do not overwrite from this pack |
 | `05-diagrams/assessment-1/01-diagram.md` | Current master thinking diagram |
 | `05-diagrams/assessment-1/02-explanation.md` | Master explanation |
 | `05-diagrams/assessment-1/03-presentation-script.md` | Verbal script |
@@ -43,6 +43,8 @@ Follow your unit’s AI-use policy for any assessable text you write from this p
 | [`week-05-contents.md`](week-05-contents.md) | Instruments of Law lecture + Lui, Hill, Fire/Water/Building |
 | [`tutorial-whiteboard.md`](tutorial-whiteboard.md) | Trust / Risk + project delivery stages |
 | [`week-06-note.md`](week-06-note.md) | No lecture content in the repo yet |
+| [`how-to-read-and-critical-position.md`](how-to-read-and-critical-position.md) | **150-word** how-to-read + critical position for this stigmergy sheet |
+| [`how-to-read-requirement-check.md`](how-to-read-requirement-check.md) | Brief/rubric check for that note + package |
 | [`stigmergy-text-catalog.md`](stigmergy-text-catalog.md) | Typed sentences for hand-lettering |
 | [`stigmergy-guide.html`](stigmergy-guide.html) | **Open in a browser** — zoomable placement picture; click a dot for what to type |
 | [`stigmergy-how-to.md`](stigmergy-how-to.md) | Rhino = geometry only; guide = words |
