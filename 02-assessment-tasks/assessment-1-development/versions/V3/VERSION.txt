@@ -1,0 +1,4 @@
+V3
+Rhino generator internal label: v0.7
+Layout: mycelial mesh — cross-links, junctions, capillaries
+Git: 0835198

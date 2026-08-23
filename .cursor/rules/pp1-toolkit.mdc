@@ -31,6 +31,7 @@ This repository is a **student study toolkit** for PP1. Help the user study, sum
 6. **Weekly diagram requests** produce the full **5-file pack** under `05-diagrams/week-XX/` using `08-diagram-style/` (short-form nodes, networked links, legend).
 7. **New weeks:** create `03-weekly-resources/week-XX/` from `templates/week-readme.md` when the user advances past week 06.
 8. **Academic integrity:** help the student learn and organise; do not submit work pretending to be the student. Remind them to follow their unit’s AI-use policy when producing assessable text.
+9. **Stigmergy version snapshots:** when changing `02-assessment-tasks/assessment-1-development/stigmergy-*`, run `scripts/bump-stigmergy-version.sh`, update `versions/VERSION-MANIFEST.md`, commit + push. Never overwrite existing `versions/Vn/` folders. Remind the user to run `scripts/sync-claude-code-local.ps1` on Windows (`D:\Claude code`).
 
 ## Prompt shortcuts (recognise intent)
 
