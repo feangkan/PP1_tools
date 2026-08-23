@@ -16,7 +16,8 @@
 | **V10** | v1.3 dense line linkages | highway bundles are stigmergy curves, not pipe polysurfaces |
 | **V11** | v1.4 text on nodes | Futura labels middle-centered on each disc |
 | **V12** | v1.5 text colour + mm | Legend black; colour chip per type; millimetre default (print-pt option still in the GUI) |
-| **V13** | v1.6 millimetres only | **Latest** — GUI numbers are mm; print-pt option removed |
+| **V13** | v1.6 millimetres only | GUI numbers are mm; print-pt option removed |
+| **V14** | v1.7 labels mm, same numbers | **Latest** — Title/Heading/Subtopic/Branch/Legend labelled mm; values 2.0 / 2.0 / 2.0 / 0.1 / 1.0 |
 
 See [`VERSION-MANIFEST.md`](VERSION-MANIFEST.md) for git commits and dates.
 
@@ -36,7 +37,7 @@ After each `git pull`, run the script again — it copies **only new** `Vn` fold
 
 ## For agents (next push)
 
-1. Bump `LATEST.txt` (e.g. `13` → `14`).
-2. Copy the four stigmergy files into `versions/V14/`.
+1. Bump `LATEST.txt` (e.g. `14` → `15`).
+2. Copy the four stigmergy files into `versions/V15/`.
 3. Add a row to `VERSION-MANIFEST.md`.
 4. Commit, push, remind user to run `sync-claude-code-local.ps1` locally.

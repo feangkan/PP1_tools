@@ -14,8 +14,9 @@
 | V10 | 2026-08-23 | `063b33b` | v1.3 | Dense stigmergy line linkages — no highway pipe polysurfaces |
 | V11 | 2026-08-23 | `30073c8` | v1.4 | Catalog text middle-centered on nodes, not beside them |
 | V12 | 2026-08-23 | `ca297aa` | v1.5 | Legend black; colour pickers; millimetre default (print-pt option still present) |
-| V13 | 2026-08-23 | (this commit) | v1.6 | Text sizes are millimetres only — GUI 2.0 = 2.0 mm |
+| V13 | 2026-08-23 | `ff973c0` | v1.6 | Text sizes are millimetres only — GUI 2.0 = 2.0 mm |
+| V14 | 2026-08-23 | (this commit) | v1.7 | Same size values; labels say mm not pt; colour chips |
 
-**Latest:** V13 (see `LATEST.txt`)
+**Latest:** V14 (see `LATEST.txt`)
 
-**Next version:** V14 — copy `stigmergy-*` files into `versions/V14/`, update this table, increment `LATEST.txt`.
+**Next version:** V15 — copy `stigmergy-*` files into `versions/V15/`, update this table, increment `LATEST.txt`.

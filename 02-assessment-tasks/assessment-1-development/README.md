@@ -49,8 +49,7 @@ Follow your unit’s AI-use policy for any assessable text you write from this p
 | [`stigmergy-guide.html`](stigmergy-guide.html) | **Open in a browser** — zoomable placement picture; click a dot for what to type |
 | [`stigmergy-how-to.md`](stigmergy-how-to.md) | Rhino = geometry only; guide = words |
 | [`stigmergy-generator.py`](stigmergy-generator.py) | Rhino 8 GUI — working copy |
-| [`stigmergy-generator-V13.py`](stigmergy-generator-V13.py) | **Latest (V13)** — sizes in millimetres, black legend, colour chips |
-| [`stigmergy-generator-V12.py`](stigmergy-generator-V12.py) | V12 — millimetre default with leftover print-pt option |
+| [`stigmergy-generator-V14.py`](stigmergy-generator-V14.py) | **Latest (V14)** — same size numbers, labels say mm not pt |
 | [`versions/`](versions/README.md) | **V1, V2, V3…** frozen snapshots — never overwritten |
 
 ### Local Windows copy (`D:\Claude code`)
