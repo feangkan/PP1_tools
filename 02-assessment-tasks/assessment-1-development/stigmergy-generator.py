@@ -162,8 +162,13 @@ class GrowthParams(object):
         self.ring_radius = 95.0
         self.title_keepout = 40.0
         self.outward_bias = 0.45
-        self.tip_dot_radius = 1.1
-        self.trunk_dot_radius = 2.4
+        self.tip_dot_radius = 3.4
+        self.trunk_dot_radius = 6.5
+        self.rel_dot_radius = 3.0
+        self.trunk_line = 0.90
+        self.spoke_line = 0.42
+        self.wrap_line = 0.38
+        self.hair_line = 0.20
         self.draw_title_circle = True
         self.draw_wrap_arcs = True
 
@@ -522,18 +527,147 @@ def name_obj(obj_id, name):
         pass
 
 
-def add_dot(pt, radius, colour, layer, name):
+def _as_list(val):
+    if val is None:
+        return []
+    if isinstance(val, (list, tuple)):
+        return [v for v in val if v]
+    return [val]
+
+
+def paint(obj_id, colour, layer, name=None):
+    if not obj_id:
+        return
+    try:
+        rs.ObjectLayer(obj_id, layer)
+    except Exception:
+        pass
+    try:
+        rs.ObjectColor(obj_id, colour)
+    except Exception:
+        pass
+    if name:
+        name_obj(obj_id, name)
+
+
+def thicken_curve(curve_id, radius, colour, layer, name=None, delete_curve=True):
+    """Real 3D pipe so weight shows on screen when zoomed out.
+    Plot-width alone is print-only and disappears in a shaded/zoomed view."""
+    if not curve_id:
+        return None
+    set_print_width(curve_id, max(radius * 6.0, 0.8))
+    pipes = None
+    try:
+        pipes = rs.AddPipe(curve_id, [0.0, 1.0], [radius, radius], 0, 1)
+    except Exception:
+        try:
+            pipes = rs.AddPipe(curve_id, 0, radius)
+        except Exception:
+            pipes = None
+    made = _as_list(pipes)
+    if not made:
+        paint(curve_id, colour, layer, name)
+        return curve_id
+    for p in made:
+        paint(p, colour, layer, name)
+    if delete_curve:
+        try:
+            rs.DeleteObject(curve_id)
+        except Exception:
+            pass
+    return made
+
+
+def add_thick_line(p1, p2, radius, colour, layer, name=None):
+    lid = rs.AddLine(p1, p2)
+    if not lid:
+        return None
+    paint(lid, colour, layer, name)
+    return thicken_curve(lid, radius, colour, layer, name)
+
+
+def add_filled_disk(pt, radius, colour, layer, name):
+    """Solid seat for hand-lettering -- hatch, or a sphere if hatch fails."""
+    circ = rs.AddCircle(pt, radius)
+    if not circ:
+        return None
+    paint(circ, colour, layer, name)
+    hatches = None
+    try:
+        hatches = rs.AddHatch(circ)
+    except Exception:
+        hatches = None
+    for h in _as_list(hatches):
+        paint(h, colour, layer, name)
+        return h
+    try:
+        sid = rs.AddSphere(pt, radius)
+        if sid:
+            paint(sid, colour, layer, name)
+            try:
+                rs.DeleteObject(circ)
+            except Exception:
+                pass
+            return sid
+    except Exception:
+        pass
+    return circ
+
+
+def add_halo(pt, radius, colour, layer, name):
     cid = rs.AddCircle(pt, radius)
     if not cid:
         return None
-    rs.ObjectLayer(cid, layer)
-    rs.ObjectColor(cid, colour)
-    try:
-        rs.ObjectPrintWidth(cid, 0.35)
-    except Exception:
-        pass
-    name_obj(cid, name)
+    paint(cid, colour, layer, name)
+    set_print_width(cid, 0.8)
+    thicken_curve(cid, max(radius * 0.06, 0.18), colour, layer, name, delete_curve=True)
     return cid
+
+
+def add_diamond(pt, size, colour, layer, name):
+    pts = [
+        rg.Point3d(pt.X, pt.Y + size, 0),
+        rg.Point3d(pt.X + size, pt.Y, 0),
+        rg.Point3d(pt.X, pt.Y - size, 0),
+        rg.Point3d(pt.X - size, pt.Y, 0),
+        rg.Point3d(pt.X, pt.Y + size, 0),
+    ]
+    pl = rs.AddPolyline(pts)
+    if not pl:
+        return add_filled_disk(pt, size, colour, layer, name)
+    paint(pl, colour, layer, name)
+    hatches = None
+    try:
+        hatches = rs.AddHatch(pl)
+    except Exception:
+        hatches = None
+    for h in _as_list(hatches):
+        paint(h, colour, layer, name)
+        return h
+    return pl
+
+
+def add_text_seat(pt, colour, layer, name, kind, params):
+    """Every place you must letter gets a marker you can see zoomed out."""
+    if kind == "title":
+        add_filled_disk(pt, params.trunk_dot_radius * 0.85, (70, 70, 70), layer, name)
+        add_halo(pt, params.trunk_dot_radius * 1.35, (90, 90, 90), layer, name)
+        # crosshair so the hole reads as 'write here'
+        s = params.trunk_dot_radius * 1.8
+        add_thick_line(rg.Point3d(pt.X - s, pt.Y, 0), rg.Point3d(pt.X + s, pt.Y, 0),
+                       0.22, (70, 70, 70), layer, name)
+        add_thick_line(rg.Point3d(pt.X, pt.Y - s, 0), rg.Point3d(pt.X, pt.Y + s, 0),
+                       0.22, (70, 70, 70), layer, name)
+        return
+    if kind == "main":
+        add_filled_disk(pt, params.trunk_dot_radius, colour, layer, name)
+        add_halo(pt, params.trunk_dot_radius * 1.55, colour, layer, name)
+        return
+    if kind == "rel":
+        add_diamond(pt, params.rel_dot_radius, (90, 90, 90), layer, name)
+        return
+    add_filled_disk(pt, params.tip_dot_radius, colour, layer, name)
+    add_halo(pt, params.tip_dot_radius * 1.45, colour, layer, name)
 
 
 # -----------------------------------------------------------------
@@ -542,15 +676,12 @@ def add_dot(pt, radius, colour, layer, name):
 def bake_title(params, status_cb):
     layer = ensure_layer("Diagram::Title", (80, 80, 80))
     rs.CurrentLayer(layer)
+    add_text_seat(ORIGIN, (70, 70, 70), layer, "TITLE", "title", params)
     if params.draw_title_circle:
         cid = rs.AddCircle(ORIGIN, params.title_keepout)
-        rs.ObjectColor(cid, (90, 90, 90))
-        name_obj(cid, "TITLE")
-        try:
-            rs.ObjectLinetype(cid, "Dashed")
-        except Exception:
-            pass
-    status_cb("Title keep-out circle r={:.0f} -- no text baked.".format(params.title_keepout))
+        paint(cid, (90, 90, 90), layer, "TITLE")
+        thicken_curve(cid, params.wrap_line, (90, 90, 90), layer, "TITLE")
+    status_cb("Title seat + keep-out ring -- letter in the centre hole.")
 
 
 def bake_main_wrap(roots_sorted, params):
@@ -561,12 +692,7 @@ def bake_main_wrap(roots_sorted, params):
     pts = list(roots_sorted) + [roots_sorted[0]]
     crv = rs.AddInterpCurve(pts, 3)
     if crv:
-        rs.ObjectColor(crv, (110, 110, 110))
-        try:
-            rs.ObjectLinetype(crv, "Dashed")
-        except Exception:
-            pass
-        set_print_width(crv, 0.25)
+        thicken_curve(crv, params.wrap_line, (110, 110, 110), layer, "MAIN_WRAP")
 
 
 def bake_zone(cat, params):
@@ -580,7 +706,7 @@ def bake_zone(cat, params):
         away.Unitize()
     zone_center = root + away * (cat["zone_radius"] * 0.70)
 
-    add_dot(root, params.trunk_dot_radius, colour, layer, cat["key"])
+    add_text_seat(root, colour, layer, cat["key"], "main", params)
 
     nodes, parent_of = grow_branches(
         root, zone_center, cat["zone_radius"],
@@ -588,16 +714,17 @@ def bake_zone(cat, params):
     )
 
     for i in range(1, len(nodes)):
-        line_id = rs.AddLine(nodes[parent_of[i]], nodes[i])
-        rs.ObjectLayer(line_id, layer)
-        rs.ObjectColor(line_id, colour)
         depth = node_depth(i, parent_of)
+        lid = rs.AddLine(nodes[parent_of[i]], nodes[i])
+        if not lid:
+            continue
+        paint(lid, colour, layer, cat["key"])
         if depth <= 2:
-            set_print_width(line_id, 0.70)
+            thicken_curve(lid, params.trunk_line, colour, layer, cat["key"])
         elif depth <= 5:
-            set_print_width(line_id, 0.35)
+            thicken_curve(lid, params.hair_line, colour, layer, cat["key"])
         else:
-            set_print_width(line_id, 0.14)
+            set_print_width(lid, 0.35)
 
     # Content dots sit on a FIXED outward fan (same order as stigmergy-guide.html).
     # Organic growth above is the look only -- it does not pick which sentence
@@ -616,13 +743,8 @@ def bake_zone(cat, params):
         length = cat["zone_radius"] * 1.15 + (k % 3) * 3.0
         tip = rg.Point3d(root.X + ox * length, root.Y + oy * length, 0)
         tip = push_outside_keepout(tip, params.title_keepout + 4.0)
-        spoke = rs.AddLine(root, tip)
-        if spoke:
-            rs.ObjectLayer(spoke, marker_layer)
-            rs.ObjectColor(spoke, colour)
-            set_print_width(spoke, 0.22)
-            name_obj(spoke, mid)
-        add_dot(tip, params.tip_dot_radius, colour, marker_layer, mid)
+        add_thick_line(root, tip, params.spoke_line, colour, marker_layer, mid)
+        add_text_seat(tip, colour, marker_layer, mid, "sub", params)
         placed += 1
 
     return {
@@ -652,16 +774,11 @@ def bake_relations(zone_results, params, status_cb):
         crv = rs.AddInterpCurve(pts)
         if not crv:
             continue
-        rs.ObjectColor(crv, (120, 120, 120))
-        try:
-            rs.ObjectLinetype(crv, "Dashed")
-        except Exception:
-            pass
-        set_print_width(crv, 0.18)
-        name_obj(crv, "{} {}".format(rid, verb))
+        rel_name = "{} {}".format(rid, verb)
+        thicken_curve(crv, params.wrap_line * 0.85, (100, 100, 100), layer, rel_name)
         mid = pts[len(pts) // 2]
-        add_dot(mid, 0.9, (120, 120, 120), layer, "{} {}".format(rid, verb))
-    status_cb("Wrap-around relations baked at r={:.0f} -- no text.".format(arc_r))
+        add_text_seat(mid, (90, 90, 90), layer, rel_name, "rel", params)
+    status_cb("Relation arcs thickened; grey diamonds are verb seats.")
 
 
 def generate_diagram(params, status_cb):
@@ -689,7 +806,7 @@ def generate_diagram(params, status_cb):
         sc.doc.Views.RedrawEnabled = True
 
     rs.ZoomExtents()
-    status_cb("Geometry only. Open stigmergy-guide.html to place words. Select a dot -- Properties name is the catalog ID.")
+    status_cb("Seats are filled. Pipes carry line weight on screen. Letter from stigmergy-guide.html.")
 
 
 # -----------------------------------------------------------------
@@ -699,9 +816,9 @@ class StigmergyForm(eforms.Form):
 
     def __init__(self):
         eforms.Form.__init__(self)
-        self.Title = "A1 Stigmergy  v0.4  (geometry only)"
+        self.Title = "A1 Stigmergy  v0.5  (thick lines + text seats)"
         self.Resizable = True
-        self.ClientSize = edrawing.Size(460, 640)
+        self.ClientSize = edrawing.Size(460, 720)
         self.Padding = edrawing.Padding(8)
         self.BackgroundColor = TH["bg_form"]
         self.params = GrowthParams()
@@ -737,11 +854,23 @@ class StigmergyForm(eforms.Form):
         self._attractors = w.num(self.params.attractors_per_zone, 20, 400, dec=0, inc=5)
         lay.AddRow(w.row("Attractors / zone", self._attractors))
 
-        lay.AddRow(w.section("Dots -- circles only, no letters"))
-        self._trunk_r = w.num(self.params.trunk_dot_radius, 0.6, 8, dec=1)
-        lay.AddRow(w.row("Main-topic dot", self._trunk_r))
-        self._tip_r = w.num(self.params.tip_dot_radius, 0.3, 5, dec=1)
-        lay.AddRow(w.row("Subtopic tip dot", self._tip_r))
+        lay.AddRow(w.section("Line weight -- real pipes, visible zoomed out"))
+        self._trunk_line = w.num(self.params.trunk_line, 0.15, 3.0, dec=2, inc=0.05)
+        lay.AddRow(w.row("Trunk / near-root", self._trunk_line))
+        self._spoke_line = w.num(self.params.spoke_line, 0.10, 2.0, dec=2, inc=0.05)
+        lay.AddRow(w.row("Fan spokes", self._spoke_line))
+        self._wrap_line = w.num(self.params.wrap_line, 0.10, 2.0, dec=2, inc=0.05)
+        lay.AddRow(w.row("Wrap + keep-out ring", self._wrap_line))
+        self._hair_line = w.num(self.params.hair_line, 0.05, 1.5, dec=2, inc=0.05)
+        lay.AddRow(w.row("Organic mid-hair", self._hair_line))
+
+        lay.AddRow(w.section("Text seats -- filled dots, no letters"))
+        self._trunk_r = w.num(self.params.trunk_dot_radius, 2.0, 16, dec=1)
+        lay.AddRow(w.row("Main-topic seat", self._trunk_r))
+        self._tip_r = w.num(self.params.tip_dot_radius, 1.2, 10, dec=1)
+        lay.AddRow(w.row("Subtopic seat", self._tip_r))
+        self._rel_r = w.num(self.params.rel_dot_radius, 1.0, 10, dec=1)
+        lay.AddRow(w.row("Relation diamond", self._rel_r))
 
         self._btn_generate = w.button("Generate", self._on_generate, width=110, primary=True)
         self._btn_clear = w.button("Clear only", self._on_clear, width=110)
@@ -752,9 +881,10 @@ class StigmergyForm(eforms.Form):
         lay.AddRow(self._log)
         self.Content = lay
         self.status_cb(
-            "No text will be drawn. Use stigmergy-guide.html as the map.\n"
-            "Gold REGISTRATION = bottom spine. POWER = inner ring.\n"
-            "Select a circle -- Properties > Name is the catalog ID."
+            "No letters. Filled seats mark every place to type.\n"
+            "Centre + = title. Large discs = main claims.\n"
+            "Small discs = subtopics. Grey diamonds = relation verbs.\n"
+            "Line weight is a pipe -- it stays visible when you zoom out."
         )
 
     def _read_params(self):
@@ -770,6 +900,11 @@ class StigmergyForm(eforms.Form):
         p.outward_bias = float(self._outward.Value)
         p.trunk_dot_radius = float(self._trunk_r.Value)
         p.tip_dot_radius = float(self._tip_r.Value)
+        p.rel_dot_radius = float(self._rel_r.Value)
+        p.trunk_line = float(self._trunk_line.Value)
+        p.spoke_line = float(self._spoke_line.Value)
+        p.wrap_line = float(self._wrap_line.Value)
+        p.hair_line = float(self._hair_line.Value)
         p.draw_title_circle = bool(self._draw_title.Checked)
         p.draw_wrap_arcs = bool(self._draw_arcs.Checked)
         return p
