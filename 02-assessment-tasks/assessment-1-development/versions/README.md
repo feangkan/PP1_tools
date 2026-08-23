@@ -13,7 +13,8 @@
 | **V7** | v1.0 clean + Futura | pic-2 defaults; catalog text; text legend (Gold / Green words) |
 | **V8** | v1.1 pathway + circles | Victoria flowchart on gold trunk; colour-circle legend |
 | **V9** | v1.2 own graphic language | stages only where they exist; cycle / loop / instrument / fork / split / contest / overlap |
-| **V10** | v1.3 dense line linkages | **Latest** — highway bundles are stigmergy curves, not pipe polysurfaces |
+| **V10** | v1.3 dense line linkages | highway bundles are stigmergy curves, not pipe polysurfaces |
+| **V11** | v1.4 text on nodes | **Latest** — Futura labels middle-centered on each disc |
 
 See [`VERSION-MANIFEST.md`](VERSION-MANIFEST.md) for git commits and dates.
 

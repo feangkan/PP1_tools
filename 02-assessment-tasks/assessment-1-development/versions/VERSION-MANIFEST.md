@@ -11,8 +11,9 @@
 | V7 | 2026-08-23 | `71510ac` | v1.0 | Clean pic-2 defaults + Futura text + legend |
 | V8 | 2026-08-23 | `d0d564c` | v1.1 | Victoria gated pathway + circle legend |
 | V9 | 2026-08-23 | `0948a17` | v1.2 | Own graphic language per group — not fake stages |
-| V10 | 2026-08-23 | (this commit) | v1.3 | Dense stigmergy line linkages — no highway pipe polysurfaces |
+| V10 | 2026-08-23 | `063b33b` | v1.3 | Dense stigmergy line linkages — no highway pipe polysurfaces |
+| V11 | 2026-08-23 | (this commit) | v1.4 | Catalog text middle-centered on nodes, not beside them |
 
-**Latest:** V10 (see `LATEST.txt`)
+**Latest:** V11 (see `LATEST.txt`)
 
-**Next version:** V11 — copy `stigmergy-*` files into `versions/V11/`, update this table, increment `LATEST.txt`.
+**Next version:** V12 — copy `stigmergy-*` files into `versions/V12/`, update this table, increment `LATEST.txt`.

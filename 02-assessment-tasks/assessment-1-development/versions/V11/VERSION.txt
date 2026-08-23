@@ -1,0 +1,4 @@
+V11
+Notes: Catalog text centred on nodes, not beside them
+Internal: v1.4
+Git: 063b33b
