@@ -1,0 +1,3 @@
+V12
+Notes: Legend text black; colour picker per text type; size unit millimetres (print-pt was why bakes looked 0.5–1 mm)
+Internal: v1.5

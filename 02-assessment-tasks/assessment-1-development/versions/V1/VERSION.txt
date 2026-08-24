@@ -1,0 +1,4 @@
+V1
+Rhino generator internal label: v0.5
+Layout: radial clock ring + fan spokes
+Git: 198d24c

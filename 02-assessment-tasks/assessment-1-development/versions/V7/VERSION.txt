@@ -1,0 +1,4 @@
+V7
+Notes: Clean pic-2 defaults; Futura text + legend; GUI pt sizes
+Internal: v1.0
+Git: 7cc779b

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A1 Stigmergy placement guide</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --ink: #1a1a1a;
+    --muted: #5a574e;
+    --panel: #fffdf8;
+    --line: #c8c2b4;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font-family: "Iowan Old Style", "Palatino Linotype", Palatino, serif; }
+  #app { display: grid; grid-template-columns: 1fr 340px; height: 100%; }
+  #stage { position: relative; overflow: hidden; cursor: grab; }
+  #stage:active { cursor: grabbing; }
+  #svg-wrap { transform-origin: 0 0; }
+  svg { display: block; }
+  #toolbar {
+    position: absolute; top: 12px; left: 12px; z-index: 5;
+    display: flex; flex-wrap: wrap; gap: 6px; max-width: calc(100% - 24px);
+  }
+  #toolbar button, #toolbar label {
+    background: #fff; border: 1px solid var(--line); border-radius: 6px;
+    padding: 7px 11px; font: 13px/1.2 system-ui, sans-serif; cursor: pointer; color: var(--ink);
+  }
+  #toolbar button:hover, #toolbar label:hover { background: #f0ebe0; }
+  #toolbar button.on { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  #hint {
+    position: absolute; bottom: 10px; left: 12px; z-index: 5;
+    font: 12px/1.4 system-ui, sans-serif; color: var(--muted);
+  }
+  #panel {
+    border-left: 1px solid var(--line); background: var(--panel);
+    padding: 18px 18px 28px; overflow: auto; font-size: 15px;
+  }
+  #panel h1 { font-size: 18px; margin: 0 0 6px; letter-spacing: 0.02em; }
+  #panel h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 18px 0 6px; }
+  #panel p { margin: 0 0 10px; line-height: 1.45; }
+  .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .id { font-family: ui-monospace, monospace; font-size: 12px; background: #efe8d8; padding: 1px 5px; border-radius: 3px; }
+  .verb { font-style: italic; }
+  .rel { font: 13px/1.4 system-ui, sans-serif; margin: 0 0 8px; padding-left: 0; }
+  .node { cursor: pointer; }
+  .node:hover circle { stroke-width: 2.4; }
+  .node.selected circle { stroke: #111; stroke-width: 2.6; }
+  .label-main { font: 700 13px/1.15 "Iowan Old Style", Palatino, serif; pointer-events: none; }
+  .label-sub { font: 11px/1.15 system-ui, sans-serif; pointer-events: none; }
+  .label-rel { font: italic 10px/1 system-ui, sans-serif; fill: #555; pointer-events: none; }
+  .dim .label-sub, .dim .sub-branch { opacity: 0.08; }
+  .hide-rel .rel-arc, .hide-rel .label-rel { display: none; }
+  @media print {
+    #toolbar, #hint { display: none; }
+    #app { display: block; height: auto; }
+    #panel { border: 0; page-break-before: always; }
+    #stage { overflow: visible; height: auto; }
+  }
+  @media (max-width: 860px) {
+    #app { grid-template-columns: 1fr; grid-template-rows: 62vh 1fr; }
+    #panel { border-left: 0; border-top: 1px solid var(--line); }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <div id="toolbar">
+      <button type="button" id="btn-out">Zoom out</button>
+      <button type="button" id="btn-in">Zoom in</button>
+      <button type="button" id="btn-rel" class="on">Relations</button>
+      <button type="button" id="btn-plus">+</button>
+      <button type="button" id="btn-minus">−</button>
+      <button type="button" id="btn-reset">Reset view</button>
+      <button type="button" id="btn-print">Print / PDF</button>
+    </div>
+    <div id="hint">This is the placement guide — not the Rhino bake. Scroll to zoom · drag to pan · click a dot to see what to letter. Same clock as the generator: gold at the bottom.</div>
+    <div id="svg-wrap"><svg id="map" viewBox="0 0 1000 1000" width="1000" height="1000"></svg></div>
+  </div>
+  <aside id="panel">
+    <h1>Placement guide</h1>
+    <p>Open this beside Rhino. The script draws <strong>lines and dots only</strong>. After Generate, type on those dots. Click a colour here to see the sentence.</p>
+    <h2>How it maps to Rhino</h2>
+    <p>Same colours, same clock, same fan order. Large dot = main claim. Small dots run <strong>catalog order across the fan</strong> (first ID on one side, last ID on the other) — R1 then R2 then R3 on gold, and so on. Wiggly lines in Rhino are look only. Select a circle → Properties → <span class="id">Name</span> if you lose your place.</p>
+    <div id="detail">
+      <h2>Title (centre hole)</h2>
+      <p><strong>DISCIPLINARY MATRIX</strong><br>Trusted with the title — by whom, for what?</p>
+      <h2>Critical position (inner, terracotta)</h2>
+      <p>The profession polices the visible gate more tightly than who writes the code, or who keeps design after novation.</p>
+    </div>
+  </aside>
+</div>
+
+<script>
+const CX = 500, CY = 500, RING = 250, KEEPOUT = 108;
+const GROUPS = [
+  { key: "ETHICS", angle: 90, ring: 1, color: "#b06a7a",
+    zoom: "Duty runs past the fee-payer; “good architect” is a degree, not a kind.",
+    subs: [
+      ["H1", "Knowledge becomes power", "Specialised knowledge → power → ethics → trust → judgment → public interest, then back into knowledge."],
+      ["H2", "Client not in the room", "Future occupants, neighbours, communities, future generations — the child in a school in 2035."],
+      ["H3", "Profession is not a business", "Altruism and public duty. Fair reward is fine; professionalism fails when profit trumps service."],
+      ["H4", "Fees do not shrink judgment", "Reduced scope cannot withdraw judgment while the public still expects it."],
+      ["H5", "No good or bad architects", "Loos, 1910: only degree. The Act then sets one minimum. What are awards measuring after that?"],
+      ["H6", "Architecture, not Architects", "The public sees individuals. Recognition should answer to users, not build a clique."],
+      ["H7", "Searchlight or lantern", "A magazine can miss housing, climate, country, labour, procurement, public trust."],
+      ["H8", "Collective test", "Does this make architecture more useful — or only one architect more marketable?"]
+    ]},
+  { key: "LEGISLATION", angle: 50, ring: 1, color: "#5b7c99",
+    zoom: "The Act and the NCC are instruments — they enable buildings, and they can be rewritten.",
+    subs: [
+      ["L1", "Act gives legal form", "Legal form to knowledge, authority and responsibility — not consumer protection only."],
+      ["L2", "RIBA was not a licence", "1834/37: advance knowledge. First Silver Medal was an essay on concrete, not a building."],
+      ["L3", "Victoria public register", "Debated from 1887; enacted 1922 or 1923 (do not lock the year). Only 12 of first 33 were institute members."],
+      ["L4", "Purpose of the Act", "Regulate conduct, complaints, and who may use architect / architectural services / design."],
+      ["L5", "Cannot sign undone work", "No signing, approving or supervising work you did not actually do."],
+      ["L6", "Resign rather than breach", "If the job would break the Act, withdraw — even if you would still be paid."],
+      ["L7", "Fire-isolated stair", "A client’s non-compliant substitution does not outrank the public."],
+      ["L8", "Professional vs prohibited", "Registered breach → Board / Tribunal. Unregistered holding-out → Magistrates’ Court."],
+      ["L9", "NCC class and type", "Use class + storeys sets Type A/B/C. Heights, light and air become numbers."],
+      ["L10", "London 1666 same logic", "Types of house, measurable light and air, rebuild-by dates, party walls, who decides a dispute."],
+      ["L11", "Law is provisional", "Written → interpreted → amended → repealed. Not optional. Not fixed."],
+      ["L12", "Subject, interpreter, co-author", "What must I do? Why does this rule exist? Who may change its assumptions?"]
+    ]},
+  { key: "RESEARCH", angle: 10, ring: 1, color: "#4d8f6a",
+    zoom: "Codes and performance change what architecture is allowed to be.",
+    subs: [
+      ["N1", "Fit for purpose, then performance", "What a building is is not the same as what it does."],
+      ["N2", "Codes are co-authored", "Rules change through activism as well as expert committees."],
+      ["N3", "Bathrooms into the NCC", "2023 proposal → 2024 consult → NCC 2025. All-gender bathrooms as DTS (May 2026 on the slide)."],
+      ["N4", "Carbon written as a limit", "About 200,000 homes/year at current practice ≈ 200% of the emissions budget. Proposed cascade 461.8 → 6.63 kgCO₂e/m²·a by 2028. Re-check the article."],
+      ["N5", "Optional becomes ordinary", "Livable housing: easy to enter and adapt; step-free path with exemptions."],
+      ["N6", "One good, another problem", "Tight envelopes can trap moisture. A new rule answers the last rule."]
+    ]},
+  { key: "PROCUREMENT", angle: 330, ring: 1, color: "#345070",
+    zoom: "A registered architect can lose design control by contract alone.",
+    note: "Independent research — not lecture-sourced.",
+    subs: [
+      ["P1", "Bringing a building into being", "Traditional AS4000: architect keeps design and administers for the client."],
+      ["P2", "Design and construct", "AS4902. Contractor takes design obligations. Architect’s role shrinks."],
+      ["P3", "Novated D and C", "The client’s architect is transferred to the contractor. The contractual client becomes the builder."],
+      ["P4", "Institute survey 2019", "266 practices, 484 novated projects. The Institute found novation can weaken design intent."],
+      ["P5", "What is lost after novation", "Direct client line, site access, value-management. Registration can stay perfect."]
+    ]},
+  { key: "REGISTRATION", angle: 270, ring: 1, color: "#c9a227",
+    zoom: "The one compulsory gate — education, hours, exam, title, then a loop.",
+    subs: [
+      ["R1", "Accredited education first", "Part 1 / Part 2 accredited course. Without this the later gates do not open."],
+      ["R2", "Five statutory requirements", "Fit and proper · prescribed study · two years’ practice · PII · fees."],
+      ["R3", "Two classes", "Practising and non-practising."],
+      ["R4", "Three pathways", "APE · Experienced Practitioner Assessment · Mutual Recognition."],
+      ["R5", "Logbook 3,300 hours", "35 performance criteria. Max 1,650 pre-grad; 12 months Australian after graduation."],
+      ["R6", "Four competency groups", "Conduct · concept · documentation · construction-phase services."],
+      ["R7", "Statement of experience", "About 2,000–3,000 words; typically four projects."],
+      ["R8", "National exam", "120 minutes, 80 MCQ, closed book, NCC-focused."],
+      ["R9", "Interview probes gaps", "45–60 minutes. Breadth beats the coolest project."],
+      ["R10", "Pass is not registration", "You still apply to the Architects Registration Board of Victoria."],
+      ["R11", "Fail repeats the stage", "Incomplete hours or a failed paper send you back — not out."],
+      ["R12", "CPD and insurance loop", "Ongoing CPD (~2022 mandate) and PI. Tribunal can exclude."]
+    ]},
+  { key: "EMPLOYMENT", angle: 225, ring: 1, color: "#a68a5b",
+    zoom: "Hours are earned in practice; a project is a loop with legal gates.",
+    subs: [
+      ["W1", "Firm is where hours live", "The logbook can only be filled in supervised practice."],
+      ["W2", "Project management walked off", "1960s–70s: treated as not our domain. Now a separate, often richer, field."],
+      ["W3", "ACA and the union", "Business, procurement, employment conditions. Professionals Australia."],
+      ["W4", "One project, five stages", "Brief → Feasibility → Sketch → Developed → Documentation → Contract administration."],
+      ["W5", "Two external gates", "Council and the Building Surveyor. Findings return to the brief."],
+      ["W6", "Competencies span both ends", "NSCA covers design and contract administration."]
+    ]},
+  { key: "EDUCATION", angle: 185, ring: 1, color: "#6b9b6b",
+    zoom: "Judgment is trained, then kept alive — not a one-off competency stamp.",
+    subs: [
+      ["E1", "University under AQF", "Accredited higher learning. Inquiry is not always practice’s first priority."],
+      ["E2", "Judgment over competency", "Registration should name the judgment society entrusts."],
+      ["E3", "Integrity head heart hand", "Knowledge plus trustworthiness and altruism. Knowledge creates power."],
+      ["E4", "CPD is formative", "Builds reasoning before the next judgment — not only after a breach."],
+      ["E5", "Knowledge should be collective", "Codes and contracts are instruments to interpret."],
+      ["E6", "Classic or neo-profession", "Design profession. Commercial drift pulls toward a neo-profession. Mark your position."]
+    ]},
+  { key: "BODIES", angle: 140, ring: 1, color: "#8a6ba8",
+    zoom: "Institute advances the discipline; the Board holds it accountable; awards manufacture “good.”",
+    subs: [
+      ["B1", "AIA is voluntary", "Architects act together. Code of Professional Conduct (2006)."],
+      ["B2", "ARBV is statutory", "Society’s legal minimum. Conduct, not design taste."],
+      ["B3", "AACA sets the national test", "National Standard of Competency; coordinates boards."],
+      ["B4", "Network around the AIA", "ArchiTeam, Declare, AASA, Parlour (~21% registered women vs ~40% graduates), ACA."],
+      ["B5", "Fragmentation is the problem", "Not too few institutions — they do not connect."],
+      ["B6", "Awards write the value system", "1969: Southland beat the NGV. Categories decide what counts."],
+      ["B7", "Outside juries disagree", "Social Impact and LEA do not copy the Institute’s taste."],
+      ["B8", "Six media channels", "Awards, journals, global sites, PR, TikTok, LinkedIn."]
+    ]},
+  { key: "POWER", angle: 305, ring: 0.62, color: "#b05040",
+    zoom: "A small overlapping group sits across school, Institute, and Board. Draw this smaller.",
+    subs: [
+      ["K1", "Interlocking seats", "The same few people can sit on school, Institute, and Board at once."],
+      ["K2", "Influence sits in relations", "Client, builder, architect, regulator, finance. No single throne."],
+      ["K3", "Tight title, loose instrument", "Five requirements and a three-part exam for the name. Code and contract are more open."],
+      ["K4", "Crisis without revolution", "Defects accumulate. Few call it a revolution."],
+      ["K5", "Institution versus the public", "The “good” can be assumed to be whatever is already written into the code."],
+      ["K6", "What should change", "Point energy at who writes the rules and who keeps authorship in delivery."]
+    ]}
+];
+
+const RELS = [
+  ["X1", "EDUCATION", "REGISTRATION", "depends upon", "You cannot sit the APE without accredited study."],
+  ["X2", "EMPLOYMENT", "REGISTRATION", "depends upon", "3,300 hours are earned in a practice, not a classroom."],
+  ["X3", "LEGISLATION", "REGISTRATION", "enables", "The Architects Act is what makes the title legal."],
+  ["X4", "LEGISLATION", "EMPLOYMENT", "limits", "Council and the Building Surveyor can send a project back to the brief."],
+  ["X5", "EDUCATION", "REGISTRATION", "enables", "CPD after registration builds judgment before the next test."],
+  ["X6", "RESEARCH", "LEGISLATION", "influences", "Activism and roadmaps amend the NCC."],
+  ["X7", "PROCUREMENT", "REGISTRATION", "limits", "Novation can strip design control without touching registration."],
+  ["X8", "ETHICS", "REGISTRATION", "depends upon", "Public duty is why the gate exists; the gate does not finish the duty."],
+  ["X9", "BODIES", "ETHICS", "influences", "Awards decide who looks good, separately from who is legal."],
+  ["X10", "POWER", "REGISTRATION", "contrasts", "Title is tightly gated; code-writing and contracts are not."],
+  ["X11", "POWER", "LEGISLATION", "contrasts", "Same overlapping people; looser hold on who amends the instrument."],
+  ["X12", "POWER", "PROCUREMENT", "contrasts", "Control after novation is a commercial gate, not an ARBV gate."]
+];
+
+function polar(r, deg) {
+  const a = deg * Math.PI / 180;
+  return [CX + r * Math.cos(a), CY - r * Math.sin(a)];
+}
+function rootOf(key) {
+  const g = GROUPS.find(x => x.key === key);
+  return polar(RING * g.ring, g.angle);
+}
+
+const svg = document.getElementById("map");
+const NS = "http://www.w3.org/2000/svg";
+function el(name, attrs, text) {
+  const n = document.createElementNS(NS, name);
+  for (const [k, v] of Object.entries(attrs || {})) n.setAttribute(k, v);
+  if (text) n.textContent = text;
+  return n;
+}
+
+const gRels = el("g", { class: "rels" });
+const gBranches = el("g", { class: "branches" });
+const gNodes = el("g", { class: "nodes" });
+svg.appendChild(el("circle", { cx: CX, cy: CY, r: KEEPOUT, fill: "none", stroke: "#888", "stroke-dasharray": "4 4" }));
+svg.appendChild(el("text", { x: CX, y: CY - 8, "text-anchor": "middle", class: "label-main" }, "DISCIPLINARY MATRIX"));
+svg.appendChild(el("text", { x: CX, y: CY + 12, "text-anchor": "middle", class: "label-sub", fill: "#555" }, "Trusted with the title — by whom, for what?"));
+
+const wrap = GROUPS.filter(g => g.ring >= 1)
+  .sort((a, b) => a.angle - b.angle)
+  .map(g => polar(RING, g.angle));
+let dWrap = "";
+wrap.forEach((p, i) => { dWrap += (i ? " L " : "M ") + p[0] + " " + p[1]; });
+dWrap += " Z";
+svg.appendChild(el("path", { d: dWrap, fill: "none", stroke: "#bbb", "stroke-dasharray": "6 5", "stroke-width": 1.2 }));
+
+function arcPath(a, b, r) {
+  const p1 = polar(r, GROUPS.find(g => g.key === a).angle);
+  const p2 = polar(r, GROUPS.find(g => g.key === b).angle);
+  const a1 = GROUPS.find(g => g.key === a).angle * Math.PI / 180;
+  const a2 = GROUPS.find(g => g.key === b).angle * Math.PI / 180;
+  let da = a2 - a1;
+  while (da > Math.PI) da -= 2 * Math.PI;
+  while (da < -Math.PI) da += 2 * Math.PI;
+  const large = Math.abs(da) > Math.PI ? 1 : 0;
+  const sweep = da < 0 ? 0 : 1;
+  return { d: `M ${p1[0]} ${p1[1]} A ${r} ${r} 0 ${large} ${sweep} ${p2[0]} ${p2[1]}`, mid: polar(r, (GROUPS.find(g => g.key === a).angle + da * 90 / Math.PI) ) };
+}
+
+RELS.forEach(rel => {
+  const [id, a, b, verb] = rel;
+  const r = KEEPOUT + (RING - KEEPOUT) * 0.42;
+  const ga = GROUPS.find(g => g.key === a);
+  const gb = GROUPS.find(g => g.key === b);
+  let a1 = ga.angle, a2 = gb.angle;
+  let da = a2 - a1;
+  while (da > 180) da -= 360;
+  while (da < -180) da += 360;
+  const p1 = polar(r, a1), p2 = polar(r, a2);
+  const midA = a1 + da / 2;
+  const mid = polar(r, midA);
+  const large = Math.abs(da) > 180 ? 1 : 0;
+  const sweep = da < 0 ? 0 : 1;
+  const path = el("path", { d: `M ${p1[0]} ${p1[1]} A ${r} ${r} 0 ${large} ${sweep} ${p2[0]} ${p2[1]}`, fill: "none", stroke: "#777", "stroke-dasharray": "3 3", "stroke-width": 1.1, class: "rel-arc" });
+  gRels.appendChild(path);
+  const t = el("text", { x: mid[0], y: mid[1] - 4, "text-anchor": "middle", class: "label-rel" }, id + "  " + verb);
+  t.dataset.kind = "rel";
+  t.dataset.id = id;
+  gRels.appendChild(t);
+  const hit = el("g", { class: "node", "data-kind": "rel", "data-id": id });
+  hit.appendChild(el("circle", { cx: mid[0], cy: mid[1], r: 5, fill: "#777" }));
+  gNodes.appendChild(hit);
+});
+
+GROUPS.forEach(g => {
+  const root = polar(RING * g.ring, g.angle);
+  const [rx, ry] = root;
+  const vx = rx - CX, vy = ry - CY;
+  const L = Math.hypot(vx, vy);
+  const ux = vx / L, uy = vy / L;
+  const n = g.subs.length;
+  g.subs.forEach((sub, i) => {
+    const t = n === 1 ? 0 : (i / (n - 1) - 0.5);
+    const ang = t * 0.95;
+    const c = Math.cos(ang), s = Math.sin(ang);
+    const ox = ux * c - uy * s, oy = ux * s + uy * c;
+    const len = 118 + (i % 3) * 10;
+    const tx = rx + ox * len, ty = ry + oy * len;
+    const cx2 = rx + ox * len * 0.45 - oy * 18;
+    const cy2 = ry + oy * len * 0.45 + ox * 18;
+    const br = el("path", { d: `M ${rx} ${ry} Q ${cx2} ${cy2} ${tx} ${ty}`, fill: "none", stroke: g.color, "stroke-width": 1.15, class: "sub-branch" });
+    gBranches.appendChild(br);
+    const lab = el("text", { x: tx + ox * 10, y: ty + oy * 10, class: "label-sub", fill: g.color }, sub[0] + "  " + sub[1]);
+    if (ox < -0.2) lab.setAttribute("text-anchor", "end");
+    gBranches.appendChild(lab);
+    const hit = el("g", { class: "node", "data-kind": "sub", "data-group": g.key, "data-id": sub[0] });
+    hit.appendChild(el("circle", { cx: tx, cy: ty, r: 5.5, fill: g.color, stroke: "#fff", "stroke-width": 1 }));
+    gNodes.appendChild(hit);
+  });
+  const main = el("g", { class: "node", "data-kind": "main", "data-group": g.key, "data-id": g.key });
+  main.appendChild(el("circle", { cx: rx, cy: ry, r: g.key === "REGISTRATION" ? 11 : 8.5, fill: g.color, stroke: "#fff", "stroke-width": 1.5 }));
+  const mx = rx + ux * 16, my = ry + uy * 16;
+  const mt = el("text", { x: mx, y: my, class: "label-main", fill: g.color }, g.key);
+  if (ux < -0.15) mt.setAttribute("text-anchor", "end");
+  gBranches.appendChild(mt);
+  gNodes.appendChild(main);
+});
+
+svg.insertBefore(gRels, svg.firstChild);
+svg.appendChild(gBranches);
+svg.appendChild(gNodes);
+
+function showDetail(kind, id, groupKey) {
+  const box = document.getElementById("detail");
+  if (kind === "rel") {
+    const r = RELS.find(x => x[0] === id);
+    box.innerHTML = `<h2>Relation ${r[0]}</h2>
+      <p><span class="id">${r[1]}</span> <span class="verb">${r[3]}</span> <span class="id">${r[2]}</span></p>
+      <p>${r[4]}</p>
+      <p>Letter the verb on the grey wrap-arc. Do not draw the arc through the title.</p>`;
+    return;
+  }
+  if (kind === "main") {
+    const g = GROUPS.find(x => x.key === groupKey);
+    const items = g.subs.map(s => `<p class="rel"><span class="id">${s[0]}</span> ${s[1]}</p>`).join("");
+    box.innerHTML = `<h2><span class="swatch" style="background:${g.color}"></span>${g.key}</h2>
+      <p><strong>Zoom out — write this large on the ${g.color} trunk:</strong></p>
+      <p>${g.zoom}</p>
+      ${g.note ? `<p><em>${g.note}</em></p>` : ""}
+      <h2>Zoom in — small dots on this colour</h2>${items}`;
+    return;
+  }
+  const g = GROUPS.find(x => x.key === groupKey);
+  const s = g.subs.find(x => x[0] === id);
+  box.innerHTML = `<h2><span class="swatch" style="background:${g.color}"></span>${id}</h2>
+    <p><strong>${s[1]}</strong></p>
+    <p>${s[2]}</p>
+    <p>Write the short label at the small ${g.key} tip. Keep the sentence for close reading or the verbal.</p>`;
+}
+
+document.querySelectorAll(".node").forEach(n => {
+  n.addEventListener("click", e => {
+    e.stopPropagation();
+    document.querySelectorAll(".node").forEach(x => x.classList.remove("selected"));
+    n.classList.add("selected");
+    showDetail(n.dataset.kind, n.dataset.id, n.dataset.group);
+  });
+});
+
+const wrapEl = document.getElementById("svg-wrap");
+const stage = document.getElementById("stage");
+let scale = 0.72, tx = 20, ty = 8, drag = null;
+function applyView() { wrapEl.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; }
+applyView();
+stage.addEventListener("wheel", e => {
+  e.preventDefault();
+  const f = e.deltaY < 0 ? 1.08 : 0.92;
+  scale = Math.min(2.8, Math.max(0.35, scale * f));
+  applyView();
+}, { passive: false });
+stage.addEventListener("pointerdown", e => { if (e.target.closest("#toolbar")) return; drag = { x: e.clientX - tx, y: e.clientY - ty }; });
+window.addEventListener("pointermove", e => { if (!drag) return; tx = e.clientX - drag.x; ty = e.clientY - drag.y; applyView(); });
+window.addEventListener("pointerup", () => { drag = null; });
+
+const mapEl = document.getElementById("map");
+document.getElementById("btn-out").onclick = () => { mapEl.classList.add("dim"); document.getElementById("btn-out").classList.add("on"); document.getElementById("btn-in").classList.remove("on"); };
+document.getElementById("btn-in").onclick = () => { mapEl.classList.remove("dim"); document.getElementById("btn-in").classList.add("on"); document.getElementById("btn-out").classList.remove("on"); };
+document.getElementById("btn-rel").onclick = () => { mapEl.classList.toggle("hide-rel"); document.getElementById("btn-rel").classList.toggle("on"); };
+document.getElementById("btn-plus").onclick = () => { scale = Math.min(2.8, scale * 1.2); applyView(); };
+document.getElementById("btn-minus").onclick = () => { scale = Math.max(0.35, scale * 0.8); applyView(); };
+document.getElementById("btn-reset").onclick = () => { scale = 0.72; tx = 20; ty = 8; applyView(); };
+document.getElementById("btn-print").onclick = () => window.print();
+document.getElementById("btn-in").classList.add("on");
+</script>
+</body>
+</html>

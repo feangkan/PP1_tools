@@ -1,0 +1,4 @@
+V8
+Notes: Victoria registration pathway + circle legend; other groups use START/Stage/Gate/Loop
+Internal: v1.1
+Git: 71510ac

@@ -1,0 +1,4 @@
+V5
+Notes: Scrollable UI; Generate button pinned at bottom
+Internal: v0.8.1
+Git: b382f5f

@@ -1,0 +1,3 @@
+V16
+Notes: Clean highways like pic 1 — 3 smooth curves; mesh and side filaments off.
+Internal: v1.9

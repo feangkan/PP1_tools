@@ -1,0 +1,4 @@
+V6
+Notes: Nerve sub-links between colour groups; fix tip IndexError
+Internal: v0.9
+Git: 552c056
