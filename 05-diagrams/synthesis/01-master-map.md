@@ -3,7 +3,7 @@
 - **Purpose:** show real relationships between weekly diagrams — not a re-summary of any single week
 - **Scope:** everything already built in `05-diagrams/week-01/`, `05-diagrams/week-02/`, `05-diagrams/week-03/`, `05-diagrams/week-04/`
 - **Rule:** this file never introduces a new claim that isn't already sourced in a weekly pack — it only draws the links between existing claims. If you want to trace a node back to its source, check that week's `04-topics-context.md` first.
-- **Version:** v03 — rebuilt 2026-08-16, stacking Week 4 onto the existing Weeks 1–3 map. Rebuild again after each new week using `02-concept-index.md`.
+- **Version:** v04 — 2026-09-06. The Weeks 1–4 graph below is unchanged from v03; **Week 6 is added as an addendum section near the end**, not folded in, because the single-diagram approach has reached its split point (see "Redraw note"). Week 5 had no standalone pack. Next pass converts this file into an index over per-thread diagrams.
 - **Zoning:** this map is the **temporal zoning** layer — each week (W1CORE/W2CORE/W3CORE/W4CORE) is its own zone, kept in its own native layout type (Week 1 = circular core loop, Week 2 = radial six-lens hub, Week 3 = linear history→mechanism spine, Week 4 = hierarchy/network hybrid) rather than forced into one shape. Threads/reconciled clusters are the cross-links connecting those zones. See `08-diagram-style/STYLE_GUIDE.md` "Composite layering" for the full method.
 
 ## Legend
@@ -212,6 +212,71 @@ flowchart TB
 
 ---
 
+## Week 6 addendum (v04 — 2026-09-06, not folded into the main graph)
+
+Week 5 never got a standalone weekly pack (its pre-reading was pulled straight into Assessment 1). Week 6 is the next teaching week with a pack. At this point the single-diagram approach has hit the split trigger flagged since v02 — so Week 6 is added here as an addendum rather than re-tangled into the graph above. Next pass: split into per-thread files.
+
+```mermaid
+flowchart TB
+  subgraph W6CORE["🟤 Week 6 core question"]
+    W6Q{"Innovation shortens production —\nbut WHO CAPTURES THE BENEFIT,\nand does the profession learn?"}
+  end
+
+  subgraph W6MACH["🟤 Week 6 — the collective machinery (NEW mechanism)"]
+    direction LR
+    WM1[anomaly] --> WM2[inquiry + evidence] --> WM3[shared OUTSIDE the practice] --> WM4[professional debate] --> WM5[publication] --> WM6[institutional adoption] --> WM7[education] --> WM8[standards / codes = normal practice]
+    WM8 -.->|Kuhn: exception becomes the rule| WM1
+  end
+
+  subgraph W6VALUE["🟤 Week 6 — where the benefit goes"]
+    WV1[Model 1: balanced price]
+    WV2[Model 2: THE COLLECTIVE — open, taught, codified, public]
+    WV3[Model 3: THE ENTREPRENEUR — proprietary IP]
+  end
+
+  subgraph W6PRIV["🟤 Week 6 — privatisation of knowledge"]
+    WP1[Standards Australia → SAI Global]
+    WP2[Revit / BIM licences]
+    WP3[paid certification schemes]
+    WP4[black box → professional agency drops]
+    WP1 & WP2 & WP3 --> WP4
+  end
+
+  subgraph W6AI["🟤 Week 6 — AI (re-poses every thread)"]
+    WA1[shortens production = innovation]
+    WA2[confidence ≠ professional judgment]
+    WA3[who checks? individual vs collective]
+    WA4[experience ladder pulled up]
+  end
+
+  W6Q --> W6MACH
+  W6MACH -->|Model 2 depends on this pathway| W6VALUE
+  W6VALUE -.->|Model 3 drift| W6PRIV
+  W6MACH -.->|privatising any stage breaks it| W6PRIV
+  W6Q --> W6AI
+
+  %% links back into the existing threads
+  W6MACH -.->|"the mechanism STRAIN implied\nbut never spelled out"| STRAIN_LINK["→ STRAIN thread (Kuhn, Weeks 1-2-3-4)"]
+  W6VALUE -.->|"'collective test' applied\nto innovation"| ETHICS_LINK["→ ETHICS thread (Weeks 1-2-3-4)"]
+  W6PRIV -.->|"companion to 'who WRITES\nthe code is loosely gated'"| POWER_LINK["→ POWER thread (Weeks 1-2-3-4)"]
+  W6AI -.->|"threatens the supervised-\nexperience stage"| SPINE_LINK["→ SPINE / registration (Weeks 1-3, A1)"]
+```
+
+**What Week 6 adds to each existing thread:**
+
+- **STRAIN** gets its missing middle: the 8-step collective machinery is *how* an anomaly is supposed to travel into normal practice. Week 3 (NSW Building Bill) and Week 4 (40-year awards anomaly) showed anomalies that do/don't tip; Week 6 shows the pathway they're meant to travel, and how privatisation blocks it.
+- **ETHICS** gets *value capture*: Week 4's "collective test" applied to innovation — private (entrepreneur) vs shared (collective) benefit. "Sharing knowledge is not simply altruism, it is how architecture develops as a discipline."
+- **POWER** gets *who owns the code*, not just who writes it: Standards Australia → SAI Global, rented BIM tools, the black box. Plus Easterling — standards *are* infrastructure, "the secret weapon of the most powerful."
+- **SPINE / registration** is threatened by AI in two places: the supervised-experience stage (pulled-up ladder → unpaid internships) and the meaning of the APE (confidence vs judgment).
+
+**Assessment 2 consumes this addendum directly** — see `05-diagrams/assessment-2/00-reengineering-from-a1.md`: the MAINTAIN/REFINE points defend the collective machinery + registration + ethics threads; the CHANGE points repair the privatisation, rule-making-opacity, procurement, AI-accountability and value-capture gaps.
+
+**Also closes an Assessment 1 gap:** "research / innovation / entrepreneurship" was a required A1 topic with almost no sourced material in Weeks 1–4 (same situation as procurement). Week 6 supplies it; `02-assessment-tasks/ai-technology-research-note.md` supplements it with tagged independent research.
+
+---
+
 ## Redraw note
 
-At 4 weeks the map is still readable as one diagram, but density is climbing (POWER and the W4ONLY cluster are now the largest). Per the scaling plan in `README.md`, expect to split into per-thread diagrams (e.g. `power-thread.md`, `ethics-thread.md`) at Week 5–6, once a fifth week's clusters would make a single diagram unreadable at a glance. Week 5's building-code pre-reading material is being pulled directly into Assessment 1 rather than into a standalone Week 5 pack (per this session's process), so the next full synthesis rebuild should happen once Week 5 is actually lectured and a proper weekly pack exists for it.
+**v04 (2026-09-06): the split trigger is reached.** At 4 weeks the map was still readable as one diagram, but density was climbing (POWER and the W4ONLY cluster were the largest). Week 6 has now been added as an addendum section (above) rather than folded into the main graph, because doing so would make the single diagram unreadable at a glance — exactly the Week 5–6 trigger the earlier redraw notes anticipated. Week 5 never got a standalone pack (its building-code pre-reading went straight into Assessment 1).
+
+**Next synthesis pass should:** convert this file into a short index that points to per-thread diagrams — `power-thread.md` (Weeks 1–4 + Week 6 privatisation/Easterling), `ethics-thread.md` (Weeks 1–4 + Week 6 value capture), `strain-thread.md` (Weeks 1–4 + Week 6 collective machinery), `legit-thread.md` (Weeks 1–3), and a new `innovation-value-thread.md` (Week 6 + Assessment 2). Keep the Weeks 1–4 combined graph above as a historical snapshot; build new weeks onto the thread files, not onto it.

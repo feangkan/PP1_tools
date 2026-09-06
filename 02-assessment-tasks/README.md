@@ -16,9 +16,10 @@ assessment-1-final.md
 
 | Task | Weight | Due | Status | Files |
 |------|--------|-----|--------|-------|
-| Assessment 1 | | | In progress (Week 1 process mapped) | `assessment-1-brief.md` (placeholder) |
-| Assessment 2 | | | Not started | |
-| Assessment 3 | | | Not started | |
+| Assessment 1 — Disciplinary Matrix | 25% | Week 5, Sun 23 Aug 2026 | Diagram pack + 150-word critical position built (`05-diagrams/assessment-1/`) | `assessment-1-brief.md`, `assessment-1-critical-position.md`, `procurement-research-note.md` |
+| Assessment 2 — Practice Manifesto | 20% | Sun 20 Sep 2026 (WIP Week 8 Mon) | Setup: brief transcribed, A1→A2 re-engineering map, manifesto structure diagram + 10-point skeleton (`05-diagrams/assessment-2/`) | `assessment-2-brief.md`, `ai-technology-research-note.md` |
+| Assessment 3 — Portfolio of Practice File Notes | | | Not started (PDF in folder) | `Assessment task 03_...pdf` |
+| Assessment 4 — Competencies Quiz | | | Not started (PDF in folder) | `Assessment task 04_...pdf` |
 
 ## How to recheck requirements
 
