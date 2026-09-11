@@ -21,8 +21,8 @@ The Assessment 1 diagram was baked in Rhino 8 with `../assessment-1/stigmergy-ge
 
 ## Working method (matches the brief's 4-week method)
 
-1. **Week 6 (done):** identify issues + responsible bodies/mechanisms; pull A1 tensions where *problems* exist → the 5 CHANGE points. (`00-reengineering-from-a1.md`)
-2. **Week 7 (now):** pull A1 material where *functional/successful mechanisms* exist → the 5 MAINTAIN/REFINE points; draft all 10 as propositions; build the structure diagram. Student decides the overarching position.
+1. **Week 6 (now):** watch the lectures, identify issues + responsible bodies/mechanisms. Per the brief, Week 6 covers both halves — pull A1 tensions where *problems* exist (→ the 5 CHANGE points) **and** where *functional/successful* mechanisms exist (→ the 5 MAINTAIN/REFINE points); draft all 10 as propositions; build the structure diagram. (`00-reengineering-from-a1.md`, `01-diagram.md`, `02-manifesto-skeleton.md`) Student decides the overarching position.
+2. **Week 7 (not yet happened):** continue developing — lock the position, tighten wording, resolve open gaps, start the presentation script.
 3. **Week 8:** refine to one coherent position; WIP presentation Monday; assemble combined PDF (manifesto + descriptions + draft diagrams + appendix + references); submit Sunday.
 
 ## Rules carried over
