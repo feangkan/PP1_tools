@@ -1,0 +1,797 @@
+Just bring it out. Yep. Okay. Can everyone hear me? Yep. All right. Okay, so hopefully everybody had a productive break.
+
+Um and today we have um um probably the second lecture uh third lecture in this series for your second assignment.
+
+Um so I'd like to start by acknowledging the Randri Worang people of the cooler nations as the traditional custodians of the land on which we meet today.
+
+I pay my respects to the elders past and present and extend that respect to all Aboriginal and Torres Strait Islander people here today. In considering the responsibilities of architects and the public consequences of decisions about land and the built environment, we acknowledge that this place has been known, cared for, and shaped through systems of knowledge and responsibility extending over countless generations and that sovereignty was never ceded.
+
+So today's lecture is another concept of what we've been speaking about. We've been speaking about the architecture's profession uh as professional and this one is the architect as worker.
+
+Sorry they've rearranged everything here so there's this stuff that I can't get access. Okay, let me do this. Okay, there we go. Okay. So throughout the subject, we've been asking what architecture um what makes architecture a profession.
+
+And you're now becoming familiar with some of the ideas of specialised knowledge, the registration and licensure process, professional judgment, public responsibility, and the collective knowledge that all architects bring to the profession.
+
+Today I will introduce another identity that sits uneasily alongside these, that of the worker. They receive a salary, they work for an organization, their employer sells architectural services that depend upon their time and their professional expertise.
+
+And yet architecture rarely constructs its professional identity around this fact. We might imagine that you're a student, you become a graduate, eventually become a registered architect, and then eventually you might become a director and a practice owner.
+
+Rather than you being a student, an employee, then a worker and a colleague for a large proportion of the time that you may work.
+
+Peggy Demer and the architecture lobby have been arguing for more than a decade that architecture has a peculiar difficulty recognizing what architects actually do as work.
+
+Architecture is imagined as a creative practice, as cultural production, sometimes even a calling. And even though those things can be true, it sounds much more foreign when we say words like labor, a salary, hours, employer and employee and worker.
+
+And so the question we would like to frame today is not whether architects are professionals or workers, but what becomes visible when we recognize that these are both things happening at the same time?
+
+When does professional commitment become labor? So there's something attractive about describing architecture as a calling. It says that this work matters, we care about what we produce, we're prepared to put something of ourselves into that work.
+
+But they can obscure that real economic relationship. The failed architecture essay Death to the Calling by Marissa Cawthright puts this very simply.
+
+A job in architecture is still a job. And caring about architecture doesn't make the hours disappear. Professional commitment doesn't make labor free, and therefore architecture is particularly vulnerable to confusing these things.
+
+I work late because I cared about the project. We all stayed because the competition mattered. This is just what architecture requires. And whilst care is important, what happens when care itself becomes part of the business model.
+
+Should professional commitment make someone's labour less valuable? Or actually make it more valuable? The other key idea is that this pervasive singular architect obscuers is that architecture is produced by architects, graduates, interior designers, technicians, BIM staff, administrators, finance staff, communication teams, and many more.
+
+Architecture is not just work, but collective labour. And the mythology of the autonomous architect can simply make some of that labor difficult to see.
+
+Can good intentions produce good working conditions? And if we return briefly to the good and the bad architect, which we have put to you guys in previous weeks.
+
+We've already argued that being a good architect cannot simply mean being individually talented or ethical. And if we imagine the equivalent in the worker context, the good employer might look like someone who pays properly, mentors their graduates, doesn't reply upon routine unpaid overtime.
+
+They resource projects properly, they support professional development, they want people to have lives outside of architecture. There are architectural practices in Australia genuinely trying to do these things, and you can find them on as advocates on the Parlor website, which is where these guides have come from.
+
+Importantly, we are now seeing Australian research describing what a healthier architectural workplace might look like. And the well-being of architects projects translated its research into five key areas: value and worth, time and money, trust and transparency, risk and responsibility, psychological and psychosocial safety.
+
+Importantly, we can see that only one, this final one, is about an individual's mental health. The others are all concerned about how architectural work is organized.
+
+And so well being isn't simply how resilient is the individual architect. A more useful professional practice question is, under what conditions is architecture being produced?
+
+At what point does a problem exceed the capacity of just a good employer or a good employee? So imagine two good architecture practices competing for the same project, both want to pay people properly, both want sufficient time to produce this good architecture, and both want the work.
+
+And whilst one might submit a lower fee, the other reduces its fee to remain competitive, and eventually someone wins. In last week's lecture that I released during the mid semester break, Laura Harding laments the lack of the profession and its ability to collectively discuss and resolve these issues of fee cutting and working on projects that Jap that jeopardized public interests, and that was the Berengaroo project and competition that they won and then resigned from.
+
+What we see here is some of the important And the fact that another architecture practices will still do it.
+
+And this is where Australian well-being work becomes important. It connects well-being not to the individual, but to fees, procurement, time, resourcing, responsibility, and the perceived value of architectural services.
+
+And so Tom Marshall, who we have here from today from the Union of Architectural Workers, will take this economic argument much further. And his lecture will describe some of the fee competition as the race to the bottom and ask where the consequences of reduced fees eventually land.
+
+But the problem that we face here is we can tell an employer to resource the project properly, but where does that resource come from? We can tell employee don't work unreasonable hours, but what happens to the deadline?
+
+And we can tell a practice don't submit an unsustainable low fee, but that practice can't determine what its competitors will charge. And so at what point does a problem exceed the capacity of the good employer.
+
+If we changed all the people but retained the same incentives and the same system, would the outcome change? It's tempting to explain that poor professional conditions occur through individuals a bad boss, a greedy director, a disorganized project architect, an unreasonable client.
+
+And while some people might genuinely behave badly, the structural analysis asks a different question, which is what is being asked of you through this subject. If we changed the people but kept the same incentives, would that outcome change?
+
+And this came up quite strongly in a recent interview I did with Charlie Edmonds from the Future Architecture Front as part of an upcoming issue of Architecture Australia.
+
+And the dossier will be around the six themes of labour, access, care, supply, craft, and sufficiency. This UK grassroots advocacy group, Future Architecture Front, through a twenty twenty one open letter to the Royal Institute of British Architects, attracted more than one thousand eight hundred signatories and through social media transformed private frustrations about labour conditions into a public conversation about power, governance, and institutional accountability.
+
+Later, they continued this work by playing a pivotal role in the 2022 election of Miuwa Oki as the Reba president, who was, and I'll just put this last where is he?
+
+There it is. Um The youngest and first black president in the institute's history and an architectural worker rather than a practice owner.
+
+So I'll go back to this. Charlie, the founder of the public advocacy group, made a few points that were really interesting. That a practice owner doesn't necessarily wake up wanting to exploit someone.
+
+They're operating within a system that rewards particular behaviours. To keep costs down, bid aggressively, win the project, and manage commercial risk. And he described the race to the bottom as a structural feature of the market rather than simply as an accumulation of individual moral failures.
+
+That doesn't necessarily remove responsibility from the employer, but it makes that responsibility more precise. A practice leader still has choices about how they respond to these pressures, but good people can reproduce bad systems that they are already in.
+
+And that's a much harder professional problem to consider than simply saying they're bad architects. One of the key things that he talked about, which was um pivotal to the way that FAF operated, was that there was this vibe-based awareness of the problem.
+
+Anecdotes, complaints that people would have. People knew they were overworked, they knew they were not being paid particularly well, and they knew other people felt the same way, and they knew something was not quite right and wrong.
+
+And despite this, when Charlie, as part of Future Architecture Front, started putting numbers and statistics against those experiences, people were still surprised. What is your actual hourly rate once unpaid overtime is included?
+
+How does how close do you come to just the living wage? How many people were experiencing the same condition? So that first open letter was about taking something people instinctively understood and making that scale tangible across the entire industry.
+
+And the Australian Wellbeing of Architecture Research allowed this to happen as well. It took things like I'm exhausted, underpaid and this deadline is ridiculous, and asked, is this repeatedly happening across the profession?
+
+An individual experience becomes evidence of a shared condition. And some of the smaller things that were being parried in these posts were was a well-being seminar actually going to help?
+
+Because that puts the onus on the individual to balance their own life and um take breaks, as opposed to the structural issues which are much larger, difficult to fix and are not reliant on one individual person's actions.
+
+And then there was also humour and statistics around what was being posted to make some of these um you know to to point out the ludicracy but also how starkly different the experience of a graduate was to somebody who was controlling Riva or already had established practices.
+
+So if we return to Thomas Kuhn as a way to consider what the change from business as usual to a huge shift in the profession might look like.
+
+We begin with anomaly, an inquiry, some research and evidence, professional debate about how that might change. But what we see is with all the work that's being done by well being of architects, it doesn't necessarily mean that change is um eventual.
+
+There's awareness and how does it go from awareness to actually being located in active forms, which is what um we talked about last week. Are they in the documents?
+
+Are they in people's um policies, are they actually measured, accounted for? Is there some long-term goal that people are getting towards?
+
+And then eventually change. Another key idea that Charlie discussed was professional agency is an ecosystem and not a single organization.
+
+And we continue to push this away from the individual because the dominant way that students taught and graduates probably feel is that it is on them.
+
+They're experiencing something, they could work harder or they could be more efficient. When we know that it's beyond the individual.
+
+And when I spoke to him, my assumption was that the grassroots movement might be a movement, changes an organization, and has an impact on the institution. Whereas he described Fureut architecture Front as class consciousness building.
+
+Its role was not to become the vehicle for change. It was to help people recognize their shared condition, connect them with organizations capable of acting on them, some of which they did not even know about.
+
+So workplace organizing and the equivalent of the union which we'll hear from today is the section of architectural workers in the UK.
+
+And then eventually the just transition lobby, which are key people within Reba. So FAF views good communication, humour, public criticism, and making invisible problems visible and getting people involved.
+
+That part where people know there's a problem, but they see it as somebody else's uh work to deal with. And it was informal and deliberate. Everything took a few minutes to make, including some of these memes, and he recalls an example of where um somebody carrying a giant pizza for late night work meals or morale boosting events with the message that says, please don't join a union, had 50 people join on that same night.
+
+And even though that meme didn't change everyone's employment conditions, it created a pathway towards an organization that potentially could. So where workplace representation collective bargaining might occur here, eventually there was institutional governance within REVA, using the same vehicles to get people there.
+
+And therefore, different organizations have different capabilities and capacities. And effective professional action doesn't necessarily require one organization capable of doing anything.
+
+It requires connections between these organizations so that things can be done together. And briefly, I came across this poster on Smith Street in Collingwood around the same time, and it has 12 myths about direct action.
+
+And whilst I won't go into the broader political arguments. What interests me is the distinction between asking someone else to act and people affected by a condition organizing to acting themselves.
+
+So that last one, which might be hard to read, says there's a myth that direct action doesn't accomplish anything, and it describes it as something that can complement other forms of political activity.
+
+If nothing else, it highlights the necessity for institutional reform, giving those who push for them more bargaining chips, it can go beyond this by supporting a role to suggest the possibility of an entirely different organization of human life, where power is distributed equally and all people have an equal and direct say in all matters that affect them.
+
+There are lots of possible responses to a professional problem. We can research it, publish it, produce guidance documents, ask practices to voluntarily change, lobby a professional institution, change a regulation, change who runs an institution, or organize the people affected by it.
+
+And so you can see how small forms of participation can form a pathway. It can move from seeing a joke, recognising your own experience, following the account, submitting evidence, signing an open letter, joining an organisation, voting and standing for office.
+
+And so perhaps that link between recognition, participation, organization, and action, these mechanisms start to raise alternatives. What movements do the institutions become responsible for and what can institutions not actually do very effectively?
+
+And this happened because once um Moiwa Oki became um the first black president of Reba, it seemed that it was just the beginning, really.
+
+There wasn't um just because one person won a vote, there was still a whole board of others, there were still a lot of governance structures and rules and competing interests.
+
+And whilst it was a highly visible leadership position, the rest of the institutional machinery remained completely unchanged. And so they decided that Rebart was not enough and they needed to be working with the section of architectural workers and others to establish something separate to Reba, but working within them.
+
+And over the subsequent years, they elected about 15 to 16 people to Reba Council, and they didn't suddenly transform Reba, but that they realized a visible position isn't necessarily where power sits.
+
+And I would argue that this is exactly what your manifesto should increasingly reveal. Don't just put down AIA will do this, ARBV will do this, fair Work, Union, etc. Consider who decides, who votes, who controls resources, who can change the instrument, who can exert pressure, who looks powerful but is actually constrained by their role, and how will that happen?
+
+And that's developing professional literacy and testing it out through your assignments. Can you imagine the individual, the collective, and then who within that system would actually make that change.
+
+One of the other interesting things that we discussed was what happens if everyone's solution to a structural problem is individual escape. And I bring this up because if architecture practice is badly paid or exhausting, often individual responses might prevail.
+
+Become your a director yourself. Start your own practice. People go client side. They move into development. They become a project manager. They go into academia.
+
+And there's nothing inherently wrong with these decisions, but and sorry, the other example was GW from last week, which was you know, start your own practice and work for um, you know, and start your own software and then go back and work for these architectural practices as consultants.
+
+And there's nothing inherently wrong with these decisions, but if the existing practice model doesn't work, and the solution is simply to create another one.
+
+Not everyone can escape upwards or sideways. And the other consequence is if people with experience, confidence, professional knowledge continually respond to porker dishes by simply leaving the profession, what happens to the profession they leave behind?
+
+We've spent this semester arguing that architecture depends on the collective body of professional knowledge. And so with people gaining more experience and leaving, we can see that this is not just a retention problem, but it becomes a disciplinary problem.
+
+The individual solution might be completely rational to leave, but what happens if everyone's solution to a structural problem is to escape individually?
+
+And this also complicates that worker versus owner argument. What will you do differently once you have power, once you have graduated, once you've been working in the profession for ten, fifteen, twenty years?
+
+The managerial class is probably the one that probably has some of that power and probably moves away if they don't become a director.
+
+Uh essentially if we think about them all as the same person. The worker, what conditions allow me to do my work? The professional, what responsibilities accompany accompany my expertise?
+
+The entrepreneur, what alternatives can I create? And the owner, what power do I now possess over other people's working conditions? You are likely to move between all these positions during your career.
+
+And the graduate objecting to unpaid overtime today might be the director responsible for resourcing the project in 15 years, what sort of organizational and business model will support this?
+
+And whilst Charlie is skeptical that generational change can solve the problem. And I would argue a new generation of owners might introduce better flexibility, employee ownership, um, better workplace cultures and participatory governance with incremental improvements.
+
+Charlie suggested that it doesn't change where power sits. Professional agency isn't simply about acquiring more power as your career progresses. It is also what will you do differently once you have it?
+
+So if we return briefly to some of the ideas we introduced last week or the week before, if we think about ourselves not just the subject of work, we are affected by the work.
+
+I. e. what conditions am I working under? What am I paid? What are my hours? What does my contract say? What does the award establish? To interpreting it and considering, well, the fees are the fees that have been established.
+
+How are they being established? Does that need to be re-looked at? Who is setting the program? The timeline for the work? Where does responsibility sit?
+
+And what rights already exist and who possesses authority, we have the capacity to change them. And I'm not saying you guys as students or early graduates, but if you think about the whole profession and you can speculate on these things in your manifesto.
+
+So a well being guy can help an employer change a workplace. A practice can change his culture and resourcing. A professional body can change guidance and advocacy. A regulator can change employment law.
+
+A client can change procurement. And a movement like FAF can create awareness, pressure, and participation. And a union can organize workers around employment conditions.
+
+No one mechanism does everything. Professional literacy means matching the problem to a mechanism capable of changing it. And you might feel disempowered because you are simply a student at this stage or working in a practice.
+
+But if you understand how these things work, it's hoped that you might be able to consider and project where the profession might go and where you might fit in that and feel like it's less of a humongous problem that you can't do anything about.
+
+So I'll hand over to um Tom soon. But what can work is acting collectively actually change that other mechanisms cannot change alone?
+
+And I'd like you to consider you don't necessarily need to just say, do I agree with unions? Because that's too easy of a professional practice question. What we've seen is that Australian architecture has substantial research identifying problems.
+
+We have wellbeing guidance, we have employment law, we have professional institutions and we have practice leaders, some that are genuinely trying to be good employers. And individuals can have agency.
+
+You can negotiate, move practice, start a practice, become an employer, or leave architecture altogether. And yet some of these problems persist. So as you listen, consider what problem is being identified, at what scale has it being produced, who currently has authority over it, and who benefits the most from the existing condition?
+
+What mechanism could actually change it? And most importantly, what can workers acting collectively change that they cannot change by finding a better employer or becoming the employer or escaping upwards or asking the profession to voluntarily improve.
+
+So I'll hand over to Tom and he is the president of the union of Architectural Workers and Senior Associate at Field Work, and he would like architects to work together for fair pay and conditions and to design for cities and the people.
+
+If you can join me in welcoming him um to the front, that would be great. Thank you. Okay. Um yeah. Um place if you type if you just do a little test and see if you can do it.
+
+Can you hear me? Can you hear me? Can you hear me now? Can you hear me now? Seems like it's really close. I feel like they're gonna make leaders. What is It's much more easy to know where to talk into, perhaps, with that one.
+
+Yeah, fair. You can hear me on this? Cool. I feel like I can hear me on this. Alright, um thanks for the opportunity to speak. And um I hope that I can uh add a little bit more colour and context, fantastic start to the topic.
+
+Um many of the same things that I would want to be talking about. It sounds like you're already aware of. So um yes, I'm Tom. I'm from the union and I'm here to help.
+
+I've been involved in the union since I think I I joined when I was in second year. Uh and I've been on the committee for about five years. Um and recently been trying to get around a bit and spread the message, campaign in person, um, as you would have seen from some of the uh photos up on that last slide before.
+
+So today I'm gonna be talking about uh a few things. Firstly, what is a union? Um secondly, business of architecture, you know, what what what are the economics surrounding what you're doing as a worker?
+
+Um thirdly, band aids or structural change, essentially comparing uh individual to collective action. And then fourth, uh collective solutions, so looking at some of the campaigns that we're already running.
+
+So, firstly, what's a union? Well, first of all, what's a workplace? Going back, you know, some time in history when workplaces started to become more formal and a little bit more like what we see today.
+
+Um, you had the industrial revolution. You had a lot of people starting to work in the same space doing the same job, and you start to see what the invisible hand of the market has in mind for you. Um, this is a workhouse.
+
+This is a lot of people working 14, 16 hour days, six days a week. Basically work till you drop type of conditions and for as little as it costs for you to stay alive.
+
+So this naturally resulted in people getting very upset about that, uh, getting together and campaigning, they formed unions. This happened around the world, happened in Australia fairly early on to be honest, uh in the eighteen hundreds, starting with Shearer's strikes.
+
+And what we ended up with were a few things that you might take for granted today. Weekends, for one, weren't always two days. They are now. Work days are eight hours long instead of fourteen.
+
+So you get to have a life outside of work. And with time, also the establishment of minimum wages. Well, this also resulted in a lot of politics.
+
+What we see today around pretty much every democracy is uh a general divide between two sides of politics. One side will have some version of the Labor Party, uh and it's there to represent the interests of workers, ostensibly.
+
+And then on the other side, you'll have an array of different parties whose main aim is to suppress that power. It's an interesting point in time right now where we have the ALP experiencing somewhat of a mild resurgence of its roots, introducing um rules around, say, the right to disconnect, criminalizing wage theft.
+
+So these are some great wins that have just sort of come out of nowhere, and um that's good to see that we're sort of getting away from the very weak third wave sort of stuff that we had for a couple of decades and maybe it's just a recognition that you know things start to need things start to need moving things need to start moving in the other direction.
+
+On the other side of politics, look, I'm not doing any advertising for anyone else there, but we seem to be seeing a bit of a change in the guard at the moment where the Liberal Party is in the process of being replaced by one nation.
+
+Uh essentially they're representing the same interests. It's very rich people trying to do whatever they can to suppress your power and your pay and get us back to that invisible hand market situation where you're in a workhouse.
+
+Now in the last forty or fifty years, um we've actually seen a decline in union membership and, surprise, surprise, a decline in the amount of income that the overall economy makes that goes home in workers' pockets.
+
+This is obviously connected. Now, where did this come from? In the 60s and 70s, you had a rise in union power to a point that was probably quite intimidating to capital owners, and since then we've seen an extremely concerted effort to make it very difficult for unions to organize and to discourage regular people from seeing themselves as workers or people who should join unions.
+
+The results speak for themselves. The surpluses, the profits that go towards corporations, capital owners are now at record highs and the amount going to workers is back down before that union boom in the sixties and seventies.
+
+What does it look like now? What does a union do these days? Now this one here is already a little bit dated because this is this is almost twenty years old, but it's a it's a good example of a fairly recent large mobilisation of unions in Australia.
+
+This was 2006-2007. In response to the Howard government deciding that everyone's going to be a casual worker, unions got around, had a big campaign, and managed to make John Howard even lose his seat.
+
+It did result in a campaign. Um now stepping on to the next thing, the business of architecture.
+
+What's the world in which you're working? I know that a lot of the time when you're at uni and it sounds like your education here is pr presenting a more full picture, which is great, but a lot of the time students can imagine that they are going to be leaving the university uh into some sort of like artisan type thing where you're like, you know, a an apprentice under someone and you're gonna become a master and the jobs will just come to you and stuff.
+
+It's it's a lot dirtier than that. Um it's you know, it it turns out we are all working in the real world. Um this is uh well, construction. So within the set construction sector, which is way bigger than architecture, um, a developer will only build if they can get a 20 to 30 percent profit.
+
+The developer's not interested in the project if that sort of profit margin's not in it for them. At the moment in our economy we see that manifest in projects not going ahead. So we've got a lot of middle market projects that just don't happen because they can't achieve that profit margin.
+
+Where do they achieve it right now? It's in subsidized housing, so we get a lot of affordable and social housing. That's what I work in, so I'm busy. And this is one of them. This is going to be 30% social housing and 60% affordable housing.
+
+Great. But the government's tipping some money in there, right? Um what's the two percent there, you might be asking? That's the architectural fee. So that's a typical architectural fee on a large scale project, the kind of project that a lot of you will be working on.
+
+So the amount of money that's up for grabs for architects is in that sort of uh order of magnitude. Then what are you doing? You're drawing drawings, you're doing architectural labor. It might not be technical drawing like this, it might be fantastic conceptual work, renders, all valid kinds of work, right?
+
+But end of the day, you'll be doing work and you will receive about 25% of the billable rate against your name. That is just how things are done. It's in the AIA's practice notes when you do your registration, four times salary multiplier.
+
+So architectural businesses say you're being paid fifty dollars an hour, you're probably being charged out at two hundred dollars an hour. And the blue part there is the company profit margin.
+
+So the company will generally target twenty percent profit and they won't take the project, they won't resource the project in a way that targets less than that. So a good thing to keep in mind is that every time you earn a dollar on your salary, it's likely that the owner of the business is taking home 80 cents.
+
+So what's your relationship with your employer? It's obviously in their interest, and it's a very popular way to frame things, that there's a sort of uh casual friendship nature to your working relationship.
+
+In architecture, I'd say that's particularly prevalent in small practices. And small practices are really common. About half of architectural workers in Australia work in a practice of five people or less.
+
+And, you know, cringe corporate image aside, it's gonna be some version of this, right? Yeah, we're a family. May maybe the directors are, maybe they're like a married couple or something. But the rest of the people that are working there, your employees, right?
+
+If the shit hits the fan, they'll let you go without a second thought. It's business. So you have to think of yourself as a worker. If you think of yourself as a member of their family or something, that won't work out particularly well for you.
+
+You have to advocate for yourself and and s the sooner you can think of yourself as a worker, the sooner you can start to improve your own and everybody else's uh working conditions.
+
+This is an ancient um drawing from nineteen ninety-four, uh the last time architectural fee scale is applied in Australia. It used to be the case that if you were tendering for a project, there was actually a fee guide.
+
+There was an amount of money that you're meant to pay for architectural services. Now, in the wake of the end of the Cold War and the decisive victory of capitalism, uh we all decided that it was anti-competitive behavior to have price flaws.
+
+Since then we've seen what a lot of people like to call the race to the bottom. That's what Helen was describing uh earlier, the um you know tendering process where the hungriest firm wins, right?
+
+Imagine yourself you're a director, you don't think of yourself as a villain. You're a good person, you're employing all these people, you're giving them a livelihood, right? That's how you see yourself. But you're tendering for something and you just want to keep the books going, you want to keep the revenue coming in.
+
+You've had a project just wrap up and you if you don't win this project you might have to lay people off. That would make you a villain. So really what you should do is drop your price, worry about it later.
+
+But what does that look like? Sorry, it looks like unpaid overtime, late nights, and that hits youngest workers the hardest. We know that to be true, especially from the recent architects well being research that was up on the screen uh before.
+
+Um you know, we already knew that anecdotally, but now we know it in the world's largest architectural labour survey as well. So those guides, uh, we're big fans of it.
+
+Um that research was published in 2023. Uh a lot of good intentions. Uh, as a union, we've had a good dig through its recommendations. Um and it is a sort of mixture of individual actions that you could take to cope with the scenario that you find yourself in and a bit of um, you know, mild suggestion in the direction of collective action.
+
+Now we see that as the more obvious solution there, right? That you can't individually solve problems that are structural.
+
+Um but at the same time it's telling that even an organization uh that is doing research into architectural wellbeing and publishing guides on it um can't be more forthright with its recommendations.
+
+All these organizations are essentially part of a small architectural community in Australia where they have to self-police a little bit um in what they say.
+
+As a union we don't because we represent workers exclusively. So I'm here to advocate for what you guys will shortly be. Or maybe you already are.
+
+How many people in the room already have a job while studying like in architecture? Yeah, so maybe like a a a third to a quarter sort of um yeah and and there is there is sort of increasingly an overlap there.
+
+I went to uni during the GFC, so uh no one had a job. Anyway, collectivism and individual action. What does that look like? Now I can't take credit for this beautiful drawing, but it's it makes its point fair fairly succinctly that if you try to do something on your own, you might take care of your little bit, but the overall problem remains.
+
+So you might try to move sideways, you go into you know a development manager type role, you m I think esc interesting concept about escaping upwards. Um I think a lot of people think of themselves as like inevitably they're gonna become a director or something.
+
+Um sometimes I think about this phenomenon they have in the US that you find a lot of poor people defending the low tax rates of billionaires despite the fact they're never gonna be in that situation.
+
+And it's kinda like a temporarily embarrassed billionaire, like, oh it'll start working out for me shortly and then in that case I wouldn't want the tax to be too high.
+
+I think in architecture we've got a real syndrome of temporarily embarrassed director um and a lot of people think that they will shortly become you know the top of the heap and so you wouldn't want to do anything to make life hard for that person.
+
+In reality you are going to spend, you know, most of your career as a worker and your position as you know seniority. Say say someone wanders straight out of uni and they've become a director of a practice.
+
+If they were working in a different field other than architecture, it they would have been the owner of some other business, right? The people that are walking straight out and creating businesses, they had the family connections and the starting wealth to sort of just um make that happen anyway.
+
+But we've got to think about what works for most people. How can we collectively solve our problems? Now, at the moment, we believe that pay is too low and people work too much.
+
+There's a lot of unpaid overtime. So our position as a union is that we're going to advocate to Fairwork for a 22% pay rise sometime in the next year or two.
+
+There's a review open with Fairwork Australia at the moment. Now, you might be familiar with the Association of Consulting Architects. They're one of the main contributors towards the well being of architects' research.
+
+So in many ways, quite a responsible organization. But actions speak louder than words. In this case the action is words, so maybe a different metaphor would be more apt.
+
+But here they're saying nothing's wrong, nothing to see here. We don't think that there's any um issues around gender pay gap or underpayment in architecture. Um and they can't take their post down from the Fair Work Commission, so you can look it up if you like.
+
+Uh same place you can look up the award. Now we often find ourselves in opposition to the ACA in these sort of legal forums where we're making arguments.
+
+Previously we've argued with them over overtime where they wanted to water it down from Did you know when you work overtime you're meant to be paid one and a half times your regular salary rate? They wanted to make it in law so that it's just one to one.
+
+Now we don't want to walk that backwards. Their argument is no one does it anyway. Well okay, but if no one if people are breaking the law, let's try to stop the law breaking rather than changing the law to reflect the depressing situation as it stands.
+
+So how does that happen, you might be asking? Why is it illegal for someone to pay me um you know well rather not pay me uh for overtime?
+
+Unfortunately in the award there are some grey areas. It is a longer term goal for us. We would like to clarify those grey areas and we think we'd have a fairly good chance of success because Fairwork would see it as a neutral change to to clarify them.
+
+But if you get paid, say 20% higher than the award, technically you could work some unpaid overtime as so long as they can prove a better off overall test at the end of the year and average you out, they can say, Oh well look, their salary packaged in the uh the overtime.
+
+So that I would say when you go into an interview and you ask for and are offered a hundred grand instead of the awards sixty eight grand or something, are you thinking, uh, you know, yeah, uh what I really meant when I said a hundred grand was I'd like to earn sixty eight grand a year but then do a shitload of overtime so that it adds up to a hundred grand?
+
+No. You're you know, selling your greater experience and your worth as a employee to that higher value and you would expect that your pay in when you're being paid overtime would then be from that rate.
+
+So that's a that's actually an argument that we won on a legal sense a few years ago against the ACA. But um there's there's more work to do in terms of making sure that it's enforced.
+
+So what are we doing? We get in front of people, we get people talking. This is us just down the road at Trades Hall um a couple of months ago in May. And we had pretty good crowd filled up the room, maybe 80 people there, a few more watching online.
+
+Um and we had a lot of lively discussion. It's people there just trying to make a difference. And we're listening to their suggestions and incorporating it into our campaign to fair work for this year.
+
+So if you're not already aware of it and you'd like to get involved, please do. Because what I'd say is you're either in the room or you're not, right? You can be an active participant in the change that's happening in your profession, or you can be a passenger and I do sometimes get people say to me, Can you please fix this problem for me?
+
+You're from the union and you're here to help. And I am. But if you don't lend your voice to what we're asking for, then your silence kind of presumes that you're okay with things headed in the direction that they are.
+
+So you sort of have to become a part of that movement if you want to s if you want it to succeed. So I am going to ask that those of you here today that would like things like a twenty-two percent pay rise and a future where we turn the graph around and get workers taking home more of the pay, to please join the union.
+
+Um we've handed out a few flyers that have a QR code, so you're welcome to open that up and scan that. And anyone who joins today, we're going to give you a scale rule as a thanks.
+
+But more than that, we want you to stay involved, get involved, and try to create the sort of change that we're out here already campaigning for. So what does that look like?
+
+Look, sometimes it's us standing in front of a crowd, sometimes it's us um you know speaking to the admittedly larger audience on Instagram. So we've done our readings of the of the well-being of architects um research uh and the findings are pretty dire, uh, particularly for students.
+
+For the average architecture student in Australia, the amount of reported um uh anxiety being experienced would qualify you for a clinical diagnosis, the average So we obviously need to decrease that anxiety so that people can have more well being.
+
+It sounds fluffy, but it's not. Bad well being means poor mental health. That means burning out. That means leaving the profession. And the other part of the one of the main findings in the research was that pay generally scaled with well-being.
+
+Turns out if you pay people better, if they don't have to work as long hours, they feel better about things. So that's where we're focused.
+
+Now, if and when you become involved in the union and start fighting for a better future for yourself and your uh colleagues, um there's a whole bunch of different things you could do.
+
+You could get involved in uh, you know, public facing campaigning, you could become a delegate in your workplace and try to organize your workplace towards a uh collective bargaining agreement.
+
+Um if you know if you ask for something on your own, say there's fifty people at your workplace and you're like, gee, it'd be real good if instead of a 40-hour work week we had a 38-hour work week, which is the national employment standard.
+
+Um you might say that to your director in your annual review, and they'll say, Yeah, I mean we would love to be able to do that. We would love to be able to afford to do that. But things are a little bit uncertain at the moment, and I think we might just have to wait and see how it goes.
+
+You do that one-on-one with your boss, you'll get that answer forever, right? Nothing will change. But if you get you and ten friends together and you ask for the same thing at the same time, um you might find that change fairly quickly.
+
+That changed for me in my workplace. We also had our time in loo rate increased. So you do things together, you get results.
+
+In a formal sense, as a delegate, one of the things you might be looking for, and what this beautiful graph uh indicates, is if you can get six out of ten people that care about an issue, and they rate more than six out of ten, how strongly they feel about it, it's a winning issue.
+
+So if you're trying to map out your workplace and figure out what you might wanna collectively organize your um workplace around, it's those issues. And you don't always know what they're gonna be, right?
+
+In architecture it's like often going to be pay rates and overtime, but you might have different situations in different workplaces. And we can provide delegate training.
+
+If you want to become an active union member, you can come along to training sessions where you can learn about how to make change. It's not always on the national stage, right? We I might be here talking to you guys.
+
+We might be at fair work uh talking to the lawyers and stuff there. But also it happens on the ground. It happens in your workplace and we can get you equipped to you know bring that fight into your everyday life because, that's what it's all about is, improving the quality of your life uh on a day to day basis.
+
+Where can that lead though? You know, when you build union power, um we call it density, right? How many people, how dense is the union membership? Um if you get to a certain level of density, you can actually start to create positive change more broadly.
+
+Unions are fundamentally democratic and therefore their interests are aligned with what the most people want. This is something that happened in Sydney in the uh sixties and seventies.
+
+This is following uh you know big build up in union membership and activity. It was in r uh response to people dying on work sites. So the Builders Laborers Federation got very strong in response to a campaign to stop people dying on work sites.
+
+One of the reasons why you see scaffolding around the place now, right? So people don't die on work sites now, great, but what do you do when you've got the union power? One of the other things that happened was they started to stop the projects that were demolishing neighborhoods, demolishing workers' cottages, to put in freeways and stuff.
+
+And they did succeed in stopping that work. A lot of a lot of those projects went ahead, but a lot of them got stopped. I would say that was a pretty critical moment in terms of uh the sort of forces against labor and unions uh really doubling down on their efforts to try to crush union power.
+
+Uh and it was a rough time for the Builders Laborers Federation when they started picking really big fights. But it's just an indication of like you can aim really big. These were Builders Laborers that only a few years before were, you know, begging to just not die at work and a few years later they're able to stop uh freeway projects from demolishing uh inner city suburbs and and workers housing.
+
+Um we could be looking at things like, hey, do you like it that a builder has a DNC where they can all you around to dumb down your design the whole way or do you prefer that it gets locked in and you know you don't have to redocument this nightmare or even that you might have more power to at least get paid for that redocumentation work.
+
+That sort of thing is like a a pipe dream in architecture because no one has any power to ask for that. But if you build a a base of union power, you can start to ask for nice things.
+
+So So, what nice things are we asking for at the moment? I'm just gonna whiz through a few of these. You might have already seen them on Instagram. If you haven't, please have a look at our um Instagram, give it a follow, um, and you'll know what we're up to.
+
+Um but we we basically just have a few uh responses here. Um this has reached quite a lot of people. I think in the months surrounding uh our town hall event we had 34,000 views um on our stuff so we're we're reaching people generally um and the message is that we want collective responses to these uh systemic solutions um we've got thirty-seven percent of architects that regularly work overtime, not just every now and then.
+
+There's an expectation of it. And you know, we have these organizations in the architectural space that actually saying that there's not a problem there.
+
+You've got massive dissatisfaction with pay. That's why we think it's really important to aim for a really substantial pay increase in the upcoming Fair Work Review. Um because otherwise a lot of architects as soon as they get enough pract uh you know practice experience to be a desirable employee make that move into other fields.
+
+They they they move away into development management or uh construction management. Um and we lose a lot of good people that way. It's not good for the profession. So yeah, unionised workers on average earn significantly more than other workers in Australia.
+
+And I guess my question to you, as an audience, that uh statistically at least are probably not union members at this point in time is: don't you want what they're having? Like, if if this is a a tried and true method in our own modern context You might think there's costs involved in being a member of a union.
+
+Yes, that it costs money to be a member of a union. But when you're talking about pay rate increases that are, you know, over twenty times as much as what your union membership would cost, it seems a pretty fair price to pay.
+
+And the yeah, there's generally a correlation between how many un workers are unionized and the pay. It's it's not like a uh random thing that we're trying to pick a little bit out of a graph.
+
+It's a pretty well demonstrated um relationship. In particular, uh it's young people, young workers that carry the burden the heaviest, um and that's why we're here talking to you directly, making taking the most time that we can to reach people that are gonna be at the coal face of this issue.
+
+So I'm gonna um wrap up there um because I think more importantly is to hear from you guys here if you've got any questions. Um so we're gonna do a bit of a QA um where in the first instance um I'd like to just hear some questions in a more um formal setting where we're all still here together.
+
+Um but if there's anything that's on the back of your mind that you feel is a little bit more sensitive and you don't want to say in front of everyone, we'll also be here for a little while outside and can have a chat there.
+
+Um but while we get things uh we'll we'll just take a a break for a minute or so to um please have a look at that um QR code that we handed out just before.
+
+Um take a moment to sign up. It's free for students. If you're one of those students that is working already and you want industrial support, i.e. access to lawyers, um that does cost money.
+
+Um it's still the cheapest way to have access to a lawyer, but um for any student that just wants to become a member, become involved in campaigning, learn more, and get yourself better prepared for the workplace that you're going to go into, it's free.
+
+So please join up. And if you do, show us your um you know confirmation thing I will take a mic down and just field any questions.
+
+Um then while they're thinking Yeah. Um I am happy for you to start with some questions, probably have funny good ones 'cause you're on the same page with some of these stuff.
+
+So um but yeah, I I think we probably only need one or two and people um tend to. Yeah, I'll go grab a microphone. Awesome. Okay, do people need a little bit more time? Otherwise I might start asking some questions of Tom and then I'll come to you guys um and I'll hand over the microphone for you to ask some questions so you can have a think while um we're talking.
+
+Um so the first thing I wanted to ask was um when you give the example so firstly this this is m uh a shift in the way that people perceive themselves.
+
+Firstly we've just deconstructed the idea of the architect being just a creative person to somebody who's a professional and then they've gone further and said, You're not just a professional, but you're also a worker.
+
+And even though that sounds very conceptually easy to say, it does the examples that you give when you've talked to people proves that proves otherwise. So when somebody calls you up and says, Can you do that work for me?
+
+Can you just advocate for something and then hopefully we will get that um change, whether or not it's um you know, getting your time in loo paid or having that time in loo even documented, etc.
+
+Um it sounds like people don't know where um A don't know how the business works, B don't know how where fees, how that gets structured, um how much they're paid and how that translates, and then think that if you force that for them, they will get the benefit.
+
+So my question is um in discussing all of these things with the ACA and with people who call up um requesting for specific things.
+
+What have you found most useful um in persuading people to understand that they are not just their work is not just to produce drawings, but perhaps to also think about these other structures if they would like the way that they work to be different.
+
+Yeah, th that's it's a good point that like y you take care in your work and um that's good, you know, people caring about their work. The the whole idea of architecture being a craft and and something that you pour your heart and soul into is not a bad thing, right?
+
+It's it's motivating, it's good satisfaction in your work. Um but you should also take care for the other people around you. So, you know, as much as you might care for the occupant that you're designing for, you know, I'm designing social housing and stuff, I'm thinking about the the quality of life that people will enjoy inside that building.
+
+Well, what about the quality of life of the people producing that building as well? So I think it becomes part of your like duty of care almost to be a responsible architectural worker.
+
+It's hard to get over that sort of um boundary, I suppose, around professional esteem, what you see your own role as being. Because it's not necessarily a message that everyone's receptive to that like you'll probably be an employee.
+
+Um it's a lot easier to hear messages that just say, um, like, yes, you were already right. You know, but we do have to be conscious in how we advocate for ourselves.
+
+And a lot of people, myself included, have grown up in a world where all of the rights that were already accorded to you at work seem like laws of nature you know, that we have weekends and that you wouldn't that you shouldn't or wouldn't be bullied at work, or those sorts of things.
+
+But they're actually all really hard won things. So it it's different for each person. What you're talking about we call refusals when people refuse to get involved and every conversation will be different.
+
+Um, which is why we partly will have this conversation in a broader context, but also it's about one-on-one talking as well. Um so you know, if you have a concern, if you're thinking Um then then the other question I was going to ask, it seems that um the hurdles to um becoming a union member individually is not high, aside from you know, for example, I'm part of the National Tertiary Education Union.
+
+That's very easily been put in front of me because it was part of when I um signed my contract, I could just tick yes, one percent of my salary goes to union membership.
+
+And so that's a structural thing that's been fought for by um anybody that's part of the NTEU. And so they put those sorts of um clauses or uh mechanisms almost everywhere into the when you very when you start um being employed.
+
+So that wasn't a hurdle. I didn't have to talk to anyone about doing it, I didn't find out who they were. It was already um part of when I signed up. And then you you could tip no or you could just ignore that part, but I saw it.
+
+And so my question is what are some of maybe specific to architecture, maybe specific to your experience. What are some of the hurdles that you've experienced when people have spoken to you about joining the union and what does that reveal about the profession?
+
+So main hurdle, visibility. Um there will be a majority of architects that do not know that they have it union. And that's actually the case for pretty much all white collar workers.
+
+It's some it's this you were talking before you had the the three things. There's the class consciousness raising through memes and whatnot. There's a lot of people out there doing that and it's good work because there's a lot of people out there that think that because they're a white collar professional, they somehow sit between worker and owner.
+
+Um it's a kind of construct that's really convenient if you're the owner to have half of the workers thinking that way. Um we have uh a low density in architecture, but it's actually higher than in scientists, for instance, like there's not a high density of white collar workers in unions and that's partly why union membership has been decreasing in the Australian economy because the types of jobs that are being created are these like white-collar worker type jobs where you're you you know you see yourself as more of like an entrepreneur perhaps um and it's it's not how we see ourselves.
+
+We also imagine that we might So that's a hurdle, right? You go into a workplace and it's like, oh, are you whispering softly enough about this stuff?
+
+What if the boss hears? Well, you actually have a human right to organize as workers. And you're probably overestimating how hostile your boss is to this sort of stuff as well. I was saying before, like, directors don't think of themselves as villains.
+
+And every time I've mentioned my union activities out loud in a workplace, I get messages of support, not just from colleagues, but from bosses as well. Because they're like, yeah, the system is broken.
+
+Someone has to do something about it. I can't like they can't because they've got like a conflict of interest. You can't have a director of a firm going out there and saying, like, you know, let's let's bust the bosses. They're a boss. They can't say that.
+
+But they might want to still see that positive change. So when they see someone in their office trying to fight for a better future for everyone, they've got to be a bit of a monster to actually make that a problem for you, right?
+
+Like the kind of the kind of wrongdoing that really occurs is that they might turn a blind eye when you do stay late or something. You know, like not advocating for you to stand up for yourself so much because it's convenient to them.
+
+That's the sort of villainy that you might find. It's not like you're gonna get kicked out or have your um career stymied or whatever. Like I just got promoted to senior associate. Like it can't be that bad. I'm the president of the union.
+
+Um and I that parallels on the things that um when I spoke to Charlie from Pfaff, when I said, you know, when you have these discussions with Reba, are you met with hostility or welcomed and it is exactly as you described, which is we are sitting on the side of the table because of that that's our role and we do need you guys over there.
+
+And this conversation is productive because we can almost um anticipate what you would like and we might not otherwise have been able to have that discussion ourselves, you know, because they're in you know, as you've described, if you've got a whole pig series of directors, they're their um their concerns are of the business.
+
+They can't suddenly put on another hat or another uh persona and start thinking about the employee. But but they actually and it troubles them as well, right? Like if you if you go to like a a parlor event or something and they're talking about these exact sort of issues, it's not like it's all just students that are ready to have a revolution or something.
+
+There's a lot of like senior people that are worried that the whole profession's on the wrong direction. There's directors that do want to be able to do the right thing and are incredibly frustrated to have to compete against people that don't.
+
+Like and look, maybe I'm lucky, I work in a place where we've sort of self consciously do try to do the right thing. Um and that's not to say that we're perfect. It's not to say that there is not a bit of like convenient turning of a blind eye if you know something you know is happening or whatever.
+
+But we do really try and it's frustrating when you put a bid in where you based it on paying everyone correctly and then someone undercuts you by like forty percent. It's crazy.
+
+Because you know they'll be bidding from a firm where you can't even put the overtime in your time sheets. So there's different scales, right? There's different like there's different workplaces that will have quite different attitudes.
+
+But even in that place where you know they're they're making the problem not be able to be seen. You ask those individuals, they probably wouldn't think that they're bad people. Um so before I go sorry, one last question which is um when you described um the construction industry and the union that they had in New South Wales um advocating for uh the the retention of housing instead of developing freeways um and removing public open space.
+
+I think there's something interesting in that where we are often thinking about the architects' value and contribution to the construction system and economic value.
+
+And um we uh we describe that public good or the public benefit as something that we would like our buildings to I mean not everyone and increasing the idea of measuring the outcomes of buildings and whether they actually have social, economic and environmental value and um outcomes is happening more.
+
+But I think that they were able to demand that the the work that they were doing was beneficial because they understood their impact and because they recognized that their knowledge and their value could translate into representing the public who were not there, who didn't know that their housing was going to be demolished, and they were aware of it.
+
+And that makes me think about um the things that we think that architecture can do but don't really believe we have enough power to do. It sounds like one avenue is unionism.
+
+Absolutely. And um I will correct you on one thing there. The people did know that the bulldozers were coming for their houses. So in in that instance, the Builders Laborers Federation, in that case, not architects, but in the construction sector, laborers were called upon by the public to defend them, right?
+
+Where you had places like Woolamaloo where people were being dragged out of their houses by the police. Um people were trying to squat to stop the bulldozers coming in.
+
+Um very dramatic stuff. There's still a lot of footage around of it, pretty low quality footage, because the news media didn't want to cover it, so it was like black and white, even though it was in the 60s and 70s.
+
+Um but people knew that this change was coming for them, this terrible change of knocking down their neighbourhoods for lack of freeway in like an inner city location.
+
+Um, and they asked for help, and the workers that were meant to do the demolition were the ones that helped, right? And union density is really important there because the union decided democratically based on all the members saying, well this is wrong, this shouldn't be happening.
+
+Um and so then they direct all their members to not participate in that. The the key thing that you have as a worker, your main power is your threat to withhold your labour.
+
+And that's what they did. They withheld their labor. They stopped those projects going ahead by not turning up to work when instructed to do something immoral and to not take work that was going to be doing that.
+
+So they had a specific list of projects to refuse. And because the union density was so high, they were able to stop them. I think what's most interesting about that is that if you looked at it from a surface level, it would sound like that uh acting against their own interests, i.e.
+
+now we are unable to work or we may not be paid or and yet um it would seem that if they can understand that they have power as a collective and that they can represent other people who have no power because they're individual residents, then they can they can get a much better outcome than if they were simply thinking, well, I'd bl I'd still like to work, I still need employment.
+
+And the market and um the government, eventually there would be other kinds of work that they could be doing, ones that they thought that their labour and their value could be better directed to.
+
+Yeah, there's always something else you could be doing and I think uh it doesn't always look as dramatic as a strike, right? You think unionism, you think strikes, that's when it makes it into the news, right?
+
+There's a teacher strike, uh transport strike, um and they will often be making the striking workers out to be the villain, right? Uh in that situation. Like that's why I was late to work as a bloody, greedy transport workers wanting to get paid overtime or something.
+
+But that is your main power that you have, is to do something that's inconvenient. Now that's called industrial action. And it's protected in law. You can do it if it's been sort of pre-organ organized.
+
+You know, unionism's been around for a long time, so we've got all the laws around it as well now. So you could do something as simple as like refusing to do your timesheets or um uh you know only submitting draft versions of your drawings that can't be constructed or something.
+
+Those are types of industrial actions that could be taken that can seem quite um symbolic, but they're actually quite like frightening to an employer.
+
+Like we live in a pretty s like polite world where if you even had half of your workforce just refusing to do the admin side of their work and really gumming up the gears of the organization, that's like horrifying and you know, they're more likely to come to the negotiating table to hear what you have to say.
+
+It's not necessarily like walking out on your work. It can come to that, but you know, we don't tend to need to do as much as that. Often what will happen is by the time you even lodge a log of claims, which is, you know, this is our list of things we'd like to change about uh contracts, um, you've already freaked out your employer, especially in like a setting like architecture where um no one does this.
+
+So if you suddenly had collective action happening, they're going to be paying attention. I'll come around. Anyway.
+
+Uh hi there. Um you know you were both kind of talking about the fact that uh both at a professional level and at a workers level, everybody can kind of see the problems with the industry.
+
+I guess the question I've got would be if we can all kind of, for lack of a better term, see the fire, why who's in the way? Is it the government? Is it developers?
+
+Like who is trying to get between us and fixing problem? Um well that's the nature of structural problems is there's not necessarily a person that's stopping at happening.
+
+It's the design of the system. So, you know, the way it plays out is that even well-meaning firms that are trying to tender in such a way that they won't exploit their workers are forced to minimize how much they bid for um and that puts them in a bit of a tough bind where the thing they've been asked to deliver uh can't be done without some degree of exploitation.
+
+And if you're a client and you're working in the construction sector, you might agree with the principle that architects should be paid enough that the good architects stay in the system and don't you know move sideways out of the you know because they want to be engaging with a profession that's good at what it does.
+
+But they don't want to be the one that has to pay more. Like if I've been offered a bargain rate by, you know, this architecture firm that you might not know is like teetering on the edge of collapse uh and just wants one more project on the books, you're like, Goody, you know, we we can get this done, you know, um and they've signed the contract.
+
+It all says they're all gonna do it to a high standard. Um so everyone just acting in their own self interest, produ uh under the rules that we have, produces that outcome. One of the things that we could change would be, for instance, reinstatement of the architectural fee scales.
+
+You know, if we were able to enforce a minimum to what architectural fees are, you'd take a bit of heat out of that problem. Then you'd really there'd be more money in the system for architects, to grow the size of the pie as it were, be easier for architects to ask for more.
+
+That's the sort of thing that, you know, we can call for. But you also need the AIA and the ACA to be asking for that too. They're the ones that are meant to be representing firms. Not it's not up to me to say what fees should be.
+
+We can just see where it the problem is flowing from. What we can do is create a bit of change at the other end where workers stand up for their rights, firstly by knowing them, right? Like what's the first step you can take?
+
+It's like to know that the award exists, know what your rights and your proper rate of pay is under that. And then the next step is to insist on it. If something's wrong, call your employer out. Because if you call them out for underpaying you versus the award, that's terrifying to them.
+
+It's a criminal offence for them to underpay you because wage theft is a crime. They don't want to go to jail. So if they hear ha the mere suggestion that they're underpaying you versus the award, they will fall over themselves to make sure they're at least hitting that minimum.
+
+So that's like the first couple of things that you can do. And then from there it's sort of yeah, it's building power among workers, like talking to each other, knowing how much you're meant to be being paid.
+
+I think overcoming secrecy about pay is another helpful thing because a lot of the time people don't want to share how much they're paid. In fact, only about a year ago it became illegal to have pay secrecy clauses in contracts.
+
+That's something that obviously benefits employees, that's why it was allowed, and the current government made it illegal. So if you've got a pay secrecy clause in your contract, um not only is it invalid, but your uh workplace is committing a crime by allowing it to remain in the contract.
+
+Um it was a pretty impressive rule change to be honest. Um but yeah, it's it's not so much that there's some one or something, it's that there's a series of processes that result in this exploitation, and you can get there through legal change, which we try to do, we got try to go fair work and raise the overall rates.
+
+Right. So if we can raise those legal minimums, we improve the conditions for most architectural workers. But at the same time, we want to make sure that the profession doesn't suffer as a result of that.
+
+So we would advocate for the fee scales to in some form or other be reintroduced so that firms aren't collapsing just from the cost of wages. But when that tendering process is happening and the architecture firm is deciding how much they can discount their fee by, if they have workers that know their rights and that are standing up for themselves and asking for things collectively, there's going to be a limit to how much they're going to take that number down by.
+
+It's a squishy number at the moment. We want to make it less squishy. We want to make it so that the cost of architectural labour is firmer, that you're less prone to being exploited.
+
+So that's sort of some of the first steps. And and in that way we can even influence that tendering process. Because individual firms, they can't solve this problem. They're in direct competition with each other. It has to be through people acting together and the solidarity exists at the worker level, not at the practice level.
+
+Uh just to go on from that, with a seemingly reform minded government and new leadership at the top of the AIA, are you hopeful that we'll see uh progress in the next few years?
+
+Um like yes and no. So uh at the moment we are lucky to have a Labor government that's doing the sort of things that you would expect a Labour government to do, uh, which is cool and uh you can't rely on it.
+
+Um because we might not have a Labour government at some point in the future and then what? Um so there has to be multiple ways of dealing with like these complex structural issues. So, yes, optimistic. Obviously, things at the national legislative level are headed in the right direction.
+
+Even though fair work is an independent body and not a politicized one, it's interesting to note that in the last few years they've been handing down pretty good wage decisions. We had like an eight percent increase in the architectural award a couple of years ago.
+
+Like people are being the we're we're actually catching up a little bit, but there's a lot further to go. Um So there's some good stuff happening. We just need the change to be much bigger.
+
+And we need it to be more permanent. And we need it to be cultural. Because if you've got people all individually just relying on someone else looking after their rights at work, you'll find that it will be easy to circumvent them.
+
+Thank you. Um I just got a question. Uh so a couple of weeks ago we had uh a lecture and he mentioned that there looks like uh he believes that there's gonna be a move towards um or back to unpaid internships.
+
+Just wondering if like what the um rules are around that and what your view on the industry in regards to that would be? Um firstly it's illegal.
+
+Uh secondly it was happening a lot about fifteen years ago. Um and that was sort of when I was at uni. Um the way that it's So I was gonna add that this is in the context of an increase in the use of AI and that AI would most affect graduates who are unable you know, who might be replaced by automated programs and that they would only be able to get access to knowledge if they were volunteering their time in exchange for that knowledge, which normally would occur without AI, you know, think about markups or um you know, sifting through um a building surveyors report and looking for all the clause.
+
+That kind of combination of lower pay work that graduates and students do and acquiring that knowledge would disappear. And the um assumption that by that lecturer was that it would mean that perhaps students would have to actively go and seek out knowledge if they're not getting it um through just doing work.
+
+Sorry to interrupt. No, that's that's good context. Um yeah, look, without uh letting it become just a question on AI, um I think at the moment we do see a movement sometimes by educational institutions to provide a form of unpaid internship.
+
+We've had a couple of students come to field work from Monash on some sort of placement system and when we tried to sort out their payment the university said that we couldn't.
+
+It was like some kind of condition on the the course that they were doing or something. And um I did think it was really telling that the student that we had do some experience with us on that model was quite privileged.
+
+Um that's what unpaid internship means is people who can afford to work for free will get the advantages and it just compounds structural disadvantage.
+
+So if you have to work to survive, which is most people, you can't go around working for free on an unpaid internship. But then someone who's, you know, independently wealthy, let's say, uh, you know, inherited wealth from their family or something, they can.
+
+And so they can use that structural advantage. Um I think why I wanted to separate that a little bit from AI is there's a lot of really big open questions on AI and where that heads is going to be a bigger issue than just that.
+
+You know, if you know, as as it stands, AI is a moderately useful tool that probably increases people's productivity by a few percent or something. If you ask Dario Amadeus, it like increases people's productivity by like 70% and we're gonna replace all the workers or something.
+
+And that's what it's being priced for. And at the moment we have this damned if you do, damned if you don't situation where we're looking at like markets that have priced every single tech company for perfection that are waiting for them to not deliver and then there'll be a crash and then people are gonna lose their jobs, like people like you and me unfortunately, like 'cause that's how it always seems to go when there's a market crash.
+
+Uh or it works out and people lose their jobs. Or it lands somewhere in between. I kind of feel like it's probably somewhere in between because the AI stuff like you know, it's great.
+
+I th it does things that I can't do, um but which I believe I probably wouldn't have done if I didn't have it, if that makes sense. Like I'll use it to cross reference a multi hundred page client brief against a multi hundred page like authorities report and it can hold in its head simultaneously those like million things and cross reference it.
+
+I just wouldn't have really done that very well. You know, I could read both reports and I might pick out certain things. Um but I could do like a bit of an additional stuff there that I couldn't have otherwise.
+
+On the other hand, Yeah, I won't mind. So why do I? Okay. Wouldn't have really done that very well.
+
+You know, I could read both reports and I might pick out certain things. Um but I could do like a bit of an additional stuff there that I couldn't have otherwise. the On other hand, it tabulates a bunch of stuff that contains heaps of errors.
+
+You know, like I about half of the stuff that it highlights was not correct. Um, and you know, I had to check its work. So if you replaced a person with that AI, uh you would be eating the consequences six months, a year down the track.
+
+I think unfortunately like in architecture things move so slowly that if we get AI to do the job of architects uh we're gonna find out in like twenty or thirty years because there'll be be like massive building errors and stuff and then there'll be no one responsible because it was some large language model decided that it should be like that.
+
+Unfortunately, like so much will change in that time. Uh and the people who are making the financial decisions like aren't thinking of that. Uh but yeah, in terms of what AI will do to employment markets, we I think we have to wait and see like where things are headed there because could be rocky or it could be nothing.
+
+Um okay any other question that people have? Any any experiences or anything that you'd like to like you know speculate on that um that Tom could answer about the workplaces or the experiences that you've had in practices or what you think a practice might be like, um now's a good opportunity to ask.
+
+Any any other questions that people have? Um any of the tutors? Otherwise I might ask one final. Yep. Thank you for that. That's that's been quite enlightening actually.
+
+Um architects are not very good business people. Therefore the students tend to suffer because of it. Can you expand on that if you see a correlation between how practices are run by design professionals rather than business professionals and then the consequences of that of that filtering downwards.
+
+Yeah, um I'll I'll try to anonymise the names and places as much as I possibly can in my response because I'm gonna be calling on a few examples here. But um it's pretty common to come across people in architectural practice who have landed in their position through some kind of luck.
+
+Um you know, I I was uh before field work I was working at a fairly large practice uh that had undergone aggressive growth in the um six years that I worked there and you had directors there who'd come in as graduates only five or ten years before me and had just like lucked their way into this position of incredible managerial power.
+
+And the amount of managerial training that they got is about as much as what you guys have got. So it's a few of these lectures and that will prepare you for knowing the environment you're in, but maybe not quite enough for being like uh an actual like full-time manager.
+
+Because we we do technical training and this is one subject among many, right? Like you're spending one quarter of your time in this semester on this. If you become a middle manager, you'll be spending 80% of your time on that task, and quite a small amount of your training went into preparing you for that.
+
+So the consequences of that can be someone that doesn't know and the thing is there's also no guarantee that those people that end up in those positions uh were paying attention or even attended those classes.
+
+They might not have they they might have moved sideways into that position anyway and not even been in architecture school at a time where you know classes like this were even happening. So you can have uh casual bullying occurring, you you know, in the form of you send something to your director that you've been agonizing over and working on for weeks and they send an email back where it just says looks shit.
+
+And like that's the entire email. And it's just like that is devastating to someone's day to hear that. That's unacceptable. But if you were actual manager with proper training you'd know that you can't do that.
+
+Um you you get people that um uh they don't know to even check in on how their staff are doing. 'Cause it it's not usually part of our training. As I've started to move up through the sort of middle management rungs at field work, one of the things that happened was the director said well we'd like you to get some management training so that you are a little bit more equipped for, you know, fostering growth.
+
+Because I'd always wanted to foster growth in my team, you know, give them the sort of tasks that they want to work in so that they can build the skills that they want to become the kind of architect they want to be. There's other parts of that too.
+
+There's checking in with them to see if they're okay, if their workload is okay, that sort of thing. And every time I've acted on that training that I've had and set up a meeting with someone that's working on my team where the only agenda is how are you going, they're shocked and a bit confused.
+
+Because they're like, when we have a meeting, it's usually about the project. It's never about them. Or if you have a meeting where it's about them, it's some kind of performance management where it's like you've been doing this thing wrong. Where it's like, no, no, I want to hear from you.
+
+How how are you doing? Is there a way that we're doing this project that's annoying you? You know, I could get I could be managing two people the same way. One of them will tell me that I'm micromanaging them, and the other one will say I'm not giving enough support and they'd like more markups from me.
+
+So the same management strategy doesn't even fit two different people on the same team on the same project. All you can do is listen. But that's not something that a lot of architects are even trained to do, and that management training that I've been doing in recent years is not something that happens at a lot of firms.
+
+In fact, it's e it's even rare at fieldwork. Like I'm the pilot version of that that's now being rolled out to other managers. So a lot of the time you'll be working under someone who only got there because they were good on a technical level, not at a management level, at what they were doing.
+
+Uh so that's an interesting one because one of the one of the founding directors, uh Ben, is not an architect. Um he he's got a business background.
+
+So I think that has something to do with it, that there's a an awareness that the world is not just producing good architecture, it's having a good environment in which to produce architecture.
+
+Well I'm gonna ask one more question um before there's some time for people to speak on directly um after this before class and that was um what are some of the biases that you have heard that ACA um reveal in the conversations and negotiations you've been having with them.
+
+So just one example I think um I was looking at the website for um UAF and it was the right to negotiate for flexible work. Um and I wasn't even aware of this uh I think some just uh some examples are you know if you're caring for somebody um if you've got and that might be um somebody older or somebody um who is younger and they're a de a dependent you have the um right to request a flexible working arrangements.
+
+Um and that's what's put out on um the UAF. The ACA would say that is a grey area because that implies that people who are working are looking after other people at the same time and they can't be responsible for the care of these other people, i.e.
+
+children or you know, somebody who is ill. So I can see how just that particular clause is interpreted in different ways dependent on who they are advocating for or considering.
+
+ACAREN Consulting Architects being um representative of business owners, HR and best practice. But that's what they describe on their website, versus what you guys would be talking about, which is what are the individual rights of the individual worker and what conditions allow them to do particular things and to have those conversations with their employers.
+
+So the question is what you know, what sort of conversations have you had with them? What kind of issues keep coming up and is this um you know are these different perspectives being productive?
+
+Yeah, so uh that's a good one because the public presentation of an organization's not always the same as what it looks like on the inside. And what I would say is it's it's completely fair if you've been volunteering on a committee with an ACA or something and you try and do the right thing, like I'm not saying that you're you're bad or whatever, right?
+
+Because a lot of the time they're looking at things like well being, they're trying to they're trying to improve the profession according to their own design and a lot of the people that will volunteer their work within those committees have views that may actually better accord with the union's views, but you know, that's where they've found themselves.
+
+It's tricky and you have these conversations with people, you'll have like a board member of the ACA come and speak at events. I'll speak alongside them sometimes in a panel. And they're trying to help people, right?
+
+That's how they think of it. A lot of the individuals working there. And the way that they might try to help is by having a kind listening ear. When there's a worker that's having have got poor well being, we need to have a cup of tea and give them a moment, give them a little break, go for a walk with them, find out what's going on, a bit of a smile and nod.
+
+Now, what I would say to that is that if that meeting doesn't result in a material improvement to the thing that brought you to their attention in the first place, it was kind of just window dressing, right? Like it's just it's smoothing things over.
+
+And that's kind of HR's role. HR's role is to keep you working at the lowest possible price. Because if it gets too low, you'll quit and that's annoying, they have to rehire.
+
+Um if it gets too high, business costs go too high. So ha HR's role is to keep you working at the lowest possible price. And if that means having a nice, meaningful sounding conversation with you, that's what has to get done.
+
+So you've and if it also means like not breaking the law, like actually committing wage those sort of things, they need to do that too. When we have worked with them in sort of, you know, uh more private capacity, like you know, I've had meetings with like their own president and stuff.
+
+We reached out to them to see if they wanted to try to collaborate on certain things because there's certain things where our interests will be aligned with theirs. For instance, we want to see fees for architects go up.
+
+So would there be an ability to have a Venn diagram? We know where the common ground is, we know where our differences are, and we will fight there, but in these areas, you know, we can actually make a joint statement or, you know, you could run a joint campaign or something.
+
+One of the things that we had in mind was if you do collective bargaining that's multi employer, there could be a way to sneak the architectural fee scales in that would work with the current laws. If you do it through a union, you can implement minimums.
+
+Otherwise you can't. They didn't want to talk about it. And it was essentially they were dismissive of us as a smaller organisation in terms of the total number of members.
+
+Um so help us change that. Uh because basically they they didn't want to collaborate even if it was going to benefit everyone because they didn't want to have anything to do with us.
+
+Stating the obvious, right? Where like architects are generally working too much for too little. Look at all the research, like you know, we don't have to have this conversation again. But then this organization who had helped support the architects' well being research in a private meeting is then dismissing the findings of that research, saying actually architects are paid paid plenty, we don't need it to change, if you raise uh wages too much, then small businesses will collapse.
+
+They're the ones that we represent. Um and I mean to that I'd just say if you can't afford to pay people a living wage, then you shouldn't be in business. Um and you know, we just because there's gonna be some leakages in some direction, like you know, there might be a sole practitioner that can undercut you because they got no business costs, you can't let that stop you asking for something that will improve everyone's lives.
+
+Because at the other end, we've got the leakage of thousands of professionals just leaving the profession. Like the issues go in both directions, the scales are obviously tipped too far in one direction. Um but they didn't want to hear about it.
+
+Um and they said that yeah, well those people who leave the profession and they become construction managers and stuff. Um they they're really overworked. You know, they work overtime to earn that higher salary and so do you talk to your own members?
+
+Anyway, um don't quote me on that to them please because I feel like they'll see me on the other. Interestingly this year we didn't um have them come in and I think that was because they um the ACA had released a statement about universities not adequately preparing employ uh students to be employees um and putting the onus on universities.
+
+So I that was a little bit heated at the time and I was like, I'm su notre how to deal with this right now. I'll let this blow over and have this conversation next year. So it does you know we can see that we're all in this ecosystem trying to do particular you know things together but also having differences that can't be sorted out.
+
+You know, for example, the Will discussion, Monash describes that as hugely successful. So if you look at a university and say, Oh, do the graduates have experience to work?
+
+Are they cons are they less concerned that they don't have access to practitioners? Then you would say, Yes, they're less concerned. But then of course, you know, as a student you would be concerned about working for free. Fundamentally, that just sounds quite strange.
+
+And why are you paying to work for somebody you know, why are your fees going your student fees going towards a um time where you produce things for another practice? It doesn't make sense, right?
+
+Sounded like a rough deal. Like 'cause you they were paying for that course and and then they weren't being paid for their own time and we weren't allowed to.
+
+We we ended up giving them a gift and not telling Monash, because they were basically saying you can't. Yeah, okay. And so we we can kind of see like how this how some of these things fall apart.
+
+Well there are you know problems and we're not asking you guys to solve all of this. We're just asking you to be aware of them and to know who is doing what and what the biases are, especially you know, ACA compared to AAASA, which is who represents architectures architecture schools in Australia, and then you know, ACA versus the union, what does that mean?
+
+What are they fight what are they fighting for or advocating for and how is that different? And what conversations and levers they have? Another question? Sorry. I don't I don't think one I should try and figure it out away with not that.
+
+But there is a systematic issue that the university um I don't know the exact report. The students can't be paid more company because then they paid.
+
+Oh is it straight. So what what happens some of the students that do get paid is paying the way to control.
+
+But then they pay them if you want to catch the payment. I think they're just structured it weirdly. You know, like because they've made it a subject. I think if you had it as a system where you can put your name in it, it's not a requirement to complete your degree, but the university can put you on a list that ferns can then pick from for a two week internship or something, you might find that people get a similar employment outcome where they go and you know, work somewhere for a couple of weeks, it's pretty low risk for the firm because you're gonna be paying someone student wages for a couple of weeks, which is why like which is like this is ridiculous 'cause they're it doesn't even cost that much to to pay someone for a couple of weeks.
+
+Um and then for the firm, um, it's annoying because if we have someone there and they're not being paid, we can't put them on billable work.
+
+We have to put them on fake work. And so then you're just babysitting someone for a couple of weeks, you can't get them to do anything that will go anywhere. Whereas we'd prefer that you actually gave them something real to do, and if they're terrible at it, well they're only there for two weeks anyway, and it gives them a taste of um work.
+
+Like you know, that I feel like that would work better for everyone, but you can't do it as a subject because then you run into that issue. And this um a similar subject that we had RMIT years ago was this practice research elective where the elective would involve the student being placed in the um in an office but it wasn't for client fee work it was producing research which was separate to the billable work and then that was a project that that practice worked on and the student worked on and it was presented back into the university as a research project.
+
+And therefore they got exposure to how a practice might do research but not actually how a practice does work. We we we had to basically get the student to do parallel tasks to real projects as the best way to give them real experience which is the thing they were after, we get them to do a hypothetical additional.
+
+So the one the one that we were working at at on the time was the um DTP, the Department of Transport and Planning, were engaging us to do the new diagrams res code. Well that's a mind drawings.
+
+Um the nice ones. Uh they they kept some of their old ones. Um something happened after we gave it all to them. Anyway. Uh they the the student wanted to do some of the diagrams that would end up in the code, but to do that, you know, they then become like an exploited worker.
+
+Like you're not paying them and then you're gonna bill the Department of Transport and Planning for time that you never even paid someone for. And that's potentially a criminal offense.
+
+Like I said, wage theft is a criminal offence. You can't be doing that. So we to protect ourselves, in addition to giving him a gift, we also just got him to work on tasks that look just like the ones that were going in there.
+
+So, you know, draw a diagram for a code that doesn't really exist. That type of thing. Like, you know, if it were this, then do this diagram. So then he's got work that looks like the real thing, um, knows that he could do it, um, has done it in the process of the firm and everything, has the educational outcomes.
+
+But like, what were you doing that for? Like Like it it's sort of like you you'd prefer to just pay someone for the their time and use their work. 'Cause th otherwise it just feels a bit inefficient. I think that's how things were intended to work some time ago.
+
+Um where there's sort of built in a gap year between fourth uh third and fourth year. Um and I think that's where a lot of the student rates in the award come from, because you get these discount rates where you actually pay less than the minimum wage um to someone if they're a student.
+
+I don't love that clause in the award. I think it's actually a relic from that time. We either need to use it how it's intended or get rid of it because if someone's doing work they should be paid properly for it.
+
+I think that's a complex discussion, um but worth looking at because it's pretty desperate to like the jobs market to get in at an entry level at the moment and I think like anything that helps structurally ease that transition would be good for people.
+
+Okay., all right Um well the next section's gonna start soon, so we'll be kicked out imminently. Um so there's only a few more minutes to talk to these guys outside. But thank you everybody. Um and if you can join me in thanking Tom again for coming in, that would be great. This thing is diabolical. Oh, look, they obviously should have switched this.
+
+This whole thing needs to be redesigned. Nobody can see me. Yeah, like that's the thing. It's just like it's horrible if you're tall because you've got to like lean down. It's horrible if you're short because they can't see you. Absolutely. So there's no win situation. Um thanks for that.
+
+And I wondered whether um you had some similar discussions in um Tazi or whether it was was that right, Tasmania that you were inventing at?
+
+Uh yes yes. Oh UTS in Sydney. Sryor Sydney. Um no, not similar discussions. Uh it was unfortunately there wasn't time allowed for after the talk. They had to go straight to a tutorial. Yeah, okay. And so any of the discussions that followed on from there I wasn't there for so
