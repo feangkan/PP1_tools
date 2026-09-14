@@ -1,5 +1,16 @@
 # AI, emerging technology & innovation — research note (for Assessment 2)
 
+> **Re-scoped 2026-09-11 — read this first.** AI is **no longer a manifesto point**. At v02 the manifesto's spine became *responsibility without authority*, and AI was demoted to a cross-cutting **stance**: a tool assists production but cannot be held responsible for the work, so the authority to decide stays with the registered person who is. The reason for the demotion is that "is AI good or bad for architecture" invites a personal-opinion piece, while the brief rewards mechanisms — and the pros/cons below genuinely cut both ways, which makes them a weak spine and an easy target in a WIP presentation.
+>
+> **What still feeds the manifesto, and where:**
+> - §3 "confidence ≠ professional judgment", "accountability dumped on the individual" → **Point 3** (independent review: a tool produces an answer with confidence but cannot be accountable, so the second set of eyes matters more) and the AI stance section.
+> - §3 "black-box specification tools", §2 "custom tools reduce dependence on rented black boxes" → **Point 6**, one line only (tool enclosure repeats standards enclosure — a symptom of the pattern, not a separate problem).
+> - §2/§3 value-capture rows, §4 "disclosure of AI use and value capture" → **Point 10** (efficiency gains from any tool should be a profession-level decision about where the benefit goes).
+> - §4 "CPD reframed as formative judgement" → **Point 5** (with the AI-specific framing removed — CPD builds the judgement registration assumes, whatever the tool).
+> - §5 "mechanisms over individual virtue" and Beaton's test → the overarching position itself.
+>
+> **What is no longer used:** the old Points 9 and 10 (collective accountability for AI-assisted work; disclosure of AI value capture as standalone propositions). Point 9 is now the collective instrument for working conditions (Week 7); Point 10 is now authority over where the value of the work goes. Everything below is retained as background — useful if a tutor asks why AI is *not* a point — but do not rebuild the manifesto on it.
+
 **Status: mix of Week 6 lecture content (sourced) + independent research (to verify).** Per `pp1-toolkit.mdc` Hard Rule 1, lecture-sourced points are tagged `[W6]` and trace to `03-weekly-resources/week-06/`; everything else is independent background the student is choosing to bring in and must cite directly, not present as unit content. **Do not quote a statistic from this note without checking the primary source** — the Week 6 transcripts paraphrase several reports without citation.
 
 Purpose: give Assessment 2 a defensible **position on technology and innovation** — one that weights the productive case for engaging with AI while being honest about the harms and, crucially, naming the **professional mechanisms** that would make the productive case real rather than assumed.

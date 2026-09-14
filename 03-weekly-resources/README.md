@@ -23,7 +23,7 @@ week-XX/
 | [04](week-04/) | The Good and the Bad Architect (pt 1); recognition machinery — awards, journals, media; the "collective test" | Full pack — `05-diagrams/week-04/` |
 | 05 | No standalone pack — building-code pre-reading (Lui, Hill) pulled directly into Assessment 1 | see `05-diagrams/assessment-1/` |
 | [06](week-06/) | The Entrepreneur + The Collective — innovation/value-capture (Helen) + AI as leverage (Gwyl Jahn); also where Assessment 2 development began | Full pack — `05-diagrams/week-06/`; summary; feeds Assessment 2 (`05-diagrams/assessment-2/`) |
-| [07](week-07/) | The Architect as Worker (Helen) + Union for Architectural Workers (Tom Marshall, UAW) — structural vs individual responses, wellbeing research, FAF/RIBA case, union economics | Resources uploaded; summary/diagram pack not yet generated |
+| [07](week-07/) | The Architect as Worker (Helen) + Union for Architectural Workers (Tom Marshall, UAW) — structural vs individual responses, wellbeing research, FAF/RIBA case, union economics | Summary + bibliography; drove the Assessment 2 v02 rebuild (`05-diagrams/assessment-2/`); no standalone diagram pack |
 
 ## Agent prompts
 
