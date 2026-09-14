@@ -8,12 +8,18 @@ This folder develops the manifesto the way the weekly packs develop a diagram: i
 
 | File | What it is | Status |
 |------|-----------|--------|
-| `00-reengineering-from-a1.md` | Answer to "can we re-engineer Assessment 1?" + a cluster-by-cluster map of what A1 material carries into A2 and how | v01, 2026-09-06 |
-| `01-diagram.md` | Manifesto **structure** diagram — the overarching position, the 2 halves (maintain/refine ↔ change), the 10 points as nodes, the CURRENT CONDITION→…→CONSEQUENCE method spine, cross-links to actors/instruments | v01, 2026-09-06 |
-| `02-manifesto-skeleton.md` | The 10 points as a working table — each with position, mechanism, actor, action, consequence, sources, and open gaps. **Points are drafted as prompts to argue, not final wording.** | v01, 2026-09-06 — needs the student's position decisions |
+| `00-reengineering-from-a1.md` | Answer to "can we re-engineer Assessment 1?" + a cluster-by-cluster map of what A1 material carries into A2 and how | **v03, 2026-09-15** |
+| `01-diagram.md` | Manifesto **structure** diagram — the overarching position, the 2 halves (maintain/refine ↔ change), the 10 points as nodes, the CURRENT CONDITION→…→CONSEQUENCE method spine, cross-links to actors/instruments | **v03, 2026-09-15** |
+| `02-manifesto-skeleton.md` | The 10 points as a working table — each with position, mechanism, actor, action, consequence, sources, and open gaps. **Points are drafted as prompts to argue, not final wording.** | **v03, 2026-09-15** — needs the student's position decisions |
 | `03-presentation-script.md` | (to add for the Week 8 WIP) | not started |
 | `04-topics-context.md` | (to add) provenance table once points are locked | not started |
-| `05-references.md` | (to add) Chicago bibliography for the manifesto | not started |
+| `05-references.md` | (to add) Chicago bibliography for the manifesto — start from `../../06-references/week-07-bibliography.md`, which lists the Week 7 claims needing verification | not started |
+
+## Version history — read before editing
+
+- **v01 (2026-09-06)** — built on Week 6. AI-heavy: 6 of 10 points touched it.
+- **v02 (2026-09-11)** — rewrote every point around "responsibility without authority" as the spine for all ten. **Reverted** 2026-09-14 (`310643f`) — too abstract for several points, and individual judgement read as less valued than intended.
+- **v03 (2026-09-15, current)** — restores v01's simpler master position (*collective mechanisms work; the decision over who captures the value of knowledge, innovation and labour is being privatised/individualised*). "Responsibility without authority" survives, but only by name inside **Points 8 and 9**, where it's the actual explanation, not the frame for the whole manifesto. AI is down to three single-line mentions (Points 3, 6, 10) from six-plus points. Points 9 and 10 are now built on Week 7 (conditions; fee/labour value) instead of AI. **This version is committed to git**, unlike v02's scaffold work, which was made across several uncommitted edits before finally being committed and then reverted — commit early when a version is worth keeping.
 
 ## How the diagram gets made ("the recent code we have")
 
