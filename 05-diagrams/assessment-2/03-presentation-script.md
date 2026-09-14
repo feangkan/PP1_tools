@@ -1,12 +1,13 @@
 # 03 — WIP presentation: slide plan + speaking script
 
 - **For:** Assessment 2 Practice Manifesto, Week 8 Monday in-class work-in-progress presentation
-- **Date:** 2026-09-14 · **Length:** ~5 minutes, 10 slides (~30 seconds each)
-- **Pairs with:** `04-explanation.md` — same ten sections, same order. If you change one, change the other.
-- **This file is the source of truth for the deck.** Build the slides from this plan so the three artefacts cannot drift apart.
-- **No diagram slide.** Content only, per the decision on 2026-09-14. (Keep one rough diagram in the final combined PDF, though — the brief's Upload Instructions still ask for draft diagrams.)
+- **Date:** 2026-09-14, revised 2026-09-14 (v2 — each of the 10 points now gets its own slide with real detail, after testing v1 and finding the two combined "5 points" slides too thin)
+- **Length:** ~16 slides. At a natural pace, reading everything, this runs **~7 minutes**. If your tutor holds a strict 5-minute cap, use the "If you're short on time" tiers at the bottom rather than cutting content from every slide evenly.
+- **Pairs with:** `04-explanation.md` — that file is grouped by wing (§5 = the five maintain points, §6 = the five change points) rather than one section per slide; §5 covers slides 5–9 here, §6 covers slides 10–14. Same facts, same argument, different grouping. If you change a fact here, change it there too.
+- **This file is the source of truth for the deck.** Build the slides from this plan so script and slides cannot drift apart.
+- **No diagram slide.** Content only, per the decision on 2026-09-14. (Keep one rough diagram in the final combined PDF regardless — the brief's Upload Instructions still ask for draft diagrams.)
 
-**How to use the script:** the "Say" lines are prompts and key phrases, not a text to read out. A WIP presentation is you talking about your own argument; if you read it aloud verbatim it will sound like it. Learn the shape, keep the numbers and the two quotations accurate.
+**How to use the script:** the "Say" lines are prompts and key phrases, not a text to read out. Learn the shape, keep the numbers and the quotations accurate, speak the rest in your own words.
 
 ---
 
@@ -37,74 +38,155 @@
 
 ## Slide 4 — The test, and the split
 
-**On the slide:** One question: **does the person carrying the responsibility hold the authority to act on it?** · Together → 5 MAINTAIN / REFINE · Separated → 5 CHANGE
+**On the slide:** One question: **does the person carrying the responsibility hold the authority to act on it?** · Together → 5 MAINTAIN / REFINE (next 5 slides) · Separated → 5 CHANGE (5 slides after that)
 
-**Say (~30s):** The five-and-five split the brief asks for isn't two topics for me — it's the answer to one question. If responsibility and authority sit together, the mechanism is working and my job is to defend it. If they've been separated, that's a change point. It also keeps me honest: I can't put something in the maintain column just because I like it.
-
----
-
-## Slide 5 — The five to maintain or refine
-
-**On the slide, one line each:**
-1. Registration — the one place the two are deliberately joined
-2. Duty to the public — standing to refuse, not just obligation
-3. Independent review — authority placed elsewhere *on purpose*
-4. The split apparatus — and the bodies that speak for workers
-5. Codes and CPD — the profession can still amend the rules that bind it
-
-**Say (~40s):** These are the mechanisms I think work. Registration joins responsibility and authority on purpose. The Architects Act gives an individual architect the standing to refuse — which matters, because it means refusing isn't just losing a client. Independent review is the interesting one: it deliberately puts authority with someone *other* than the designer, and that separation is the safeguard, because nobody checks their own work.
+**Say (~30s):** The five-and-five split the brief asks for isn't two topics for me — it's the answer to one question. If responsibility and authority sit together, the mechanism is working and my job is to defend it. If they've been separated, that's a change point.
 
 ---
 
-## Slide 6 — The five to change
+# MAINTAIN / REFINE — where the two sit together
 
-**On the slide, one line each:**
-6. Enclosed knowledge — held responsible for rules you must pay to read
-7. Rule-making — bound by rules written where you can't see
-8. Procurement — liable for a design the contract took control of
-9. Conditions — no individual can fix a structural problem alone
-10. Where the value goes — responsible for the outcome, no say in the price
+## Slide 5 — Point 1: Registration
 
-**Say (~40s):** And these are the separations. Each one reads the same way: you keep the responsibility, someone else holds the authority. Standards Australia was sold, so compliance knowledge sits behind a paywall. Code committees are effectively invisible. Under novation you stay legally responsible for a design you no longer control. And the last two are the ones I've developed most this fortnight.
+**On the slide:**
+- **Current:** APE exam + interview · ~3,300 supervised hours / 35 NSCA competencies · PI insurance
+- **Position — MAINTAIN** the APE interview and PI insurance
+- **Refine:** supervision only means something if it's real — depends on Points 8 and 9
 
----
-
-## Slide 7 — Point 9: conditions (the new ground)
-
-**On the slide:** Wellbeing of Architects: **4 of 5 areas describe how work is organised** — only psychosocial safety is individual · the race to the bottom is structural — two good practices competing on fee cannot unilaterally stop · Australian precedent: the BLF green bans · *"you can't individually solve problems that are structural"* — Tom Marshall, UAW
-
-**Say (~50s):** This is the point that didn't exist two weeks ago, and it's the one I want feedback on. The profession treats exhaustion and unpaid overtime as individual problems — be more resilient, negotiate harder, or leave. But four of the five areas in the Wellbeing of Architects research are about how work is *organised*; only one is about the individual. And the fee competition that produces those conditions is structural: two good practices bidding for the same job can't unilaterally stop cutting, because neither controls what the other charges. The Australian precedent I'm using is the Builders Labourers Federation green bans — a union that started on site safety and ended up with authority over what got built. Some of these figures are still unverified and I've flagged them.
+**Say (~25s):** Registration is the clearest case where responsibility and authority are deliberately joined — the registered architect is the one accountable and the one the law permits to act. The refinement is that supervised experience only works if supervision is genuinely happening, which comes back to conditions later in the manifesto.
 
 ---
 
-## Slide 8 — Why 8 and 9 are one argument
+## Slide 6 — Point 2: Duty to the public
 
-**On the slide:** Novation has resisted twenty years of advocacy · *"a pipe dream in architecture because no one has any power to ask for that"* — Tom Marshall, on getting design locked at novation or being paid for redocumentation · → Point 8 names the repair. Point 9 supplies the instrument.
+**On the slide:**
+- **Current:** Architects Act 1991 ss.17–18 · duty to withdraw rather than breach the Act
+- **Position — MAINTAIN.** This is *standing*, not just obligation — Beaton's test: conduct "beyond the personal moral obligations of an individual"
+- **Extend:** the duty of care also reaches the people producing the building, not only those who'll use it (Marshall, Week 7)
 
-**Say (~40s):** This is the connection that made the manifesto hold together rather than being ten separate issues. The Institute has been arguing about novation for twenty years with voluntary instruments, and it hasn't moved. Marshall's line is that locking the design at novation, or even just being *paid* for the redocumentation, is a pipe dream because nobody has the power to ask for it. So point 8 names the right repair and point 9 supplies the only instrument likely to deliver it. They're one argument.
+**Say (~25s):** The Act gives an individual architect the standing to refuse something improper, backed by the regulator — which matters, because otherwise refusing is just losing a client. I extend it in one direction Marshall pointed at: care for the people making the building, not only the people who'll occupy it.
 
 ---
 
-## Slide 9 — Where AI sits
+## Slide 7 — Point 3: Independent review
+
+**On the slide:**
+- **Current:** Council planning gate + Building Surveyor sign-off — independent of the designer
+- **Position — MAINTAIN.** The separation is the safeguard: nobody checks their own work
+- **AI line:** assisted documentation needs the second set of eyes *more*, not less — confidence isn't judgement
+
+**Say (~20s):** This is the one point where my own logic runs the other way on purpose — authority is deliberately placed with someone other than the person responsible for the design, and that's exactly right.
+
+---
+
+## Slide 8 — Point 4: The split apparatus
+
+**On the slide:**
+- **Current:** AIA advances / ARBV regulates — deliberately separate · Parlour, ArchiTeam, UAW, the Wellbeing of Architects research fill the gaps
+- **Position — MAINTAIN** the split; **refine** by resourcing the gap-fillers
+- **Honest tension:** the ACA co-produced the wellbeing research *and* argued at Fair Work against overtime protections — evidence without one shared interest
+
+**Say (~25s):** These bodies are currently the only route by which an individual's private experience becomes public evidence. I'm not pretending they all want the same thing — the tension with the ACA is worth saying out loud, not hiding.
+
+---
+
+## Slide 9 — Point 5: Codes and CPD
+
+**On the slide:**
+- **Current:** NCC / Australian Standards amendable through evidence and activism (Lui on egress, Hill on embodied carbon) · CPD only ARBV-mandated since ~2022
+- **Position — MAINTAIN** the amendment pathway; **refine** CPD into formative judgement
+- Including: how a fee is actually built — architects often don't know (Marshall)
+
+**Say (~20s):** This is the one place practitioners still hold authority over the rules binding them. CPD should build the judgement registration assumes, not tick boxes.
+
+---
+
+# CHANGE — where the two have been separated
+
+## Slide 10 — Point 6: Enclosed knowledge
+
+**On the slide:**
+- **Current:** Standards Australia sold to SAI Global · cladding performance-test data now private
+- **Position — CHANGE.** Restore public access — **restoration, not invention**
+- One AI line: the same enclosure logic now reappears in proprietary tools
+
+**Say (~20s):** I'm held responsible for complying with documents I have to pay to read. A national standards body once worked as a public good and was hollowed out — this is putting it back, not proposing something new.
+
+---
+
+## Slide 11 — Point 7: Rule-making
+
+**On the slide:**
+- **Current:** entry policed tightly · code and standard amendment loosely gated · a small group sits across schools, Institute and Board at once
+- **Position — CHANGE** the opacity and concentration, not the existence of the committees
+- Publish membership + interests · disclose conflicts · limit cross-appointments
+
+**Say (~20s):** This is almost verbatim my Assessment 1 critical position, now with a proposed repair. I'm bound by rules I have no visible route to influence.
+
+---
+
+## Slide 12 — Point 8: Procurement
+
+**On the slide:**
+- **Current:** novated D&C standard in Victoria 20+ years · AIA 2019 National Novation Survey — 266 practices, 484 projects, "an enormous opportunity to address building quality and prevent risk"
+- **Position — CHANGE.** Authority removed **by contract alone, without loss of registration**
+- Mandate a strengthened Deed of Novation as standard in government procurement — the voluntary version is inadequate *because* it's voluntary
+- → connects directly to Point 9, next
+
+**Say (~30s):** This is my flagship case — the clearest, best-evidenced separation of responsibility from authority I have. And it's why I need the next point: voluntary instruments haven't moved this in twenty years.
+
+---
+
+## Slide 13 — Point 9: Conditions (the new ground)
+
+**On the slide:**
+- Wellbeing of Architects: **4 of 5 areas describe how work is organised** — only psychosocial safety is individual
+- The race to the bottom is structural — two good practices competing on fee cannot unilaterally stop
+- Australian precedent: the BLF green bans
+- *"you can't individually solve problems that are structural"* — Tom Marshall, UAW
+- *"a pipe dream in architecture because no one has any power to ask for that"* — Marshall, on Point 8
+- (figures still unverified)
+
+**Say (~50s):** This is the point that didn't exist two weeks ago, and it's the one I want feedback on. Exhaustion and unpaid overtime get treated as individual problems, but four of the five wellbeing areas are about how work is organised. Two good practices bidding for the same job can't unilaterally stop cutting fees. My Australian precedent is the Builders Labourers Federation green bans — a union that started on site safety and ended up with authority over what got built. And Marshall's own line connects this straight back to procurement: locking design at novation is a pipe dream because nobody has the power to ask for it. Point 8 names the repair; point 9 is the only instrument likely to deliver it.
+
+---
+
+## Slide 14 — Point 10: Where the value goes
+
+**On the slide:**
+- **Current:** ~2% architectural fee on a large project · ~25% of the billable rate returns to the person doing the work · fee scales last applied in Australia **1994**, ended as anti-competitive
+- **Position — CHANGE.** Not a price floor — that would mean unwinding competition law
+- Propose transparency + the enforced conditions floor from Point 9 instead
+- Also where AI sits: efficiency gains are a profession-level decision about where they land
+
+**Say (~30s):** The obvious fix — bring back fee scales — isn't available, and saying so is what makes this credible rather than naïve. The real move is transparency plus the floor point 9 argues for; the two only work together.
+
+---
+
+## Slide 15 — Where AI sits
 
 **On the slide:** A stance, not a point. A tool assists production but **cannot be held responsible** for the work — so the authority to decide stays with the person who is. Surfaces inside 3 (review), 6 (enclosure), 10 (where the gains land).
 
-**Say (~30s):** I deliberately cut AI as a manifesto point. It was half my draft and it made the argument weaker, because "is AI good or bad" is an opinion piece and the brief rewards mechanisms. It's now a stance: a tool can assist the work but it can't be held responsible for it, so the authority to decide stays with the person who can. That's my spine applied to tools, and it shows up inside three of the points rather than taking a slot.
+**Say (~30s):** I deliberately cut AI as a manifesto point. It was half my draft and it made the argument weaker, because "is AI good or bad" is an opinion piece and the brief rewards mechanisms. It's now a stance: a tool can assist the work but can't be held responsible for it, so the authority to decide stays with the person who can.
 
 ---
 
-## Slide 10 — What's still open
+## Slide 16 — What's still open
 
 **On the slide:** 1. Does the position read as original, or too close to the Week 1 lecture manifesto? · 2. Is point 9 credible as a *professional* argument, not just an industrial one? · 3. Fee figures and the 1994 end of fee scales still to verify · 4. Which points get the fuller paragraphs?
 
-**Say (~35s):** Four things I'd like feedback on. First, eight of my ten points touch topics from the Week 1 manifesto, so I want to know whether my position still reads as mine — my argument is that it goes further, because it's about authority being withdrawn rather than responsibility being given away. Second, whether point 9 works as a professional argument rather than an industrial one; my case is that conditions decide whether supervision is possible, and supervision is what registration is worth. Third, I still have figures to verify. And fourth, where to spend the word count.
+**Say (~35s):** Four things I'd like feedback on. Eight of my ten points touch topics from the Week 1 manifesto, so I want to know whether my position still reads as mine — my argument is that it goes further, because it's about authority being withdrawn rather than responsibility being given away. Second, whether point 9 works as a professional argument. Third, figures still to verify. Fourth, where to spend the word count.
 
 ---
 
-## If you get cut short
+## If you're short on time
 
-Slides 2, 4, 7 and 10 carry the presentation. Position, the test, the new ground, the questions. Drop 3, 5 and 9 first.
+**Full run at a natural pace ≈ 7 minutes.** For a strict 5-minute cap, don't compress every slide evenly — drop whole slides instead, in this order:
 
-## Timing check
+1. Cut slide 3 (Assessment 1) to one sentence, folded into slide 2.
+2. Skip slides 6, 7, 9, 10, 11 — flash them (2–3s each, "these five I'm keeping, detail's in the notes") rather than narrating.
+3. Keep in full: 1, 2, 4, 8, 9 (13), 12 (14 point 10), 15, 16 — position, method, the flagship case, the new ground, and the open questions. That's the argument; everything else is support.
 
-15 + 40 + 35 + 30 + 40 + 40 + 50 + 40 + 30 + 35 ≈ **5 minutes 15 seconds.** Trim slide 6 if your tutor is strict.
+## Timing check (full version)
+
+15+40+35+30 + 25+25+20+25+20 + 20+20+30+50+30 + 30+35 ≈ **420s = 7 minutes.**

@@ -1,7 +1,7 @@
 # 04 — Explanation: the manifesto's content and argument
 
-- **Date:** 2026-09-14
-- **Pairs with:** `03-presentation-script.md` — **same ten sections, same order, same numbering.** Section N here is slide N there. If you change one, change the other.
+- **Date:** 2026-09-14, revised 2026-09-14 (v2)
+- **Pairs with:** `03-presentation-script.md` — that file now gives each of the 10 points its own slide (v2, after testing v1 found the combined "5 points" slides too thin). This file stays grouped by wing: **§5 here = script slides 5–9 (points 1–5); §6 here = script slides 10–14 (points 6–10).** Sections 1–4 and 7–10 here map 1:1 to slides 1–4 and 13, 15, 16. Same facts and argument either way — if you change a fact here, change it there too.
 - **Scope:** the manifesto's *content* — the position, the ten points, why they hold together. This is not a diagram explanation; the diagram is not part of the presentation (see the note in the script).
 - **What this is for:** so you can speak and write from understanding rather than from notes. It is not the accompanying description the brief asks for — those ~2,000 words are yours to write. Use `06-submission-kit.md` §6 when you write them.
 
