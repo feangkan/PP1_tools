@@ -2,7 +2,7 @@
 
 - **Question:** can the Assessment 1 Disciplinary Matrix work be reused for the Practice Manifesto, and which topics should the manifesto pursue?
 - **Short answer:** **Yes — and the brief explicitly tells you to.** "This assessment further develops and contextualises the concepts identified in Assessment 1"; "extracts/redrawn relationships may be reused where helpful"; the Week 6 briefing says "start with tensions, gaps and contradictions already visible in the disciplinary matrix diagram." You are *not* required to reintroduce every A1 concept — use the ones that help the argument.
-- **Date:** 2026-09-11 (**v02** — Week 7 integrated; the manifesto's spine is now *responsibility without authority*; AI demoted from subject to a supporting stance) · **Sources:** `../assessment-1/01-diagram.md` (v07), `../assessment-1/02-explanation.md`, `../../02-assessment-tasks/assessment-1-critical-position.md`, `../synthesis/01-master-map.md`, `../../03-weekly-resources/week-06/`, `../../03-weekly-resources/week-07/`
+- **Date:** 2026-09-06 · **Sources:** `../assessment-1/01-diagram.md` (v07), `../assessment-1/02-explanation.md`, `../../02-assessment-tasks/assessment-1-critical-position.md`, `../synthesis/01-master-map.md`, `../../03-weekly-resources/week-06/`
 
 ---
 
@@ -14,13 +14,6 @@ Assessment 2 asks you to **turn that map into a position**: for each mismatch or
 
 So the re-engineering is literally: **A1 cluster → A2 manifesto point**, sorted into the two halves.
 
-**The spine that does the sorting (v02).** A1's mismatch, stated precisely, is a mismatch **between responsibility and authority**: the profession makes the individual architect responsible — for the public not in the room, for compliance with rules they had no route to write, for a design they may no longer control, for conditions they cannot change alone — while authority over each of those things sits somewhere else. So the sort is mechanical:
-
-- **Where responsibility and authority sit together → MAINTAIN/REFINE.**
-- **Where they have been separated → CHANGE.**
-
-This keeps the individual architect as the protagonist (the argument is that they should hold authority to match what they already carry, not that individual judgement is unimportant), and it grows out of A1's own finding rather than importing a new subject.
-
 ---
 
 ## 2. A1 cluster → A2 point map
@@ -30,45 +23,43 @@ Legend: **M** = candidate MAINTAIN/REFINE point · **C** = candidate CHANGE poin
 | A1 cluster (from `assessment-1/01-diagram.md`) | What A1 established | Carries into A2 as | Half |
 |---|---|---|---|
 | **Registration Pathway** (education → logbook → APE → ARBV → CPD/PI) | The one compulsory, heavily-gated route; tests trust (autonomy/discretion/accountability) and risk, not knowledge alone | The gate itself broadly works — **refine**, don't remove: the APE interview, the logbook competencies, PI insurance as a public-protection instrument | **M** |
-| **CPD** (mandated ARBV-wide only since ~2022; Molander's "formative epistemic measure") | New, still bedding in; builds judgement before it's tested | **Refine:** CPD reframed as formative judgement, not compliance ticking — registration *assumes* judgement, so the profession has to build it | **M** (refine) |
+| **CPD** (mandated ARBV-wide only since ~2022; Molander's "formative epistemic measure") | New, still bedding in; builds judgement before it's tested | **Refine:** CPD reframed as formative judgement/AI literacy, not compliance ticking — Week 6's "who checks AI" problem lands here | **M** (refine) |
 | **Ethics & Public Value** ("client not in the room"; Loos; "Architecture not Architects"; Stead's searchlight/lantern) | Duty beyond the paying client; recognition should serve public value | **Maintain** the duty-to-public clauses (Architects Act s.17–18, duty to resign a contract); they are a working mechanism, not just a sentiment | **M** |
-| **Professional Bodies** (AIA advances the discipline; ARBV accountability; Parlour/ArchiTeam/Architects Declare fill gaps) | A deliberately split apparatus; voluntary bodies do real work the regulator can't | **Maintain + refine:** the Institute/Board split works; refine by formally recognising and resourcing the gap-fillers — including the UAW and the Wellbeing of Architects research, the only route by which an individual's experience becomes evidence with authority behind it (Week 7) | **M** |
+| **Professional Bodies** (AIA advances the discipline; ARBV accountability; Parlour/ArchiTeam/Architects Declare fill gaps) | A deliberately split apparatus; voluntary bodies do real work the regulator can't | **Maintain + refine:** the Institute/Board split works; refine by giving the collective bodies a defined role in shared AI-tool access and knowledge-sharing (Week 6 "what does institute membership get you") | **M** |
 | **Research & Innovation** (Lui: codes changed by activism; Hill: NCC embodied-carbon roadmap; "what architecture IS vs DOES") | Codes are amendable; the profession can produce the knowledge that changes rules | **Maintain** the NCC/AS as amendable, open instruments; **change** the drift toward privatising that knowledge (Standards Australia → SAI Global, Week 6) | **M** for the mechanism, **C** for the privatisation |
 | **Project Delivery Process** (F→SK→DD→CD→CA, gated by Council + Building Surveyor) | Independent external checkpoints per project | **Maintain:** third-party sign-off (Building Surveyor, Council) is a working public-protection gate | **M** |
 | **Legislation / Power Structure** ("who writes the code" is loosely gated; small overlapping leadership across schools/Institute/Board — "TheyRule") | A1's critical position: the invisible gates are under-guarded | **Change:** who gets to write/amend codes and standards; transparency of the overlapping leadership; open publication of code-feeding research | **C** |
-| **Procurement / novation** (AIA 2019 survey, 266 practices; a registered architect can lose design control by contract alone) | A different vulnerability than anything registration tests | **Change:** the flagship separation — responsibility for the design stays, authority over it goes, by contract alone. Strengthen the Code/Deed of Novation and make it standard in government procurement | **C** |
-| **Employment** (profession ceded project management in the 1960s–70s; ACA; Professionals Australia) | Scope and conditions are contested; PM is now a separate, more lucrative field | **Change:** conditions are treated as an individual problem (resilience, negotiation, escape) though four of the Wellbeing of Architects' five areas describe how work is *organised*. Needs a collective instrument (Week 7) | **C** |
-| *(extended by Week 7)* **Conditions & the collective instrument** | The race to the bottom is structural — no single good employer can unilaterally stop cutting fees; the UAW exists but holds no bargaining power; FAF → RIBA shows what organised workers can shift | **Change:** recognise a worker body in sector consultation; fee benchmarking in public procurement; the Board/Institute treating resourcing and supervision as professional-standard matters | **C** |
-| *(extended by Week 7 + Week 6)* **Where the value of the work goes** | ~2% fee on a large project; ~25% of the billable rate returns to the person doing the work; developers need 20–30% margin. Innovation = shortening production, and the benefit lands wherever competition puts it | **Change:** the profession carries responsibility for the outcome but holds no authority over price, programme, or where efficiency gains land — claim that decision (this is also where technology/AI sits) | **C** |
+| **Procurement / novation** (AIA 2019 survey, 266 practices; a registered architect can lose design control by contract alone) | A different vulnerability than anything registration tests | **Change:** the Code of Novation / Deed of Novation should be strengthened and/or made standard in government procurement | **C** |
+| **Employment** (profession ceded project management in the 1960s–70s; ACA; Professionals Australia) | Scope and conditions are contested; PM is now a separate, more lucrative field | **Change:** workers' rights / employment conditions — graduate pay, unpaid-internship drift (Week 6), reclaiming or partnering on scope | **C** |
+| *(new, from Week 6 — not an A1 cluster)* **Innovation value capture** | Innovation = shortening production; benefit flows to individual/practice/platform unless the collective machinery is travelled | **Change:** disclosure + rules on who captures the benefit of practice-level innovation and AI efficiency; keep the "collective machinery" outputs open | **C** |
+| *(new, from Week 6)* **AI accountability** | Confidence ≠ judgment; checking dumped on the individual; experience ladder pulled up | **Change:** collective checking of AI-assisted work; protected route to disciplinary experience | **C** |
 
 That is **6–7 MAINTAIN/REFINE candidates and 5–6 CHANGE candidates** — enough to choose a clean 5 + 5.
-
-> **Dropped at v02:** the two Week-6 rows that carried the manifesto's AI argument — "Innovation value capture (AI)" and "AI accountability." AI is no longer a manifesto point. It is a cross-cutting stance (see `02-manifesto-skeleton.md` §"The AI stance"): a tool assists production but cannot be held responsible, so the authority to decide stays with the person who is. Background material is retained in `../../02-assessment-tasks/ai-technology-research-note.md`.
 
 ---
 
 ## 3. Which topics the manifesto should pursue (recommended 5 + 5)
 
-Chosen for: (a) each has real A1, Week 6 or Week 7 evidence already in the repo, (b) together they make **one** argument, sorted by the single question *does the person carrying the responsibility hold the authority to act on it?*
+Chosen for: (a) each has real A1 or Week 6 evidence already in the repo, (b) together they make **one** argument — *the profession's collective, publicly-accountable mechanisms work; its value-capture and rule-making mechanisms are being privatised and individualised, and that is where reform should go* — which also answers the "weight on technology + innovation" instruction without making the manifesto only about AI.
 
-### MAINTAIN / REFINE (5) — responsibility and authority sit together
+### MAINTAIN / REFINE (5)
 
-1. **Registration confers responsibility, and must keep conferring the authority that goes with it** — maintain the APE (esp. the interview), supervised hours and PI insurance; refine so that the supervision requirement is backed by conditions that make supervision real. *(A1 Registration Pathway)*
-2. **The duty to the public is authority, not just obligation** — maintain Architects Act s.17–18 and the duty to withdraw: the Act gives the individual *standing* to refuse, backed by the regulator. *(A1 Ethics & Public Value)*
-3. **Independent review distributes authority on purpose** — maintain Building Surveyor / Council sign-off; nobody checks their own work. *(A1 Project Delivery Process)*
-4. **Keep the split apparatus, and recognise the bodies that give architects a voice over their own conditions** — maintain the Institute/Board split; refine by resourcing Parlour, the ACA, the UAW and the wellbeing research that turn individual experience into evidence. *(A1 Professional Bodies + Week 7)*
-5. **Codes must remain amendable, and CPD must build the judgement registration assumes** — maintain the NCC/AS amendment pathway as the one place practitioners hold authority over the rules binding them; refine CPD from compliance-ticking to formative judgement. *(A1 Research & Innovation + CPD)*
+1. **Registration as a trust threshold** — maintain the APE (esp. the interview) and PI insurance; refine the logbook for supervised AI-assisted work. *(A1 Registration Pathway)*
+2. **Duty to the public over the paying client** — maintain Architects Act s.17–18 and the duty to withdraw from a contract that would breach the Act. *(A1 Ethics & Public Value)*
+3. **Third-party sign-off per project** — maintain independent Building Surveyor / Council checkpoints as a working public-protection gate. *(A1 Project Delivery Process)*
+4. **The split apparatus (Institute advances / Board regulates) + gap-filling bodies** — maintain; refine by giving collective bodies a defined knowledge-sharing and shared-tooling role. *(A1 Professional Bodies)*
+5. **Open, amendable codes and standards (NCC / AS) and CPD as formative learning** — maintain the codes as an open instrument; refine CPD into judgement + technology literacy. *(A1 Research & Innovation + CPD)*
 
-### CHANGE (5) — responsibility has been separated from authority
+### CHANGE (5)
 
-6. **Knowledge we are held responsible for knowing must not be locked away from us** — restore public access to referenced standards; the Standards Australia → SAI Global pattern made compliance knowledge a commercial asset. *(Week 6 §F + A1 Research & Innovation)*
-7. **If the rules bind us, we must be able to see who writes them** — publish committee membership and interests; limit cross-appointments. *(A1 Power Structure / "TheyRule")*
-8. **Procurement must not separate design responsibility from design authority** — the flagship case: make a strengthened Deed of Novation a standard condition of government procurement. *(A1 Procurement)*
-9. **No individual has the authority to fix a structural problem alone, so the profession needs an instrument that does** — recognise a worker body in sector consultation; benchmark fees in public tenders; treat resourcing and supervision as professional-standard matters. *(A1 Employment + Week 7)*
-10. **The profession must claim authority over where the value of its work goes** — fee transparency in public procurement and a professional norm on where production savings land; this is also where technology and AI sit. *(Week 6 §D–E + Week 7 fee economics)*
+6. **Stop the privatisation of professional knowledge** — reverse/limit the Standards Australia → SAI Global pattern; keep code-feeding research open even when AI-produced. *(Week 6 §F + A1 Research & Innovation)*
+7. **Rule-making transparency** — who amends codes/standards, and the overlapping leadership across schools/Institute/Board, should be visible and contestable. *(A1 Power Structure / "TheyRule")*
+8. **Protect design authority through procurement** — make a strengthened Code/Deed of Novation standard, especially in government projects. *(A1 Procurement)*
+9. **Collective accountability for AI-assisted work + a protected route to experience** — the supervising architect, not the graduate, is accountable; funded supervised experience so the ladder survives automation. *(Week 6 §J + Pt2 "who checks", "graduate jobs")*
+10. **Name who captures the benefit of innovation** — disclosure of AI use and value capture at practice level; the profession decides, not the platform. *(Week 6 §D "where the benefit goes")*
 
 **Overarching position (draft — the student must own this):**
-> *Architecture makes individuals responsible — for the public who are not in the room, for compliance with rules they had no route to write, for a design they may no longer control, for conditions they cannot change alone — and then allows authority over each of those things to sit somewhere else. Where responsibility and authority sit together, the profession's mechanisms work and must be defended. Where they have been separated, that is where reform belongs.*
+> *Architecture's authority rests on collective, publicly-accountable mechanisms — registration, duty to the public, open codes, independent review. Those work and must be defended. What is failing is everything that decides who captures the value of the profession's knowledge and innovation: privatised standards, opaque rule-making, contracts that strip design authority, and AI whose benefits and risks default to platforms and to the largest practices. The profession must move that decision back into collective hands.*
 
 ---
 
@@ -83,8 +74,7 @@ Chosen for: (a) each has real A1, Week 6 or Week 7 evidence already in the repo,
 
 ## 5. Open decisions for the student (blocking the skeleton)
 
-- [ ] Confirm the **overarching position** wording (the draft above, or a sharper version of the same spine).
-- [ ] Confirm the **5 + 5 selection** above, or swap (cross-disciplinary design, business structures, consultation, insurance are in-scope but currently thinner in the repo).
-- [ ] Decide **grouping** — 5+5 straight, or themed ("Where the two are joined" / "Where they have been separated").
-- [ ] Decide whether the **AI stance** gets one framing sentence in the introduction or stays only inside Points 3, 6 and 10.
-- [ ] Verify the Week 7 figures (2% fee, ~25% billable return, 20–30% developer margin) and the FAF/RIBA details before they are footnoted.
+- [ ] Confirm the **overarching position** (the draft above, or a different one — e.g. public value first, or workers' rights first).
+- [ ] Confirm the **5 + 5 selection** above, or swap (e.g. cross-disciplinary design, business structures, consultation, insurance are in-scope but currently thinner in the repo).
+- [ ] Decide how heavily to weight **AI/technology** — currently 3 of the 5 CHANGE points touch it (6, 9, 10) plus refinements in 1 and 5. The brief warns against a "personal design philosophy"; keep the non-tech points load-bearing.
+- [ ] Decide **grouping** — 5+5 straight, or themed sections (e.g. "Keep collective", "Open the knowledge", "Reclaim the decision").

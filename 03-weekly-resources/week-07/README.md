@@ -46,7 +46,5 @@
 
 | Output | Path |
 |--------|------|
-| Summary | `04-summaries/week-07-summary.md` |
-| Bibliography (+ claims to verify) | `06-references/week-07-bibliography.md` |
-| Assessment 2 rebuild driven by this week | `05-diagrams/assessment-2/` (v02 — new spine, Week 7 integrated, AI demoted) |
+| Summary | `04-summaries/week-07-summary.md` (not yet generated) |
 | Diagram pack | `05-diagrams/week-07/` (not yet generated) |
