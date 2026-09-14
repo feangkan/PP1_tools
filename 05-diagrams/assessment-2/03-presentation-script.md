@@ -32,7 +32,7 @@
 
 ## Slide 3 — Where it comes from (Assessment 1)
 
-**On the slide:** A1 found — the profession polices its **visible** gate (registration) tightly, and its **invisible** ones (who writes the code · who keeps design control after novation) loosely. → A1 mapped where power is mismatched. A2 judges each mismatch and proposes the repair.
+**On the slide:** *The Disciplinary Matrix of Architecture* found — the profession polices its **visible** gate (registration) tightly, and its **invisible** ones (who writes the code · who keeps design control after novation) loosely. → It mapped where power is mismatched. This manifesto judges each mismatch and proposes the repair.
 
 **Say (~35s):** This grows directly out of my disciplinary matrix rather than being a new subject. The manifesto turns each mismatch into a judgement — keep it, refine it, or change it.
 
