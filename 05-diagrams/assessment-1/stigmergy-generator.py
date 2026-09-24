@@ -59,7 +59,7 @@ import Eto.Forms as eforms
 
 # =================================================================
 # 0. DARK THEME + WIDGET FACTORY -- same palette/pattern as the
-#    house Eto style (architectural-python-starter/lib/eto_theme.py).
+#    house Eto style (architectural-coding-starter/lib/eto_theme.py).
 #    Inlined, not imported: this script must run standalone, pasted
 #    straight into the Rhino 8 Script Editor.
 # =================================================================
