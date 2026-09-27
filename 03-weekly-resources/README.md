@@ -1,6 +1,6 @@
 # Weekly resources
 
-One folder per teaching week. Weeks 1–7 exist; add `week-08`, … as the semester continues.
+One folder per teaching week. Weeks 1–7 and 9 exist; add further weeks as the semester continues.
 
 ## Layout per week
 
@@ -24,6 +24,7 @@ week-XX/
 | 05 | No standalone pack — building-code pre-reading (Lui, Hill) pulled directly into Assessment 1 | see `05-diagrams/assessment-1/` |
 | [06](week-06/) | The Entrepreneur + The Collective — innovation/value-capture (Helen) + AI as leverage (Gwyl Jahn); also where Assessment 2 development began | Full pack — `05-diagrams/week-06/`; summary; feeds Assessment 2 (`05-diagrams/assessment-2/`) |
 | [07](week-07/) | The Architect as Worker (Helen) + Union for Architectural Workers (Tom Marshall, UAW) — structural vs individual responses, wellbeing research, FAF/RIBA case, union economics | Resources uploaded; summary/diagram pack not yet generated |
+| [09](week-09/) | Part 3 begins — Sydney Opera House Innovations (L18); Assessment 3 starts, Miro group workshop | Workshop photos + README; A3 pack in `05-diagrams/assessment-3/`; lecture slides not yet uploaded |
 
 ## Agent prompts
 

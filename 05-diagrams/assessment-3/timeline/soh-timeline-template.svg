@@ -1,0 +1,350 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="7400" height="3152" viewBox="0 0 7400 3152">
+<rect x="0.0" y="0.0" width="7400.0" height="3152.0" rx="0" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="0.0" y="0.0" width="7400.0" height="280.0" rx="0" fill="#F2F4F3" stroke="none" stroke-width="0"/>
+<text x="28.0" y="90.0" font-family="Helvetica, Arial, sans-serif" font-size="58" font-weight="bold" fill="#18202B" text-anchor="start">SYDNEY OPERA HOUSE  -  PROJECT TIMELINE</text>
+<text x="28.0" y="145.0" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="normal" fill="#586272" text-anchor="start">PP1 Assessment 3  |  A1 Timeline of significant project events  |  historical dates, contemporary instruments</text>
+<text x="28.0" y="200.0" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#18202B" text-anchor="start">TEMPLATE - lock this image as the background, then place cards / bars / diamonds on it</text>
+<text x="28.0" y="250.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">Group: ____________    Lead 1: ________   Lead 2: ________   Lead 3: ________    Version / date: ________</text>
+<text x="4300.0" y="68.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">COLOUR BY FACTOR</text>
+<rect x="4300.0" y="86.0" width="60.0" height="34.0" rx="6" fill="#C8413B" stroke="none" stroke-width="0"/>
+<text x="4372.0" y="112.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">Scope</text>
+<rect x="4630.0" y="86.0" width="60.0" height="34.0" rx="6" fill="#E0A030" stroke="none" stroke-width="0"/>
+<text x="4702.0" y="112.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">Time</text>
+<rect x="4960.0" y="86.0" width="60.0" height="34.0" rx="6" fill="#1F7A8C" stroke="none" stroke-width="0"/>
+<text x="5032.0" y="112.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">Cost</text>
+<rect x="5290.0" y="86.0" width="60.0" height="34.0" rx="6" fill="#5E9E6E" stroke="none" stroke-width="0"/>
+<text x="5362.0" y="112.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">Quality</text>
+<rect x="5620.0" y="86.0" width="60.0" height="34.0" rx="6" fill="#7B6AA8" stroke="none" stroke-width="0"/>
+<text x="5692.0" y="112.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">Responsibility</text>
+<text x="4300.0" y="188.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">SHAPES</text>
+<rect x="4300.0" y="206.0" width="110.0" height="34.0" rx="6" fill="#DDE3EA" stroke="#18202B" stroke-width="2"/>
+<text x="4422.0" y="232.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#18202B" text-anchor="start">bar = date range</text>
+<polygon points="4720,203 4740,223 4720,243 4700,223" fill="#DDE3EA" stroke="#18202B" stroke-width="3"/>
+<text x="4750.0" y="232.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#18202B" text-anchor="start">milestone = one date</text>
+<rect x="5020.0" y="210.0" width="110.0" height="26.0" rx="4" fill="none" stroke="#9AA3AE" stroke-width="4" stroke-dasharray="10 6"/>
+<text x="5142.0" y="232.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#18202B" text-anchor="start">baseline (planned)</text>
+<rect x="5380.0" y="206.0" width="60.0" height="34.0" rx="6" fill="#FFFFFF" stroke="#18202B" stroke-width="3" stroke-dasharray="10 6"/>
+<text x="5452.0" y="232.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#18202B" text-anchor="start">dashed = [A] assumption</text>
+<polygon points="5770.0,203.0 5764.7,215.7 5751.0,216.8 5761.4,225.8 5758.2,239.2 5770.0,232.0 5781.8,239.2 5778.6,225.8 5789.0,216.8 5775.3,215.7" fill="#C8413B" stroke="#FFFFFF" stroke-width="2"/>
+<text x="5800.0" y="232.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#18202B" text-anchor="start">required form / scenario</text>
+<line x1="6100.0" y1="204.0" x2="6100.0" y2="244.0" stroke="#C8413B" stroke-width="5"/>
+<text x="6115.0" y="232.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#18202B" text-anchor="start">scenario marker</text>
+<rect x="6327.0" y="210.0" width="26" height="26" fill="#DDE3EA" stroke="#18202B" stroke-width="5"/>
+<text x="6366.0" y="232.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#18202B" text-anchor="start">CAA approval gate</text>
+<rect x="1107.1" y="474.0" width="874.7" height="1654.0" rx="0" fill="#E6ECF3" stroke="none" stroke-width="0"/>
+<rect x="1981.7" y="474.0" width="242.3" height="1654.0" rx="0" fill="#F4EBDD" stroke="none" stroke-width="0"/>
+<rect x="2224.1" y="474.0" width="4710.3" height="1654.0" rx="0" fill="#E4EFE6" stroke="none" stroke-width="0"/>
+<rect x="6934.4" y="474.0" width="385.6" height="1654.0" rx="0" fill="#EEEEEE" stroke="none" stroke-width="0"/>
+<rect x="0.0" y="474.0" width="7400.0" height="58.0" rx="0" fill="#18202B" stroke="none" stroke-width="0"/>
+<text x="28.0" y="514.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#FFFFFF" text-anchor="start">DESIGN TIMELINE</text>
+<text x="373.0" y="514.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#C9D3DF" text-anchor="start">architect's services  -  CAA 2024</text>
+<rect x="0.0" y="532.0" width="7400.0" height="190.0" rx="0" fill="#FFFFFF" stroke="none" stroke-width="0" fill-opacity="0.55"/>
+<line x1="0.0" y1="722.0" x2="7400.0" y2="722.0" stroke="#C9D0D8" stroke-width="2"/>
+<text x="28.0" y="590.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#586272" text-anchor="start">D0</text>
+<text x="80.0" y="590.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">CAA services stage</text>
+<text x="80.0" y="628.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">Sched A: A.1 Concept &gt; A.2 DD &gt; A.4 CD &gt; A.5 &gt; A.6 + approval gates</text>
+<rect x="0.0" y="722.0" width="7400.0" height="190.0" rx="0" fill="#FAFBFB" stroke="none" stroke-width="0" fill-opacity="0.55"/>
+<line x1="0.0" y1="912.0" x2="7400.0" y2="912.0" stroke="#C9D0D8" stroke-width="2"/>
+<text x="28.0" y="780.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#586272" text-anchor="start">D1</text>
+<text x="80.0" y="780.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">Client + brief</text>
+<text x="80.0" y="818.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">decisions, approvals, representatives (C.3)</text>
+<rect x="0.0" y="912.0" width="7400.0" height="190.0" rx="0" fill="#FFFFFF" stroke="none" stroke-width="0" fill-opacity="0.55"/>
+<line x1="0.0" y1="1102.0" x2="7400.0" y2="1102.0" stroke="#C9D0D8" stroke-width="2"/>
+<text x="28.0" y="970.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#586272" text-anchor="start">D2</text>
+<text x="80.0" y="970.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">Architect - design output</text>
+<text x="80.0" y="1008.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">competition, Red Book, Yellow Book, redesign</text>
+<rect x="0.0" y="1102.0" width="7400.0" height="190.0" rx="0" fill="#FAFBFB" stroke="none" stroke-width="0" fill-opacity="0.55"/>
+<line x1="0.0" y1="1292.0" x2="7400.0" y2="1292.0" stroke="#C9D0D8" stroke-width="2"/>
+<text x="28.0" y="1160.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#586272" text-anchor="start">D3</text>
+<text x="80.0" y="1160.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">Consultants - engineering</text>
+<text x="80.0" y="1198.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">client-engaged (E.1): architect coordinates</text>
+<rect x="0.0" y="1292.0" width="7400.0" height="58.0" rx="0" fill="#18202B" stroke="none" stroke-width="0"/>
+<text x="28.0" y="1332.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#FFFFFF" text-anchor="start">CONTRACT TIMELINE</text>
+<text x="415.0" y="1332.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#C9D3DF" text-anchor="start">procurement + ABIC Simple Works 2018</text>
+<rect x="0.0" y="1350.0" width="7400.0" height="190.0" rx="0" fill="#FFFFFF" stroke="none" stroke-width="0" fill-opacity="0.55"/>
+<line x1="0.0" y1="1540.0" x2="7400.0" y2="1540.0" stroke="#C9D0D8" stroke-width="2"/>
+<text x="28.0" y="1408.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#586272" text-anchor="start">C1</text>
+<text x="80.0" y="1408.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">Procurement + tender</text>
+<text x="80.0" y="1446.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">CAA A.5 tender / negotiation, contract signed</text>
+<rect x="0.0" y="1540.0" width="7400.0" height="190.0" rx="0" fill="#FAFBFB" stroke="none" stroke-width="0" fill-opacity="0.55"/>
+<line x1="0.0" y1="1730.0" x2="7400.0" y2="1730.0" stroke="#C9D0D8" stroke-width="2"/>
+<text x="28.0" y="1598.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#586272" text-anchor="start">C2</text>
+<text x="80.0" y="1598.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">Construction works</text>
+<text x="80.0" y="1636.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">F1 possession &gt; works &gt; M1 PC &gt; M13 DLP</text>
+<rect x="0.0" y="1730.0" width="7400.0" height="190.0" rx="0" fill="#FFFFFF" stroke="none" stroke-width="0" fill-opacity="0.55"/>
+<line x1="0.0" y1="1920.0" x2="7400.0" y2="1920.0" stroke="#C9D0D8" stroke-width="2"/>
+<text x="28.0" y="1788.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#586272" text-anchor="start">C3</text>
+<text x="80.0" y="1788.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">Contract administration</text>
+<text x="80.0" y="1826.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">J1 SW-12 &gt; H4 SW-14 / SW-11 &gt; N11 SW-31</text>
+<rect x="0.0" y="1920.0" width="7400.0" height="58.0" rx="0" fill="#3B4655" stroke="none" stroke-width="0"/>
+<text x="28.0" y="1960.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#FFFFFF" text-anchor="start">ARCHITECTS REGISTER</text>
+<text x="420.0" y="1960.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#C9D3DF" text-anchor="start">every card that issues a document  -&gt;  one register row (Date | Document | Form No. | From/To | Details | Student)</text>
+<rect x="0.0" y="1978.0" width="7400.0" height="150.0" rx="0" fill="#F7F8F9" stroke="none" stroke-width="0" fill-opacity="0.55"/>
+<text x="80.0" y="2038.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">Doc refs</text>
+<text x="80.0" y="2074.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">place doc no. tags under the event</text>
+<rect x="1107.1" y="300.0" width="874.7" height="102.0" rx="0" fill="#E6ECF3" stroke="#18202B" stroke-width="2"/>
+<text x="1123.1" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#18202B" text-anchor="start">P1  Client brief  -&gt;  Tender</text>
+<text x="1123.1" y="380.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">Sep 1955  to  Jun 1958  (default - adjust)</text>
+<rect x="1981.7" y="300.0" width="242.3" height="102.0" rx="0" fill="#F4EBDD" stroke="#18202B" stroke-width="2"/>
+<text x="1997.7" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#18202B" text-anchor="start">P2</text>
+<text x="1997.7" y="372.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">Tender -&gt;</text>
+<text x="1997.7" y="398.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">Start construction</text>
+<rect x="2224.1" y="300.0" width="4710.3" height="102.0" rx="0" fill="#E4EFE6" stroke="#18202B" stroke-width="2"/>
+<text x="2240.1" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#18202B" text-anchor="start">P3  Construction  -&gt;  Completion</text>
+<text x="2240.1" y="380.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">Mar 1959  to  Nov 1973  (default - adjust)</text>
+<rect x="6934.4" y="300.0" width="385.6" height="102.0" rx="0" fill="#EEEEEE" stroke="#18202B" stroke-width="2"/>
+<text x="6950.4" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#18202B" text-anchor="start">Final cert.</text>
+<text x="6950.4" y="372.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start"></text>
+<text x="28.0" y="348.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#586272" text-anchor="start">PHASES</text>
+<text x="28.0" y="380.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">the three periods</text>
+<rect x="0.0" y="410.0" width="7400.0" height="64.0" rx="0" fill="#F2F4F3" stroke="none" stroke-width="0"/>
+<text x="28.0" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#586272" text-anchor="start">YEAR</text>
+<line x1="560.0" y1="474.0" x2="560.0" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="568.0" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1954</text>
+<line x1="881.9" y1="474.0" x2="881.9" y2="2128.0" stroke="#D9DEE4" stroke-width="3"/>
+<text x="889.9" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#18202B" text-anchor="start">1955</text>
+<line x1="1203.8" y1="474.0" x2="1203.8" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="1211.8" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1956</text>
+<line x1="1525.7" y1="474.0" x2="1525.7" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="1533.7" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1957</text>
+<line x1="1847.6" y1="474.0" x2="1847.6" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="1855.6" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1958</text>
+<line x1="2169.5" y1="474.0" x2="2169.5" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="2177.5" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1959</text>
+<line x1="2491.4" y1="474.0" x2="2491.4" y2="2128.0" stroke="#D9DEE4" stroke-width="3"/>
+<text x="2499.4" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#18202B" text-anchor="start">1960</text>
+<line x1="2813.3" y1="474.0" x2="2813.3" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="2821.3" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1961</text>
+<line x1="3135.2" y1="474.0" x2="3135.2" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="3143.2" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1962</text>
+<line x1="3457.1" y1="474.0" x2="3457.1" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="3465.1" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1963</text>
+<line x1="3779.0" y1="474.0" x2="3779.0" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="3787.0" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1964</text>
+<line x1="4101.0" y1="474.0" x2="4101.0" y2="2128.0" stroke="#D9DEE4" stroke-width="3"/>
+<text x="4109.0" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#18202B" text-anchor="start">1965</text>
+<line x1="4422.9" y1="474.0" x2="4422.9" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="4430.9" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1966</text>
+<line x1="4744.8" y1="474.0" x2="4744.8" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="4752.8" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1967</text>
+<line x1="5066.7" y1="474.0" x2="5066.7" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="5074.7" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1968</text>
+<line x1="5388.6" y1="474.0" x2="5388.6" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="5396.6" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1969</text>
+<line x1="5710.5" y1="474.0" x2="5710.5" y2="2128.0" stroke="#D9DEE4" stroke-width="3"/>
+<text x="5718.5" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#18202B" text-anchor="start">1970</text>
+<line x1="6032.4" y1="474.0" x2="6032.4" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="6040.4" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1971</text>
+<line x1="6354.3" y1="474.0" x2="6354.3" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="6362.3" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1972</text>
+<line x1="6676.2" y1="474.0" x2="6676.2" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="6684.2" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1973</text>
+<line x1="6998.1" y1="474.0" x2="6998.1" y2="2128.0" stroke="#D9DEE4" stroke-width="2"/>
+<text x="7006.1" y="452.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="normal" fill="#586272" text-anchor="start">1974</text>
+<line x1="7320.0" y1="474.0" x2="7320.0" y2="2128.0" stroke="#D9DEE4" stroke-width="3"/>
+<line x1="560.0" y1="410.0" x2="560.0" y2="2128.0" stroke="#18202B" stroke-width="3"/>
+<rect x="0.0" y="2128.0" width="7400.0" height="64.0" rx="0" fill="#F2F4F3" stroke="none" stroke-width="0"/>
+<text x="568.0" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1954</text>
+<text x="889.9" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1955</text>
+<text x="1211.8" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1956</text>
+<text x="1533.7" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1957</text>
+<text x="1855.6" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1958</text>
+<text x="2177.5" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1959</text>
+<text x="2499.4" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1960</text>
+<text x="2821.3" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1961</text>
+<text x="3143.2" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1962</text>
+<text x="3465.1" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1963</text>
+<text x="3787.0" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1964</text>
+<text x="4109.0" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1965</text>
+<text x="4430.9" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1966</text>
+<text x="4752.8" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1967</text>
+<text x="5074.7" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1968</text>
+<text x="5396.6" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1969</text>
+<text x="5718.5" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1970</text>
+<text x="6040.4" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1971</text>
+<text x="6362.3" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1972</text>
+<text x="6684.2" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1973</text>
+<text x="7006.1" y="2170.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">1974</text>
+<text x="60.0" y="2252.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">EVENT CARD  (copy one per event - Miro card or sticky)</text>
+<rect x="60.0" y="2282.0" width="1500.0" height="700.0" rx="10" fill="#FFFFFF" stroke="#18202B" stroke-width="3"/>
+<rect x="60.0" y="2282.0" width="22.0" height="700.0" rx="4" fill="#C8413B" stroke="none" stroke-width="0"/>
+<text x="110.0" y="2352.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">E-ID  |  Date(s)</text>
+<text x="620.0" y="2352.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">E11  |  Jun 1961 - Sep 1962</text>
+<line x1="100.0" y1="2378.0" x2="1530.0" y2="2378.0" stroke="#E3E7EB" stroke-width="2"/>
+<text x="110.0" y="2422.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">Event</text>
+<text x="620.0" y="2422.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">Podium columns inadequate for final roof loads</text>
+<line x1="100.0" y1="2448.0" x2="1530.0" y2="2448.0" stroke="#E3E7EB" stroke-width="2"/>
+<text x="110.0" y="2492.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">Timeline  /  lane</text>
+<text x="620.0" y="2492.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">Design  /  D3 Consultants</text>
+<line x1="100.0" y1="2518.0" x2="1530.0" y2="2518.0" stroke="#E3E7EB" stroke-width="2"/>
+<text x="110.0" y="2562.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">Phase</text>
+<text x="620.0" y="2562.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">P3 Construction -&gt; Completion</text>
+<line x1="100.0" y1="2588.0" x2="1530.0" y2="2588.0" stroke="#E3E7EB" stroke-width="2"/>
+<text x="110.0" y="2632.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">Initiated by  -&gt;  must respond</text>
+<text x="620.0" y="2632.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">Engineer (Arup)  -&gt;  Architect, Client, Contractor</text>
+<line x1="100.0" y1="2658.0" x2="1530.0" y2="2658.0" stroke="#E3E7EB" stroke-width="2"/>
+<text x="110.0" y="2702.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">Factor changed</text>
+<text x="620.0" y="2702.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">Scope   (+ Time, Cost)</text>
+<line x1="100.0" y1="2728.0" x2="1530.0" y2="2728.0" stroke="#E3E7EB" stroke-width="2"/>
+<text x="110.0" y="2772.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">[F] fact / [A] assumption</text>
+<text x="620.0" y="2772.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">[F]  source: SOH Project Info p._  [verify]</text>
+<line x1="100.0" y1="2798.0" x2="1530.0" y2="2798.0" stroke="#E3E7EB" stroke-width="2"/>
+<text x="110.0" y="2842.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">Documents + clause</text>
+<text x="620.0" y="2842.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">SW-12 (J1), SW-14 (H4/L1), SW-11 (H4/J5); CAA D.8</text>
+<line x1="100.0" y1="2868.0" x2="1530.0" y2="2868.0" stroke="#E3E7EB" stroke-width="2"/>
+<text x="110.0" y="2912.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#586272" text-anchor="start">Student  (lead / research / check)</text>
+<text x="620.0" y="2912.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#18202B" text-anchor="start">________ / ________ / ________</text>
+<text x="1700.0" y="2252.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">WORKFLOW  (each research session)</text>
+<circle cx="1722" cy="2324" r="22" fill="#18202B"/>
+<text x="1722.0" y="2332.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">1</text>
+<text x="1762.0" y="2332.0" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="normal" fill="#18202B" text-anchor="start">Research an event -&gt; write ONE card in the Inbox</text>
+<circle cx="1722" cy="2390" r="22" fill="#18202B"/>
+<text x="1722.0" y="2398.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">2</text>
+<text x="1762.0" y="2398.0" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="normal" fill="#18202B" text-anchor="start">Classify: Design or Contract timeline -&gt; drop in its lane</text>
+<circle cx="1722" cy="2456" r="22" fill="#18202B"/>
+<text x="1722.0" y="2464.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">3</text>
+<text x="1762.0" y="2464.0" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="normal" fill="#18202B" text-anchor="start">Place on the year axis: bar if a range, diamond if one date</text>
+<circle cx="1722" cy="2522" r="22" fill="#18202B"/>
+<text x="1722.0" y="2530.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">4</text>
+<text x="1762.0" y="2530.0" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="normal" fill="#18202B" text-anchor="start">Colour by the factor that changed (Scope / Time / Cost / Quality / Resp.)</text>
+<circle cx="1722" cy="2588" r="22" fill="#18202B"/>
+<text x="1722.0" y="2596.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">5</text>
+<text x="1762.0" y="2596.0" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="normal" fill="#18202B" text-anchor="start">Tag [F] + source, or [A] + reason (dashed outline)</text>
+<circle cx="1722" cy="2654" r="22" fill="#18202B"/>
+<text x="1722.0" y="2662.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">6</text>
+<text x="1762.0" y="2662.0" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="normal" fill="#18202B" text-anchor="start">Draw connectors cause -&gt; consequence between cards</text>
+<circle cx="1722" cy="2720" r="22" fill="#18202B"/>
+<text x="1722.0" y="2728.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">7</text>
+<text x="1762.0" y="2728.0" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="normal" fill="#18202B" text-anchor="start">Planned vs actual: grey dashed baseline under the actual bar</text>
+<circle cx="1722" cy="2786" r="22" fill="#18202B"/>
+<text x="1722.0" y="2794.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">8</text>
+<text x="1762.0" y="2794.0" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="normal" fill="#18202B" text-anchor="start">Scenario events: red star + copy into the Zoom frame (months)</text>
+<circle cx="1722" cy="2852" r="22" fill="#18202B"/>
+<text x="1722.0" y="2860.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">9</text>
+<text x="1762.0" y="2860.0" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="normal" fill="#18202B" text-anchor="start">Card issues a document? -&gt; add the Architects Register row the same day</text>
+<circle cx="1722" cy="2918" r="22" fill="#18202B"/>
+<text x="1722.0" y="2926.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#FFFFFF" text-anchor="middle">10</text>
+<text x="1762.0" y="2926.0" font-family="Helvetica, Arial, sans-serif" font-size="25" font-weight="normal" fill="#18202B" text-anchor="start">Weekly: lead checks their lanes; auditor filters by tag for gaps</text>
+<text x="4300.0" y="2252.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">INBOX  (unsorted cards)</text>
+<rect x="4300.0" y="2282.0" width="1300.0" height="700.0" rx="10" fill="#FBFBF7" stroke="#586272" stroke-width="3" stroke-dasharray="16 10"/>
+<text x="4340.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">new research lands here first - sort weekly</text>
+<text x="5700.0" y="2252.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">ZOOM FRAME  (scenario by month + ABIC SW clock)</text>
+<rect x="5700.0" y="2282.0" width="1640.0" height="700.0" rx="10" fill="#FFF7F6" stroke="#C8413B" stroke-width="3"/>
+<rect x="5732.0" y="2308.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#C8413B" stroke-width="3"/>
+<text x="5746.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C8413B" text-anchor="start">SW-12</text>
+<text x="5746.0" y="2372.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Variation  (J1)</text>
+<text x="5746.0" y="2402.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: before PC</text>
+<rect x="6056.0" y="2308.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6070.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">notice</text>
+<text x="6070.0" y="2372.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Effect  (J2.3)</text>
+<text x="6070.0" y="2402.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
+<rect x="6380.0" y="2308.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6394.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">SW-13</text>
+<text x="6394.0" y="2372.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Proceed?  (J3)</text>
+<text x="6394.0" y="2402.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 5 WD</text>
+<rect x="6704.0" y="2308.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6718.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">SW-42</text>
+<text x="6718.0" y="2372.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Claim  (H1-H2)</text>
+<text x="6718.0" y="2402.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
+<rect x="7028.0" y="2308.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#C8413B" stroke-width="3"/>
+<text x="7042.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C8413B" text-anchor="start">SW-14 / 11</text>
+<text x="7042.0" y="2372.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Decision  (H4)</text>
+<text x="7042.0" y="2402.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
+<rect x="5732.0" y="2442.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="5746.0" y="2476.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">cert.</text>
+<text x="5746.0" y="2506.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Progress  (J5 / N4)</text>
+<text x="5746.0" y="2536.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 10 BD</text>
+<rect x="6056.0" y="2442.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6070.0" y="2476.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">PC</text>
+<text x="6070.0" y="2506.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Notice  (M4)</text>
+<text x="6070.0" y="2536.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 5 WD</text>
+<rect x="6380.0" y="2442.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6394.0" y="2476.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">DLP</text>
+<text x="6394.0" y="2506.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Defects  (M13)</text>
+<text x="6394.0" y="2536.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 12 mo</text>
+<rect x="6704.0" y="2442.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6718.0" y="2476.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">SW-49</text>
+<text x="6718.0" y="2506.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Final claim  (N10)</text>
+<text x="6718.0" y="2536.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
+<rect x="7028.0" y="2442.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#C8413B" stroke-width="3"/>
+<text x="7042.0" y="2476.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C8413B" text-anchor="start">SW-31</text>
+<text x="7042.0" y="2506.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Final cert.  (N11)</text>
+<text x="7042.0" y="2536.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 10 BD</text>
+<text x="5734.0" y="2582.0" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="normal" fill="#586272" text-anchor="start">WD = working days, BD = business days. Red = required by the brief, dashed = optional form or step. Form &lt;-&gt; clause [verify vs template forms]</text>
+<text x="5740.0" y="2632.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#C8413B" text-anchor="start">1961</text>
+<text x="5740.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">J</text>
+<line x1="5736.0" y1="2676.0" x2="5736.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="5782.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">F</text>
+<line x1="5778.0" y1="2676.0" x2="5778.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="5824.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">M</text>
+<line x1="5820.0" y1="2676.0" x2="5820.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="5866.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">A</text>
+<line x1="5862.0" y1="2676.0" x2="5862.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="5908.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">M</text>
+<line x1="5904.0" y1="2676.0" x2="5904.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="5950.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">J</text>
+<line x1="5946.0" y1="2676.0" x2="5946.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="5992.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">J</text>
+<line x1="5988.0" y1="2676.0" x2="5988.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6034.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">A</text>
+<line x1="6030.0" y1="2676.0" x2="6030.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6076.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">S</text>
+<line x1="6072.0" y1="2676.0" x2="6072.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6118.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">O</text>
+<line x1="6114.0" y1="2676.0" x2="6114.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6160.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">N</text>
+<line x1="6156.0" y1="2676.0" x2="6156.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6202.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">D</text>
+<line x1="6198.0" y1="2676.0" x2="6198.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6265.0" y="2632.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#C8413B" text-anchor="start">1962</text>
+<text x="6265.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">J</text>
+<line x1="6261.0" y1="2676.0" x2="6261.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6307.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">F</text>
+<line x1="6303.0" y1="2676.0" x2="6303.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6349.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">M</text>
+<line x1="6345.0" y1="2676.0" x2="6345.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6391.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">A</text>
+<line x1="6387.0" y1="2676.0" x2="6387.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6433.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">M</text>
+<line x1="6429.0" y1="2676.0" x2="6429.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6475.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">J</text>
+<line x1="6471.0" y1="2676.0" x2="6471.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6517.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">J</text>
+<line x1="6513.0" y1="2676.0" x2="6513.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6559.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">A</text>
+<line x1="6555.0" y1="2676.0" x2="6555.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6601.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">S</text>
+<line x1="6597.0" y1="2676.0" x2="6597.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6643.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">O</text>
+<line x1="6639.0" y1="2676.0" x2="6639.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6685.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">N</text>
+<line x1="6681.0" y1="2676.0" x2="6681.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6727.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">D</text>
+<line x1="6723.0" y1="2676.0" x2="6723.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6790.0" y="2632.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#C8413B" text-anchor="start">1963</text>
+<text x="6790.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">J</text>
+<line x1="6786.0" y1="2676.0" x2="6786.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6832.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">F</text>
+<line x1="6828.0" y1="2676.0" x2="6828.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6874.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">M</text>
+<line x1="6870.0" y1="2676.0" x2="6870.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6916.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">A</text>
+<line x1="6912.0" y1="2676.0" x2="6912.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="6958.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">M</text>
+<line x1="6954.0" y1="2676.0" x2="6954.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="7000.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">J</text>
+<line x1="6996.0" y1="2676.0" x2="6996.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="7042.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">J</text>
+<line x1="7038.0" y1="2676.0" x2="7038.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="7084.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">A</text>
+<line x1="7080.0" y1="2676.0" x2="7080.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="7126.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">S</text>
+<line x1="7122.0" y1="2676.0" x2="7122.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="7168.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">O</text>
+<line x1="7164.0" y1="2676.0" x2="7164.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="7210.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">N</text>
+<line x1="7206.0" y1="2676.0" x2="7206.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="7252.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">D</text>
+<line x1="7248.0" y1="2676.0" x2="7248.0" y2="2952.0" stroke="#F0D6D3" stroke-width="1"/>
+<text x="5740.0" y="2970.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">re-date the months to your scenario; place each form card on its issue month</text>
+</svg>

@@ -1,0 +1,11 @@
+Date,Document,Form No.,From/To,Details (cost etc),Student Contribution,Event ID,Doc No.,[F]/[A],Required form (highlight)
+1956,Competition Design Phase,,,,,E02,,[F],
+21.02.1957,Client Architect Agreement,CAA 2024,Architect to Client,,,E04,SOH-CAA-001,[A],yes
+,Introductory letter,Guide letter 1,Architect (Utzon) to NSW Government,,,E04,SOH-LTR-001,[A],yes
+,ABIC Simple Works Contract 2018,SW 2018,Client + Contractor,,,E08,SOH-SW-001,[A],yes
+,Architect's Instruction for a Variation,SW-12,Architect to Contractor,,,E11,SOH-SW12-001,[A],yes
+,Adjustment of time,SW-14,Architect to Contractor,,,E11,SOH-SW14-001,[A],yes
+,Contract price adjustment,SW-11,Architect to Contractor,,,E11,SOH-SW11-001,[A],yes
+1962,Cost Plan Issued,CP-06,QS to Architect,"A$27,500,000",,,,[verify],
+1973,Practical Completion Certificate,,Architect to Contractor,,,E20,,[F],
+1974,Final Certificate,SW-31,Architect to Contractor,Final cost 107M [verify],,E21,SOH-SW31-001,[A],yes
