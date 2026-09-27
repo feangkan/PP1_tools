@@ -42,6 +42,8 @@ Board map (`miro-board-parties-instruments.jpg`), green = headings/items, **red 
 |------|------|-------|
 | `miro-workshop-structure.jpg` | Tutorial (photo) | Tutor's workshop structure + recurring question |
 | `miro-board-parties-instruments.jpg` | Tutorial (photo) | Board clusters: parties, agreements, contracts, tracing docs, factors |
+| `tutor-video-transcripts/part1-intro-and-brief.txt` | Tutorial (video transcript) | Tutor introduces A3: weighting, group size *(says "pairs" — conflicts with the brief PDF's "three")*, deliverables, the three example scenarios, submission structure, assessment criteria |
+| `tutor-video-transcripts/part1-2-scenarios-and-resources.txt` | Tutorial (video transcript) | Continues: key project facts (client reps, consultants, builders, budget/final cost), all three example scenarios fully worked with document chains and figures, then the Acumen/RMIT Library resource walkthrough and the official 4-week method |
 | _Lecture 18 slides / recording_ | Lecture | **not yet uploaded** |
 | _SOH Project Information & Example Scenarios PDF_ | Resource | **not yet uploaded** (Canvas A3 → Resources) |
 
@@ -59,8 +61,11 @@ Board map (`miro-board-parties-instruments.jpg`), green = headings/items, **red 
 
 ## My notes / questions
 
-- Part B length: 1000 or 1200 words? (brief contradicts itself)
+- ~~Part B length: 1000 or 1200 words?~~ Resolved — tutor's video confirms **1,000 words**.
+- **Groups of three or pairs?** Brief PDF says three; tutor's video says pairs, twice. **Unresolved — ask the tutor.**
+- **Due date:** brief PDF/syllabus say Fri 6 Nov; tutor's video says "3 June" (doesn't fit this semester, likely a recycled recording). Trust 6 Nov, confirm with tutor.
 - When is the in-progress presentation?
+- Naming conventions for submitted files (shown on-screen in the video, not transcribed)?
 
 ## Agent outputs from this week
 
@@ -70,3 +75,4 @@ Board map (`miro-board-parties-instruments.jpg`), green = headings/items, **red 
 | A3 resource/clause map (CAA 2024, ABIC SW 2018, Register sample, GL1 letter) | `02-assessment-tasks/assessment-3-resources.md` |
 | A3 group meeting pack + diagrams + timeline generator | `05-diagrams/assessment-3/` |
 | Scenario chosen (Major Hall → concert-only) + evidence pack + sourced Timeline v1 | `05-diagrams/assessment-3/07-` to `09-*.md` |
+| Tutor's video synthesis — the read-first doc for A3 | `05-diagrams/assessment-3/10-tutor-video-notes.md` |

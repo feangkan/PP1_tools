@@ -1,6 +1,7 @@
 # 08 — Scenario A evidence pack: Major Hall → concert hall only; stage machinery scrapped
 
-- **Date:** 2026-09-26 (v01). Links opened and read on this date unless marked *search result only*.
+- **Date:** 2026-09-26 (v01); **updated 2026-09-27** with the tutor's own instruction video (`10-tutor-video-notes.md`), which is now the more authoritative source for cost/budget figures — see the table below.
+- Links opened and read on this date unless marked *search result only*.
 - **Scenario:** Client-initiated change of use. The Major Hall goes from dual-purpose opera/concert to **concert only**, opera moves to the smaller hall, and the stage machinery already made and partly installed is scrapped.
 - **Rule:** every fact used in the file gets its source in the Register / footnote. Anything not in a source below is `[A]`.
 
@@ -16,6 +17,8 @@
 | — | Proposal: concert hall for 2,800 + **opera theatre for 1,500** + smaller spaces | ADB |
 | Mar 1967 | **Cabinet approves** the revised scheme | ADB |
 | 28 Mar 1967 | **Ove Arup writes to Minister Davis Hughes** that the Government "has now finally decided to abandon" opera in the Major Hall, calling it a "tragic" decision | Google Arts & Culture / SOH, *The Ghost of a Machine* and *The Concert Hall* |
+| Aug 1965 | **Directly adjacent story (Scenario 3 in the brief, not this scenario):** Arup reports to Public Works preferring **steel** over Utzon's boxed-plywood ceiling for the Major/Minor Hall auditoria — easier access for services, better handling of stresses, harder to joint plywood, possible 25% plywood saving. Utzon (position as of Jan 1966) judged a steel truss expensive to erect and, given the lining still needed for acoustics, ultimately redundant. Same tension (engineer's engineering judgement vs architect's design intent), same people, **16 months before** our scenario's Review of Programme | Tutor's video, citing Murray, *The Saga of Sydney Opera House* — see `10-tutor-video-notes.md` |
+| — | **Original budget ≈$9.6m; final cost after adjustments ≈$102m** — use these over the Register sample's "107M," which looks like a typo | Tutor's video |
 | 1964–65 | Major Hall stage machinery photographed in fabrication/installation | *The Ghost of a Machine* (State Records NSW photos) |
 | — | Machinery by **Waagner-Biro AG** (Vienna) was "realised and in part installed", then scrapped and never used | *The Ghost of a Machine*; MHNSW, *Waagner-Biro Stage Machinery* |
 | 1965–72 | Waagner-Biro assembly drawings for Major Hall, Minor Hall and Experimental Theatre | NSW State Archives **NRS-12800** (copies in NRS-12716) |
@@ -27,7 +30,7 @@
 
 | Gap | Why it matters | Where to look |
 |-----|----------------|---------------|
-| **Cost of the scrapped machinery** and of the redesign | SW-11 price adjustment + SW-31 final certificate amount | Murray, *The Saga of Sydney Opera House* (library); Hansard 1967 (Opera House debates); State Archives Public Works files |
+| **Cost of the scrapped machinery** and of the redesign — *specific to this event* | SW-11 price adjustment + SW-31 final certificate amount. **Partly resolved**: the tutor's video gives whole-project figures (≈$9.6m → ≈$102m), which can bound a declared `[A]` figure for this one variation, but not a real event-specific number | Murray, *The Saga of Sydney Opera House* (library, via RMIT); Hansard 1967 (Opera House debates); State Archives Public Works files |
 | Exact date of the **client's written instruction** (Hughes → architects) | Starts the chain: client letter → SW-12 | *Fabrications* article; State Archives; Webber (2012) |
 | Was the machinery contracted **directly by the client** or under the Stage III builder? | Decides whether it's an ABIC variation (J1) or a separate/owner-supplied item (Sched 8, K prime-cost) | NRS-12800 / 12801 agency notes; Murray |
 | Time impact on Stage III | SW-14 days | Murray; Hall/Webber |

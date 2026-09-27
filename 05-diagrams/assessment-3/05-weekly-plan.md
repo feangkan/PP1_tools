@@ -2,6 +2,10 @@
 
 Dates from the syllabus (`01-project-info/Syllabus…pdf`) — "subject to change, updates in announcements". The in-progress presentation date isn't in the printout; the plan assumes it's around **Week 12** — move the W12 row once confirmed.
 
+**Matches the tutor's own four-stage method** (`10-tutor-video-notes.md`): W9 timeline + intro letter + CAA → W10 ABIC Simple Works Contract → W11 the four forms → final weeks ARBV statement + Register + submit. This plan just spreads those same four stages across more weeks and adds a consistency-audit pass before submission — it doesn't add extra required work.
+
+⚠ **Unresolved from the tutor's video, sort out before Week 10:** group size (brief PDF says three, video says pairs) and the due date (video says "3 June," almost certainly a recycled recording — trust the syllabus's 6 Nov). See `10-tutor-video-notes.md`.
+
 **Aim to submit Wed 4 Nov** — two days' buffer on a group deliverable.
 
 | Week | Dates | Lectures feeding A3 | Lead in focus | Group targets (end of week) |

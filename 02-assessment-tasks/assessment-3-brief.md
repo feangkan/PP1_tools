@@ -1,15 +1,15 @@
 # Assessment 3 — Portfolio of Practice File Notes (brief, decoded)
 
-Source: `D:\RMIT_SEM2 26_PROPRAC 1\Assignment tasks\Assessment task 03_ Portfolio of Practice.pdf` (Canvas printout 21 Sep 2026, **Introduction tab only** — the *Resources* and *Submission + Due Date* tabs were not captured). Due date from the syllabus (`01-project-info/Syllabus…pdf`, p.3).
+Source: `D:\RMIT_SEM2 26_PROPRAC 1\Assignment tasks\Assessment task 03_ Portfolio of Practice.pdf` (Canvas printout 21 Sep 2026, **Introduction tab only** — the *Resources* and *Submission + Due Date* tabs were not captured). Due date from the syllabus (`01-project-info/Syllabus…pdf`, p.3). **Updated 2026-09-27** from the tutor's own two instruction videos — see `../05-diagrams/assessment-3/10-tutor-video-notes.md` for the full read; two flags below need a tutor check before acting on them.
 
 | Field | Value |
 |-------|-------|
 | Weight | **50%** of overall grade |
-| Group | **Groups of three** — assessed as **one** professional project file |
-| Word count | Part A: no limit · Part B: **1200** (Intro tab) — but Part B body text says **"1000-word statement"** → ask tutor |
-| Submission | In-progress class presentation (date not in printout) + online Canvas |
+| Group | **Groups of three** per the brief PDF, but the tutor's video says **"pairs"** twice — ⚠ **unresolved, ask the tutor** before assuming either. Everything in this repo assumes three (rotating Lead 1/2/3) |
+| Word count | Part B = **1,000 words** — confirmed twice in the tutor's video, resolves the brief PDF's own 1000-vs-1200 contradiction |
+| Submission | **Contents page → ARBV letter (Part B) first → appendices**: Architects Register, introductory letter, CAA, ABIC reference + Simple Works Contract + forms (tutor's video). In-progress class presentation (date still not known) + online Canvas |
 | Starts | Week 9 (Mon 21 Sep) — Lecture 18: Sydney Opera House Innovations |
-| Due | **Friday 6 Nov 2026** (Week 15, online) |
+| Due | **Friday 6 Nov 2026** (Week 15, online) per the syllabus and brief PDF — the tutor's video says "3 June," which doesn't exist in this semester and is almost certainly a recycled recording. **Trust 6 Nov**; a one-line confirmation with the tutor is still worth sending |
 | Case study | Historical **Sydney Opera House** (SOH), run through **contemporary** instruments |
 
 ## What the task actually is
@@ -80,12 +80,19 @@ Whatever you pick: **research the circumstances around the event**, don't rely o
 
 ## Open questions (for tutor)
 
-1. Part B length: **1000 or 1200** words? Do appendices count?
+**Ask these first — the tutor's own video conflicts with the written brief:**
+
+0. **Groups of three, or pairs?** The brief PDF says three; the tutor's video says pairs, twice. This decides the group's whole structure — resolve it before meeting #2.
+0a. **Is 6 Nov really the due date?** The video says "3 June," which fits no part of this semester — almost certainly a recycled recording — but worth one line to confirm.
+
+**Everything else:**
+
+1. ~~Part B length: 1000 or 1200 words?~~ **Resolved: 1000 words**, confirmed in the tutor's video.
 2. When is the **in-progress class presentation**, and what format/length?
-3. Submission format: one combined PDF? Forms as filled Word/PDF? Sticky-note comments inside the PDF?
+3. Naming conventions for the submitted files/forms — shown on-screen in the tutor's video but not read aloud. Check the assessment page again or ask.
 4. Contract scale: ABIC Simple Works is meant for simple, lower-value works. Apply it to a **discrete package** (e.g. Stage I podium works) or the whole project? Either way it's a declared assumption.
-5. **Money + dates convention**: the course's Register sample uses historical dates + A$, so default to that. Confirm with the tutor.
-8. **Contract edition**: the supplied ABIC PDF's conditions are the *SW 2018 H Vic* (housing, Domestic Building Contracts Act). Is that the edition to cite for a NSW public building, or declare it as an assumption?
-9. **Intro letter template** is GL1 for **CAA2019**. Confirm the clause/page references should be updated to CAA2024.
-6. Is there peer assessment or a contribution statement beyond the Document Register's contribution columns?
-7. Gen AI: check the subject's **USE OF GEN AI** page (Canvas → Course Guide → Quick Links) before any AI-assisted drafting.
+5. **Money + dates convention**: use the tutor's own figures — **≈$9.6m original budget, ≈$102m final cost** (his video) — over the course Register sample's "107M," which looks like a typo. Historical dates, one declared currency.
+6. **Contract edition**: the supplied ABIC PDF's conditions are the *SW 2018 H Vic* (housing, Domestic Building Contracts Act). Is that the edition to cite for a NSW public building, or declare it as an assumption?
+7. **Intro letter / CAA versions**: our supplied intro-letter template is GL1 for CAA2019. The tutor's video says to get the current versions from **Acumen via the RMIT Library** directly (search "introductory letter" / "guide letter"), since the one on the public site was still 2009 at time of recording — don't assume our downloaded copies are the latest edition.
+8. Is there peer assessment or a contribution statement beyond the Document Register's contribution columns?
+9. Gen AI: check the subject's **USE OF GEN AI** page (Canvas → Course Guide → Quick Links) before any AI-assisted drafting.

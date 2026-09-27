@@ -1,5 +1,11 @@
 # 07 — Ten real SOH scenarios to choose from
 
+## v03 update (2026-09-27): the tutor's video changes the trade-off
+
+The tutor's own instruction video gives **fully worked document chains with dollar and time figures** for the brief's three original example scenarios (numbered 1/2/3 below, matching the brief's own numbering) — full detail in `10-tutor-video-notes.md`. That's a complete, tutor-sanctioned Part A for whichever of those three you pick, with nothing left to research. It also confirms real background for Scenario 3 (Arup's Aug 1965 report preferring steel over Utzon's plywood) that sits right before our Scenario A's own story (Dec 1966 Review of Programme) — same tension, same people, adjoining timeframe.
+
+**This doesn't replace the v02 recommendation below** — Scenario A is still the stronger *story*, and its numbers are still a research gap (see `08-scenario-A-evidence.md`). It's a real trade-off the group should look at together: worked-and-safe (1/2/3) vs richer-but-more-work (A, optionally with 3's ceiling story folded in as supporting evidence). See `10-tutor-video-notes.md`'s closing recommendation.
+
 ## v02 (2026-09-26): architect-centred shortlist
 
 The group asked for scenarios where the **architect's own work** (brief, program, design intent, materials, client advice) drives the change, not engineering. Each one still produces a variation → time → price → final-certificate chain. All `[verify]`.

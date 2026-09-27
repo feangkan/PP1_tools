@@ -2,7 +2,7 @@
 
 - **Purpose:** first meeting of the group of three — do workshop steps 1–6 (see `../../03-weekly-resources/week-09/README.md`) and leave with roles, a workspace, a scenario-research split and a date for meeting #2.
 - **Length:** ~60 min. Bring laptops; open the Miro board.
-- **Before the meeting (everyone, 20 min):** read `../../02-assessment-tasks/assessment-3-brief.md`; skim the SOH Project Information PDF (Canvas → A3 → Resources).
+- **Before the meeting (everyone, 20 min):** read `../../02-assessment-tasks/assessment-3-brief.md`; skim the SOH Project Information PDF (Canvas → A3 → Resources); **watch or read the tutor's two instruction videos** (transcripts in `../../03-weekly-resources/week-09/tutor-video-transcripts/`) — they include fully worked examples for scenarios 1/2/3 with real dollar and time figures, summarised in `10-tutor-video-notes.md`.
 
 ---
 
@@ -69,11 +69,18 @@ Everyone answers the recurring question on their sheet: **"Something changed. Wh
 
 ## 6 · Questions for the tutor (assign one asker)
 
-1. Part B: 1000 or 1200 words? Do appendices count?
+**Top priority — the tutor's own instruction video conflicts with the written brief on two things (`10-tutor-video-notes.md`):**
+
+0. **Is this groups of three (brief PDF) or pairs (the video, twice)?** Decides whether this whole meeting's role split applies.
+0a. Confirm the due date is **6 Nov** — the video says "3 June," which doesn't fit this semester.
+
+**Everything else:**
+
+1. ~~Part B: 1000 or 1200 words?~~ Resolved — the video confirms **1,000 words**.
 2. Date + format of the in-progress class presentation?
-3. Submission format — one combined PDF?
+3. Naming conventions for submitted files (shown on-screen in the video, not read aloud)?
 4. ABIC SW applied to a discrete package or the whole project?
-5. Historical £/A$ + dates, or contemporary AUD?
+5. Historical dates + A$ — use the video's own figures (≈$9.6m budget, ≈$102m final)?
 6. Any peer assessment / contribution statement?
 
 ## 7 · Report-back line (template)

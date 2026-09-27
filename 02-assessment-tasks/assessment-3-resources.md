@@ -9,8 +9,26 @@ Folder: `D:\RMIT_SEM2 26_PROPRAC 1\Assessment 3 resources\` (read 2026-09-26). S
 | `caa2024_fullservices_digital.pdf` (18 pp) | A4 CAA | AIA Client Architect Agreement 2024, full services | Conditions A–M; Schedule A services; Schedule B items (fees, consultants, insurance, payment); Schedule C special conditions |
 | `SW-2018-ABIC_Contract-1.pdf` (63 pp) | A5 ABIC SW | **Composite.** PDF pp.5–19 = general **ABIC SW 2018** schedules 1–8 (contract information). PDF pp.20–63 = general conditions from the **"Simple Works Contract for Housing in Vic" (SW 2018 H Vic)**, scanned, with partly garbled text | H Vic cites the Domestic Building Contracts Act (s.37, s.38, s.40) — a **housing** contract, applied here to a public building in NSW. Declare as `[A]` or ask the tutor. Clause letters A–S are the same in both |
 | `The Timeline Widget – Support.url` | A1 Timeline | monday.com reference for the timeline layout | Done → `05-diagrams/assessment-3/06-timeline-workflow.md` |
+| `tutor-video-transcripts/*.txt` (in `03-weekly-resources/week-09/`) | Whole brief | Two auto-transcribed videos where the tutor walks through the assessment, the three example scenarios (fully worked, with dollar/time figures), and where to get every document | **Most authoritative source in the repo for A3** — synthesised in `05-diagrams/assessment-3/10-tutor-video-notes.md`. Flags two conflicts with the written brief (group size, due date) |
 
-Still needed: SOH Project Information & Example Scenarios PDF · ABIC SW 2018 template forms (Word) · SW 2018 User Guide.
+Still needed: SOH Project Information & Example Scenarios PDF · ABIC SW 2018 template forms (Word) · SW 2018 User Guide · naming conventions (shown on-screen in the tutor's video, not transcribed) · *Architecture Australia* article on the plywood ribbed structural supports (mentioned in the video, not yet in this folder).
+
+## Where to actually get the documents (from the tutor's video)
+
+Everything above — Guide Letter 1, the CAA + its user guide, the ABIC Simple Works Contract + its user guide + the template forms — comes from the **AIA Acumen website**, reached through the **RMIT Library** login (you'll see "Good afternoon RMIT" once you're through) → **Acumen Practice Notes**, searchable directly. **Check Acumen itself for the current edition of Guide Letter 1** — the tutor notes the copy on the public site was still 2009 at the time of recording, and our supplied copy (above) is CAA2019, not CAA2024. Fill the ABIC Simple Works Contract in **Adobe**, not Word — some of its fields are text boxes rather than fillable form fields.
+
+**Confirmed project facts, from the tutor's video** (replace `[verify]` tags elsewhere in the repo with these):
+
+| Fact | Value |
+|------|-------|
+| Client representatives — only two needed | **John Cahill**, Premier of NSW, first 2 years → **Robert Askin**, remaining 6 years |
+| Engineer | Ove Arup |
+| Builders | **Civil and Civic**, then **Hornibrook Limited** — pick one, or use both if re-letting the contract |
+| Architect team from Apr 1966 | Peter Hall (design), Lionel Todd (contract documentation), David Littlemore (contract admin) |
+| Original budget | **≈$9.6 million** — "just a ballpark figure... okay if you decide to pick a different number" |
+| Final cost, after adjustments | **≈$102 million** |
+
+Full detail, including the three fully-worked example scenarios, is in `../05-diagrams/assessment-3/10-tutor-video-notes.md`.
 
 ---
 
