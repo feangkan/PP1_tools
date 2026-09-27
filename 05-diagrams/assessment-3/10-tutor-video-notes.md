@@ -1,14 +1,15 @@
 # 10 — Tutor's own instruction videos: what they change
 
-- **Date:** 2026-09-27 (v01). Source: two auto-transcribed tutor videos introducing Assessment 3, downloaded by the student and read in full — `../../03-weekly-resources/week-09/tutor-video-transcripts/part1-intro-and-brief.txt` and `part1-2-scenarios-and-resources.txt` (raw, unedited transcripts kept as source).
-- **This is the single most authoritative source in the repo for A3**, above my own research. It's the tutor speaking directly about this assessment. Auto-transcription introduces name errors throughout (*"Jonutsatonhan"* = Jørn Utzon, *"over Arab"* = Ove Arup, *"Zagro"* = Saga, *"seal"* = steel, *"peers"* = piers) — corrected below without further comment.
+- **Date:** 2026-09-27 (v01). **Superseded on the two items below** by `12-official-tabs-confirmed.md` (2026-09-27), which reads the actual Canvas tabs rather than a transcribed video — both are now resolved (three; 6 Nov). Everything else in this file (worked scenario numbers, official facts, resource access path) still stands and isn't repeated there.
+- Source: two auto-transcribed tutor videos introducing Assessment 3, downloaded by the student and read in full — `../../03-weekly-resources/week-09/tutor-video-transcripts/part1-intro-and-brief.txt` and `part1-2-scenarios-and-resources.txt` (raw, unedited transcripts kept as source).
+- Auto-transcription introduces name errors throughout (*"Jonutsatonhan"* = Jørn Utzon, *"over Arab"* = Ove Arup, *"Zagro"* = Saga, *"seal"* = steel, *"peers"* = piers) — corrected below without further comment.
 
-## Read first: two things in the video conflict with the brief PDF
+## Resolved (kept for the record — see `12-official-tabs-confirmed.md` for the confirmation)
 
-| # | Video says | Brief PDF / syllabus say | What to do |
-|---|-----------|---------------------------|------------|
-| 1 | **"You'll be doing it in pairs"** (said twice, part 1) | **"Groups of Three"** (Introduction tab, verbatim) | **Ask the tutor.** The rotating-lead structure (Lead 1/2/3) in our meeting pack assumes three. If it's really pairs, that structure needs collapsing to two roles. Don't change group size without confirming — this affects who's in the group. |
-| 2 | **"Due on Friday the third of June at midnight"**, **"about four and a half weeks"** from the Week 9 video (part 1) | Syllabus: **Assessment 3 Due Friday 6 Nov 2026** (Week 15); original brief PDF: "Assessment 3 Due: Friday 6th Nov" | **Trust 6 Nov.** "3 June" doesn't exist in this semester's calendar (Sem 2 2026 runs Jul–Nov) and "four and a half weeks" from Week 9 doesn't reach Week 15 either — both details are internally consistent with each other but not with this offering, which is the signature of a **recycled video** from an earlier semester. Still worth a one-line confirmation with the tutor, but don't plan around 3 June. |
+| # | Video said | Now confirmed |
+|---|-----------|---------------------------|
+| 1 | **"You'll be doing it in pairs"** (said twice, part 1) | **Groups of three** — confirmed verbatim on the Method + Assessment Criteria tab. The video was simply wrong. |
+| 2 | **"Due on Friday the third of June at midnight"**, **"about four and a half weeks"** from the Week 9 video (part 1) | **Due Friday 6 Nov 2026, 23:59** — confirmed on the Submission + Due Date tab. "3 June" was a recycled recording from an earlier semester; the "four and a half weeks" line was recycled with it. |
 
 ## Confirmed facts (use these — they replace `[verify]` tags in earlier files)
 

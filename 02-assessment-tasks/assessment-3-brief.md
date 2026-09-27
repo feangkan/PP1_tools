@@ -1,15 +1,15 @@
 # Assessment 3 — Portfolio of Practice File Notes (brief, decoded)
 
-Source: `D:\RMIT_SEM2 26_PROPRAC 1\Assignment tasks\Assessment task 03_ Portfolio of Practice.pdf` (Canvas printout 21 Sep 2026, **Introduction tab only** — the *Resources* and *Submission + Due Date* tabs were not captured). Due date from the syllabus (`01-project-info/Syllabus…pdf`, p.3). **Updated 2026-09-27** from the tutor's own two instruction videos — see `../05-diagrams/assessment-3/10-tutor-video-notes.md` for the full read; two flags below need a tutor check before acting on them.
+Source: `D:\RMIT_SEM2 26_PROPRAC 1\Assignment tasks\Assessment task 03_ Portfolio of Practice.pdf` (Introduction tab, 21 Sep 2026) + the three other Canvas tabs (Resources, Method + Assessment Criteria, Submission + Due Date), all read 2026-09-27 — see `../05-diagrams/assessment-3/12-official-tabs-confirmed.md`, **the definitive source for this assessment.** The tutor's own instruction video (`../05-diagrams/assessment-3/10-tutor-video-notes.md`) is a useful second source but is superseded by the tabs wherever the two disagree.
 
 | Field | Value |
 |-------|-------|
 | Weight | **50%** of overall grade |
-| Group | **Groups of three** per the brief PDF, but the tutor's video says **"pairs"** twice — ⚠ **unresolved, ask the tutor** before assuming either. Everything in this repo assumes three (rotating Lead 1/2/3) |
-| Word count | Part B = **1,000 words** — confirmed twice in the tutor's video, resolves the brief PDF's own 1000-vs-1200 contradiction |
-| Submission | **Contents page → ARBV letter (Part B) first → appendices**: Architects Register, introductory letter, CAA, ABIC reference + Simple Works Contract + forms (tutor's video). In-progress class presentation (date still not known) + online Canvas |
+| Group | **Groups of three.** Confirmed verbatim on the Method + Assessment Criteria tab — the tutor's video saying "pairs" was simply wrong. Rotating Lead 1/2/3 structure applies as built |
+| Word count | Part B = **1,000 words** — confirmed on both the video and (implicitly, by the rubric's Criteria 3) the tabs |
+| Submission | **One compiled multi-page PDF**, in order: Contents page → **Letter to the ARBV** (Part B) → Appendices (Architect's Register, introductory letter, CAA, ABIC SW 2018 reference copy, ABIC SW 2018 template forms). File naming `Assessment Task 3_Last name, First name` — ambiguous for a group submission, `[gap]` ask the tutor. **In-progress presentation: Monday Week 12, ≈8 min, face-to-face as a group.** |
 | Starts | Week 9 (Mon 21 Sep) — Lecture 18: Sydney Opera House Innovations |
-| Due | **Friday 6 Nov 2026** (Week 15, online) per the syllabus and brief PDF — the tutor's video says "3 June," which doesn't exist in this semester and is almost certainly a recycled recording. **Trust 6 Nov**; a one-line confirmation with the tutor is still worth sending |
+| Due | **Friday 6 Nov 2026, 23:59** (Week 15, online). Confirmed on the Submission + Due Date tab |
 | Case study | Historical **Sydney Opera House** (SOH), run through **contemporary** instruments |
 
 ## What the task actually is
@@ -80,19 +80,14 @@ Whatever you pick: **research the circumstances around the event**, don't rely o
 
 ## Open questions (for tutor)
 
-**Ask these first — the tutor's own video conflicts with the written brief:**
+Group size and due date are **resolved** — see `../05-diagrams/assessment-3/12-official-tabs-confirmed.md`. What's left:
 
-0. **Groups of three, or pairs?** The brief PDF says three; the tutor's video says pairs, twice. This decides the group's whole structure — resolve it before meeting #2.
-0a. **Is 6 Nov really the due date?** The video says "3 June," which fits no part of this semester — almost certainly a recycled recording — but worth one line to confirm.
-
-**Everything else:**
-
-1. ~~Part B length: 1000 or 1200 words?~~ **Resolved: 1000 words**, confirmed in the tutor's video.
-2. When is the **in-progress class presentation**, and what format/length?
-3. Naming conventions for the submitted files/forms — shown on-screen in the tutor's video but not read aloud. Check the assessment page again or ask.
+1. ~~Part B length: 1000 or 1200 words?~~ **Resolved: 1000 words.**
+2. ~~In-progress presentation date?~~ **Resolved: Monday Week 12, ≈8 min, face-to-face as a group.**
+3. **File naming** `Assessment Task 3_Last name, First name` is written for one student, but this is a group submission. Does each student submit their own labelled copy of the same combined PDF, or does the group nominate a single submitter?
 4. Contract scale: ABIC Simple Works is meant for simple, lower-value works. Apply it to a **discrete package** (e.g. Stage I podium works) or the whole project? Either way it's a declared assumption.
 5. **Money + dates convention**: use the tutor's own figures — **≈$9.6m original budget, ≈$102m final cost** (his video) — over the course Register sample's "107M," which looks like a typo. Historical dates, one declared currency.
 6. **Contract edition**: the supplied ABIC PDF's conditions are the *SW 2018 H Vic* (housing, Domestic Building Contracts Act). Is that the edition to cite for a NSW public building, or declare it as an assumption?
-7. **Intro letter / CAA versions**: our supplied intro-letter template is GL1 for CAA2019. The tutor's video says to get the current versions from **Acumen via the RMIT Library** directly (search "introductory letter" / "guide letter"), since the one on the public site was still 2009 at time of recording — don't assume our downloaded copies are the latest edition.
+7. **Intro letter / CAA versions**: the Resources tab lists `Guide letter 1 Introductory letter.doc` and `Assessment Task 3- Architects Register-2.docx` — both different filenames from what we already have. Re-download and confirm whether these are newer editions.
 8. Is there peer assessment or a contribution statement beyond the Document Register's contribution columns?
 9. Gen AI: check the subject's **USE OF GEN AI** page (Canvas → Course Guide → Quick Links) before any AI-assisted drafting.

@@ -2,7 +2,7 @@
 
 - **Purpose:** first meeting of the group of three — do workshop steps 1–6 (see `../../03-weekly-resources/week-09/README.md`) and leave with roles, a workspace, a scenario-research split and a date for meeting #2.
 - **Length:** ~60 min. Bring laptops; open the Miro board.
-- **Before the meeting (everyone, 20 min):** read `../../02-assessment-tasks/assessment-3-brief.md`; skim the SOH Project Information PDF (Canvas → A3 → Resources); **watch or read the tutor's two instruction videos** (transcripts in `../../03-weekly-resources/week-09/tutor-video-transcripts/`) — they include fully worked examples for scenarios 1/2/3 with real dollar and time figures, summarised in `10-tutor-video-notes.md`.
+- **Before the meeting (everyone, 20 min):** read `../../02-assessment-tasks/assessment-3-brief.md`; skim the SOH Project Information PDF (Canvas → A3 → Resources); **watch or read the tutor's two instruction videos** (transcripts in `../../03-weekly-resources/week-09/tutor-video-transcripts/`) — they include fully worked examples for scenarios 1/2/3 with real dollar and time figures, summarised in `10-tutor-video-notes.md`. Group size (three) and due date (Fri 6 Nov) are confirmed in `12-official-tabs-confirmed.md`.
 
 ---
 
@@ -69,16 +69,11 @@ Everyone answers the recurring question on their sheet: **"Something changed. Wh
 
 ## 6 · Questions for the tutor (assign one asker)
 
-**Top priority — the tutor's own instruction video conflicts with the written brief on two things (`10-tutor-video-notes.md`):**
+Group size (three) and due date (Fri 6 Nov, 23:59) are **confirmed** — `12-official-tabs-confirmed.md`. What's left:
 
-0. **Is this groups of three (brief PDF) or pairs (the video, twice)?** Decides whether this whole meeting's role split applies.
-0a. Confirm the due date is **6 Nov** — the video says "3 June," which doesn't fit this semester.
-
-**Everything else:**
-
-1. ~~Part B: 1000 or 1200 words?~~ Resolved — the video confirms **1,000 words**.
-2. Date + format of the in-progress class presentation?
-3. Naming conventions for submitted files (shown on-screen in the video, not read aloud)?
+1. ~~Part B: 1000 or 1200 words?~~ Resolved — **1,000 words**.
+2. ~~In-progress presentation date?~~ Resolved — **Monday Week 12, ≈8 min, face-to-face as a group**.
+3. **File naming**: the format given (`Assessment Task 3_Last name, First name`) is written for one student — does each of us submit our own copy, or does one person submit for the group?
 4. ABIC SW applied to a discrete package or the whole project?
 5. Historical dates + A$ — use the video's own figures (≈$9.6m budget, ≈$102m final)?
 6. Any peer assessment / contribution statement?

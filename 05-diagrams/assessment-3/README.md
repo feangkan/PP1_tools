@@ -1,8 +1,8 @@
 # Assessment 3 — Portfolio of Practice File Notes (working folder)
 
-Brief: `../../02-assessment-tasks/assessment-3-brief.md` · Group of three *(⚠ tutor's video says pairs — unconfirmed, see below)* · 50% · Due **Fri 6 Nov 2026** *(⚠ video says a different date — trust 6 Nov, confirm with tutor)*.
+Brief: `../../02-assessment-tasks/assessment-3-brief.md` · **Group of three** (confirmed) · 50% · Due **Fri 6 Nov 2026, 23:59** (confirmed) · in-progress presentation **Monday Week 12, ≈8 min, face-to-face as a group**.
 
-**Study scaffolding, not submittable text.** The letter, CAA, contract, forms, Timeline, Register and ARBV statement are the group's to write. Historical claims here carry `[verify]` until checked against the supplied SOH resources — **except where sourced to the tutor's own instruction video**, which is the most authoritative source in this folder. Read `10-tutor-video-notes.md` first.
+**Study scaffolding, not submittable text.** The letter, CAA, contract, forms, Timeline, Register and ARBV statement are the group's to write. Historical claims here carry `[verify]` until checked against the supplied SOH resources. **Read `12-official-tabs-confirmed.md` first** — it's the actual Canvas assessment page (Resources, Method + Assessment Criteria, Submission + Due Date tabs) and is the most authoritative source in this folder, above the tutor's video notes (`10-tutor-video-notes.md`).
 
 ## Files
 
@@ -23,6 +23,7 @@ Brief: `../../02-assessment-tasks/assessment-3-brief.md` · Group of three *(⚠
 | `10-tutor-video-notes.md` | **Read first.** Synthesis of the tutor's own two instruction videos: two conflicts with the written brief (group size, due date), confirmed project facts (budget, final cost, client reps, builders), submission structure, the official 4-week method, and **fully worked SW-12→31 chains with real numbers for scenarios 1, 2 and 3** | v01, 2026-09-27 |
 | `11-scenario-A-event-sheet.md` | **Single source of truth v1** for Scenario A dates, parties, E-IDs, document numbers, clauses and unresolved group decisions; historical facts sourced and constructed events marked `[A]` | v01, 2026-09-27 |
 | `document-register-scenario-A-v1.csv` | Scenario A Register v1 tracing the sourced decision into the assumed CAA/ABIC document chain; contribution, time and cost fields remain explicitly TBD | v01, 2026-09-27 |
+| `12-official-tabs-confirmed.md` | **Read first.** The actual Resources / Method + Assessment Criteria / Submission + Due Date Canvas tabs: resolves group size (three) and due date (6 Nov) definitively, exact resource filenames + required flags, the official week-by-week method, assessment criteria + AACA competency codes, submission format and file naming | v01, 2026-09-27 |
 
 ## Scenario decision (2026-09-27, revisit after reading `10-tutor-video-notes.md`)
 
@@ -32,6 +33,6 @@ Brief: `../../02-assessment-tasks/assessment-3-brief.md` · Group of three *(⚠
 
 ## Resources
 
-Mapped in `../../02-assessment-tasks/assessment-3-resources.md` (Register sample, GL1 intro letter, CAA 2024, ABIC SW 2018 + clause clock) and `10-tutor-video-notes.md` (Acumen/RMIT Library access path).
+Mapped in `../../02-assessment-tasks/assessment-3-resources.md` (Register sample, GL1 intro letter, CAA 2024, ABIC SW 2018 + clause clock), `10-tutor-video-notes.md` (Acumen/RMIT Library access path) and `12-official-tabs-confirmed.md` (the actual Resources tab — exact filenames, required flags, and links, including a newly found Cochrane 1999 journal article directly relevant to Scenario 3's ceiling story).
 
-**Still needed:** SOH Project Information PDF · ABIC SW 2018 template forms (Word) · SW 2018 User Guide · Lecture 18 slides · A3 *Resources* and *Submission + Due Date* tabs · naming conventions · the *Architecture Australia* article on the plywood ribbed structural supports · cost figures specific to the scrapped machinery/redesign if sticking with Scenario A (see `08-scenario-A-evidence.md` gaps).
+**Still needed, exact filenames in `12-official-tabs-confirmed.md`:** SOH Project Information PDF · CAA2024 User Guide · ABIC SW User Guide · **ABIC SW 2018 template forms (Word) — the main remaining gap** · Cochrane 1999 article PDF · Lecture 18 slides · file-naming clarification for a group submission · cost figures specific to the scrapped machinery/redesign if sticking with Scenario A (see `08-scenario-A-evidence.md` gaps).

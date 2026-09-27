@@ -42,8 +42,9 @@ Board map (`miro-board-parties-instruments.jpg`), green = headings/items, **red 
 |------|------|-------|
 | `miro-workshop-structure.jpg` | Tutorial (photo) | Tutor's workshop structure + recurring question |
 | `miro-board-parties-instruments.jpg` | Tutorial (photo) | Board clusters: parties, agreements, contracts, tracing docs, factors |
-| `tutor-video-transcripts/part1-intro-and-brief.txt` | Tutorial (video transcript) | Tutor introduces A3: weighting, group size *(says "pairs" — conflicts with the brief PDF's "three")*, deliverables, the three example scenarios, submission structure, assessment criteria |
+| `tutor-video-transcripts/part1-intro-and-brief.txt` | Tutorial (video transcript) | Tutor introduces A3: weighting, group size (says "pairs" — the Method + Assessment Criteria tab confirms it's actually three), deliverables, the three example scenarios, submission structure, assessment criteria |
 | `tutor-video-transcripts/part1-2-scenarios-and-resources.txt` | Tutorial (video transcript) | Continues: key project facts (client reps, consultants, builders, budget/final cost), all three example scenarios fully worked with document chains and figures, then the Acumen/RMIT Library resource walkthrough and the official 4-week method |
+| `Assessment task 03_ Method + Assessment criteria.pdf`, `..._ Resources.pdf`, `..._ Requirement + Due Date.pdf` (in `Assignment tasks/`, not this repo) | Assessment page | The three Canvas tabs missing from the original printout — read 2026-09-27, synthesised in `05-diagrams/assessment-3/12-official-tabs-confirmed.md` |
 | _Lecture 18 slides / recording_ | Lecture | **not yet uploaded** |
 | _SOH Project Information & Example Scenarios PDF_ | Resource | **not yet uploaded** (Canvas A3 → Resources) |
 
@@ -61,11 +62,11 @@ Board map (`miro-board-parties-instruments.jpg`), green = headings/items, **red 
 
 ## My notes / questions
 
-- ~~Part B length: 1000 or 1200 words?~~ Resolved — tutor's video confirms **1,000 words**.
-- **Groups of three or pairs?** Brief PDF says three; tutor's video says pairs, twice. **Unresolved — ask the tutor.**
-- **Due date:** brief PDF/syllabus say Fri 6 Nov; tutor's video says "3 June" (doesn't fit this semester, likely a recycled recording). Trust 6 Nov, confirm with tutor.
-- When is the in-progress presentation?
-- Naming conventions for submitted files (shown on-screen in the video, not transcribed)?
+- ~~Part B length: 1000 or 1200 words?~~ Resolved — **1,000 words**.
+- ~~Groups of three or pairs?~~ Resolved — **three**, confirmed on the Method + Assessment Criteria tab.
+- ~~Due date?~~ Resolved — **Fri 6 Nov, 23:59**, confirmed on the Submission + Due Date tab.
+- ~~In-progress presentation?~~ Resolved — **Monday Week 12, ≈8 min, face-to-face as a group**.
+- **File naming** `Assessment Task 3_Last name, First name` is written for one student on a group submission — does each of us submit our own copy, or one person for the group? Still to ask.
 
 ## Agent outputs from this week
 
@@ -75,4 +76,5 @@ Board map (`miro-board-parties-instruments.jpg`), green = headings/items, **red 
 | A3 resource/clause map (CAA 2024, ABIC SW 2018, Register sample, GL1 letter) | `02-assessment-tasks/assessment-3-resources.md` |
 | A3 group meeting pack + diagrams + timeline generator | `05-diagrams/assessment-3/` |
 | Scenario chosen (Major Hall → concert-only) + evidence pack + sourced Timeline v1 | `05-diagrams/assessment-3/07-` to `09-*.md` |
-| Tutor's video synthesis — the read-first doc for A3 | `05-diagrams/assessment-3/10-tutor-video-notes.md` |
+| Tutor's video synthesis | `05-diagrams/assessment-3/10-tutor-video-notes.md` |
+| **Official Canvas tabs synthesis — the definitive read-first doc for A3** | `05-diagrams/assessment-3/12-official-tabs-confirmed.md` |
