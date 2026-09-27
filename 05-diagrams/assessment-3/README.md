@@ -20,6 +20,8 @@ Brief: `../../02-assessment-tasks/assessment-3-brief.md` · Group of three · 50
 | `07-scenario-options.md` | 10 candidate scenarios, then a v02 shortlist of 6 **architect-led** scenarios (design/brief/materials/advice, not engineering) with a recommendation | v02, 2026-09-27 |
 | `08-scenario-A-evidence.md` | **Chosen scenario A** (Major Hall → concert hall only, stage machinery scrapped): fact table with sources, research gaps, link list (official/archive, scholarly, background), evidence → file-document map | v01, 2026-09-27 |
 | `09-timeline-scenario-A.md` | **Timeline v1 for scenario A** — Design timeline / Contract timeline × P1/P2/P3, every row sourced (brief / ADB / Google Arts & Culture / NSW State Archives / Parliament NSW / Register sample) or marked `[A]` assumption | v01, 2026-09-27 |
+| `10-scenario-A-event-sheet.md` | **Single source of truth v1** for Scenario A dates, parties, E-IDs, document numbers, clauses and unresolved group decisions; historical facts sourced and constructed events marked `[A]` | v01, 2026-09-27 |
+| `document-register-scenario-A-v1.csv` | Scenario A Register v1 tracing the sourced decision into the assumed CAA/ABIC document chain; contribution, time and cost fields remain explicitly TBD | v01, 2026-09-27 |
 
 ## Scenario decision (2026-09-27)
 
