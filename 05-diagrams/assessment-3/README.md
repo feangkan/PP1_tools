@@ -21,6 +21,8 @@ Brief: `../../02-assessment-tasks/assessment-3-brief.md` · Group of three *(⚠
 | `08-scenario-A-evidence.md` | **Chosen scenario A** (Major Hall → concert hall only, stage machinery scrapped): fact table with sources, research gaps, link list (official/archive, scholarly, background), evidence → file-document map | v01, 2026-09-27 |
 | `09-timeline-scenario-A.md` | **Timeline v1 for scenario A** — Design timeline / Contract timeline × P1/P2/P3, every row sourced (brief / ADB / Google Arts & Culture / NSW State Archives / Parliament NSW / Register sample) or marked `[A]` assumption | v01, 2026-09-27 |
 | `10-tutor-video-notes.md` | **Read first.** Synthesis of the tutor's own two instruction videos: two conflicts with the written brief (group size, due date), confirmed project facts (budget, final cost, client reps, builders), submission structure, the official 4-week method, and **fully worked SW-12→31 chains with real numbers for scenarios 1, 2 and 3** | v01, 2026-09-27 |
+| `11-scenario-A-event-sheet.md` | **Single source of truth v1** for Scenario A dates, parties, E-IDs, document numbers, clauses and unresolved group decisions; historical facts sourced and constructed events marked `[A]` | v01, 2026-09-27 |
+| `document-register-scenario-A-v1.csv` | Scenario A Register v1 tracing the sourced decision into the assumed CAA/ABIC document chain; contribution, time and cost fields remain explicitly TBD | v01, 2026-09-27 |
 
 ## Scenario decision (2026-09-27, revisit after reading `10-tutor-video-notes.md`)
 
