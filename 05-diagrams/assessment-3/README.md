@@ -24,12 +24,14 @@ Brief: `../../02-assessment-tasks/assessment-3-brief.md` · **Group of three** (
 | `11-scenario-A-event-sheet.md` | **Single source of truth v1** for Scenario A dates, parties, E-IDs, document numbers, clauses and unresolved group decisions; historical facts sourced and constructed events marked `[A]` | v01, 2026-09-27 |
 | `document-register-scenario-A-v1.csv` | Scenario A Register v1 tracing the sourced decision into the assumed CAA/ABIC document chain; contribution, time and cost fields remain explicitly TBD | v01, 2026-09-27 |
 | `12-official-tabs-confirmed.md` | **Read first.** The actual Resources / Method + Assessment Criteria / Submission + Due Date Canvas tabs: resolves group size (three) and due date (6 Nov) definitively, exact resource filenames + required flags, the official week-by-week method, assessment criteria + AACA competency codes, submission format and file naming | v01, 2026-09-27 |
+| `13-timeline-draft-v1.md` | **This week's Timeline draft (A1)**, built from the group's own live Document Register — runs with **Scenario 1 (piers)**, the group's apparent actual choice; flags the CAA2019→2024 gap | v01, 2026-09-27 |
+| `14-document-register-v2.md` + `document-register-v2.csv` | **This week's Register continuation (A2)** — every row the group (Frank, Prani, Jerry) already entered, preserved exactly, plus suggested new rows and gap-fills clearly marked, not silently assigned | v01, 2026-09-27 |
 
-## Scenario decision (2026-09-27, revisit after reading `10-tutor-video-notes.md`)
+## Scenario decision — **likely superseded, confirm with the group**
 
-**Chosen: Scenario A — Major Hall changed from opera + concert to concert-only; stage machinery scrapped (1966–67).** Client-initiated (Cabinet/ABC), architect must advise, redesign, instruct the builder, and the architect changes mid-project (Utzon → Hall/Todd/Littlemore). See `07-scenario-options.md` for why, `08-scenario-A-evidence.md` for sources, `09-timeline-scenario-A.md` for the working Timeline.
+The group's own live Document Register (`D:\RMIT_SEM2 26_PROPRAC 1\Week 10\DOCUMENT REGISTER_PP1.pdf`, real entries from Frank/Prani/Jerry) runs a single SW-12→14→11 cycle dated 1961–62 with no demolition — this matches the tutor's **Scenario 1 (additional piers)**, not the scenario below. **`13-timeline-draft-v1.md` and `14-document-register-v2.md` run with Scenario 1.** Raise this at the next meeting to confirm.
 
-**But the tutor's video (2026-09-27) changes the trade-off** — scenarios 1, 2 and 3 now come with complete, tutor-sanctioned document chains and dollar/time figures, while A's own numbers are still a research gap. Decide as a group at meeting #2; see the recommendation at the end of `10-tutor-video-notes.md`.
+**Earlier choice, kept as a documented alternative: Scenario A — Major Hall changed from opera + concert to concert-only; stage machinery scrapped (1966–67).** See `07-scenario-options.md` for why, `08-scenario-A-evidence.md` for sources, `09-timeline-scenario-A.md` / `11-scenario-A-event-sheet.md` for the working files.
 
 ## Resources
 
