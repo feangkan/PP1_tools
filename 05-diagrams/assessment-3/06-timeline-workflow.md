@@ -2,7 +2,7 @@
 
 - **Date:** 2026-09-26 (**v02**: lanes and zoom frame now built from the supplied CAA 2024 and ABIC SW 2018 — see `../../02-assessment-tasks/assessment-3-resources.md`)
 - **Reference:** monday.com *The Timeline Widget* (support article, read 2026-09-26) — shortcut in `D:\RMIT_SEM2 26_PROPRAC 1\Assessment 3 resources\`.
-- **Files:** `timeline/` — `soh-timeline-template.png/.svg` (empty board), `soh-timeline-example.png/.svg` (filled with scaffold events, all `[verify]`), `soh-timeline-events-starter.csv`, `build_timeline.py` (regenerates all of them).
+- **Files:** `timeline/` — `soh-timeline-template.png/.svg` (empty board), `soh-timeline-scenario1.png/.svg` (**our project board**: Scenario 1, Register dates, team names per lane, task-assignment panel, month-by-month zoom of the chain), `soh-timeline-scenario1-events.csv`, `build_timeline.py` (regenerates all of them).
 - **Categories (as asked):** two timelines × three phases.
 
 | | P1 Client brief → Tender | P2 Tender → Start construction | P3 Construction → Completion |
@@ -71,7 +71,7 @@ These fields map straight onto the course's **Architects Register** columns (`Da
 2. Right-click → **Lock**, so nobody drags the background.
 3. To the right of the board, build a **kit**: one card, one bar and one diamond per factor colour, a dashed version of each, a red star and a red line. Everyone duplicates from the kit (Alt-drag or Ctrl+D) so colours stay exact.
 4. Create the **tags** once: the 5 factors, `[F]`, `[A]`, `SCENARIO`, the lane IDs and the three students' names.
-5. **Bulk start (optional):** open `soh-timeline-events-starter.csv` in Excel or Sheets, copy the *Card text* column and paste it onto the board. Miro should turn each cell into a sticky `[verify this behaviour]`. Sort them from the Inbox. Every starter row is `[verify]` until checked.
+5. **Bulk start (optional):** open `soh-timeline-scenario1-events.csv` in Excel or Sheets, copy the *Card text* column and paste it onto the board. Miro should turn each cell into a sticky `[verify this behaviour]`. The *Student* column gives each card its lane owner.
 6. Take a photo or export of the board at each weekly meeting. That gives you a version history for the group.
 
 ## Rules that keep it consistent (rubric C4)
@@ -89,4 +89,4 @@ Edit `EVENTS`, `PHASES` or `GROUPS` in `timeline/build_timeline.py`, then run it
 py build_timeline.py
 ```
 
-It rewrites both boards and the starter CSV. Re-upload the PNG to Miro if the lanes or phases change. Moving cards doesn't need a rebuild.
+It rewrites the template, the Scenario 1 board and its events CSV. Re-upload the PNG to Miro if the lanes or phases change. Moving cards doesn't need a rebuild.

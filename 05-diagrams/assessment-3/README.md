@@ -15,7 +15,7 @@ Brief: `../../02-assessment-tasks/assessment-3-brief.md` · **Group of three** (
 | `04-scenario-research-sheet.md` | Template each student fills for their scenario | v01 |
 | `05-weekly-plan.md` | Week 9 → 15 plan, lead handovers, A4 quiz clash, W14 consistency matrix | v01 |
 | `06-timeline-workflow.md` | **v02** Timeline template (Design / Contract timelines × P1 brief→tender, P2 tender→start, P3 construction→completion), modelled on the monday.com Timeline Widget, + Miro setup + 10-step workflow | v01, 2026-09-26 |
-| `timeline/` | `build_timeline.py` → `soh-timeline-template.png/.svg` (Miro background), `soh-timeline-example.png/.svg`, `soh-timeline-events-starter.csv` | v01 |
+| `timeline/` | `build_timeline.py` → `soh-timeline-template.png/.svg` (Miro background), **`soh-timeline-scenario1.png/.svg` = our project board** (Scenario 1, Register dates, lane owners Frank / Jerry / Prani, task-assignment panel, month zoom of the chain), `soh-timeline-scenario1-events.csv` | v02, 2026-09-29 |
 | `document-register-template.csv` | Architects Register — the course sample's columns (Date · Document · Form No. · From/To · Details · Student Contribution) + our E-ID / doc no. / [F]/[A] / required-form columns | v02 — matched to course sample |
 | `07-scenario-options.md` | 10 candidate scenarios, then a v02 shortlist of 6 **architect-led** scenarios (design/brief/materials/advice, not engineering) with a recommendation | v02, 2026-09-27 |
 | `08-scenario-A-evidence.md` | **Chosen scenario A** (Major Hall → concert hall only, stage machinery scrapped): fact table with sources, research gaps, link list (official/archive, scholarly, background), evidence → file-document map | v01, 2026-09-27 |

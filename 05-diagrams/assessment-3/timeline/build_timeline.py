@@ -7,7 +7,8 @@ and a baseline (planned vs actual).
 
 Outputs (next to this script):
   soh-timeline-template.svg / .png   empty board -> upload to Miro, lock as background
-  soh-timeline-example.svg / .png    same board filled with the scaffold events (all [verify])
+  soh-timeline-scenario1.svg / .png  PROJECT board: Scenario 1 (additional piers), dates from the group's
+                                     Document Register, team names per lane, task-assignment panel
 
 Edit EVENTS / PHASES / LANES below and re-run:  py build_timeline.py
 """
@@ -48,11 +49,22 @@ MARKER = "#C8413B"
 # Phases = the three periods asked for. Boundaries are planned-sequence
 # defaults; move them once dates are verified.
 PHASES = [
-    ("P1  Client brief  ->  Tender", ym(1955, 9, 13), ym(1958, 6), "#E6ECF3"),
+    ("P1  Client brief  ->  Tender", ym(1956), ym(1958, 6), "#E6ECF3"),
     ("P2  Tender  ->  Start construction", ym(1958, 6), ym(1959, 3, 2), "#F4EBDD"),
     ("P3  Construction  ->  Completion", ym(1959, 3, 2), ym(1973, 10, 20), "#E4EFE6"),
     ("Final cert.", ym(1973, 10, 20), ym(1975), "#EEEEEE"),
 ]
+
+# Lane owners follow the contributor/checker pattern in the group's Register (Week 10 PDF).
+# Lead 2 / Lead 3 are inferred from that pattern -- confirm with the group.
+TEAM = {"L1": "Frank", "L2": "Jerry", "L3": "Prani"}
+LANE_OWNER = {
+    "D0": "Lead 1: Frank  (check: Prani)", "D1": "Lead 1: Frank  (check: Prani)",
+    "D2": "Lead 1: Frank  (check: Prani)", "D3": "Lead 1: Frank  (check: Prani)",
+    "C1": "Lead 2: Jerry  (check: Frank)", "C2": "Lead 2: Jerry  (check: Frank)",
+    "C3": "Lead 3: Prani  (check: Jerry)", "REG": "All three",
+}
+PROJECT = False   # set in build(); lane owner lines only show on the project board
 
 GROUPS = [
     ("DESIGN TIMELINE", "architect's services  -  CAA 2024", [
@@ -62,7 +74,7 @@ GROUPS = [
         ("D3", "Consultants - engineering", "client-engaged (E.1): architect coordinates"),
     ]),
     ("CONTRACT TIMELINE", "procurement + ABIC Simple Works 2018", [
-        ("C1", "Procurement + tender", "CAA A.5 tender / negotiation, contract signed"),
+        ("C1", "Procurement + cost", "tender, contract signed, cost plan (QS)"),
         ("C2", "Construction works", "F1 possession > works > M1 PC > M13 DLP"),
         ("C3", "Contract administration", "J1 SW-12 > H4 SW-14 / SW-11 > N11 SW-31"),
     ]),
@@ -75,49 +87,72 @@ GROUP_H = 58
 LANE_H = 190
 REG_H = 150
 
-# ---------------------------------------------------------------- example events (all [verify])
-# kind: bar | milestone | gate | baseline      tag: F (fact) | A (assumption)
-# optional 9th field = bar track (0 upper, 1 lower)
+# ---------------------------------------------------------------- project events: Scenario 1
+# Dates follow the group's Document Register (Week 10/DOCUMENT REGISTER_PP1.pdf) and
+# ../programme/soh_scenario1_timeline.xlsx. Where the Register gives only a year, the month is
+# an assumption: tag "A" -> dashed outline.  kind: bar | milestone | gate | baseline
+def E(lane, kind, a, b, label, factor, tag, star=False, track=0, row=None):
+    return dict(lane=lane, kind=kind, a=a, b=b, label=label, factor=factor, tag=tag,
+                star=star, track=track, row=row)
+
+
 EVENTS = [
-    # lane, kind, start, end, label, factor, tag, star(required form / scenario)[, track]
-    ("D0", "bar", ym(1957, 3), ym(1958, 3), "A.1 Concept (Red Book)", "Scope", "A", False, 0),
-    ("D0", "gate", ym(1958, 3), None, "Gate: concept approved", "Scope", "A", False),
-    ("D0", "bar", ym(1958, 3), ym(1962, 1), "A.2 Design Development - roof unresolved (Yellow Book 1962)", "Scope", "A", False, 1),
-    ("D0", "bar", ym(1958, 5), ym(1959, 2), "A.4 CD Stage I", "Scope", "A", False, 0),
-    ("D0", "gate", ym(1959, 2), None, "Gate SKIPPED: DD not approved before works start", "Scope", "A", True),
-    ("D0", "bar", ym(1959, 3, 2), ym(1974, 9), "A.6 Contract Administration (construction + post-construction)", "Time", "A", False, 0),
-    ("D1", "milestone", ym(1954), None, "E01 Opera House committee", "Scope", "F", False),
-    ("D1", "milestone", ym(1955, 9, 13), None, "E02 Competition launched", "Scope", "F", False),
-    ("D1", "milestone", ym(1959, 10), None, "E09 Cahill dies - client rep changes", "Responsibility", "F", False),
-    ("D1", "milestone", ym(1965, 5), None, "E15 Askin / Hughes", "Responsibility", "F", False),
-    ("D1", "milestone", ym(1966, 2, 28), None, "E16 Utzon resigns", "Responsibility", "F", False),
-    ("D1", "milestone", ym(1966, 4), None, "E17 Hall/Todd/Littlemore", "Responsibility", "F", False),
-    ("D2", "bar", ym(1955, 9, 13), ym(1957, 1, 29), "Competition", "Scope", "F", False),
-    ("D2", "milestone", ym(1957, 3), None, "E04 Architect engaged (CAA)", "Scope", "F", False),
-    ("D2", "bar", ym(1957, 3), ym(1961, 10), "Roof geometry unresolved", "Scope", "F", False),
-    ("D2", "bar", ym(1963), ym(1966, 2, 28), "Stage III design (plywood)", "Quality", "F", False),
-    ("D2", "bar", ym(1966, 4), ym(1973, 10), "Team II redesign + documentation", "Scope", "F", False),
-    ("D3", "milestone", ym(1957, 6), None, "E06 Arup engaged by client", "Responsibility", "F", False),
-    ("D3", "milestone", ym(1961, 10), None, "E10 Spherical solution", "Quality", "F", False),
-    ("D3", "bar", ym(1961, 6), ym(1962, 9), "E11 Columns inadequate for roof", "Scope", "F", True),
-    ("C1", "milestone", ym(1958, 11), None, "A.5 Stage I tender accepted", "Cost", "A", False),
-    ("C1", "milestone", ym(1959, 2), None, "ABIC SW signed (Sched 1)", "Cost", "A", True),
-    ("C1", "milestone", ym(1963, 2), None, "Stage II award - Hornibrook", "Cost", "F", False),
-    ("C1", "milestone", ym(1967, 1), None, "Stage III award", "Cost", "F", False),
-    ("C2", "milestone", ym(1959, 3, 2), None, "F1 Site possession 2 Mar 1959", "Time", "F", False),
-    ("C2", "baseline", ym(1959, 3, 2), ym(1963, 1, 26), "Planned: PC 26 Jan 1963 (Sched 1 item 22)", "Time", "F", False),
-    ("C2", "bar", ym(1959, 3, 2), ym(1963, 2), "Stage I podium - Civil & Civic", "Time", "F", False, 0),
-    ("C2", "bar", ym(1963, 3), ym(1967, 6), "Stage II shells - Hornibrook", "Time", "F", False, 0),
-    ("C2", "bar", ym(1967, 6), ym(1973, 10, 20), "Stage III interiors / glass", "Time", "F", False, 0),
-    ("C2", "bar", ym(1973, 10, 20), ym(1974, 10, 20), "M13 DLP 12 mo", "Quality", "A", False, 1),
-    ("C3", "milestone", ym(1962, 1), None, "SW-12 Variation (J1)", "Scope", "A", True),
-    ("C3", "milestone", ym(1962, 7), None, "SW-14 Adj. of time (H4, L1.1c)", "Time", "A", True),
-    ("C3", "milestone", ym(1963, 1), None, "SW-11 Price adj. (H4 / J5)", "Cost", "A", True),
-    ("C3", "milestone", ym(1973, 10, 20), None, "M4 PC notice", "Time", "F", False),
-    ("C3", "milestone", ym(1974, 9), None, "N10 Final claim", "Cost", "A", False),
-    ("C3", "milestone", ym(1974, 11), None, "SW-31 Final cert. (N11)", "Cost", "A", True),
+    # D0 CAA services stage -- the "Option 1" overlap: works start before design development is done
+    E("D0", "bar", ym(1957, 3), ym(1958, 3), "A.1 Concept (Red Book)", "Scope", "A", track=0),
+    E("D0", "gate", ym(1958, 3), None, "Gate: concept approved", "Scope", "A", row=0),
+    E("D0", "bar", ym(1958, 3), ym(1961, 10), "A.2 Design Development - roof unresolved until 1961", "Scope", "A", track=1),
+    E("D0", "bar", ym(1958, 5), ym(1959, 2), "A.4 CD Stage I", "Scope", "A", track=0),
+    E("D0", "gate", ym(1959, 2), None, "Gate SKIPPED: works start before DD approved", "Scope", "A", star=True, row=1),
+    E("D0", "bar", ym(1959, 3, 2), ym(1974, 11), "A.6 Contract Administration (construction + post-construction)", "Time", "A", track=0),
+    # D1 client + brief  (Lead 1 documents)
+    E("D1", "milestone", ym(1957, 2), None, "Intro letter  [Frank / Prani]", "Scope", "A", star=True, row=0),
+    E("D1", "milestone", ym(1957, 2, 21), None, "CAA signed 21 Feb 1957 - must be CAA 2024  [Frank / Prani]", "Scope", "F", star=True, row=1),
+    E("D1", "milestone", ym(1959, 10), None, "NEW: client rep Cahill -> Askin (C.3)  [Frank]", "Responsibility", "A", row=0),
+    E("D1", "milestone", ym(1961, 7), None, "NEW: CAA D.8 extra services + fee  [Frank]", "Scope", "A", star=True, row=1),
+    E("D1", "milestone", ym(1966, 2, 28), None, "Utzon resigns", "Responsibility", "F", row=0),
+    E("D1", "milestone", ym(1966, 4, 19), None, "Hall / Todd / Littlemore", "Responsibility", "F", row=1),
+    # D2 design output
+    E("D2", "bar", ym(1956), ym(1957, 1, 29), "Competition design phase", "Scope", "F", track=0),
+    E("D2", "bar", ym(1957, 3), ym(1959, 2), "Podium design + documentation", "Scope", "A", track=0),
+    E("D2", "bar", ym(1957, 3), ym(1961, 10), "Roof / shell design - unresolved (overlaps Stage I)", "Scope", "A", track=1),
+    # D3 consultants
+    E("D3", "milestone", ym(1957, 6), None, "Ove Arup & Partners - engaged by client (CAA E.1)", "Responsibility", "F", row=0),
+    E("D3", "milestone", ym(1961, 6), None, "Problem: final roof loads exceed podium columns", "Scope", "A", star=True, row=1),
+    # C1 procurement + cost  (Lead 2)
+    E("C1", "milestone", ym(1958, 7), None, "Tender docs issued", "Cost", "A", row=0),
+    E("C1", "milestone", ym(1959, 1), None, "Tender return", "Cost", "A", row=1),
+    E("C1", "milestone", ym(1959, 2, 19), None, "ABIC SW 2018 signed 19 Feb 1959  [Jerry / Frank]", "Cost", "F", star=True, row=2),
+    E("C1", "milestone", ym(1962, 3), None, "CP-06 cost plan (QS)", "Cost", "A", row=0),
+    # C2 construction  (Lead 2)
+    E("C2", "milestone", ym(1959, 3, 2), None, "F1 site possession 2 Mar 1959 [verify]", "Time", "F", row=0),
+    E("C2", "baseline", ym(1959, 3, 2), ym(1963, 1, 26), "Planned: PC 26 Jan 1963 (Sched 1 item 22)", "Time", "F"),
+    E("C2", "bar", ym(1959, 3, 2), ym(1962, 6), "Stage I podium - Civil & Civic", "Time", "A", track=0),
+    E("C2", "bar", ym(1962, 6), ym(1967, 1), "Stage II shells - Hornibrook", "Time", "A", track=0),
+    E("C2", "bar", ym(1967, 1), ym(1973, 10, 20), "Stage III interiors / glass", "Time", "A", track=0),
+    E("C2", "bar", ym(1961, 10), ym(1961, 11), "Piers work +1 month", "Time", "A", star=True, track=1),
+    E("C2", "bar", ym(1973, 10, 20), ym(1974, 10, 20), "M13 DLP 12 mo", "Quality", "A", track=1),
+    # C3 contract administration  (Lead 3) -- short labels; the zoom frame has the detail
+    E("C3", "milestone", ym(1961, 8), None, "SW-12", "Scope", "A", star=True, row=0),
+    E("C3", "milestone", ym(1961, 9), None, "SW-42", "Time", "A", row=1),
+    E("C3", "milestone", ym(1961, 10), None, "SW-13", "Scope", "A", row=2),
+    E("C3", "milestone", ym(1961, 11), None, "SW-14 +1 mo", "Time", "A", star=True, row=3),
+    E("C3", "milestone", ym(1962, 4), None, "SW-11 +$5,000", "Cost", "A", star=True, row=0),
+    E("C3", "milestone", ym(1973, 10, 20), None, "PC certificate", "Time", "F", row=1),
+    E("C3", "milestone", ym(1974, 11), None, "SW-31 final cert (refers to SW-11)", "Cost", "A", star=True, row=2),
 ]
-SCENARIO_MARK = (ym(1961, 6), "OUR SCENARIO  E11: piers + columns")
+SCENARIO_MARK = (ym(1961, 6), "OUR SCENARIO 1: additional piers to support the roof")
+
+# zoom frame (project board): the chain month by month, with contributor / checker from the Register
+ZOOM = [  # (year, month, form, text, who, required)
+    (1961, 6, "trigger", "Roof loads exceed podium columns (Arup)", "", False),
+    (1961, 7, "CAA D.8", "Extra services + fee -> client", "Frank", True),
+    (1961, 8, "SW-12", "Instruction for a Variation: piers", "Prani / Jerry", True),
+    (1961, 9, "SW-42", "Contractor's claim: 1 month, $5,000", "optional", False),
+    (1961, 10, "SW-13", "Instruction to proceed", "optional", False),
+    (1961, 11, "SW-14", "Adjustment of time +1 month", "Prani / Jerry", True),
+    (1962, 3, "CP-06", "Cost plan (QS -> architect)", "Jerry?", False),
+    (1962, 4, "SW-11", "Contract price adjustment +$5,000", "Prani / Jerry", True),
+]
 
 
 # ---------------------------------------------------------------- svg helpers
@@ -173,6 +208,8 @@ def lane_positions():
             ops.append(text(28, y + 58, lid, 26, "bold", MUTED))
             ops.append(text(80, y + 58, lname, 30, "bold"))
             ops.append(text(80, y + 96, lsub, 22, "normal", MUTED))
+            if PROJECT:
+                ops.append(text(80, y + 140, LANE_OWNER[lid], 23, "bold", "#1F4E78"))
             pos[lid] = (y, y + LANE_H)
             y += LANE_H
     # documents strip
@@ -189,6 +226,8 @@ def lane_positions():
 
 
 def build(example):
+    global PROJECT
+    PROJECT = example
     pos, lane_ops, body_bottom = lane_positions()
     grid_top = TOP + PHASE_H + AXIS_H
     ops = []
@@ -197,10 +236,12 @@ def build(example):
     ops.append(rect(0, 0, W, TOP - 20, GROUND))
     ops.append(text(28, 90, "SYDNEY OPERA HOUSE  -  PROJECT TIMELINE", 58, "bold"))
     ops.append(text(28, 145, "PP1 Assessment 3  |  A1 Timeline of significant project events  |  historical dates, contemporary instruments", 28, "normal", MUTED))
-    sub = ("EXAMPLE - scaffold events, every item [verify] against the SOH Project Information PDF" if example
-           else "TEMPLATE - lock this image as the background, then place cards / bars / diamonds on it")
+    sub = ("PROJECT - Scenario 1 (additional piers). Dates = group's Document Register; dashed outline = [A] month placeholder"
+           if example else "TEMPLATE - lock this image as the background, then place cards / bars / diamonds on it")
     ops.append(text(28, 200, sub, 28, "bold", MARKER if example else INK))
-    ops.append(text(28, 250, "Group: ____________    Lead 1: ________   Lead 2: ________   Lead 3: ________    Version / date: ________", 26, "normal", MUTED))
+    grp = ("Group: Frank / Prani / Jerry     Lead 1: Frank     Lead 2: Jerry     Lead 3: Prani     "
+           "Version: v1 / 29 Sep 2026   (Leads 2-3 inferred from the Register - confirm)") if example else           "Group: ____________    Lead 1: ________   Lead 2: ________   Lead 3: ________    Version / date: ________"
+    ops.append(text(28, 250, grp, 26, "bold" if example else "normal", "#1F4E78" if example else MUTED))
 
     # legend (top right)
     lx, ly = 4300, 40
@@ -263,12 +304,12 @@ def build(example):
         ops.extend(draw_events(pos))
         sx, slabel = SCENARIO_MARK
         ops.append(line(x(sx), TOP + PHASE_H, x(sx), body_bottom, MARKER, 6))
-        ops.append(rect(x(sx) + 8, TOP + PHASE_H + 6, 640, 50, MARKER, rx=6))
+        ops.append(rect(x(sx) + 8, TOP + PHASE_H + 6, 16 * len(slabel) + 40, 50, MARKER, rx=6))
         ops.append(text(x(sx) + 22, TOP + PHASE_H + 42, slabel, 26, "bold", PAPER))
 
     # lower panel: card template + workflow + inbox
     panel_y = body_bottom + AXIS_H + 60
-    ops.extend(lower_panel(panel_y))
+    ops.extend(lower_panel(panel_y, example))
     total_h = panel_y + 900
 
     body = "\n".join(ops)
@@ -308,59 +349,75 @@ def point_label(cx, yy, label, size=21):
 
 
 def draw_events(pos):
-    """Lane layout: two marker rows on top (y+34, y+74), two bar tracks below (y+100, y+144)."""
+    """Marker rows at y+34/+74/+114/+154 (rows 0-3); bar tracks at y+100 (0) and y+144 (1)."""
     ops = []
     slots = {}
     for ev in EVENTS:
-        lane, kind, a, b, label, factor, tag, is_star = ev[:8]
-        track = ev[8] if len(ev) > 8 else 0
+        lane, kind, a, b, label = ev["lane"], ev["kind"], ev["a"], ev["b"], ev["label"]
         top, bot = pos[lane]
-        dash = "12 7" if tag == "A" else None
-        col = FACTORS[factor]
+        dash = "12 7" if ev["tag"] == "A" else None
+        col = FACTORS[ev["factor"]]
         if kind == "baseline":
             yy = top + 150
             ops.append(rect(x(a), yy, x(b) - x(a), 24, "none", BASELINE, 4, rx=4, dash="12 7"))
             ops.append(text(x(b) + 10, yy + 19, label, 20, "normal", MUTED))
             continue
         if kind == "bar":
-            yy = top + 100 + track * 44
-            ops.append(rect(x(a), yy, max(x(b) - x(a), 12), 36, col, INK if dash else "none",
-                            3 if dash else 0, rx=8, dash=dash))
-            ops.append(text(x(a) + 12, yy + 26, label, 21, "bold", PAPER))
+            yy = top + 100 + ev["track"] * 44
+            w = max(x(b) - x(a), 12)
+            ops.append(rect(x(a), yy, w, 36, col, INK if dash else "none", 3 if dash else 0, rx=8, dash=dash))
+            if w >= 12 * len(label):
+                ops.append(text(x(a) + 12, yy + 26, label, 21, "bold", PAPER))
+            else:  # too short to hold its label: write it to the right
+                ops.append(text(x(a) + w + 12, yy + 26, label, 21, "bold", INK))
+            if ev["star"]:
+                ops.append(star(x(a) - 20, yy + 18, 14))
+            continue
+        n = slots.get(lane, 0)
+        slots[lane] = n + 1
+        rrow = ev["row"] if ev["row"] is not None else n % 2
+        cx, yy = x(a), top + 34 + rrow * 40
+        if kind == "gate":
+            ops.append(gate(cx, yy, 13, col, dash))
         else:
-            n = slots.get(lane, 0)
-            slots[lane] = n + 1
-            cx, yy = x(a), top + 34 + (n % 2) * 40
-            if kind == "gate":
-                ops.append(gate(cx, yy, 13, col, dash))
-            else:
-                ops.append(diamond(cx, yy, 15, col, INK, dash))
-            ops.append(point_label(cx, yy, label))
-            if is_star:
-                ops.append(star(cx - 34 if cx <= W - 900 else cx + 34, yy, 14))
-        if kind == "bar" and is_star:
-            ops.append(star(x(a) - 20, yy + 18, 14))
+            ops.append(diamond(cx, yy, 15, col, INK, dash))
+        ops.append(point_label(cx, yy, label))
+        if ev["star"]:
+            ops.append(star(cx - 34 if cx <= W - 900 else cx + 34, yy, 14))
     return ops
 
 
-def lower_panel(py0):
+def lower_panel(py0, project=False):
     ops = []
-    # card template (like the monday item card)
+    # ---- event card (like the monday item card); the project board shows the SW-12 card filled in
     cx, cw, ch = 60, 1500, 760
     ops.append(text(cx, py0, "EVENT CARD  (copy one per event - Miro card or sticky)", 30, "bold"))
     ops.append(rect(cx, py0 + 30, cw, ch - 60, PAPER, INK, 3, rx=10))
     ops.append(rect(cx, py0 + 30, 22, ch - 60, FACTORS["Scope"], rx=4))
-    rows = [
-        ("E-ID  |  Date(s)", "E11  |  Jun 1961 - Sep 1962"),
-        ("Event", "Podium columns inadequate for final roof loads"),
-        ("Timeline  /  lane", "Design  /  D3 Consultants"),
-        ("Phase", "P3 Construction -> Completion"),
-        ("Initiated by  ->  must respond", "Engineer (Arup)  ->  Architect, Client, Contractor"),
-        ("Factor changed", "Scope   (+ Time, Cost)"),
-        ("[F] fact / [A] assumption", "[F]  source: SOH Project Info p._  [verify]"),
-        ("Documents + clause", "SW-12 (J1), SW-14 (H4/L1), SW-11 (H4/J5); CAA D.8"),
-        ("Student  (lead / research / check)", "________ / ________ / ________"),
-    ]
+    if project:
+        rows = [
+            ("E-ID  |  Date(s)", "S1-03  |  Aug 1961  [A] month (Register: 1961)"),
+            ("Event", "Instruction for a Variation - strengthen columns, add piers"),
+            ("Timeline  /  lane", "Contract  /  C3 Contract administration"),
+            ("Phase", "P3 Construction -> Completion"),
+            ("Initiated by  ->  must respond", "Architect (Utzon)  ->  Contractor (Civil & Civic)"),
+            ("Factor changed", "Scope   (+ Time 1 month, Cost $5,000)"),
+            ("[F] fact / [A] assumption", "[A] month; figures = tutor's worked example"),
+            ("Documents + clause", "SW-12 (J1) -> SW-14 (H4/L1) -> SW-11 (H4/J5); CAA D.8"),
+            ("Student  (lead / research / check)", "Prani  /  ________  /  Jerry"),
+        ]
+    else:
+        rows = [
+            ("E-ID  |  Date(s)", "E11  |  Jun 1961 - Sep 1962"),
+            ("Event", "Podium columns inadequate for final roof loads"),
+            ("Timeline  /  lane", "Design  /  D3 Consultants"),
+            ("Phase", "P3 Construction -> Completion"),
+            ("Initiated by  ->  must respond", "Engineer (Arup)  ->  Architect, Client, Contractor"),
+            ("Factor changed", "Scope   (+ Time, Cost)"),
+            ("[F] fact / [A] assumption", "[F]  source: SOH Project Info p._  [verify]"),
+            ("Documents + clause", "SW-12 (J1), SW-14 (H4/L1), SW-11 (H4/J5); CAA D.8"),
+            ("Student  (lead / research / check)", "________ / ________ / ________"),
+        ]
     for i, (k, v) in enumerate(rows):
         yy = py0 + 100 + i * 70
         ops.append(text(cx + 50, yy, k, 22, "bold", MUTED))
@@ -368,7 +425,7 @@ def lower_panel(py0):
         if i < len(rows) - 1:
             ops.append(line(cx + 40, yy + 26, cx + cw - 30, yy + 26, "#E3E7EB", 2))
 
-    # workflow steps
+    # ---- workflow steps
     wx = 1700
     ops.append(text(wx, py0, "WORKFLOW  (each research session)", 30, "bold"))
     steps = [
@@ -383,21 +440,54 @@ def lower_panel(py0):
         "Card issues a document? -> add the Architects Register row the same day",
         "Weekly: lead checks their lanes; auditor filters by tag for gaps",
     ]
-    for i, s in enumerate(steps):
+    for i, st in enumerate(steps):
         yy = py0 + 80 + i * 66
         ops.append(f'<circle cx="{wx + 22}" cy="{yy - 8}" r="22" fill="{INK}"/>')
         ops.append(text(wx + 22, yy, str(i + 1), 22, "bold", PAPER, "middle"))
-        ops.append(text(wx + 62, yy, s, 25))
+        ops.append(text(wx + 62, yy, st, 25))
 
-    # inbox + zoom frame placeholders
+    # ---- inbox (template) / task assignment (project)
     ix = 4300
-    ops.append(text(ix, py0, "INBOX  (unsorted cards)", 30, "bold"))
-    ops.append(rect(ix, py0 + 30, 1300, 700, "#FBFBF7", MUTED, 3, rx=10, dash="16 10"))
-    ops.append(text(ix + 40, py0 + 90, "new research lands here first - sort weekly", 24, "normal", MUTED))
+    if project:
+        ops.append(text(ix, py0, "TASK ASSIGNMENT  (from the Register)", 30, "bold"))
+        ops.append(rect(ix, py0 + 30, 1300, 700, "#F7FAFD", "#1F4E78", 3, rx=10))
+        tasks = [
+            ("LEAD 1 - FRANK", "lanes D0-D3  |  checker: Prani", [
+                "Date the introductory letter (Register has no date)",
+                "Build the CAA on the 2024 template (Register says 2019)",
+                "Add row: client rep change Cahill -> Askin (CAA C.3)",
+                "Add row: CAA D.8 extra-services notice, Jul 1961"]),
+            ("LEAD 2 - JERRY", "lanes C1-C2  |  checker: Frank", [
+                "Tender dates + contractor selection (Register: years only)",
+                "ABIC SW Schedule 1: contract sum, possession, PC date",
+                "Cost plan CP-06: name the QS or declare [A]"]),
+            ("LEAD 3 - PRANI", "lane C3  |  checker: Jerry", [
+                "SW-12 -> SW-14 (+1 month) -> SW-11 (+$5,000) -> SW-31",
+                "Optional: SW-42 claim + SW-13 instruction to proceed"]),
+            ("ALL THREE", "before the Week 12 presentation", [
+                "Agree the [A] months (dashed outlines on this board)",
+                "Premier in 1961: tutor's Askin or historical Heffron?",
+                "Architect on SW-31 (1974): Utzon, or Hall/Todd/Littlemore?"]),
+        ]
+        yy = py0 + 80
+        for head, sub, items in tasks:
+            ops.append(text(ix + 30, yy, head, 25, "bold", "#1F4E78"))
+            ops.append(text(ix + 330, yy, sub, 20, "normal", MUTED))
+            yy += 34
+            for it in items:
+                ops.append(rect(ix + 36, yy - 16, 16, 16, PAPER, INK, 2, rx=2))
+                ops.append(text(ix + 64, yy, it, 21))
+                yy += 30
+            yy += 14
+    else:
+        ops.append(text(ix, py0, "INBOX  (unsorted cards)", 30, "bold"))
+        ops.append(rect(ix, py0 + 30, 1300, 700, "#FBFBF7", MUTED, 3, rx=10, dash="16 10"))
+        ops.append(text(ix + 40, py0 + 90, "new research lands here first - sort weekly", 24, "normal", MUTED))
+
+    # ---- zoom frame: ABIC SW clock + month grid
     zx = 5700
     ops.append(text(zx, py0, "ZOOM FRAME  (scenario by month + ABIC SW clock)", 30, "bold"))
     ops.append(rect(zx, py0 + 30, 1640, 700, "#FFF7F6", MARKER, 3, rx=10))
-    # the contract clock: each step, its clause, and the time limit to the next
     clock = [
         ("SW-12", "Variation", "J1", "before PC", True),
         ("notice", "Effect", "J2.3", "20 WD", False),
@@ -410,24 +500,44 @@ def lower_panel(py0):
         ("SW-49", "Final claim", "N10", "20 WD", False),
         ("SW-31", "Final cert.", "N11", "10 BD", True),
     ]
-    bw, bh, gap = 300, 108, 24
+    bw, bh, gap = 300, (70 if project else 108), 24
     for i, (form, name, cl, limit, req) in enumerate(clock):
         r, c = divmod(i, 5)
-        bx, by = zx + 30 + c * (bw + gap) + 2, py0 + 56 + r * (bh + 26)
+        bx, by = zx + 30 + c * (bw + gap) + 2, py0 + 50 + r * (bh + 12)
         ops.append(rect(bx, by, bw - 20, bh, PAPER, MARKER if req else MUTED, 3 if req else 2, rx=8,
                         dash=None if req else "10 6"))
-        ops.append(text(bx + 14, by + 34, form, 24, "bold", MARKER if req else INK))
-        ops.append(text(bx + 14, by + 64, f"{name}  ({cl})", 21))
-        ops.append(text(bx + 14, by + 94, f"limit: {limit}", 19, "normal", MUTED))
-    ops.append(text(zx + 34, py0 + 330, "WD = working days, BD = business days. Red = required by the brief, dashed = optional form or step. Form <-> clause [verify vs template forms]", 18, "normal", MUTED))
+        ops.append(text(bx + 14, by + 30, form, 22 if project else 24, "bold", MARKER if req else INK))
+        if project:
+            ops.append(text(bx + 14, by + 58, f"{name} ({cl})  {limit}", 18))
+        else:
+            ops.append(text(bx + 14, by + 64, f"{name}  ({cl})", 21))
+            ops.append(text(bx + 14, by + 94, f"limit: {limit}", 19, "normal", MUTED))
     months = "J F M A M J J A S O N D".split()
-    for yi, yr in enumerate(range(1961, 1964)):
-        bx = zx + 40 + yi * 525
-        ops.append(text(bx, py0 + 380, str(yr), 26, "bold", MARKER))
-        for mi, m in enumerate(months):
-            ops.append(text(bx + mi * 42, py0 + 412, m, 20, "normal", MUTED))
-            ops.append(line(bx + mi * 42 - 4, py0 + 424, bx + mi * 42 - 4, py0 + 700, "#F0D6D3", 1))
-    ops.append(text(zx + 40, py0 + 718, "re-date the months to your scenario; place each form card on its issue month", 20, "normal", MUTED))
+    if project:
+        gx0, gy0, gw = zx + 40, py0 + 250, 1560
+        pm = gw / 24
+        for yi, yr in enumerate((1961, 1962)):
+            ops.append(text(gx0 + yi * 12 * pm, gy0, str(yr), 24, "bold", MARKER))
+            for mi, m in enumerate(months):
+                mx = gx0 + (yi * 12 + mi) * pm
+                ops.append(text(mx + pm / 2, gy0 + 28, m, 18, "normal", MUTED, "middle"))
+                ops.append(line(mx, gy0 + 38, mx, py0 + 715, "#F0D6D3", 1))
+        for i, (yr, mo, form, what, who, req) in enumerate(ZOOM):
+            mx = gx0 + ((yr - 1961) * 12 + mo - 1) * pm + pm / 2
+            yy = gy0 + 64 + i * 51
+            ops.append(diamond(mx, yy, 13, MARKER if req else "#FFFFFF", INK))
+            lbl = f"{form}  {what}" + (f"   [{who}]" if who else "")
+            ops.append(text(mx + 22, yy + 7, lbl, 19, "bold" if req else "normal", INK))
+        ops.append(text(gx0, py0 + 718, "months placed inside the Register's years are [A] - agree them as a group; SW-31 (Nov 1974) is off this grid", 18, "normal", MUTED))
+    else:
+        ops.append(text(zx + 34, py0 + 330, "WD = working days, BD = business days. Red = required by the brief, dashed = optional form or step. Form <-> clause [verify vs template forms]", 18, "normal", MUTED))
+        for yi, yr in enumerate(range(1961, 1964)):
+            bx = zx + 40 + yi * 525
+            ops.append(text(bx, py0 + 380, str(yr), 26, "bold", MARKER))
+            for mi, m in enumerate(months):
+                ops.append(text(bx + mi * 42, py0 + 412, m, 20, "normal", MUTED))
+                ops.append(line(bx + mi * 42 - 4, py0 + 424, bx + mi * 42 - 4, py0 + 700, "#F0D6D3", 1))
+        ops.append(text(zx + 40, py0 + 718, "re-date the months to your scenario; place each form card on its issue month", 20, "normal", MUTED))
     return ops
 
 
@@ -457,15 +567,17 @@ def write_csv(name):
         w.writerow(["Timeline", "Lane", "Phase", "Kind", "Start", "End", "Event", "Factor",
                     "F/A", "Required form / scenario", "Source", "Student", "Card text"])
         for ev in EVENTS:
-            lane, kind, a, b, label, factor, tag, is_star = ev[:8]
+            lane, kind, a, b, label = ev["lane"], ev["kind"], ev["a"], ev["b"], ev["label"]
+            factor, tag, is_star = ev["factor"], ev["tag"], ev["star"]
             when = fmt(a) + (f" - {fmt(b)}" if b else "")
-            card = f"{label} | {when} | {factor} | [{tag}] [verify]"
+            card = f"{label} | {when} | {factor} | [{tag}]"
             w.writerow([lane_group[lane].title(), lane, phase_of(a), kind, fmt(a), fmt(b) if b else "",
-                        label, factor, tag, "yes" if is_star else "", "[verify]", "", card])
+                        label, factor, tag, "yes" if is_star else "", "Register / tutor" if tag == "F" else "[A]",
+                        LANE_OWNER[lane], card])
     print("wrote", p)
 
 
 if __name__ == "__main__":
     write("soh-timeline-template", build(example=False))
-    write("soh-timeline-example", build(example=True))
-    write_csv("soh-timeline-events-starter.csv")
+    write("soh-timeline-scenario1", build(example=True))
+    write_csv("soh-timeline-scenario1-events.csv")

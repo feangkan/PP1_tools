@@ -31,7 +31,7 @@
 <text x="6115.0" y="232.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#18202B" text-anchor="start">scenario marker</text>
 <rect x="6327.0" y="210.0" width="26" height="26" fill="#DDE3EA" stroke="#18202B" stroke-width="5"/>
 <text x="6366.0" y="232.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#18202B" text-anchor="start">CAA approval gate</text>
-<rect x="1107.1" y="474.0" width="874.7" height="1654.0" rx="0" fill="#E6ECF3" stroke="none" stroke-width="0"/>
+<rect x="1203.8" y="474.0" width="777.9" height="1654.0" rx="0" fill="#E6ECF3" stroke="none" stroke-width="0"/>
 <rect x="1981.7" y="474.0" width="242.3" height="1654.0" rx="0" fill="#F4EBDD" stroke="none" stroke-width="0"/>
 <rect x="2224.1" y="474.0" width="4710.3" height="1654.0" rx="0" fill="#E4EFE6" stroke="none" stroke-width="0"/>
 <rect x="6934.4" y="474.0" width="385.6" height="1654.0" rx="0" fill="#EEEEEE" stroke="none" stroke-width="0"/>
@@ -64,8 +64,8 @@
 <rect x="0.0" y="1350.0" width="7400.0" height="190.0" rx="0" fill="#FFFFFF" stroke="none" stroke-width="0" fill-opacity="0.55"/>
 <line x1="0.0" y1="1540.0" x2="7400.0" y2="1540.0" stroke="#C9D0D8" stroke-width="2"/>
 <text x="28.0" y="1408.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#586272" text-anchor="start">C1</text>
-<text x="80.0" y="1408.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">Procurement + tender</text>
-<text x="80.0" y="1446.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">CAA A.5 tender / negotiation, contract signed</text>
+<text x="80.0" y="1408.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">Procurement + cost</text>
+<text x="80.0" y="1446.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">tender, contract signed, cost plan (QS)</text>
 <rect x="0.0" y="1540.0" width="7400.0" height="190.0" rx="0" fill="#FAFBFB" stroke="none" stroke-width="0" fill-opacity="0.55"/>
 <line x1="0.0" y1="1730.0" x2="7400.0" y2="1730.0" stroke="#C9D0D8" stroke-width="2"/>
 <text x="28.0" y="1598.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#586272" text-anchor="start">C2</text>
@@ -82,9 +82,9 @@
 <rect x="0.0" y="1978.0" width="7400.0" height="150.0" rx="0" fill="#F7F8F9" stroke="none" stroke-width="0" fill-opacity="0.55"/>
 <text x="80.0" y="2038.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">Doc refs</text>
 <text x="80.0" y="2074.0" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="normal" fill="#586272" text-anchor="start">place doc no. tags under the event</text>
-<rect x="1107.1" y="300.0" width="874.7" height="102.0" rx="0" fill="#E6ECF3" stroke="#18202B" stroke-width="2"/>
-<text x="1123.1" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#18202B" text-anchor="start">P1  Client brief  -&gt;  Tender</text>
-<text x="1123.1" y="380.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">Sep 1955  to  Jun 1958  (default - adjust)</text>
+<rect x="1203.8" y="300.0" width="777.9" height="102.0" rx="0" fill="#E6ECF3" stroke="#18202B" stroke-width="2"/>
+<text x="1219.8" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#18202B" text-anchor="start">P1  Client brief  -&gt;  Tender</text>
+<text x="1219.8" y="380.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">Jan 1956  to  Jun 1958  (default - adjust)</text>
 <rect x="1981.7" y="300.0" width="242.3" height="102.0" rx="0" fill="#F4EBDD" stroke="#18202B" stroke-width="2"/>
 <text x="1997.7" y="342.0" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="bold" fill="#18202B" text-anchor="start">P2</text>
 <text x="1997.7" y="372.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">Tender -&gt;</text>
@@ -230,46 +230,46 @@
 <text x="4340.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#586272" text-anchor="start">new research lands here first - sort weekly</text>
 <text x="5700.0" y="2252.0" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="bold" fill="#18202B" text-anchor="start">ZOOM FRAME  (scenario by month + ABIC SW clock)</text>
 <rect x="5700.0" y="2282.0" width="1640.0" height="700.0" rx="10" fill="#FFF7F6" stroke="#C8413B" stroke-width="3"/>
-<rect x="5732.0" y="2308.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#C8413B" stroke-width="3"/>
-<text x="5746.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C8413B" text-anchor="start">SW-12</text>
-<text x="5746.0" y="2372.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Variation  (J1)</text>
-<text x="5746.0" y="2402.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: before PC</text>
-<rect x="6056.0" y="2308.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
-<text x="6070.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">notice</text>
-<text x="6070.0" y="2372.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Effect  (J2.3)</text>
-<text x="6070.0" y="2402.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
-<rect x="6380.0" y="2308.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
-<text x="6394.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">SW-13</text>
-<text x="6394.0" y="2372.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Proceed?  (J3)</text>
-<text x="6394.0" y="2402.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 5 WD</text>
-<rect x="6704.0" y="2308.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
-<text x="6718.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">SW-42</text>
-<text x="6718.0" y="2372.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Claim  (H1-H2)</text>
-<text x="6718.0" y="2402.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
-<rect x="7028.0" y="2308.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#C8413B" stroke-width="3"/>
-<text x="7042.0" y="2342.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C8413B" text-anchor="start">SW-14 / 11</text>
-<text x="7042.0" y="2372.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Decision  (H4)</text>
-<text x="7042.0" y="2402.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
-<rect x="5732.0" y="2442.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
-<text x="5746.0" y="2476.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">cert.</text>
-<text x="5746.0" y="2506.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Progress  (J5 / N4)</text>
-<text x="5746.0" y="2536.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 10 BD</text>
-<rect x="6056.0" y="2442.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
-<text x="6070.0" y="2476.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">PC</text>
-<text x="6070.0" y="2506.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Notice  (M4)</text>
-<text x="6070.0" y="2536.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 5 WD</text>
-<rect x="6380.0" y="2442.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
-<text x="6394.0" y="2476.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">DLP</text>
-<text x="6394.0" y="2506.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Defects  (M13)</text>
-<text x="6394.0" y="2536.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 12 mo</text>
-<rect x="6704.0" y="2442.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
-<text x="6718.0" y="2476.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">SW-49</text>
-<text x="6718.0" y="2506.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Final claim  (N10)</text>
-<text x="6718.0" y="2536.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
-<rect x="7028.0" y="2442.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#C8413B" stroke-width="3"/>
-<text x="7042.0" y="2476.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C8413B" text-anchor="start">SW-31</text>
-<text x="7042.0" y="2506.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Final cert.  (N11)</text>
-<text x="7042.0" y="2536.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 10 BD</text>
+<rect x="5732.0" y="2302.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#C8413B" stroke-width="3"/>
+<text x="5746.0" y="2332.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C8413B" text-anchor="start">SW-12</text>
+<text x="5746.0" y="2366.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Variation  (J1)</text>
+<text x="5746.0" y="2396.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: before PC</text>
+<rect x="6056.0" y="2302.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6070.0" y="2332.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">notice</text>
+<text x="6070.0" y="2366.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Effect  (J2.3)</text>
+<text x="6070.0" y="2396.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
+<rect x="6380.0" y="2302.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6394.0" y="2332.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">SW-13</text>
+<text x="6394.0" y="2366.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Proceed?  (J3)</text>
+<text x="6394.0" y="2396.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 5 WD</text>
+<rect x="6704.0" y="2302.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6718.0" y="2332.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">SW-42</text>
+<text x="6718.0" y="2366.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Claim  (H1-H2)</text>
+<text x="6718.0" y="2396.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
+<rect x="7028.0" y="2302.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#C8413B" stroke-width="3"/>
+<text x="7042.0" y="2332.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C8413B" text-anchor="start">SW-14 / 11</text>
+<text x="7042.0" y="2366.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Decision  (H4)</text>
+<text x="7042.0" y="2396.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
+<rect x="5732.0" y="2422.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="5746.0" y="2452.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">cert.</text>
+<text x="5746.0" y="2486.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Progress  (J5 / N4)</text>
+<text x="5746.0" y="2516.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 10 BD</text>
+<rect x="6056.0" y="2422.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6070.0" y="2452.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">PC</text>
+<text x="6070.0" y="2486.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Notice  (M4)</text>
+<text x="6070.0" y="2516.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 5 WD</text>
+<rect x="6380.0" y="2422.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6394.0" y="2452.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">DLP</text>
+<text x="6394.0" y="2486.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Defects  (M13)</text>
+<text x="6394.0" y="2516.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 12 mo</text>
+<rect x="6704.0" y="2422.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#586272" stroke-width="2" stroke-dasharray="10 6"/>
+<text x="6718.0" y="2452.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#18202B" text-anchor="start">SW-49</text>
+<text x="6718.0" y="2486.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Final claim  (N10)</text>
+<text x="6718.0" y="2516.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 20 WD</text>
+<rect x="7028.0" y="2422.0" width="280.0" height="108.0" rx="8" fill="#FFFFFF" stroke="#C8413B" stroke-width="3"/>
+<text x="7042.0" y="2452.0" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C8413B" text-anchor="start">SW-31</text>
+<text x="7042.0" y="2486.0" font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="normal" fill="#18202B" text-anchor="start">Final cert.  (N11)</text>
+<text x="7042.0" y="2516.0" font-family="Helvetica, Arial, sans-serif" font-size="19" font-weight="normal" fill="#586272" text-anchor="start">limit: 10 BD</text>
 <text x="5734.0" y="2582.0" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="normal" fill="#586272" text-anchor="start">WD = working days, BD = business days. Red = required by the brief, dashed = optional form or step. Form &lt;-&gt; clause [verify vs template forms]</text>
 <text x="5740.0" y="2632.0" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#C8413B" text-anchor="start">1961</text>
 <text x="5740.0" y="2664.0" font-family="Helvetica, Arial, sans-serif" font-size="20" font-weight="normal" fill="#586272" text-anchor="start">J</text>
