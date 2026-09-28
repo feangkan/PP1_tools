@@ -3,6 +3,7 @@
 - **Date:** 2026-09-29. One short summary per event, in date order, so the whole story reads start to finish.
 - Each event says **what happened**, **why it matters for our project file**, and its **source** (keys A–J are in `15-sources-A-J-verified.md`; "Register" = the group's Document Register; "tutor" = the tutor's instruction video).
 - ★ = part of our Scenario 1 (additional piers to support the roof).
+- **The interiors after 1967** (glass walls, acoustic reflectors, first performances, the organ) are covered in more depth in `17-interiors-1967-1975.md`.
 
 ---
 

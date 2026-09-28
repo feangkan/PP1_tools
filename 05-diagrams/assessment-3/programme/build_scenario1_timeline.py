@@ -13,10 +13,11 @@ symbol in the half-year containing the date. Dates follow the group's Document R
 (Week 10/DOCUMENT REGISTER_PP1.pdf). Where the Register gives only a year, the month is an
 assumption and the Status column says [A].
 
-Run:  py build_scenario1_timeline.py   (writes soh_scenario1_timeline.xlsx next to this file)
+Run:  py build_scenario1_timeline.py [output.xlsx]   (default: soh_scenario1_timeline.xlsx next to this file)
 """
 import datetime as dt
 import os
+import sys
 
 import openpyxl
 from openpyxl.formatting.rule import FormulaRule
@@ -25,7 +26,7 @@ from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "soh_scenario1_timeline.xlsx")
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "soh_scenario1_timeline.xlsx")
 D = dt.date
 ARIAL = "Arial"
 MS, GATE = "◆", "■"
@@ -356,7 +357,7 @@ b.milestone("D1", "Hall / Todd / Littlemore appointed (with Farmer)", D(1966, 4,
 b.milestone("D1", "Review of Program — change to the use of the halls", D(1966, 12, 12), "Scope", "[F]",
             frm_to="Architects → Client", src="D")
 
-b.lane("D2", "Architect — design output", "competition, Red Book, Yellow Book, White Book", "Lead 1: Frank (check: Prani)")
+b.lane("D2", "Architect — design output", "competition, Red Book, Yellow Book", "Lead 1: Frank (check: Prani)")
 b.bar("D2", "Competition design phase", D(1955, 9, 13), D(1957, 1, 29), "Scope", "REG [F]",
       frm_to="NSW Govt → entrants", src="D, I")
 b.milestone("D2", "Utzon wins first prize (£5,000; 233 entries)", D(1957, 1, 29), "Scope", "[F]", src="D, I")
@@ -366,14 +367,31 @@ R["roof"] = b.bar("D2", "Roof / shell design — unresolved, overlaps Stage I", 
                   "[F]", frm_to="Architect + Arup", src="A, B")
 R["yellow"] = b.milestone("D2", "Yellow Book — spherical shell geometry fixed", D(1962, 1, 1), "Quality", "[F]",
                           frm_to="Architect → Client", src="B")
-b.bar("D2", "White Book — Hall, Todd & Littlemore's first designs", D(1967, 1, 1), D(1969, 12, 31), "Scope", "[F]",
-      frm_to="Architects", src="H")
 
 b.lane("D3", "Consultants", "Ove Arup & Partners · CAA E.1", "Lead 1: Frank (check: Prani)")
 b.milestone("D3", "Ove Arup & Partners engaged (by client per brief; by Utzon per D)", D(1957, 6, 1),
             "Responsibility", "[A] date / conflict", frm_to="→ Arup", src="D / brief")
 R["prob"] = b.milestone("D3", "★ Problem found: final roof loads exceed podium columns", D(1961, 6, 1), "Scope",
                         "[A] verify", frm_to="Arup → Architect", src="tutor")
+
+b.lane("D4", "Interior design (after 1967)", "Hall, Todd & Littlemore + acoustician Jordan — see 17-interiors",
+       "Context — all three")
+b.milestone("D4", "Cabinet approves new brief: concert hall 2,800 / opera 1,500", D(1967, 3, 1),
+            "Scope", "[F]", frm_to="Client → Architects", src="R, M")
+b.milestone("D4", "Arup objects in writing; Major Hall stage machinery scrapped", D(1967, 3, 28), "Scope", "[F]",
+            frm_to="Arup → Minister", src="S")
+b.bar("D4", "White Book — first interior designs (halls, glass walls)", D(1967, 1, 1), D(1969, 12, 31), "Scope",
+      "[F]", frm_to="Architects", src="H")
+b.milestone("D4", "Glass walls redesigned on a steel-mullion frame (was plywood)", D(1968, 1, 1), "Quality",
+            "[F] year", frm_to="Architects", src="L")
+b.milestone("D4", "Glass-wall prototype specification", D(1969, 1, 1), "Quality", "[F]", frm_to="Architects",
+            src="C")
+b.milestone("D4", "Grand Organ report + specification (Ronald Sharp)", D(1969, 6, 1), "Scope", "[F] year",
+            frm_to="Organ builder → Client", src="P")
+b.milestone("D4", "Acoustic reflector shape fixed (Jordan + Hall)", D(1971, 12, 1), "Quality", "[F]",
+            frm_to="Acoustician + Architect", src="M")
+b.milestone("D4", "Coburn tapestry curtains hung (Opera + Drama theatres)", D(1973, 9, 1), "Quality", "[F] year",
+            frm_to="Artist → Client", src="N")
 
 # ---------------- CONTRACT TIMELINE
 b.group("CONTRACT TIMELINE", "procurement + ABIC Simple Works 2018")
@@ -408,8 +426,8 @@ b.milestone("C2", "Stage II contract drawings", D(1962, 10, 18), "Time", "REG [A
             src="REG, E")
 R["st2"] = b.bar("C2", "Stage II — roof shells (Hornibrook) to last segment", D(1963, 4, 1), D(1967, 1, 17), "Time",
                  "[F]", src="D, F")
-b.bar("C2", "Stage III — interiors + glass walls (Hornibrook)", D(1967, 1, 17), D(1973, 10, 20), "Time", "[F]",
-      src="F, J")
+b.bar("C2", "Stage III — interiors + glass walls (Hornibrook)", D(1967, 1, 17), D(1973, 10, 20), "Time",
+      "[F] K: site 1968", src="F, J, K")
 b.milestone("C2", "Stage III working drawings dated", D(1968, 7, 1), "Time", "REG [F]", frm_to="Architect → Contractor",
             src="I")
 b.bar("C2", "Defects liability period — 12 months (ABIC M13)", D(1973, 10, 20), D(1974, 10, 20), "Quality", "[A]",
@@ -430,6 +448,26 @@ b.milestone("C3", "Practical completion — official opening", D(1973, 10, 20), 
             frm_to="Architect → Contractor", src="J, D")
 b.milestone("C3", "★ Final Certificate — refers to SW-11 (Architects' Certificate of Completion)", D(1975, 5, 31),
             "Cost", "[F] REG: 1974", form="SW-31", frm_to="Architect → Contractor", who=P3, src="D")
+b.lane("C4", "Interior works + fit-out (after 1967)", "Hornibrook + specialist packages — see 17-interiors",
+       "Context — all three")
+b.milestone("C4", "Waterproofing specification", D(1967, 3, 1), "Quality", "[F]", src="C")
+b.bar("C4", "Stage III interiors + glass walls on site", D(1968, 1, 1), D(1973, 10, 20), "Time", "[F] year", src="K")
+b.bar("C4", "Glass walls built (near complete 1971)", D(1968, 7, 1), D(1971, 12, 31), "Time", "[A] months", src="K, L, F")
+b.milestone("C4", "Light-fittings agreement: architects + GEC-Philips", D(1969, 8, 1), "Cost", "[F]",
+            frm_to="Architects ↔ supplier", src="C")
+b.milestone("C4", "Electronic services subcontract: Hornibrook + AWA", D(1970, 3, 1), "Cost", "[F]",
+            frm_to="Contractor ↔ subcontractor", src="C")
+b.bar("C4", "Acoustic reflectors made (K.F. Plastics) + installed", D(1972, 3, 1), D(1972, 9, 5), "Quality", "[F]",
+      src="M")
+b.milestone("C4", "Opera Theatre stage machinery drawings (Waagner-Biro vol. 2)", D(1972, 12, 1), "Scope", "[F]",
+            src="T")
+b.milestone("C4", "First test concert in the Concert Hall (for the builders)", D(1972, 12, 17), "Quality", "[F]",
+            src="D, M")
+b.milestone("C4", "First opera: War and Peace (Opera Theatre) — use before opening", D(1973, 9, 28), "Time", "[F]",
+            src="Q")
+b.milestone("C4", "First public Concert Hall concert", D(1973, 9, 29), "Time", "[F]", src="D, Q")
+b.bar("C4", "Grand Organ — separate contract, to 30 May 1979 ($0.4m → $1.2m)", D(1969, 6, 1), D(1979, 5, 30), "Cost",
+      "[F]", src="O, D")
 b.scenario_marker(SCENARIO_DATE, "OUR SCENARIO 1: additional piers (Jun 1961)")
 
 notes(ws, b.row, "Reading the board", [
@@ -443,6 +481,7 @@ notes(ws, b.row, "Reading the board", [
     "Source column: keys A–J are the group's source sheet, each verified in 15-sources-A-J-verified.md; "
     "REG = Document Register; tutor = instruction video. Conflicts (Stage I Feb/Mar 1963, who engaged Arup, "
     "SW-31 1974 vs 31 May 1975) are listed there. 16-event-summaries.md explains every event in plain words.",
+    "Lanes D4 and C4 (after 1967) are context for the final certificate and Part B, not Scenario 1 — sources K–T and a summary of each interior event are in 17-interiors-1967-1975.md.",
 ], span=NC + 30)
 page_setup(ws)
 
