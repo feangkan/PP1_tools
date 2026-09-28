@@ -1,18 +1,17 @@
-"""Scenario 1 project timeline (Sydney Opera House, additional piers) as an
-editable Excel Gantt, styled after the master reference gantt_programme_options.xlsx.
+"""Scenario 1 project timeline in Excel, laid out like the project board
+(../timeline/soh-timeline-scenario1.png): lanes grouped into a Design timeline and a
+Contract timeline, each lane with its owner and checker, bars and milestones coloured by
+the factor that changed, the three phases across the top, and a scenario marker.
 
-Tab 1 "Scenario 1 Timeline" - whole project 1956-1974, half-year ticks.
-Tab 2 "Scenario 1 Zoom"     - the variation chain month by month, 1961-1962.
-                              Its dates are formulas pointing at tab 1 (enter dates once).
+Tabs
+  1 Timeline board    - whole project 1956-1974, half-year ticks
+  2 Scenario 1 Zoom   - the variation chain month by month, 1961-1962 (dates link to tab 1)
+  3 Task Assignment   - who does what, due week, status dropdown
 
-- Bars (date ranges)        = conditional formatting keyed to Start/End.
-- Milestones (single dates) = a diamond formula in the grid cell whose period contains the date.
-- "Scenario 1 numbers" box  = inputs (EOT months, price adjustment, contract sum, original PC);
-                              the contractual consequences are formulas.
-
-Dates come from the group's Document Register (Week 10/DOCUMENT REGISTER_PP1.pdf) and
-13-timeline-draft-v1.md. A month inside a year the Register only gives as a year is an
-assumption, marked [A] in the Status column.
+Bars = conditional formatting keyed to Start/End. Milestones = a formula that prints a
+symbol in the half-year containing the date. Dates follow the group's Document Register
+(Week 10/DOCUMENT REGISTER_PP1.pdf). Where the Register gives only a year, the month is an
+assumption and the Status column says [A].
 
 Run:  py build_scenario1_timeline.py   (writes soh_scenario1_timeline.xlsx next to this file)
 """
@@ -23,12 +22,14 @@ import openpyxl
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
+from openpyxl.worksheet.datavalidation import DataValidation
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "soh_scenario1_timeline.xlsx")
 D = dt.date
 ARIAL = "Arial"
-DIAMOND = "◆"
+MS, GATE = "◆", "■"
+DATE_FMT = "d mmm yyyy"
 
 
 def fnt(size=10, bold=False, italic=False, color="000000"):
@@ -39,56 +40,62 @@ def fill(hex_):
     return PatternFill(start_color=hex_, end_color=hex_, fill_type="solid")
 
 
-F_TITLE, F_NOTE = fnt(13, True), fnt(9, italic=True, color="595959")
-F_BODY, F_BOLD = fnt(), fnt(bold=True)
-F_INPUT, F_CALC = fnt(color="0000FF"), fnt()
-F_LINK = fnt(color="008000")                       # green = pulled from the other tab
-F_WHITE, F_WHITE_BIG = fnt(bold=True, color="FFFFFF"), fnt(12, True, color="FFFFFF")
-DARK, BAND, SECTION = fill("404040"), fill("1F4E78"), fill("D9D9D9")
-YELLOW, A_FILL = fill("FFFF00"), fill("FFF2CC")
+INK, NAVY, MUTED = "18202B", "1F4E78", "595959"
+FACTOR = {"Scope": "C8413B", "Time": "E0A030", "Cost": "1F7A8C",
+          "Quality": "5E9E6E", "Responsibility": "7B6AA8", "Baseline": "BFBFBF"}
+PHASES = [  # label, start, end (exclusive), tint
+    ("P1 Brief → Tender", D(1956, 1, 1), D(1958, 7, 1), "E6ECF3"),
+    ("P2", D(1958, 7, 1), D(1959, 7, 1), "F4EBDD"),
+    ("P3 Construction → Completion", D(1959, 7, 1), D(1974, 1, 1), "E4EFE6"),
+    ("Final", D(1974, 1, 1), D(1975, 1, 1), "EEEEEE"),
+]
+SCENARIO_DATE = D(1961, 6, 1)
 thin = Side(style="thin", color="BFBFBF")
 BORDER = Border(left=thin, right=thin, top=thin, bottom=thin)
+RED_EDGE = Side(style="medium", color="C00000")
 
-C = {
-    "design": "9DC3E6", "design_ms": "2E75B6",
-    "contract": "A9D08E", "contract_ms": "548235",
-    "scenario": "C00000", "scenario_bar": "F4B084",
-    "baseline": "BFBFBF",
-}
-COLS = ["Event", "Type", "Form No.", "From → To", "Start", "End", "Status"]
-WIDTHS = [60, 10, 10, 22, 13, 13, 15]
-DATE_FMT = "d mmm yyyy"
+COLS = [("Lane", 5), ("Event", 58), ("Type", 10), ("Form", 11), ("From → To", 22), ("Start", 12),
+        ("End", 12), ("Factor", 14), ("Status", 13), ("Contributor / checker", 20)]
+NC = len(COLS)
+C_START, C_END = 6, 7                      # column numbers of Start / End
+S_COL, E_COL = get_column_letter(C_START), get_column_letter(C_END)
 
 
-class Gantt:
-    """One sheet: left-hand event table + a time grid with bars and diamonds."""
-
-    def __init__(self, ws, ticks, step_months, year_row, first_row, tick_fmt, tick_width):
-        self.ws, self.ticks, self.step = ws, ticks, step_months
+class Board:
+    def __init__(self, ws, ticks, step, year_row, tick_width, phases=True):
+        self.ws, self.ticks, self.step = ws, ticks, step
         self.year_row, self.tick_row = year_row, year_row + 1
-        self.g0 = len(COLS) + 2
+        self.phase_row = year_row + 2 if phases else None
+        self.g0 = NC + 2
         self.g1 = self.g0 + len(ticks) - 1
         self.G0, self.G1 = get_column_letter(self.g0), get_column_letter(self.g1)
-        self.row = first_row
+        self.row = (self.phase_row or self.tick_row) + 1
+        self.first_event_row = self.row
         ws.sheet_view.showGridLines = False
-        for i, w in enumerate(WIDTHS, start=1):
+        for i, (_, w) in enumerate(COLS, start=1):
             ws.column_dimensions[get_column_letter(i)].width = w
         ws.column_dimensions[get_column_letter(self.g0 - 1)].width = 2
         for c in range(self.g0, self.g1 + 1):
             ws.column_dimensions[get_column_letter(c)].width = tick_width
-        self._header(tick_fmt)
+        self._header()
 
-    def _header(self, tick_fmt):
+    def phase_of(self, t):
+        for label, a, b, tint in PHASES:
+            if a <= t < b:
+                return label, tint
+        return None, "FFFFFF"
+
+    def _header(self):
         ws = self.ws
-        for i, h in enumerate(COLS, start=1):
+        dark = fill("404040")
+        for i, (h, _) in enumerate(COLS, start=1):
             c = ws.cell(row=self.tick_row, column=i, value=h)
-            c.font, c.fill, c.border = F_WHITE, DARK, BORDER
-            c.alignment = Alignment(horizontal="center", vertical="center")
-            ws.cell(row=self.year_row, column=i).fill = DARK
-        for col in (self.g0 - 1,):
-            ws.cell(row=self.tick_row, column=col).fill = DARK
-            ws.cell(row=self.year_row, column=col).fill = DARK
-        # year labels: merge every run of ticks sharing a year
+            c.font, c.fill, c.border = fnt(bold=True, color="FFFFFF"), dark, BORDER
+            c.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+            ws.cell(row=self.year_row, column=i).fill = dark
+        ws.cell(row=self.year_row, column=self.g0 - 1).fill = dark
+        ws.cell(row=self.tick_row, column=self.g0 - 1).fill = dark
+        # year labels
         start = 0
         for k in range(len(self.ticks) + 1):
             if k == len(self.ticks) or self.ticks[k].year != self.ticks[start].year:
@@ -96,105 +103,140 @@ class Gantt:
                 if b > a:
                     ws.merge_cells(start_row=self.year_row, start_column=a, end_row=self.year_row, end_column=b)
                 y = ws.cell(row=self.year_row, column=a, value=str(self.ticks[start].year))
-                y.font, y.fill = fnt(9, True, color="FFFFFF"), DARK
-                y.alignment = Alignment(horizontal="center")
+                y.font, y.alignment = fnt(9, True, color="FFFFFF"), Alignment(horizontal="center")
                 for col in range(a, b + 1):
-                    ws.cell(row=self.year_row, column=col).fill = DARK
+                    ws.cell(row=self.year_row, column=col).fill = dark
                 start = k
         for k, t in enumerate(self.ticks):
             c = ws.cell(row=self.tick_row, column=self.g0 + k, value=t)
-            c.number_format, c.fill = tick_fmt, DARK
-            c.font = fnt(7, True, color="FFFFFF")
-            c.alignment = Alignment(horizontal="center")
-        ws.freeze_panes = ws.cell(row=self.tick_row + 1, column=self.g0)
+            c.number_format, c.fill = "mmm", dark
+            c.font, c.alignment = fnt(7, True, color="FFFFFF"), Alignment(horizontal="center")
+        # phase row
+        if self.phase_row:
+            ws.cell(row=self.phase_row, column=2,
+                    value="PHASES: P1 client brief → tender · P2 tender → start of construction · P3 construction → completion"
+                    ).font = fnt(9, True, color=MUTED)
+            k = 0
+            while k < len(self.ticks):
+                label, tint = self.phase_of(self.ticks[k])
+                j = k
+                while j + 1 < len(self.ticks) and self.phase_of(self.ticks[j + 1])[0] == label:
+                    j += 1
+                a, b = self.g0 + k, self.g0 + j
+                if b > a:
+                    ws.merge_cells(start_row=self.phase_row, start_column=a, end_row=self.phase_row, end_column=b)
+                c = ws.cell(row=self.phase_row, column=a, value=label)
+                c.font, c.alignment = fnt(9, True, color=INK), Alignment(horizontal="left", vertical="center")
+                for col in range(a, b + 1):
+                    ws.cell(row=self.phase_row, column=col).fill = fill(tint)
+                    ws.cell(row=self.phase_row, column=col).border = Border(top=thin, bottom=thin)
+                k = j + 1
+            ws.row_dimensions[self.phase_row].height = 18
+        ws.freeze_panes = ws.cell(row=self.row, column=self.g0)
 
-    # ---- rows
-    def band(self, text):
-        c = self.ws.cell(row=self.row, column=1, value=text)
-        c.font = F_WHITE_BIG
-        for col in range(1, self.g1 + 1):
-            self.ws.cell(row=self.row, column=col).fill = BAND
-        self.row += 1
+    def _tint_grid(self, r):
+        """Light phase tint under the bars (conditional formatting paints on top)."""
+        for k, t in enumerate(self.ticks):
+            tint = self.phase_of(t)[1] if self.phase_row else "FFFFFF"
+            self.ws.cell(row=r, column=self.g0 + k).fill = fill(tint)
 
-    def section(self, text):
-        self.ws.cell(row=self.row, column=1, value=text).font = F_BOLD
-        for col in range(1, len(COLS) + 1):
-            self.ws.cell(row=self.row, column=col).fill = SECTION
-        self.row += 1
-
-    def _meta(self, name, kind, form, frm_to, status):
+    def group(self, text, sub):
         ws, r = self.ws, self.row
-        ws.cell(row=r, column=1, value=name).font = F_BODY
-        ws.cell(row=r, column=2, value=kind).font = F_BODY
-        ws.cell(row=r, column=3, value=form).font = F_BOLD
-        ws.cell(row=r, column=4, value=frm_to).font = F_BODY
-        s = ws.cell(row=r, column=7, value=status)
-        s.font = F_BODY
-        if "[A]" in status:
-            s.fill = A_FILL
-        for col in range(1, len(COLS) + 1):
-            cell = ws.cell(row=r, column=col)
-            cell.border = BORDER
-            cell.alignment = Alignment(vertical="center", horizontal="left" if col in (1, 4) else "center")
+        ws.cell(row=r, column=1, value=text).font = fnt(11, True, color="FFFFFF")
+        ws.cell(row=r, column=3, value=sub).font = fnt(9, italic=True, color="C9D3DF")
+        for col in range(1, self.g1 + 1):
+            ws.cell(row=r, column=col).fill = fill(INK)
+        ws.row_dimensions[r].height = 20
+        self.row += 1
 
-    def _date(self, col, value, linked=False):
+    def lane(self, code, name, sub, owner):
+        ws, r = self.ws, self.row
+        ws.cell(row=r, column=1, value=code).font = fnt(10, True, color=MUTED)
+        ws.cell(row=r, column=2, value=f"{name}  —  {sub}").font = fnt(10, True)
+        o = ws.cell(row=r, column=NC, value=owner)
+        o.font = fnt(9, True, color=NAVY)
+        for col in range(1, self.g1 + 1):
+            ws.cell(row=r, column=col).fill = fill("E7EBEF")
+        self.row += 1
+
+    def _meta(self, code, name, kind, form, frm_to, factor, status, who):
+        ws, r = self.ws, self.row
+        vals = [code, name, kind, form, frm_to, None, None, factor, status, who]
+        for i, v in enumerate(vals, start=1):
+            if v is None:
+                continue
+            c = ws.cell(row=r, column=i, value=v)
+            c.font = fnt(10, bold=(i == 4 and bool(form)), color=MUTED if i == 1 else "000000")
+        for col in range(1, NC + 1):
+            c = ws.cell(row=r, column=col)
+            c.border = BORDER
+            c.alignment = Alignment(vertical="center", horizontal="left" if col in (2, 5, 10) else "center")
+        f = ws.cell(row=r, column=8)
+        f.fill = fill(FACTOR[factor])
+        f.font = fnt(9, True, color="FFFFFF")
+        if "[A]" in status or "NEW" in status:
+            ws.cell(row=r, column=9).fill = fill("FFF2CC")
+        self._tint_grid(r)
+
+    def _date(self, col, value, linked):
         c = self.ws.cell(row=self.row, column=col, value=value)
         c.number_format = DATE_FMT
-        c.font = F_LINK if linked else (F_CALC if isinstance(value, str) else F_INPUT)
+        c.font = fnt(color="008000") if linked else (fnt() if isinstance(value, str) else fnt(color="0000FF"))
 
-    def bar(self, name, start, end, color, status, form="", frm_to="", kind="Bar", linked=False):
+    def bar(self, code, name, start, end, factor, status, form="", frm_to="", who="", kind="Bar", linked=False):
         r = self.row
-        self._meta(name, kind, form, frm_to, status)
-        self._date(5, start, linked)
-        self._date(6, end, linked)
-        rule = f"AND({self.G0}${self.tick_row}<$F{r},EDATE({self.G0}${self.tick_row},{self.step})>$E{r})"
+        self._meta(code, name, kind, form, frm_to, factor, status, who)
+        self._date(C_START, start, linked)
+        self._date(C_END, end, linked)
+        rule = (f"AND({self.G0}${self.tick_row}<${E_COL}{r},"
+                f"EDATE({self.G0}${self.tick_row},{self.step})>${S_COL}{r})")
         self.ws.conditional_formatting.add(f"{self.G0}{r}:{self.G1}{r}",
-                                           FormulaRule(formula=[rule], fill=fill(color)))
+                                           FormulaRule(formula=[rule], fill=fill(FACTOR[factor]), stopIfTrue=True))
         self.row += 1
         return r
 
-    def milestone(self, name, when, color, status, form="", frm_to="", linked=False):
+    def milestone(self, code, name, when, factor, status, form="", frm_to="", who="", gate=False, linked=False):
         r = self.row
-        self._meta(name, "Form" if form else "Milestone", form, frm_to, status)
-        self._date(5, when, linked)
+        sym = GATE if gate else MS
+        self._meta(code, name, "Gate" if gate else ("Form" if form else "Milestone"), form, frm_to, factor, status, who)
+        self._date(C_START, when, linked)
         for k in range(len(self.ticks)):
             L = get_column_letter(self.g0 + k)
             c = self.ws.cell(row=r, column=self.g0 + k,
-                             value=f'=IF(AND($E{r}>={L}${self.tick_row},'
-                                   f'$E{r}<EDATE({L}${self.tick_row},{self.step})),"{DIAMOND}","")')
-            c.font = fnt(10, True, color="FFFFFF")
-            c.alignment = Alignment(horizontal="center")
+                             value=f'=IF(AND(${S_COL}{r}>={L}${self.tick_row},'
+                                   f'${S_COL}{r}<EDATE({L}${self.tick_row},{self.step})),"{sym}","")')
+            c.font, c.alignment = fnt(10, True, color="FFFFFF"), Alignment(horizontal="center")
         self.ws.conditional_formatting.add(f"{self.G0}{r}:{self.G1}{r}",
-                                           FormulaRule(formula=[f'{self.G0}{r}="{DIAMOND}"'], fill=fill(color)))
+                                           FormulaRule(formula=[f'{self.G0}{r}<>""'], fill=fill(FACTOR[factor]),
+                                                       stopIfTrue=True))
         self.row += 1
         return r
 
-    def notes(self, title, lines, span):
-        self.row += 1
-        self.ws.cell(row=self.row, column=1, value=title).font = F_BOLD
-        self.row += 1
-        for n in lines:
-            c = self.ws.cell(row=self.row, column=1, value="• " + n)
-            c.font = F_NOTE
-            c.alignment = Alignment(wrap_text=True, vertical="top")
-            self.ws.merge_cells(start_row=self.row, start_column=1, end_row=self.row, end_column=span)
-            self.ws.row_dimensions[self.row].height = 26
-            self.row += 1
+    def scenario_marker(self, when, label):
+        """Red edge after the grid column that contains the scenario date, plus a label above the years."""
+        for k, t in enumerate(self.ticks):
+            nxt = self.ticks[k + 1] if k + 1 < len(self.ticks) else D(9999, 1, 1)
+            if t <= when < nxt:
+                col = self.g0 + k
+                for r in range(self.tick_row + 1, self.row):
+                    c = self.ws.cell(row=r, column=col)
+                    c.border = Border(right=RED_EDGE, top=c.border.top, bottom=c.border.bottom)
+                m = self.ws.cell(row=self.year_row - 1, column=col, value=f"▼ {label}")
+                m.font = fnt(9, True, color="C00000")
+                return
 
-    def legend(self):
-        self.row += 1
-        self.ws.cell(row=self.row, column=1, value="Colour key").font = F_BOLD
-        self.row += 1
-        for label, key in [("Design thread bar (client ↔ architect)", "design"),
-                           ("Design thread milestone / document", "design_ms"),
-                           ("Contract thread bar (construction stage)", "contract"),
-                           ("Contract thread milestone / document", "contract_ms"),
-                           ("★ Scenario 1 document", "scenario"),
-                           ("★ Scenario 1 work period (the extra month)", "scenario_bar"),
-                           ("Planned baseline / defects period", "baseline")]:
-            self.ws.cell(row=self.row, column=1, value=label).font = F_BODY
-            self.ws.cell(row=self.row, column=2).fill = fill(C[key])
-            self.row += 1
+
+def notes(ws, row, title, lines, span):
+    row += 1
+    ws.cell(row=row, column=2, value=title).font = fnt(bold=True)
+    row += 1
+    for n in lines:
+        c = ws.cell(row=row, column=2, value="• " + n)
+        c.font, c.alignment = fnt(9, italic=True, color=MUTED), Alignment(wrap_text=True, vertical="top")
+        ws.merge_cells(start_row=row, start_column=2, end_row=row, end_column=span)
+        ws.row_dimensions[row].height = 26
+        row += 1
+    return row
 
 
 def page_setup(ws):
@@ -206,176 +248,250 @@ def page_setup(ws):
 
 wb = openpyxl.Workbook()
 
-# =================================================================== TAB 1
+# ===================================================================== TAB 1
 ws = wb.active
-ws.title = "Scenario 1 Timeline"
-MAIN = "'Scenario 1 Timeline'"
-ws["A1"] = "Sydney Opera House — Scenario 1 Project Timeline (additional piers to support the roof)"
-ws["A1"].font = F_TITLE
-ws["A2"] = ("Built from the group's Document Register (Frank / Prani / Jerry). Styled after the master reference "
-            "'gantt_programme_options.xlsx' (Option 1 vs Option 2). Blue = editable input · black = formula · "
-            "Status: REG = in the Register · [F] = sourced fact · [A] = our assumption (yellow). "
-            "The month-by-month detail of the variation is on the 'Scenario 1 Zoom' tab.")
-ws["A2"].font = F_NOTE
-ws["A2"].alignment = Alignment(wrap_text=True, vertical="top")
-ws.merge_cells("A2:AF2")
-ws.row_dimensions[2].height = 28
+ws.title = "Timeline board"
+MAIN = "'Timeline board'"
+ws["A1"] = "SYDNEY OPERA HOUSE — PROJECT TIMELINE"
+ws["A1"].font = fnt(14, True)
+ws["A2"] = ("PP1 Assessment 3 · A1 Timeline · Scenario 1: additional piers to support the roof · dates from the "
+            "group's Document Register · Status [A] (yellow) = month assumed inside the Register's year")
+ws["A2"].font = fnt(9, italic=True, color=MUTED)
+ws["A3"] = ("Group: Frank / Prani / Jerry     Lead 1: Frank     Lead 2: Jerry     Lead 3: Prani     "
+            "(Leads 2–3 inferred from the Register — confirm)")
+ws["A3"].font = fnt(10, True, color=NAVY)
 
-ws["A4"] = "Scenario 1 numbers — change these, everything else follows"
-ws["A4"].font = F_WHITE_BIG
-for c in range(1, len(COLS) + 1):
-    ws.cell(row=4, column=c).fill = BAND
+# numbers box, rows 5-11
+ws["B5"] = "Scenario 1 numbers — change these, everything else follows"
+ws["B5"].font = fnt(11, True, color="FFFFFF")
+for c in range(1, NC + 1):
+    ws.cell(row=5, column=c).fill = fill(NAVY)
 box = [
-    ("Site possession (Stage I start) — ABIC F1", D(1959, 3, 2), True, DATE_FMT,
-     "[verify] against the SOH Project Information PDF"),
-    ("Original date for practical completion — Sched 1 item 22", D(1963, 1, 26), True, DATE_FMT,
-     "Tutor's project information"),
+    ("Site possession (Stage I start) — ABIC F1", D(1959, 3, 2), True, DATE_FMT, "[verify] against the SOH Project Information PDF"),
+    ("Original date for practical completion — Sched 1 item 22", D(1963, 1, 26), True, DATE_FMT, "Tutor's project information"),
     ("Adjustment of time granted by SW-14 (months)", 1, True, "0", "Tutor's worked example for Scenario 1"),
-    ("Date for PC after SW-14 (this variation only)", "=EDATE(E6,E7)", False, DATE_FMT,
-     "Formula: original PC + SW-14 months"),
-    ("Contract sum at signing ($)", 9600000, True, "$#,##0",
-     "Tutor's 'ballpark' original budget (~$9.6m); the group may pick another figure"),
+    ("Date for PC after SW-14 (this variation only)", "=EDATE(F7,F8)", False, DATE_FMT, "Formula: original PC + SW-14 months"),
+    ("Contract sum at signing ($)", 9600000, True, "$#,##0", "Tutor's 'ballpark' original budget; the group may pick another"),
     ("Contract price adjustment by SW-11 ($)", 5000, True, "$#,##0", "Tutor's worked example for Scenario 1"),
-    ("Contract sum after SW-11 ($) — the figure SW-31 must refer back to", "=E9+E10", False, "$#,##0",
-     "Formula. Only this variation is modelled; other project variations are not."),
+    ("Contract sum after SW-11 ($) — the figure SW-31 must refer back to", "=F10+F11", False, "$#,##0",
+     "Formula. Only this variation is modelled"),
 ]
 for i, (label, val, is_in, fmt, note) in enumerate(box):
-    r = 5 + i
-    ws.cell(row=r, column=1, value=label).font = F_BOLD if i == len(box) - 1 else F_BODY
-    v = ws.cell(row=r, column=5, value=val)
-    v.font, v.number_format = (F_INPUT if is_in else F_CALC), fmt
+    r = 6 + i
+    ws.cell(row=r, column=2, value=label).font = fnt(bold=(i == len(box) - 1))
+    v = ws.cell(row=r, column=6, value=val)
+    v.font, v.number_format = (fnt(color="0000FF") if is_in else fnt()), fmt
     if is_in:
-        v.fill = YELLOW
-    ws.cell(row=r, column=6, value=note).font = F_NOTE
-POSS, PC, EOT = "$E$5", "$E$6", "$E$7"
+        v.fill = fill("FFFF00")
+    ws.cell(row=r, column=7, value=note).font = fnt(9, italic=True, color=MUTED)
+POSS, PC, EOT = "$F$6", "$F$7", "$F$8"
 
-g = Gantt(ws, [D(y, m, 1) for y in range(1956, 1975) for m in (1, 7)], 6,
-          year_row=13, first_row=15, tick_fmt="mmm", tick_width=3.4)
-R = {}   # row numbers of events the zoom tab links to
+b = Board(ws, [D(y, m, 1) for y in range(1956, 1975) for m in (1, 7)], 6, year_row=15, tick_width=3.6)
 
-g.band("Phase 1 — Client brief → Tender (1956–1958)")
-g.section("Design thread — client ↔ architect (CAA) · Lead 1")
-g.bar("Competition design phase", D(1956, 1, 1), D(1957, 1, 29), C["design"], "REG [F]",
-      frm_to="NSW Govt → entrants")
-g.milestone("Introductory letter (Guide Letter 1)", D(1957, 2, 1), C["design_ms"], "REG [A]",
-            frm_to="Architect → Client")
-g.milestone("CAA signed — must be the 2024 edition (Register says 2019)", D(1957, 2, 21),
-            C["design_ms"], "REG", form="CAA", frm_to="Architect → Client")
-g.bar("Podium design & documentation", D(1957, 3, 1), D(1959, 2, 1), C["design"], "[A]", frm_to="Architect")
-R["roof"] = g.bar("Roof / shell design — unresolved until 1961", D(1957, 3, 1), D(1961, 10, 1),
-                  C["design"], "[A] verify", frm_to="Architect + Arup")
-g.section("Contract thread — procurement · Lead 2")
-g.milestone("Tender documents issued", D(1958, 7, 1), C["contract_ms"], "REG [A]", frm_to="Architect → Contractor")
+# legend above the grid (rows 5-11, grid columns)
+L0 = b.g0
+ws.cell(row=5, column=L0, value="COLOUR BY FACTOR").font = fnt(9, True, color=MUTED)
+for i, (k, col) in enumerate([(k, v) for k, v in FACTOR.items() if k != "Baseline"]):
+    r = 6 + i
+    ws.cell(row=r, column=L0).fill = fill(col)
+    ws.cell(row=r, column=L0 + 1, value=k).font = fnt(9)
+ws.cell(row=5, column=L0 + 8, value="SYMBOLS").font = fnt(9, True, color=MUTED)
+for i, (sym, txt, col) in enumerate([
+        ("", "bar = date range", "9DC3E6"), (MS, "milestone / document = one date", None),
+        (GATE, "CAA client-approval gate", None), ("", "planned baseline", FACTOR["Baseline"]),
+        ("▼", "red column edge = our scenario (Jun 1961)", None),
+        ("", "Status yellow = [A] assumption / NEW row", "FFF2CC")]):
+    r = 6 + i
+    c = ws.cell(row=r, column=L0 + 8, value=sym)
+    c.alignment = Alignment(horizontal="center")
+    c.font = fnt(10, True, color="C00000" if sym == "▼" else INK)
+    if col:
+        c.fill = fill(col)
+    ws.cell(row=r, column=L0 + 9, value=txt).font = fnt(9)
+ws.cell(row=5, column=L0 + 20, value="REQUIRED FORMS").font = fnt(9, True, color=MUTED)
+ws.cell(row=6, column=L0 + 20, value="Intro letter · CAA 2024 · ABIC SW 2018 · SW-12 · SW-14 · SW-11 · SW-31").font = fnt(9)
+ws.cell(row=7, column=L0 + 20, value="Optional: SW-42 claim · SW-13 instruction to proceed").font = fnt(9, italic=True, color=MUTED)
 
-g.band("Phase 2 — Tender → Start of construction (1958–1959)")
-g.section("Contract thread — procurement · Lead 2")
-g.milestone("Tender return", D(1959, 1, 1), C["contract_ms"], "REG [A]", frm_to="Contractor → Architect")
-g.milestone("Contractor selection (Civil & Civic)", D(1959, 2, 1), C["contract_ms"], "REG [A]")
-g.milestone("Simple Works Contract signed", D(1959, 2, 19), C["contract_ms"], "REG", form="SW 2018",
+R = {}
+F1, J2, P3 = "Frank / Prani", "Jerry / Frank", "Prani / Jerry"
+# ---------------- DESIGN TIMELINE
+b.group("DESIGN TIMELINE", "architect's services · CAA 2024")
+b.lane("D0", "CAA services stage", "Sched A: A.1 Concept › A.2 DD › A.4 CD › A.6 + client approval gates",
+       "Lead 1: Frank (check: Prani)")
+b.bar("D0", "A.1 Concept design (Red Book)", D(1957, 3, 1), D(1958, 3, 1), "Scope", "[A]", form="CAA A.1", who=F1)
+b.milestone("D0", "Gate: concept approved by client in writing", D(1958, 3, 1), "Scope", "[A]", gate=True, who=F1)
+b.bar("D0", "A.2 Design development — roof unresolved until 1961", D(1958, 3, 1), D(1961, 10, 1), "Scope", "[A] verify",
+      form="CAA A.2", who=F1)
+b.bar("D0", "A.4 Construction documentation — Stage I", D(1958, 5, 1), D(1959, 2, 1), "Scope", "[A]", form="CAA A.4", who=F1)
+b.milestone("D0", "★ Gate SKIPPED: works start before DD approved", D(1959, 2, 1), "Scope", "[A]", gate=True, who=F1)
+b.bar("D0", "A.6 Contract administration (construction + post-construction)", f"={POSS}", D(1974, 11, 1), "Time", "[A]",
+      form="CAA A.6", who=F1)
+
+b.lane("D1", "Client + brief", "decisions, approvals, representatives (C.3)", "Lead 1: Frank (check: Prani)")
+b.milestone("D1", "★ Introductory letter", D(1957, 2, 1), "Scope", "REG [A]", form="GL1", frm_to="Architect → Client", who=F1)
+b.milestone("D1", "★ CAA signed — must be the 2024 edition (Register says 2019)", D(1957, 2, 21), "Scope", "REG",
+            form="CAA", frm_to="Architect → Client", who=F1)
+b.milestone("D1", "Client representative changes: Cahill → Askin (CAA C.3)", D(1959, 10, 1), "Responsibility", "NEW [A]",
+            frm_to="Client → Architect", who="Frank")
+R["d8"] = b.milestone("D1", "★ Architect notifies client: extra services + fee (CAA D.8)", D(1961, 7, 1), "Scope", "NEW [A]",
+                      form="CAA D.8", frm_to="Architect → Client", who="Frank")
+b.milestone("D1", "Utzon resigns", D(1966, 2, 28), "Responsibility", "[F]", frm_to="Architect → Client")
+b.milestone("D1", "Hall / Todd / Littlemore appointed", D(1966, 4, 19), "Responsibility", "[F]", frm_to="Client → Architects")
+
+b.lane("D2", "Architect — design output", "competition, podium, roof / shells", "Lead 1: Frank (check: Prani)")
+b.bar("D2", "Competition design phase", D(1956, 1, 1), D(1957, 1, 29), "Scope", "REG [F]", frm_to="NSW Govt → entrants")
+b.bar("D2", "Podium design + documentation", D(1957, 3, 1), D(1959, 2, 1), "Scope", "[A]", frm_to="Architect")
+R["roof"] = b.bar("D2", "Roof / shell design — unresolved, overlaps Stage I", D(1957, 3, 1), D(1961, 10, 1), "Scope",
+                  "[A] verify", frm_to="Architect + Arup")
+
+b.lane("D3", "Consultants", "client-engaged (CAA E.1): architect coordinates", "Lead 1: Frank (check: Prani)")
+b.milestone("D3", "Ove Arup & Partners engaged directly by client", D(1957, 6, 1), "Responsibility", "[F] / [A] date",
+            frm_to="Client → Arup")
+R["prob"] = b.milestone("D3", "★ Problem found: final roof loads exceed podium columns", D(1961, 6, 1), "Scope", "[A] verify",
+                        frm_to="Arup → Architect")
+
+# ---------------- CONTRACT TIMELINE
+b.group("CONTRACT TIMELINE", "procurement + ABIC Simple Works 2018")
+b.lane("C1", "Procurement + cost", "tender, contract signed, cost plan", "Lead 2: Jerry (check: Frank)")
+b.milestone("C1", "Tender documents issued", D(1958, 7, 1), "Cost", "REG [A]", frm_to="Architect → Contractor", who="Jerry?")
+b.milestone("C1", "Tender return", D(1959, 1, 1), "Cost", "REG [A]", frm_to="Contractor → Architect", who="Jerry?")
+b.milestone("C1", "Contractor selection (Civil & Civic)", D(1959, 2, 1), "Cost", "REG [A]")
+b.milestone("C1", "★ Simple Works Contract signed", D(1959, 2, 19), "Cost", "REG", form="SW 2018",
+            frm_to="Architect → Contractor", who=J2)
+R["cp06"] = b.milestone("C1", "Cost plan issued", D(1962, 3, 1), "Cost", "REG [A]", form="CP-06", frm_to="QS → Architect",
+                        who="Jerry?")
+
+b.lane("C2", "Construction works", "F1 possession › stages › M1 PC › M13 defects", "Lead 2: Jerry (check: Frank)")
+b.milestone("C2", "Site possession — Stage I starts", f"={POSS}", "Time", "REG [verify]", frm_to="Client → Contractor")
+b.bar("C2", "Planned programme at signing (baseline)", f"={POSS}", f"={PC}", "Baseline", "[F] tutor", kind="Baseline")
+R["st1"] = b.bar("C2", "Stage I — podium (Civil & Civic)", f"={POSS}", D(1962, 6, 1), "Time", "REG [A]")
+r_work = b.row
+R["work"] = b.bar("C2", "★ Piers work on site — the extra time", D(1961, 10, 1), f"=EDATE({S_COL}{r_work},{EOT})", "Time",
+                  "[A]", frm_to="Contractor", kind="Work")
+R["st2"] = b.bar("C2", "Stage II — roof shells (Hornibrook)", D(1962, 6, 1), D(1967, 1, 1), "Time", "REG [A]")
+b.milestone("C2", "Stage II contract drawings", D(1962, 9, 1), "Time", "REG [A]", frm_to="Architect → Contractor")
+b.bar("C2", "Stage III — interiors + glass walls", D(1967, 1, 1), D(1973, 10, 20), "Time", "REG [A]")
+b.milestone("C2", "Stage III contract drawings", D(1968, 3, 1), "Time", "REG [A]", frm_to="Architect → Contractor")
+b.bar("C2", "Defects liability period — 12 months (ABIC M13)", D(1973, 10, 20), D(1974, 10, 20), "Quality", "[A]",
+      kind="Period")
+
+b.lane("C3", "Contract administration", "J1 SW-12 › H4 SW-14 / SW-11 › N11 SW-31", "Lead 3: Prani (check: Jerry)")
+R["sw12"] = b.milestone("C3", "★ Instruction for a Variation — strengthen columns, add piers", D(1961, 8, 1), "Scope",
+                        "REG [A]", form="SW-12", frm_to="Architect → Contractor", who=P3)
+R["sw42"] = b.milestone("C3", "Contractor's details of claim — 1 month, $5,000 (optional)", D(1961, 9, 1), "Time",
+                        "[A] optional", form="SW-42", frm_to="Contractor → Architect")
+R["sw13"] = b.milestone("C3", "Instruction to proceed with the variation (optional)", D(1961, 10, 1), "Scope",
+                        "[A] optional", form="SW-13", frm_to="Architect → Contractor")
+R["sw14"] = b.milestone("C3", "★ Adjustment of time — +1 month", D(1961, 11, 1), "Time", "REG [A]", form="SW-14",
+                        frm_to="Architect → Contractor", who=P3)
+R["sw11"] = b.milestone("C3", "★ Contract Price Adjustment — +$5,000", D(1962, 4, 1), "Cost", "REG [A]", form="SW-11",
+                        frm_to="Architect → Contractor", who=P3)
+b.milestone("C3", "Practical Completion Certificate (opening 20 Oct 1973)", D(1973, 10, 20), "Time", "REG [F]",
             frm_to="Architect → Contractor")
-g.milestone("Site possession — Stage I starts", f"={POSS}", C["contract_ms"], "REG [verify]",
-            frm_to="Client → Contractor")
-g.section("Design thread — client ↔ architect (CAA) · Lead 1")
-g.milestone("Client representative changes: Premier Cahill → Askin (CAA C.3)", D(1959, 10, 1),
-            C["design_ms"], "NEW [A]", frm_to="Client → Architect")
+b.milestone("C3", "★ Final Certificate — refers to SW-11", D(1974, 11, 1), "Cost", "REG [A]", form="SW-31",
+            frm_to="Architect → Contractor", who=P3)
+b.scenario_marker(SCENARIO_DATE, "OUR SCENARIO 1: additional piers (Jun 1961)")
 
-g.band("Phase 3 — Construction → Completion (1959–1974)")
-g.section("Contract thread — construction · Leads 2–3")
-g.bar("Planned programme at signing (baseline)", f"={POSS}", f"={PC}", C["baseline"], "[F] tutor", kind="Baseline")
-R["st1"] = g.bar("Stage I — podium (Civil & Civic)", f"={POSS}", D(1962, 6, 1), C["contract"], "REG [A]")
-R["st2"] = g.bar("Stage II — roof shells (Hornibrook)", D(1962, 6, 1), D(1967, 1, 1), C["contract"], "REG [A]")
-g.milestone("Stage II contract drawings", D(1962, 9, 1), C["contract_ms"], "REG [A]", frm_to="Architect → Contractor")
-g.bar("Stage III — interiors & glass walls", D(1967, 1, 1), D(1973, 10, 20), C["contract"], "REG [A]")
-g.milestone("Stage III contract drawings", D(1968, 3, 1), C["contract_ms"], "REG [A]", frm_to="Architect → Contractor")
-
-g.section("★ Scenario 1 chain — additional piers (Lead 3; Lead 1 on the CAA side)")
-CHAIN = [  # key, name, date, status, form, from->to
-    ("prob", "Design problem found: final roof loads exceed the podium columns", D(1961, 6, 1),
-     "[A] verify", "", "Arup → Architect"),
-    ("d8", "Architect notifies client of extra services + fee (CAA D.8)", D(1961, 7, 1),
-     "NEW [A]", "CAA D.8", "Architect → Client"),
-    ("sw12", "Instruction for a Variation — strengthen columns, add piers", D(1961, 8, 1),
-     "REG [A] month", "SW-12", "Architect → Contractor"),
-    ("sw42", "Contractor's details of claim — 1 month, $5,000 (optional form)", D(1961, 9, 1),
-     "[A] optional", "SW-42", "Contractor → Architect"),
-    ("sw13", "Instruction to proceed with the variation (optional form)", D(1961, 10, 1),
-     "[A] optional", "SW-13", "Architect → Contractor"),
-]
-for key, name, when, status, form, ft in CHAIN:
-    R[key] = g.milestone(name, when, C["scenario"], status, form=form, frm_to=ft)
-r_work = g.row
-R["work"] = g.bar("Piers work on site — the extra time", D(1961, 10, 1), f"=EDATE(E{r_work},{EOT})",
-                  C["scenario_bar"], "[A]", frm_to="Contractor", kind="Work")
-R["sw14"] = g.milestone("Adjustment of time — +1 month", D(1961, 11, 1), C["scenario"], "REG [A] month",
-                        form="SW-14", frm_to="Architect → Contractor")
-R["cp06"] = g.milestone("Cost plan issued", D(1962, 3, 1), C["contract_ms"], "REG [A] month",
-                        form="CP-06", frm_to="QS → Architect")
-R["sw11"] = g.milestone("Contract Price Adjustment — +$5,000", D(1962, 4, 1), C["scenario"], "REG [A] month",
-                        form="SW-11", frm_to="Architect → Contractor")
-
-g.section("Completion")
-g.milestone("Practical Completion Certificate (opening 20 Oct 1973)", D(1973, 10, 20), C["contract_ms"],
-            "REG [F]", frm_to="Architect → Contractor")
-g.bar("Defects liability period — 12 months (ABIC M13)", D(1973, 10, 20), D(1974, 10, 20), C["baseline"],
-      "[A]", kind="Period")
-R["sw31"] = g.milestone("Final Certificate — refers to SW-11", D(1974, 11, 1), C["scenario"], "REG [A] month",
-                        form="SW-31", frm_to="Architect → Contractor")
-
-g.legend()
-g.notes("Notes", [
-    "Read with the master reference (gantt_programme_options.xlsx). Its Option 1 starts building while design is "
-    "still going. That is what happened here: the roof-design bar runs over Stage I until 1961, and that overlap "
-    "is the cause of Scenario 1.",
-    "Grey baseline = what was planned at signing (completion 26 Jan 1963). The real building finished in 1973. "
-    "SW-14 only moves the date by this one variation's month — see the box at the top.",
-    "Months marked [A] are placeholders inside the year the Register gives. Agree real months as a group, then type "
-    "them into the blue date cells. The diamonds here and on the Zoom tab move to match.",
-    "CAA row: the Register says CAA 2019; the brief requires CAA 2024. Fix the document, not just the label.",
-    "SW-42 and SW-13 are optional forms (the tutor says they can earn extra marks). Delete the rows if not used.",
-], span=32)
+notes(ws, b.row, "Reading the board", [
+    "Design timeline D0–D3 is Lead 1's (Frank); Contract timeline C1–C2 is Lead 2's (Jerry); C3 is Lead 3's (Prani). "
+    "The Task Assignment tab lists each person's jobs.",
+    "Colour = the factor that changed. ★ = required form or scenario event. The red column edge marks our scenario (Jun 1961).",
+    "The design bars (D0 A.2, D2 roof) run over Stage I construction until 1961 — building started before the design was "
+    "finished. That overlap is the cause of Scenario 1. Compare the master reference gantt_programme_options.xlsx (Option 1).",
+    "Blue dates are inputs: agree the [A] months as a group and type them in; the symbols move. Dates on the Zoom tab follow automatically.",
+    "The CAA row must be the 2024 edition (the Register says 2019). SW-42 and SW-13 are optional — delete the rows if not used.",
+], span=NC + 30)
 page_setup(ws)
 
-# =================================================================== TAB 2
+# ===================================================================== TAB 2
 z = wb.create_sheet("Scenario 1 Zoom")
-z["A1"] = "Scenario 1 Zoom — the variation chain month by month (1961–1962)"
-z["A1"].font = F_TITLE
-z["A2"] = ("Every date here is a formula pulling from the 'Scenario 1 Timeline' tab (green text). "
-           "Change dates on that tab, not here. The Final Certificate (1974) is outside this window.")
-z["A2"].font = F_NOTE
-z.merge_cells("A2:AB2")
-
-zg = Gantt(z, [D(y, m, 1) for y in (1961, 1962) for m in range(1, 13)], 1,
-           year_row=4, first_row=6, tick_fmt="mmm", tick_width=5.5)
+z["A1"] = "SCENARIO 1 ZOOM — the variation chain month by month (1961–1962)"
+z["A1"].font = fnt(14, True)
+z["A2"] = ("Dates are formulas pulling from 'Timeline board' (green). Change dates there, not here. "
+           "The Final Certificate (Nov 1974) is outside this window.")
+z["A2"].font = fnt(9, italic=True, color=MUTED)
+zb = Board(z, [D(y, m, 1) for y in (1961, 1962) for m in range(1, 13)], 1, year_row=4, tick_width=5.5, phases=False)
 
 
 def link(col, key):
     return f"={MAIN}!{col}{R[key]}"
 
 
-zg.band("Context")
-zg.bar("Roof / shell design — unresolved until 1961", link("E", "roof"), link("F", "roof"), C["design"],
-       "[A] verify", frm_to="Architect + Arup", linked=True)
-zg.bar("Stage I — podium (Civil & Civic)", link("E", "st1"), link("F", "st1"), C["contract"], "REG [A]",
-       linked=True)
-zg.bar("Stage II — roof shells (Hornibrook)", link("E", "st2"), link("F", "st2"), C["contract"], "REG [A]",
-       linked=True)
-zg.band("★ Scenario 1 chain")
-for key, name, when, status, form, ft in CHAIN:
-    zg.milestone(name, link("E", key), C["scenario"], status, form=form, frm_to=ft, linked=True)
-zg.bar("Piers work on site — the extra time", link("E", "work"), link("F", "work"), C["scenario_bar"], "[A]",
+zb.group("CONTEXT", "why the variation happens")
+zb.bar("D2", "Roof / shell design — unresolved, overlaps Stage I", link(S_COL, "roof"), link(E_COL, "roof"), "Scope",
+       "[A] verify", linked=True)
+zb.bar("C2", "Stage I — podium (Civil & Civic)", link(S_COL, "st1"), link(E_COL, "st1"), "Time", "REG [A]", linked=True)
+zb.bar("C2", "Stage II — roof shells (Hornibrook)", link(S_COL, "st2"), link(E_COL, "st2"), "Time", "REG [A]", linked=True)
+zb.group("★ SCENARIO 1 CHAIN", "tutor's worked example: 1 month, $5,000")
+zb.milestone("D3", "Problem found: final roof loads exceed podium columns", link(S_COL, "prob"), "Scope", "[A] verify",
+             frm_to="Arup → Architect", linked=True)
+zb.milestone("D1", "Architect notifies client: extra services + fee", link(S_COL, "d8"), "Scope", "NEW [A]",
+             form="CAA D.8", frm_to="Architect → Client", who="Frank", linked=True)
+zb.milestone("C3", "Instruction for a Variation — strengthen columns, add piers", link(S_COL, "sw12"), "Scope", "REG [A]",
+             form="SW-12", frm_to="Architect → Contractor", who=P3, linked=True)
+zb.milestone("C3", "Contractor's details of claim — 1 month, $5,000 (optional)", link(S_COL, "sw42"), "Time",
+             "[A] optional", form="SW-42", frm_to="Contractor → Architect", linked=True)
+zb.milestone("C3", "Instruction to proceed with the variation (optional)", link(S_COL, "sw13"), "Scope", "[A] optional",
+             form="SW-13", frm_to="Architect → Contractor", linked=True)
+zb.bar("C2", "Piers work on site — the extra time", link(S_COL, "work"), link(E_COL, "work"), "Time", "[A]",
        frm_to="Contractor", kind="Work", linked=True)
-zg.milestone("Adjustment of time — +1 month", link("E", "sw14"), C["scenario"], "REG [A] month",
-             form="SW-14", frm_to="Architect → Contractor", linked=True)
-zg.milestone("Cost plan issued", link("E", "cp06"), C["contract_ms"], "REG [A] month",
-             form="CP-06", frm_to="QS → Architect", linked=True)
-zg.milestone("Contract Price Adjustment — +$5,000", link("E", "sw11"), C["scenario"], "REG [A] month",
-             form="SW-11", frm_to="Architect → Contractor", linked=True)
-zg.notes("Reading the chain", [
-    "Order of documents follows the tutor's worked example: variation → contractor's claim → instruction to "
-    "proceed → adjustment of time → price adjustment → (1974) final certificate referring to the price adjustment.",
+zb.milestone("C3", "Adjustment of time — +1 month", link(S_COL, "sw14"), "Time", "REG [A]", form="SW-14",
+             frm_to="Architect → Contractor", who=P3, linked=True)
+zb.milestone("C1", "Cost plan issued", link(S_COL, "cp06"), "Cost", "REG [A]", form="CP-06", frm_to="QS → Architect",
+             who="Jerry?", linked=True)
+zb.milestone("C3", "Contract Price Adjustment — +$5,000", link(S_COL, "sw11"), "Cost", "REG [A]", form="SW-11",
+             frm_to="Architect → Contractor", who=P3, linked=True)
+notes(z, zb.row, "Reading the chain", [
+    "Order follows the tutor's worked example: variation → contractor's claim → instruction to proceed → adjustment of "
+    "time → price adjustment → (1974) final certificate referring to the price adjustment.",
     "The CAA D.8 row is the client-side twin of SW-12: the architect's own extra design work and fee, agreed in writing.",
-], span=24)
+], span=NC + 20)
 page_setup(z)
+
+# ===================================================================== TAB 3
+t = wb.create_sheet("Task Assignment")
+t.sheet_view.showGridLines = False
+t["A1"] = "TASK ASSIGNMENT — from the Register and the timeline board"
+t["A1"].font = fnt(14, True)
+t["A2"] = "Status is a dropdown (To do / Doing / Done). Leads 2–3 are inferred from the Register's contributor / checker pattern — confirm."
+t["A2"].font = fnt(9, italic=True, color=MUTED)
+heads = [("Lead", 12), ("Name", 10), ("Lanes owned", 30), ("Checker", 10), ("Task", 70), ("Due", 22), ("Status", 10)]
+for i, (h, w) in enumerate(heads, start=1):
+    c = t.cell(row=4, column=i, value=h)
+    c.font, c.fill, c.border = fnt(bold=True, color="FFFFFF"), fill("404040"), BORDER
+    t.column_dimensions[get_column_letter(i)].width = w
+tasks = [
+    ("Lead 1", "Frank", "D0–D3 design", "Prani", "Date the introductory letter (the Register has no date)", "Week 10"),
+    ("Lead 1", "Frank", "D0–D3 design", "Prani", "Build the CAA on the 2024 template (the Register says CAA 2019)", "Week 10"),
+    ("Lead 1", "Frank", "D0–D3 design", "Prani", "Add Register row: client representative change Cahill → Askin (CAA C.3)", "Week 10"),
+    ("Lead 1", "Frank", "D0–D3 design", "Prani", "Add Register row: CAA D.8 extra-services notice, Jul 1961", "Week 10"),
+    ("Lead 2", "Jerry", "C1–C2 procurement + construction", "Frank", "Tender dates and contractor selection (Register gives years only)", "Week 10–11"),
+    ("Lead 2", "Jerry", "C1–C2 procurement + construction", "Frank", "ABIC SW Schedule 1: contract sum, site possession, date for PC", "Week 11"),
+    ("Lead 2", "Jerry", "C1–C2 procurement + construction", "Frank", "Cost plan CP-06: name the quantity surveyor or declare [A]", "Week 11"),
+    ("Lead 3", "Prani", "C3 contract administration", "Jerry", "SW-12 → SW-14 (+1 month) → SW-11 (+$5,000) → SW-31", "Week 11"),
+    ("Lead 3", "Prani", "C3 contract administration", "Jerry", "Optional: SW-42 contractor's claim + SW-13 instruction to proceed", "Week 11"),
+    ("All", "All three", "—", "—", "Confirm lead roles and Scenario 1", "Next meeting"),
+    ("All", "All three", "—", "—", "Agree the [A] months (yellow Status cells on the board)", "Before Week 12"),
+    ("All", "All three", "—", "—", "Premier to name in 1961: tutor's Askin or historical Heffron?", "Before Week 12"),
+    ("All", "All three", "—", "—", "Architect on SW-31 (1974): Utzon, or Hall / Todd / Littlemore?", "Before Week 12"),
+    ("All", "All three", "—", "—", "In-progress presentation, ~8 min, face to face", "Monday Week 12"),
+]
+dv = DataValidation(type="list", formula1='"To do,Doing,Done"', allow_blank=False)
+t.add_data_validation(dv)
+for i, row in enumerate(tasks):
+    r = 5 + i
+    for j, v in enumerate(list(row) + ["To do"], start=1):
+        c = t.cell(row=r, column=j, value=v)
+        c.font, c.border = fnt(bold=(j == 2)), BORDER
+        c.alignment = Alignment(vertical="center", wrap_text=(j == 5))
+    dv.add(f"G{r}")
+last = 4 + len(tasks)
+t.conditional_formatting.add(f"G5:G{last}", FormulaRule(formula=['G5="Done"'], fill=fill("C6EFCE")))
+t.conditional_formatting.add(f"G5:G{last}", FormulaRule(formula=['G5="Doing"'], fill=fill("FFEB9C")))
+for i, (lead, col) in enumerate([("Lead 1", "DDEBF7"), ("Lead 2", "E2EFDA"), ("Lead 3", "FCE4D6"), ("All", "EDEDED")]):
+    t.conditional_formatting.add(f"A5:A{last}", FormulaRule(formula=[f'$A5="{lead}"'], fill=fill(col)))
+t.freeze_panes = "A5"
+page_setup(t)
 
 wb.active = 0
 wb.save(OUT)
