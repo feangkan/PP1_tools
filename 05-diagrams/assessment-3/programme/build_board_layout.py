@@ -399,7 +399,7 @@ def cover(ws, project):
              ("Timeline", "Design lanes D0–D4 (CAA stages, client + brief, design output, consultants, interiors) "
                           "above Contract lanes C1–C4 (procurement + cost, construction, contract admin, fit-out)"),
              ("Timeline by party", "the same timeline, coloured by the party who acts in each event"),
-             ("Register", "the Architects Register: one row per document (course sample columns)"),
+             ("Register", "the Document Register in the group's original format, every date matched to the timeline"),
              ("Event cards", "one card per required form / scenario event"),
              ("Workflow", "the 10 steps of each research session"),
              ("Tasks", "who does what, due, status"),
@@ -559,31 +559,11 @@ def draw_item(ws, r, it, mode="factor"):
 
 # ------------------------------------------------------------------ 4 register
 def register(ws, rec, project):
-    ws.sheet_view.showGridLines = False
-    title(ws, "ARCHITECTS REGISTER", "Every event that issues a document gets one row here (course sample columns). "
-                                     "Sorted by date. Yellow Status = [A] assumption or [verify].", 8)
-    heads = [("Date", 13), ("Document", 58), ("Form No.", 11), ("From / To", 26), ("Details / clause", 34),
-             ("Student contribution", 18), ("Status", 14), ("Source", 10)]
-    table_head(ws, 4, heads)
-    rows = sorted((it for it in rec.items if it["form"] and not it["form"].startswith("CAA A.")),
-                  key=lambda i: i["start"]) if project else []
-    r = 5
-    for it in rows:
-        vals = [it["start"], clean(it["name"]), it["form"], it["frm_to"], CLAUSE.get(it["form"], ""), it["who"],
-                it["status"], it["src"]]
-        for c, v in enumerate(vals, start=1):
-            put(ws, r, c, v, fnt(9, c == 3), border=BOX, fmt="d mmm yyyy" if c == 1 else None,
-                al=Alignment(vertical="center", wrap_text=c in (2, 5)))
-        if is_assumed(it):
-            ws.cell(row=r, column=7).fill = fill("FFF2CC")
-        r += 1
-    for _ in range(15 if project else 30):                       # empty rows to add documents
-        for c in range(1, len(heads) + 1):
-            put(ws, r, c, border=BOX, fmt="d mmm yyyy" if c == 1 else None)
-        r += 1
-    ws.freeze_panes = "A5"
-    ws.auto_filter.ref = f"A4:H{r - 1}"
-    page(ws)
+    """The Document Register in the group's original 8-column format (register_v3.py), dates matched to the
+    timeline by build_register_v3.py."""
+    from build_register_v3 import write_register_sheet
+    from register_v3 import REGISTER
+    write_register_sheet(ws, REGISTER if project else [], blank_rows=10 if project else 30)
 
 
 # ------------------------------------------------------------------ 5 event cards

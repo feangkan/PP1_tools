@@ -1,5 +1,7 @@
 # 14 — Document Register v2 (A2 deliverable — continuation)
 
+> **Superseded on 2026-10-04 by `20-document-register-v3.md`** (same format, every date matched to the timeline). Kept for the record.
+
 - **Date:** 2026-09-27 (v01). Owner: **Kankawee Maksomboon, Lead 1** — this pass adds Lead 1's own rows and flags gaps; it does **not** change anything Prani Patton or Yu-Chun Ho already entered.
 - **Base:** `D:\RMIT_SEM2 26_PROPRAC 1\Week 10\DOCUMENT REGISTER_PP1.pdf` — your team's live register. Every existing row is reproduced **exactly** below. New or edited cells are marked `NEW` / `(suggested)`.
 - **Columns match the PDF exactly**: Date · Title of Form · Form No. · From · To · Action · Contributor · Checker. A paste-back CSV is at `document-register-v2.csv`.
