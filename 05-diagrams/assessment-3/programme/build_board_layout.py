@@ -2,8 +2,8 @@
 Looks like ../timeline/soh-timeline-scenario1.png (the project board picture).
 
 Two files
-  soh_board_layout.xlsx    - our project (Scenario 1), filled in
-  soh_board_template.xlsx  - the same sheets, empty, for a fresh start or another scenario
+  Timeline of significant project events.xlsx    - our project (Scenario 1), filled in
+  Timeline of significant project events - template.xlsx  - the same sheets, empty, for a fresh start or another scenario
 
 Sheets (same in both files)
   1 Cover              title, project lines, colour + shape legend, sheet index, how to edit
@@ -44,8 +44,8 @@ from event_notes import NOTES, PARTIES, ROLE_COLOURS, ROLES, SOURCES
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "build_scenario1_timeline.py")
-OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "soh_board_layout.xlsx")
-OUT_T = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "soh_board_template.xlsx")
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "Timeline of significant project events.xlsx")
+OUT_T = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "Timeline of significant project events - template.xlsx")
 D = dt.date
 ARIAL = "Arial"
 
@@ -330,7 +330,7 @@ def cover(ws, project):
     ws.column_dimensions["B"].width = 26
     ws.column_dimensions["C"].width = 90
     if project:
-        put(ws, 2, 2, "SYDNEY OPERA HOUSE — PROJECT TIMELINE", fnt(22, True))
+        put(ws, 2, 2, "SYDNEY OPERA HOUSE — TIMELINE OF SIGNIFICANT PROJECT EVENTS", fnt(22, True))
         lines = [
             ("PP1 Assessment 3  |  A1 Timeline of significant project events  |  historical dates, contemporary "
              "instruments (CAA 2024 · ABIC Simple Works 2018)", MUTED, False),
@@ -340,7 +340,7 @@ def cover(ws, project):
              "Version: v3 / 4 Oct 2026 (Leads 2–3 inferred from the Register — confirm)", NAVY, True),
         ]
     else:
-        put(ws, 2, 2, "PROJECT NAME — PROJECT TIMELINE", fnt(22, True))
+        put(ws, 2, 2, "PROJECT NAME — TIMELINE OF SIGNIFICANT PROJECT EVENTS", fnt(22, True))
         lines = [("Unit · Assessment · A1 Timeline of significant project events", MUTED, False),
                  ("PROJECT — scenario name. Dates = Document Register + sources", RED, True),
                  ("Group: ______ / ______ / ______     Lead 1: ______     Lead 2: ______     Lead 3: ______     "
@@ -893,7 +893,7 @@ def write_markdown(items, rec, path):
            "- **Generated** by `programme/build_board_layout.py` from `programme/build_scenario1_timeline.py` "
            "(events) and `programme/event_notes.py` (summaries + source links). Edit those, then re-run; "
            "don't edit this file by hand.",
-           "- Same content as the **Events (data)** and **Sources** sheets of `programme/soh_board_layout.xlsx`.",
+           "- Same content as the **Events (data)** and **Sources** sheets of `programme/Timeline of significant project events.xlsx`.",
            "- `[A]` = our assumption · `[verify]` = not yet confirmed · REG = the group's Document Register · "
            "tutor = instruction video (no web link).",
            ""]

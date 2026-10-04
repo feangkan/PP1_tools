@@ -3,7 +3,7 @@
 - **Date:** 2026-10-04. Source: in-class photos of the group's Miro board ("PP1_JS Board", Rough Timeline + Parties), 28 Sep 2026.
 - **What this is:** every sticky note on the board, transcribed, with a verdict and the evidence. Sources A–T are verified in `15-sources-A-J-verified.md` and `17-interiors-1967-1975.md`. New sources **U–AF** are listed in §4. All were read on 2026-10-04.
 - **Verdicts:** ✅ confirmed · ⚠ right idea, but fix the date or wording · ❌ not supported, change it · ➕ missing from the board.
-- **Excel:** the corrections and new events are in `programme/build_scenario1_timeline.py` and in the new board-layout workbook `programme/soh_board_layout.xlsx`.
+- **Excel:** the corrections and new events are in `programme/build_scenario1_timeline.py` and in the new board-layout workbook `programme/Timeline of significant project events.xlsx`.
 
 ## 1. Timeline notes, in date order
 

@@ -1,7 +1,7 @@
 # 19 — Event data: what happened, who acted, why it matters, and the sources
 
 - **Generated** by `programme/build_board_layout.py` from `programme/build_scenario1_timeline.py` (events) and `programme/event_notes.py` (summaries + source links). Edit those, then re-run; don't edit this file by hand.
-- Same content as the **Events (data)** and **Sources** sheets of `programme/soh_board_layout.xlsx`.
+- Same content as the **Events (data)** and **Sources** sheets of `programme/Timeline of significant project events.xlsx`.
 - `[A]` = our assumption · `[verify]` = not yet confirmed · REG = the group's Document Register · tutor = instruction video (no web link).
 
 ## D0 — CAA services stage

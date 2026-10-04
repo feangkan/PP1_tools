@@ -237,7 +237,7 @@ def write_md(path):
         "- **Format = the course's `Document Register Sample 2026-1.docx`:** Date · Document · Form No. · From/To · "
         "Details (cost etc) · Student Contribution. **Green** = forms that are part of our assessment; **grey** = "
         "project milestones. Files: `document-register-v3.docx` (built on the tutor's own template), `.csv`, `.xlsx`.",
-        "- **Every date matches the timeline** (`programme/soh_board_layout.xlsx`); the build script checks this. "
+        "- **Every date matches the timeline** (`programme/Timeline of significant project events.xlsx`); the build script checks this. "
         "*Italic* dates here = month assumed [A]. *(suggested)* = contribution not yet confirmed by that person "
         "(grey text in the .docx / .xlsx).",
         "- Contract figures (contract sum $9,600,000; +1 month; +$5,000) are the tutor's worked example, as in "
