@@ -45,9 +45,9 @@ INK, NAVY, MUTED = "18202B", "1F4E78", "595959"
 FACTOR = {"Scope": "C8413B", "Time": "E0A030", "Cost": "1F7A8C",
           "Quality": "5E9E6E", "Responsibility": "7B6AA8", "Baseline": "BFBFBF"}
 PHASES = [  # label, start, end (exclusive), tint
-    ("P1 Brief → Tender", D(1955, 7, 1), D(1958, 7, 1), "E6ECF3"),
+    ("P1 Brief to Tender", D(1955, 7, 1), D(1958, 7, 1), "E6ECF3"),
     ("P2", D(1958, 7, 1), D(1959, 7, 1), "F4EBDD"),
-    ("P3 Construction → Completion", D(1959, 7, 1), D(1973, 7, 1), "E4EFE6"),
+    ("P3 Construction to Completion", D(1959, 7, 1), D(1973, 7, 1), "E4EFE6"),
     ("Defects + final certificate", D(1973, 7, 1), D(1976, 1, 1), "EEEEEE"),
 ]
 SCENARIO_DATE = D(1961, 6, 1)
@@ -55,7 +55,7 @@ thin = Side(style="thin", color="BFBFBF")
 BORDER = Border(left=thin, right=thin, top=thin, bottom=thin)
 RED_EDGE = Side(style="medium", color="C00000")
 
-COLS = [("Lane", 5), ("Event", 58), ("Type", 10), ("Form", 11), ("From → To", 22), ("Start", 12),
+COLS = [("Lane", 5), ("Event", 58), ("Type", 10), ("Form", 11), ("From / To", 22), ("Start", 12),
         ("End", 12), ("Factor", 14), ("Status", 13), ("Contributor / checker", 20),
         ("Source", 9)]
 NC = len(COLS)
@@ -116,7 +116,7 @@ class Board:
         # phase row
         if self.phase_row:
             ws.cell(row=self.phase_row, column=2,
-                    value="PHASES: P1 client brief → tender · P2 tender → start of construction · P3 construction → completion"
+                    value="PHASES: P1 client brief to tender · P2 tender to start of construction · P3 construction to completion"
                     ).font = fnt(9, True, color=MUTED)
             k = 0
             while k < len(self.ticks):
@@ -340,71 +340,71 @@ b.bar("D0", "A.6 Contract administration (construction + post-construction)", f"
 
 b.lane("D1", "Client + brief", "decisions, approvals, representatives (C.3)", "Lead 1: Kankawee Maksomboon (check: Prani Patton)")
 b.milestone("D1", "Competition announced by Premier Cahill (two halls)", D(1955, 9, 13), "Scope", "[F]",
-            frm_to="NSW Govt → public", src="D")
-b.milestone("D1", "★ Introductory letter", D(1957, 2, 1), "Scope", "REG [A]", form="GL1", frm_to="Architect → Client",
+            frm_to="NSW Govt to public", src="D")
+b.milestone("D1", "★ Introductory letter", D(1957, 2, 1), "Scope", "REG [A]", form="GL1", frm_to="Architect to Client",
             who=F1, src="REG")
 b.milestone("D1", "★ CAA signed — must be the 2024 edition (Register says 2019)", D(1957, 2, 21), "Scope", "REG",
-            form="CAA", frm_to="Architect → Client", who=F1, src="REG")
+            form="CAA", frm_to="Architect to Client", who=F1, src="REG")
 b.milestone("D1", "Premier Cahill dies; Heffron Premier — client rep changes (CAA C.3)", D(1959, 10, 22), "Responsibility",
-            "NEW [F] D: 19 Oct", frm_to="Client → Architect", who="Kankawee Maksomboon", src="U, W, D")
+            "NEW [F] D: 19 Oct", frm_to="Client to Architect", who="Kankawee Maksomboon", src="U, W, D")
 R["d8"] = b.milestone("D1", "★ Architect notifies client: extra services + fee (CAA D.8)", D(1961, 7, 1), "Scope",
-                      "NEW [A]", form="CAA D.8", frm_to="Architect → Client", who="Kankawee Maksomboon", src="—")
+                      "NEW [A]", form="CAA D.8", frm_to="Architect to Client", who="Kankawee Maksomboon", src="—")
 b.milestone("D1", "Askin government: Minister Hughes takes over payments", D(1965, 5, 13), "Responsibility", "[F]",
             frm_to="Client", src="D, G, AD")
 b.milestone("D1", "Sydney Opera House Act 1960: Minister for Public Works = constructing authority", D(1960, 1, 1),
             "Responsibility", "[F] year", frm_to="Client", src="D, Z")
 b.milestone("D1", "Trust Act 1961: Sydney Opera House Trust set up", D(1961, 3, 14), "Responsibility", "[F]",
             frm_to="Client", src="V")
-b.milestone("D1", "Utzon resigns", D(1966, 2, 28), "Responsibility", "[F]", frm_to="Architect → Client", src="D, G")
+b.milestone("D1", "Utzon resigns", D(1966, 2, 28), "Responsibility", "[F]", frm_to="Architect to Client", src="D, G")
 b.milestone("D1", "Hall / Todd / Littlemore appointed (with Farmer)", D(1966, 4, 19), "Responsibility", "[F]",
-            frm_to="Client → Architects", src="D, G")
+            frm_to="Client to Architects", src="D, G")
 b.milestone("D1", "Govt pays $160,000 for 130 of Utzon's Stage III drawings", D(1966, 5, 17), "Cost", "[F]",
-            frm_to="Client → Utzon's office", src="D")
+            frm_to="Client to Utzon's office", src="D")
 b.milestone("D1", "Review of Program — change to the use of the halls", D(1966, 12, 12), "Scope", "[F]",
-            frm_to="Architects → Client", src="D")
+            frm_to="Architects to Client", src="D")
 
 b.milestone("D1", "Opening Committee headed by Premier Askin", D(1972, 2, 28), "Responsibility", "[F]",
             frm_to="Client", src="D")
 b.milestone("D1", "Hughes resigns; Leon Punch Minister for Public Works (CAA C.3)", D(1973, 1, 17), "Responsibility",
-            "[F]", frm_to="Client → Architects", src="AD")
+            "[F]", frm_to="Client to Architects", src="AD")
 b.milestone("D1", "Premier Askin formally invites Utzon to the opening", D(1973, 6, 20), "Responsibility", "[F]",
-            frm_to="Client → Utzon", src="AE")
+            frm_to="Client to Utzon", src="AE")
 b.milestone("D1", "Building handed to the Trust + Minister for Cultural Activities (Freudenstein)", D(1973, 7, 1),
-            "Responsibility", "[F] year", frm_to="Client → operator", src="D")
-b.milestone("D1", "Utzon declines the invitation", D(1973, 8, 1), "Responsibility", "[F]", frm_to="Utzon → Premier",
+            "Responsibility", "[F] year", frm_to="Client to operator", src="D")
+b.milestone("D1", "Utzon declines the invitation", D(1973, 8, 1), "Responsibility", "[F]", frm_to="Utzon to Premier",
             src="AE")
 b.milestone("D1", "Askin resigns; Tom Lewis Premier (client at SW-31)", D(1975, 1, 3), "Responsibility", "[F]",
             frm_to="Client", src="W")
 
 b.lane("D2", "Architect — design output", "competition, Red Book, Yellow Book", "Lead 1: Kankawee Maksomboon (check: Prani Patton)")
 b.bar("D2", "Competition design phase", D(1955, 9, 13), D(1957, 1, 29), "Scope", "REG [F]",
-      frm_to="NSW Govt → entrants", src="D, I")
+      frm_to="NSW Govt to entrants", src="D, I")
 b.milestone("D2", "Utzon wins first prize (£5,000; 233 entries)", D(1957, 1, 29), "Scope", "[F]", src="D, I")
-b.milestone("D2", "Red Book sent to the NSW Government", D(1958, 3, 1), "Scope", "[F]", frm_to="Architect → Client",
+b.milestone("D2", "Red Book sent to the NSW Government", D(1958, 3, 1), "Scope", "[F]", frm_to="Architect to Client",
             src="B")
 R["roof"] = b.bar("D2", "Roof / shell design — unresolved, overlaps Stage I", D(1958, 3, 1), D(1962, 1, 1), "Scope",
                   "[F]", frm_to="Architect + Arup", src="A, B")
 R["yellow"] = b.milestone("D2", "Yellow Book — spherical shell geometry fixed", D(1962, 1, 1), "Quality", "[F]",
-                          frm_to="Architect → Client", src="B")
+                          frm_to="Architect to Client", src="B")
 
 b.lane("D3", "Consultants", "Ove Arup & Partners · CAA E.1", "Lead 1: Kankawee Maksomboon (check: Prani Patton)")
 b.milestone("D3", "Ove Arup & Partners engaged (by client per brief; by Utzon per D)", D(1957, 6, 1),
-            "Responsibility", "[A] date / conflict", frm_to="→ Arup", src="D / brief")
+            "Responsibility", "[A] date / conflict", frm_to="to Arup", src="D / brief")
 b.milestone("D3", "Steensen & Varming appointed mechanical engineers", D(1957, 6, 1), "Responsibility", "[F] year",
-            frm_to="→ Steensen & Varming", src="AA")
+            frm_to="to Steensen & Varming", src="AA")
 b.bar("D3", "Utzon develops plywood mullions + ceilings with Ralph Symonds Ltd", D(1961, 10, 1), D(1966, 2, 28),
       "Quality", "[F]", frm_to="Architect ↔ supplier", src="Y, X")
 b.milestone("D3", "Ralph Symonds Ltd in receivership", D(1964, 2, 26), "Responsibility", "[verify]",
             frm_to="Supplier", src="X")
 R["prob"] = b.milestone("D3", "★ Problem found: final roof loads exceed podium columns", D(1961, 6, 1), "Scope",
-                        "[A] verify", frm_to="Arup → Architect", src="tutor")
+                        "[A] verify", frm_to="Arup to Architect", src="tutor")
 
 b.lane("D4", "Interior design (after 1967)", "Hall, Todd & Littlemore + acoustician Jordan — see 17-interiors",
        "Context — all three")
 b.milestone("D4", "Cabinet approves new brief: concert hall 2,800 / opera 1,500", D(1967, 3, 1),
-            "Scope", "[F]", frm_to="Client → Architects", src="R, M")
+            "Scope", "[F]", frm_to="Client to Architects", src="R, M")
 b.milestone("D4", "Arup objects in writing; Major Hall stage machinery scrapped", D(1967, 3, 28), "Scope", "[F]",
-            frm_to="Arup → Minister", src="S")
+            frm_to="Arup to Minister", src="S")
 b.bar("D4", "White Book — first interior designs (halls, glass walls)", D(1967, 1, 1), D(1969, 12, 31), "Scope",
       "[F]", frm_to="Architects", src="H")
 b.milestone("D4", "Glass walls redesigned on a steel-mullion frame (was plywood)", D(1968, 1, 1), "Quality",
@@ -412,11 +412,11 @@ b.milestone("D4", "Glass walls redesigned on a steel-mullion frame (was plywood)
 b.milestone("D4", "Glass-wall prototype specification", D(1969, 1, 1), "Quality", "[F]", frm_to="Architects",
             src="C")
 b.milestone("D4", "Grand Organ report + specification (Ronald Sharp)", D(1969, 6, 1), "Scope", "[F] year",
-            frm_to="Organ builder → Client", src="P")
+            frm_to="Organ builder to Client", src="P")
 b.milestone("D4", "Acoustic reflector shape fixed (Jordan + Hall)", D(1971, 12, 1), "Quality", "[F]",
             frm_to="Acoustician + Architect", src="M")
 b.milestone("D4", "Coburn tapestry curtains hung (Opera + Drama theatres)", D(1973, 9, 1), "Quality", "[F] year",
-            frm_to="Artist → Client", src="N")
+            frm_to="Artist to Client", src="N")
 
 # ---------------- CONTRACT TIMELINE
 b.group("CONTRACT TIMELINE", "procurement + ABIC Simple Works 2018")
@@ -424,30 +424,30 @@ b.lane("C1", "Procurement + cost", "tender, contracts signed, cost plan", "Lead 
 b.milestone("C1", "Opera House Lottery starts — funds the build", D(1957, 11, 25), "Cost", "[F]",
             frm_to="NSW Govt", src="Z")
 b.milestone("C1", "Stage I tender documents: conditions of contract + bills of quantities", D(1958, 12, 1), "Cost",
-            "REG [F]", frm_to="Architect → Contractor", who="Yu-Chun Ho?", src="C")
-b.milestone("C1", "Tender return", D(1959, 1, 1), "Cost", "REG [A]", frm_to="Contractor → Architect", who="Yu-Chun Ho?",
+            "REG [F]", frm_to="Architect to Contractor", who="Yu-Chun Ho?", src="C")
+b.milestone("C1", "Tender return", D(1959, 1, 1), "Cost", "REG [A]", frm_to="Contractor to Architect", who="Yu-Chun Ho?",
             src="REG")
 b.milestone("C1", "Contractor selection (Civil & Civic)", D(1959, 2, 1), "Cost", "REG [A]", src="REG, D")
 b.milestone("C1", "★ Simple Works Contract signed", D(1959, 2, 19), "Cost", "REG", form="SW 2018",
-            frm_to="Architect → Contractor", who=J2, src="REG")
+            frm_to="Architect to Contractor", who=J2, src="REG")
 b.milestone("C1", "Stage machinery contract: Waagner-Biro", D(1961, 4, 1), "Cost", "[F]", frm_to="Client ↔ supplier",
             src="C")
 R["cp06"] = b.milestone("C1", "Cost plan issued — £13.7m (= A$27.4m)", D(1962, 3, 1), "Cost", "REG [A] month",
-                        form="CP-06", frm_to="QS → Architect", who="Yu-Chun Ho?", src="G")
+                        form="CP-06", frm_to="QS to Architect", who="Yu-Chun Ho?", src="G")
 b.milestone("C1", "Stage II agreement: Minister for Public Works + Hornibrook", D(1962, 10, 18), "Cost", "[F]",
             frm_to="Client ↔ Contractor", src="E, C")
 b.milestone("C1", "Stage III agreement: Minister for Public Works + Hornibrook", D(1966, 11, 1), "Cost", "[F]",
             frm_to="Client ↔ Contractor", src="C")
 b.milestone("C1", "A$22.9m spent so far", D(1966, 10, 1), "Cost", "[F]", src="AC")
 b.milestone("C1", "New estimate: a further $85m, finish end 1972", D(1968, 9, 1), "Cost", "[verify]",
-            frm_to="Architects → Minister", src="search")
+            frm_to="Architects to Minister", src="search")
 b.milestone("C1", "Final cost $102m (excl. organ + car park) — Public Works statement", D(1974, 5, 1), "Cost", "[F]",
             src="D")
 
 b.lane("C2", "Construction works", "site › Stage I › II › III › defects", "Lead 2: Yu-Chun Ho (check: Kankawee Maksomboon)")
 b.bar("C2", "Tram depot demolished — site cleared", D(1958, 8, 1), D(1959, 3, 1), "Time", "[F] start", src="D")
 b.milestone("C2", "Site possession — construction ceremony, Stage I starts", f"={POSS}", "Time", "REG [F]",
-            frm_to="Client → Contractor", src="A, D")
+            frm_to="Client to Contractor", src="A, D")
 b.bar("C2", "Planned programme at signing (baseline)", f"={POSS}", f"={PC}", "Baseline", "[F] tutor", kind="Baseline",
       src="tutor")
 R["st1"] = b.bar("C2", "Stage I — podium (Civil & Civic); 2 years late", f"={POSS}", D(1963, 3, 1), "Time",
@@ -455,32 +455,32 @@ R["st1"] = b.bar("C2", "Stage I — podium (Civil & Civic); 2 years late", f"={P
 r_work = b.row
 R["work"] = b.bar("C2", "★ Piers work on site — the extra time", D(1961, 10, 1), f"=EDATE({S_COL}{r_work},{EOT})", "Time",
                   "[A]", frm_to="Contractor", kind="Work", src="tutor")
-b.milestone("C2", "Stage II contract drawings", D(1962, 10, 18), "Time", "REG [A]", frm_to="Architect → Contractor",
+b.milestone("C2", "Stage II contract drawings", D(1962, 10, 18), "Time", "REG [A]", frm_to="Architect to Contractor",
             src="REG, E")
 R["st2"] = b.bar("C2", "Stage II — roof shells (Hornibrook) to last segment", D(1963, 4, 1), D(1967, 1, 17), "Time",
                  "[F]", src="D, F")
 b.bar("C2", "Stage III — interiors + glass walls (Hornibrook)", D(1967, 1, 17), D(1973, 10, 20), "Time",
       "[F] K: site 1968", src="F, J, K")
-b.milestone("C2", "Stage III working drawings dated", D(1968, 7, 1), "Time", "REG [F]", frm_to="Architect → Contractor",
+b.milestone("C2", "Stage III working drawings dated", D(1968, 7, 1), "Time", "REG [F]", frm_to="Architect to Contractor",
             src="I")
 b.bar("C2", "Defects liability period — 12 months (ABIC M13)", D(1973, 10, 20), D(1974, 10, 20), "Quality", "[A]",
       kind="Period", src="—")
 
 b.lane("C3", "Contract administration", "J1 SW-12 › H4 SW-14 / SW-11 › N11 SW-31", "Lead 3: Prani Patton (check: Yu-Chun Ho)")
 R["sw12"] = b.milestone("C3", "★ Instruction for a Variation — strengthen columns, add piers", D(1961, 8, 1), "Scope",
-                        "REG [A]", form="SW-12", frm_to="Architect → Contractor", who=P3, src="REG, tutor")
+                        "REG [A]", form="SW-12", frm_to="Architect to Contractor", who=P3, src="REG, tutor")
 R["sw42"] = b.milestone("C3", "Contractor's details of claim — 1 month, $5,000 (optional)", D(1961, 9, 1), "Time",
-                        "[A] optional", form="SW-42", frm_to="Contractor → Architect", src="tutor")
+                        "[A] optional", form="SW-42", frm_to="Contractor to Architect", src="tutor")
 R["sw13"] = b.milestone("C3", "Instruction to proceed with the variation (optional)", D(1961, 10, 1), "Scope",
-                        "[A] optional", form="SW-13", frm_to="Architect → Contractor", src="tutor")
+                        "[A] optional", form="SW-13", frm_to="Architect to Contractor", src="tutor")
 R["sw14"] = b.milestone("C3", "★ Adjustment of time — +1 month", D(1961, 11, 1), "Time", "REG [A]", form="SW-14",
-                        frm_to="Architect → Contractor", who=P3, src="REG, tutor")
+                        frm_to="Architect to Contractor", who=P3, src="REG, tutor")
 R["sw11"] = b.milestone("C3", "★ Contract Price Adjustment — +$5,000", D(1962, 4, 1), "Cost", "REG [A]", form="SW-11",
-                        frm_to="Architect → Contractor", who=P3, src="REG, tutor")
+                        frm_to="Architect to Contractor", who=P3, src="REG, tutor")
 b.milestone("C3", "Practical completion — official opening", D(1973, 10, 20), "Time", "REG [F]",
-            frm_to="Architect → Contractor", src="J, D")
+            frm_to="Architect to Contractor", src="J, D")
 b.milestone("C3", "★ Final Certificate — refers to SW-11 (Architects' Certificate of Completion)", D(1975, 5, 31),
-            "Cost", "[F] REG: 1974", form="SW-31", frm_to="Architect → Contractor", who=P3, src="D")
+            "Cost", "[F] REG: 1974", form="SW-31", frm_to="Architect to Contractor", who=P3, src="D")
 b.lane("C4", "Interior works + fit-out (after 1967)", "Hornibrook + specialist packages — see 17-interiors",
        "Context — all three")
 b.milestone("C4", "Waterproofing specification", D(1967, 3, 1), "Quality", "[F]", src="C")
@@ -500,7 +500,7 @@ b.milestone("C4", "First opera: War and Peace (Opera Theatre) — use before ope
             src="Q")
 b.bar("C4", "Opening festival (two weeks)", D(1973, 10, 17), D(1973, 11, 3), "Time", "[F]", src="J")
 b.milestone("C4", "First public Concert Hall concert", D(1973, 9, 29), "Time", "[F]", src="D, Q")
-b.bar("C4", "Grand Organ — separate contract, to 30 May 1979 ($0.4m → $1.2m)", D(1969, 6, 1), D(1979, 5, 30), "Cost",
+b.bar("C4", "Grand Organ — separate contract, to 30 May 1979 ($0.4m to $1.2m)", D(1969, 6, 1), D(1979, 5, 30), "Cost",
       "[F]", src="O, D")
 b.scenario_marker(SCENARIO_DATE, "OUR SCENARIO 1: additional piers (Jun 1961)")
 
@@ -540,31 +540,31 @@ zb.bar("D2", "Roof / shell design — unresolved, overlaps Stage I", link(S_COL,
 zb.bar("C2", "Stage I — podium (Civil & Civic)", link(S_COL, "st1"), link(E_COL, "st1"), "Time", "[F]", linked=True,
        src="A, D")
 zb.milestone("D2", "Yellow Book — spherical shell geometry fixed", link(S_COL, "yellow"), "Quality", "[F]",
-             frm_to="Architect → Client", linked=True, src="B")
+             frm_to="Architect to Client", linked=True, src="B")
 zb.bar("C2", "Stage II — roof shells (Hornibrook)", link(S_COL, "st2"), link(E_COL, "st2"), "Time", "[F]",
        linked=True, src="D, F")
 zb.group("★ SCENARIO 1 CHAIN", "tutor's worked example: 1 month, $5,000")
 zb.milestone("D3", "Problem found: final roof loads exceed podium columns", link(S_COL, "prob"), "Scope", "[A] verify",
-             frm_to="Arup → Architect", linked=True, src="tutor")
+             frm_to="Arup to Architect", linked=True, src="tutor")
 zb.milestone("D1", "Architect notifies client: extra services + fee", link(S_COL, "d8"), "Scope", "NEW [A]",
-             form="CAA D.8", frm_to="Architect → Client", who="Kankawee Maksomboon", linked=True, src="—")
+             form="CAA D.8", frm_to="Architect to Client", who="Kankawee Maksomboon", linked=True, src="—")
 zb.milestone("C3", "Instruction for a Variation — strengthen columns, add piers", link(S_COL, "sw12"), "Scope", "REG [A]",
-             form="SW-12", frm_to="Architect → Contractor", who=P3, linked=True, src="REG, tutor")
+             form="SW-12", frm_to="Architect to Contractor", who=P3, linked=True, src="REG, tutor")
 zb.milestone("C3", "Contractor's details of claim — 1 month, $5,000 (optional)", link(S_COL, "sw42"), "Time",
-             "[A] optional", form="SW-42", frm_to="Contractor → Architect", linked=True, src="tutor")
+             "[A] optional", form="SW-42", frm_to="Contractor to Architect", linked=True, src="tutor")
 zb.milestone("C3", "Instruction to proceed with the variation (optional)", link(S_COL, "sw13"), "Scope", "[A] optional",
-             form="SW-13", frm_to="Architect → Contractor", linked=True, src="tutor")
+             form="SW-13", frm_to="Architect to Contractor", linked=True, src="tutor")
 zb.bar("C2", "Piers work on site — the extra time", link(S_COL, "work"), link(E_COL, "work"), "Time", "[A]",
        frm_to="Contractor", kind="Work", linked=True, src="tutor")
 zb.milestone("C3", "Adjustment of time — +1 month", link(S_COL, "sw14"), "Time", "REG [A]", form="SW-14",
-             frm_to="Architect → Contractor", who=P3, linked=True, src="REG, tutor")
-zb.milestone("C1", "Cost plan issued", link(S_COL, "cp06"), "Cost", "REG [A]", form="CP-06", frm_to="QS → Architect",
+             frm_to="Architect to Contractor", who=P3, linked=True, src="REG, tutor")
+zb.milestone("C1", "Cost plan issued", link(S_COL, "cp06"), "Cost", "REG [A]", form="CP-06", frm_to="QS to Architect",
              who="Yu-Chun Ho?", linked=True, src="G")
 zb.milestone("C3", "Contract Price Adjustment — +$5,000", link(S_COL, "sw11"), "Cost", "REG [A]", form="SW-11",
-             frm_to="Architect → Contractor", who=P3, linked=True, src="REG, tutor")
+             frm_to="Architect to Contractor", who=P3, linked=True, src="REG, tutor")
 notes(z, zb.row, "Reading the chain", [
-    "Order follows the tutor's worked example: variation → contractor's claim → instruction to proceed → adjustment of "
-    "time → price adjustment → (1974) final certificate referring to the price adjustment.",
+    "Order follows the tutor's worked example: variation to contractor's claim to instruction to proceed to adjustment of "
+    "time to price adjustment to (1974) final certificate referring to the price adjustment.",
     "The CAA D.8 row is the client-side twin of SW-12: the architect's own extra design work and fee, agreed in writing.",
 ], span=NC + 20)
 page_setup(z)
@@ -584,12 +584,12 @@ for i, (h, w) in enumerate(heads, start=1):
 tasks = [
     ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Date the introductory letter (the Register has no date)", "Week 10"),
     ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Build the CAA on the 2024 template (the Register says CAA 2019)", "Week 10"),
-    ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Add Register row: client representative change Cahill → Askin (CAA C.3)", "Week 10"),
+    ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Add Register row: client representative change Cahill to Askin (CAA C.3)", "Week 10"),
     ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Add Register row: CAA D.8 extra-services notice, Jul 1961", "Week 10"),
     ("Lead 2", "Yu-Chun Ho", "C1–C2 procurement + construction", "Kankawee Maksomboon", "Tender dates and contractor selection (Register gives years only)", "Week 10–11"),
     ("Lead 2", "Yu-Chun Ho", "C1–C2 procurement + construction", "Kankawee Maksomboon", "ABIC SW Schedule 1: contract sum, site possession, date for PC", "Week 11"),
     ("Lead 2", "Yu-Chun Ho", "C1–C2 procurement + construction", "Kankawee Maksomboon", "Cost plan CP-06: name the quantity surveyor or declare [A]", "Week 11"),
-    ("Lead 3", "Prani Patton", "C3 contract administration", "Yu-Chun Ho", "SW-12 → SW-14 (+1 month) → SW-11 (+$5,000) → SW-31", "Week 11"),
+    ("Lead 3", "Prani Patton", "C3 contract administration", "Yu-Chun Ho", "SW-12 to SW-14 (+1 month) to SW-11 (+$5,000) to SW-31", "Week 11"),
     ("Lead 3", "Prani Patton", "C3 contract administration", "Yu-Chun Ho", "Optional: SW-42 contractor's claim + SW-13 instruction to proceed", "Week 11"),
     ("All", "All three", "—", "—", "Confirm lead roles and Scenario 1", "Next meeting"),
     ("All", "All three", "—", "—", "Agree the [A] months (yellow Status cells on the board)", "Before Week 12"),

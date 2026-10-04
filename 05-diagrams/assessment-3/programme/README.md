@@ -19,4 +19,4 @@ How `soh_scenario1_timeline.xlsx` works:
 - **Status column**: REG = already in the Register · [F] = sourced fact · [A] = our assumption (yellow). Most [A]s are months placed inside a year the Register only gives as a year. Agree the real months as a group.
 - **Flags carried over**: the CAA row must be the 2024 edition (the Register says 2019); SW-42 and SW-13 are optional forms.
 
-To import into Google Sheets: File → Import → Upload → choose the .xlsx.
+To import into Google Sheets: File > Import > Upload > choose the .xlsx.

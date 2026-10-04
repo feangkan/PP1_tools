@@ -13,7 +13,7 @@ The NSW Government ran a competition in 1955–57 and Jørn Utzon won it. The Pr
 
 ---
 
-## Phase 1 — Client brief → Tender (1955–1958)
+## Phase 1 — Client brief to Tender (1955–1958)
 
 ### Competition announced — 13 Sep 1955
 Premier Cahill announces an international competition for an opera house at Bennelong Point. The brief asks for two halls, one for 3,000–3,500 people and one for 1,200.
@@ -65,7 +65,7 @@ The old Fort Macquarie tram depot on Bennelong Point comes down to clear the sit
 **Why it matters:** site preparation before the contractor takes possession.
 *Source: D*
 
-## Phase 2 — Tender → Start of construction (1958–1959)
+## Phase 2 — Tender to Start of construction (1958–1959)
 
 ### Stage I tender documents — Dec 1958
 The conditions of contract and bills of provisional quantities for Stage I (excavation, concrete, drainage and so on) are prepared.
@@ -82,7 +82,7 @@ A ceremony in the rain marks the start of work on the foundations and the podium
 **Why it matters:** this confirms our site possession date. It is also the key fact for Part B: **building started before the design was finished**, because Premier Cahill was in a hurry. Source A itself says it would have been more prudent to solve the design first.
 *Source: A, D*
 
-## Phase 3 — Construction → Completion (1959–1975)
+## Phase 3 — Construction to Completion (1959–1975)
 
 ### Premier Cahill dies — 19 Oct 1959
 Cahill dies in office, seven months after construction began.
@@ -104,9 +104,9 @@ The redesign is extra work for the architect, so under CAA clause D.8 the archit
 **Why it matters:** this is the client-side twin of SW-12 and a new row for Lead 1. It is not in the Register yet.
 *Source: our assumption (CAA D.8)*
 
-### ★ Instruction for a Variation (SW-12) → Adjustment of time (SW-14) — 1961
+### ★ Instruction for a Variation (SW-12) to Adjustment of time (SW-14) — 1961
 The architect instructs the contractor to strengthen the columns and add piers. The contractor claims one month and $5,000, and the architect grants the extra month.
-**Why it matters:** required forms, Prani's rows (checked by Jerry). The figures are the tutor's worked example.
+**Why it matters:** required forms, Prani Patton's rows (checked by Yu-Chun Ho). The figures are the tutor's worked example.
 *Source: Register; tutor*
 
 ### Yellow Book — Jan 1962

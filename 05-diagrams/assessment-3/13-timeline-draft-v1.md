@@ -1,12 +1,12 @@
 # 13 — Draft Timeline v1 (A1 deliverable — bring to class)
 
-**Owner:** Frank, Lead 1 — Design + Client Framework. **Date:** 2026-09-28 (v02 — rewritten in plain language for diagramming; v01 was the compressed table).
+**Owner:** Kankawee Maksomboon, Lead 1 — Design + Client Framework. **Date:** 2026-09-28 (v02 — rewritten in plain language for diagramming; v01 was the compressed table).
 
-This is the story of the project told as a sequence of events, in the order they happen. It's built from the group's own live Document Register (`D:\RMIT_SEM2 26_PROPRAC 1\Week 10\DOCUMENT REGISTER_PP1.pdf` — the real one with Frank, Prani and Jerry's names already in it), so the dates here match that document exactly.
+This is the story of the project told as a sequence of events, in the order they happen. It's built from the group's own live Document Register (`D:\RMIT_SEM2 26_PROPRAC 1\Week 10\DOCUMENT REGISTER_PP1.pdf` — the real one with Kankawee Maksomboon, Prani Patton and Yu-Chun Ho's names already in it), so the dates here match that document exactly.
 
 Each event below is written so it can become one card or node on a diagram: a short title, a plain explanation of what happened and why it matters, then a detail note with the sourcing. Two threads run side by side through the whole project — the **Design thread** (client and architect: the brief, the agreement, how design decisions get made) and the **Contract thread** (client and contractor, with the architect administering: tendering, building, certifying). Where an event is a required form or a confirmed fact, it's marked; where it's something the group still needs to research or agree on, that's marked too, so nothing here gets mistaken for settled fact.
 
-**A note before you diagram this:** the group's Register already commits to a specific version of events — a single round of "something changed → the contractor claims a month and $5,000 → it gets certified" in 1961–62, with no demolition involved. That matches the tutor's own **Scenario 1** (extra piers needed under the roof) rather than the "Major Hall becomes concert-only" story this repo explored earlier. This timeline runs with Scenario 1, because that's what your Register already assumes. Worth a thirty-second check with Prani and Jerry that everyone's telling the same story.
+**A note before you diagram this:** the group's Register already commits to a specific version of events — a single round of "something changed to the contractor claims a month and $5,000 to it gets certified" in 1961–62, with no demolition involved. That matches the tutor's own **Scenario 1** (extra piers needed under the roof) rather than the "Major Hall becomes concert-only" story this repo explored earlier. This timeline runs with Scenario 1, because that's what your Register already assumes. Worth a thirty-second check with Prani Patton and Yu-Chun Ho that everyone's telling the same story.
 
 ---
 
@@ -66,7 +66,7 @@ Before (or alongside) instructing the contractor, the architect is obliged to te
 
 ### 12. The architect instructs a variation — 1961 (SW-12)
 The architect formally instructs the contractor to strengthen the columns and add extra piers, to cope with the higher loads from the finished roof design. This is the first of the four required contract-administration forms, and it's the moment the "extra piers" scenario becomes a real, documented instruction rather than just a design realisation.
-*Detail note: confirmed in the Register (already logged by Prani, checked by Jerry). Under the tutor's own worked example for this exact scenario, the contractor's response to this instruction is a request for one extra month and $5,000 (labour and concrete) — those are the numbers this file should use unless the group decides otherwise.*
+*Detail note: confirmed in the Register (already logged by Prani Patton, checked by Yu-Chun Ho). Under the tutor's own worked example for this exact scenario, the contractor's response to this instruction is a request for one extra month and $5,000 (labour and concrete) — those are the numbers this file should use unless the group decides otherwise.*
 
 ### 13. The time extension is granted — 1961 (SW-14)
 Following the contractor's claim, the architect formally adjusts the completion date by one month to cover the extra structural work.

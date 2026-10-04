@@ -27,7 +27,7 @@
 | Utzon asked for Symonds to be named as manufacturer for plywood elements ('63) | ⚠ | Utzon's office wrote to **Ralph Symonds Ltd from Oct 1961**. Arup reported on Symonds plywood windows, ceilings and corridors **Oct–Nov 1962**. Utzon moved his office to Sydney in 1963. Note the spelling: **Symonds** | "1961–65 Utzon develops plywood mullions + ceilings with Ralph Symonds Ltd" | Y, AC |
 | Symonds goes bust… | ⚠ | The company was **in receivership** when Utzon asked for prototype funding (1965). Hughes wouldn't give a contract to a firm in receivership, and wanted the work publicly tendered. One secondary source says receivers were appointed **26 Feb 1964** (not confirmed) | "1964 Ralph Symonds Ltd in receivership" | X; date [verify] |
 | 1965: Political party change – Labor to Libs | ✅ | **13 May 1965**: Askin's Liberal–Country coalition. **Davis Hughes** becomes Minister for Public Works and takes over payments | "13 May 1965 Askin govt; Hughes Minister for Public Works" | W, AD, D, G |
-| 1965: Cost estimate rises to allow for contingencies & acoustics | ⚠ | No source mentions an acoustics or contingency estimate in 1965. Sources show the rises: **£3.5m (1957) → £13.7m (1962)**. End 1965: Utzon needs **£60,000** for plywood prototypes | reword to a sourced figure, or mark [A] | A, G |
+| 1965: Cost estimate rises to allow for contingencies & acoustics | ⚠ | No source mentions an acoustics or contingency estimate in 1965. Sources show the rises: **£3.5m (1957) to £13.7m (1962)**. End 1965: Utzon needs **£60,000** for plywood prototypes | reword to a sourced figure, or mark [A] | A, G |
 | 1965: Steel frame suggested | ⚠ | In **Oct 1965** Hughes withheld approval for **plywood prototypes**. The **steel-mullion** glass walls are Hall's + Arup's design from **1968**. No source found for steel being proposed in 1965 | move to 1968, or mark [verify] | AD, L |
 | 1966: Utzon resigns | ✅ | **28 Feb 1966** | keep | D, G |
 | Peter Hall / Lionel Todd / David Littlemore | ✅ | **19 Apr 1966**, with **E.H. Farmer** (Government Architect) on the panel | add Farmer + the date | D, G |
@@ -36,10 +36,10 @@
 | Program (function of space) updated | ✅ | Major Hall becomes a **2,800-seat concert hall**; opera moves to the **1,500-seat** hall. Stage machinery scrapped over Arup's objection (**28 Mar 1967**) | keep; add the seat numbers | R, S |
 | Cost implications of the design/brief update based on as-built | ⚠ | **Sep 1968**: the architects advise a further **$85m**, finish end 1972 (secondary). Only **A$22.9m** had been spent by **Oct 1966** | "Sep 1968 new estimate $85m" [verify] | AC; search lead |
 | 1967: certificate of practical completion issued | ❌ | No source gives a 1967 PC certificate. 1967 is the end of **Stage II**: last shell segment **17 Jan 1967** (F), "Stage II completed Mar 1967" (D). PC of the building is the opening, **20 Oct 1973**. The completion certificate is dated **31 May 1975** | "1967 Stage II (roof) complete" | F, D |
-| 1967: Recorded 1st increase in cost plan | ❌ | Increases were recorded long before 1967: **£3.5m 1957 → £13.7m 1962** (and £4.8m 1958, £8.9m 1961 per a secondary source) | drop it, or "1967 first estimate under the new brief" | A, G, AB |
+| 1967: Recorded 1st increase in cost plan | ❌ | Increases were recorded long before 1967: **£3.5m 1957 to £13.7m 1962** (and £4.8m 1958, £8.9m 1961 per a secondary source) | drop it, or "1967 first estimate under the new brief" | A, G, AB |
 | 1967: Contract price adjustment | ⚠ | Not sourced for 1967. The **Stage III agreement** is Nov 1966. Our own SW-11 is 1962 | ask the group what this meant | C |
 | '67 continuous glass wall developed – concept proven '69 | ✅ | **1968** redesign on steel mullions; prototype specification **Jan 1969**; walls nearly complete 1971 | keep | L, C, K |
-| Bar: Cost variations continue to rise | ✅ | **$22.9m by Oct 1966 → $102m by 1973–74**. 80% of the cost came in Stage III | keep | AC, D, X |
+| Bar: Cost variations continue to rise | ✅ | **$22.9m by Oct 1966 to $102m by 1973–74**. 80% of the cost came in Stage III | keep | AC, D, X |
 | Arrow: Stage 2 construction '63–'67 (shell) | ✅ | **Apr 1963 – 17 Jan 1967** | keep | D, F |
 | Arrow: Stage 3 construction '67–'73 (interiors) | ✅ (conflict) | Agreement **Nov 1966**; interiors from **1967**; site work **1968–73** | keep | C, F, K |
 | 1973: Stage 3 construction completed | ✅ | Official opening **20 Oct 1973**, used here as practical completion | keep; add the date | J, D |
@@ -53,7 +53,7 @@ The board stops at "1974 final cost". The sources give a full run-out to the Arc
 |---|---|---|---|
 | **28 Feb 1972** | Premier Askin heads the Sydney Opera House **Official Opening Committee** | The client side now runs the handover and opening, not only the build | D |
 | **17 Dec 1972** | First test concert in the Concert Hall (Sydney Symphony Orchestra) | Testing before completion | D, M |
-| **17 Jan 1973** | **Davis Hughes resigns**; **Leon Punch** becomes Minister for Public Works | **Client representative changes** (CAA C.3), the second time after Cahill → Heffron | AD |
+| **17 Jan 1973** | **Davis Hughes resigns**; **Leon Punch** becomes Minister for Public Works | **Client representative changes** (CAA C.3), the second time after Cahill to Heffron | AD |
 | **Feb 1973** | Opening date set for October; press asks whether Utzon is invited; Askin says he hopes Utzon will come | Context for the Part B example about authorship and credit | AE |
 | **1973** | Responsibility for the building passes to the **Sydney Opera House Trust** and the **Minister for Cultural Activities, George Freudenstein** | **Handover to the operator.** From here the client that occupies the building is not the client that built it | D |
 | **15 + 20 Jun 1973** | Under Secretary's note (15 Jun), then **Premier Askin formally invites Utzon** and his wife, with flights and accommodation (20 Jun) | Corrects the myth that Utzon was never invited | AE |
@@ -63,7 +63,7 @@ The board stops at "1974 final cost". The sources give a full run-out to the Arc
 | **17 Oct – 3 Nov 1973** | Two-week opening festival | — | J |
 | **20 Oct 1973** | **Official opening by the Queen** = practical completion on our board. Her speech refers to the problems but doesn't name Utzon | ABIC M: practical completion starts the defects liability period | J, D, AE |
 | **1973** | Utzon awarded the **RAIA Gold Medal** (did not attend) | Recognition of the original architect | AF (secondary) [verify] |
-| **20 Oct 1973 → 20 Oct 1974** | Defects liability period, 12 months (ABIC M13) | **Our assumption [A]**, not a sourced historical date | — |
+| **20 Oct 1973 to 20 Oct 1974** | Defects liability period, 12 months (ABIC M13) | **Our assumption [A]**, not a sourced historical date | — |
 | **May 1974** | Public Works states the **final cost: $102 million** (excluding the organ and car park) | The figure the final account closes on | D |
 | **3 Jan 1975** | **Askin resigns**; **Tom Lewis** becomes Premier | The client's head of government when SW-31 is issued | W |
 | **31 May 1975** | **Architects' Certificate of Completion**: **project end**, our **SW-31 Final Certificate** (refers back to SW-11) | Issued by Hall, Todd & Littlemore; contractor Hornibrook; client the Minister for Public Works | D |
@@ -82,7 +82,7 @@ The board stops at "1974 final cost". The sources give a full run-out to the Arc
 | ARCHITECTS: Jørn Utzon; Peter Hall | ✅ | Hall = design architect. Add **E.H. (Ted) Farmer**, Government Architect | D, G |
 | Contract Documentation – Lionel Todd | ✅ | — | D, G |
 | Contract Administration – David Littlemore | ✅ | Sources say "supervision", which is the same job | D, G |
-| ENGINEERS: Lead/Structural/Civil/**Civic** – Ove Arup & Partners | ✅ (typo) | "Civic" → **Civil**. Who engaged Arup is still a conflict (D: Utzon; brief: client) | D |
+| ENGINEERS: Lead/Structural/Civil/**Civic** – Ove Arup & Partners | ✅ (typo) | "Civic" to **Civil**. Who engaged Arup is still a conflict (D: Utzon; brief: client) | D |
 | BUILDERS: Hornibrook Ltd – Stages 2 & 3 | ✅ | Full name **M.R. Hornibrook (NSW) Pty Ltd**. ➕ add **Civil & Civic Pty Ltd – Stage 1** | D, E |
 | SPECIALIST CONSULTANTS: Geotechnical Engineers | ⚠ | No named firm found. Sources only describe the bad ground and the **~700 bored shafts** | A |
 | Mechanical Engineers | ➕ name | **Steensen & Varming** (Danish): appointed **1957**, stayed after 1966. Designed the harbour-water heat-pump cooling | AA |
@@ -111,13 +111,13 @@ Also used again: **D** (Museums of History NSW guide), now including its **1972�
 
 ## 5. What to change on the Miro board (checklist)
 
-1. **Askill → Askin, 1965–75**; add Heffron (1959–64) and Renshaw (1964–65).
+1. **Askill to Askin, 1965–75**; add Heffron (1959–64) and Renshaw (1964–65).
 2. Cahill dies **22 Oct 1959** (D says 19 Oct; ADB says 22 Oct; use the ADB).
 3. Trust: **1961** (Trust Act); 1960 = Opera House Act.
-4. "1967 certificate of practical completion" → **"1967 Stage II (roof) complete"**. The real certificates are **20 Oct 1973** (opening / PC) and **31 May 1975** (completion = SW-31).
-5. "1967 first increase in cost plan" → drop it, or reword. Increases start in 1958.
-6. "1974 final adjusted contract price" → **"May 1974 final cost $102m (project cost)"**.
+4. "1967 certificate of practical completion" to **"1967 Stage II (roof) complete"**. The real certificates are **20 Oct 1973** (opening / PC) and **31 May 1975** (completion = SW-31).
+5. "1967 first increase in cost plan" to drop it, or reword. Increases start in 1958.
+6. "1974 final adjusted contract price" to **"May 1974 final cost $102m (project cost)"**.
 7. Spell **Symonds**; move "steel frame suggested" to **1968**, or mark [verify].
-8. "Civic" → **Civil** (Arup). Add Civil & Civic (Stage I), Farmer, Steensen & Varming, Rider Hunt, the suppliers.
-9. **Add the 1973–75 run-out** in §2, especially **17 Jan 1973 Hughes → Punch**, **1973 handover to the Trust**, **3 Jan 1975 Askin → Lewis**, **31 May 1975 certificate**.
-10. ➕ **Add our Scenario 1 chain.** The Miro board has none of it: 1961 piers problem → SW-12 → SW-14 (+1 month) → SW-11 (+$5,000, 1962) → SW-31 (1975). Lead AC (Murray) now backs the "columns rebuilt" story.
+8. "Civic" to **Civil** (Arup). Add Civil & Civic (Stage I), Farmer, Steensen & Varming, Rider Hunt, the suppliers.
+9. **Add the 1973–75 run-out** in §2, especially **17 Jan 1973 Hughes to Punch**, **1973 handover to the Trust**, **3 Jan 1975 Askin to Lewis**, **31 May 1975 certificate**.
+10. ➕ **Add our Scenario 1 chain.** The Miro board has none of it: 1961 piers problem to SW-12 to SW-14 (+1 month) to SW-11 (+$5,000, 1962) to SW-31 (1975). Lead AC (Murray) now backs the "columns rebuilt" story.

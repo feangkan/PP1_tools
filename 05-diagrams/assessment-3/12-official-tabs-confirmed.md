@@ -73,10 +73,10 @@ Both `⚠` flags across the repo have been removed and replaced with these facts
 | Item | File / link | Required? |
 |------|-------------|-----------|
 | Project background | **`Project Information & Example Scenarios_Sydney opera House-1.pdf`** | Reading — **not yet in our folder**, get from Canvas |
-| AIA Acumen website | Site run by the AIA; requires AIA membership but **accessible via RMIT Library login** → click **Acumen Practice Notes** on the homepage → search "Client Architect Agreement" | Access path |
+| AIA Acumen website | Site run by the AIA; requires AIA membership but **accessible via RMIT Library login** to click **Acumen Practice Notes** on the homepage to search "Client Architect Agreement" | Access path |
 | Intro letter template | **`Guide letter 1 Introductory letter.doc`** | **REQUIRED** — note this is a *different filename* from our supplied `caa2019_gl1_introductoryletter (R1).doc`; re-download to confirm it's the same content or a newer edition |
 | Info guide to the client | `caa2024_information-guide-to-the-client.pdf` | supporting |
-| CAA 2024 (editable PDF) | **`caa2024_fullservices_digital.pdf`** | **REQUIRED** — already in our folder. *To export for submission: open in Google Chrome, Print → Save as PDF (loses editability, but combinable with the rest)* |
+| CAA 2024 (editable PDF) | **`caa2024_fullservices_digital.pdf`** | **REQUIRED** — already in our folder. *To export for submission: open in Google Chrome, Print to Save as PDF (loses editability, but combinable with the rest)* |
 | CAA 2024 User Guide | `caa2024_user_guide.pdf` | supporting — **not yet in our folder** |
 | ABIC SW 2018 contract | **`SW-2018-ABIC_Contract-1.pdf`** | **REQUIRED** — already in our folder |
 | ABIC SW 2018 User Guide | `SW-2018-ABIC_Contract_User_Guide.pdf` | supporting — **not yet in our folder** |

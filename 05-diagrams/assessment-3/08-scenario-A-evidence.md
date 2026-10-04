@@ -1,4 +1,4 @@
-# 08 — Scenario A evidence pack: Major Hall → concert hall only; stage machinery scrapped
+# 08 — Scenario A evidence pack: Major Hall to concert hall only; stage machinery scrapped
 
 - **Date:** 2026-09-26 (v01); **updated 2026-09-27** with the tutor's own instruction video (`10-tutor-video-notes.md`), which is now the more authoritative source for cost/budget figures — see the table below.
 - Links opened and read on this date unless marked *search result only*.
@@ -24,14 +24,14 @@
 | 1965–72 | Waagner-Biro assembly drawings for Major Hall, Minor Hall and Experimental Theatre | NSW State Archives **NRS-12800** (copies in NRS-12716) |
 | — | 29 photographs of Waagner-Biro stage equipment | NSW State Archives **NRS 12801** |
 | 1967 | *Sydney Opera House (Amendment) Act 1967*, No. 73, carried by Premier Askin, commenced 7 Dec 1967 | Parliament of NSW bill page. **What it amended is not shown there; read the bill text before citing** |
-| 1973 → today | Concert Hall: up to 2,679 seats; brush box + white birch; Grand Organ; 21 acoustic "clouds" | Google Arts & Culture / SOH, *The Concert Hall* |
+| 1973 to today | Concert Hall: up to 2,679 seats; brush box + white birch; Grand Organ; 21 acoustic "clouds" | Google Arts & Culture / SOH, *The Concert Hall* |
 
 ## Gaps to research (needed for the forms)
 
 | Gap | Why it matters | Where to look |
 |-----|----------------|---------------|
-| **Cost of the scrapped machinery** and of the redesign — *specific to this event* | SW-11 price adjustment + SW-31 final certificate amount. **Partly resolved**: the tutor's video gives whole-project figures (≈$9.6m → ≈$102m), which can bound a declared `[A]` figure for this one variation, but not a real event-specific number | Murray, *The Saga of Sydney Opera House* (library, via RMIT); Hansard 1967 (Opera House debates); State Archives Public Works files |
-| Exact date of the **client's written instruction** (Hughes → architects) | Starts the chain: client letter → SW-12 | *Fabrications* article; State Archives; Webber (2012) |
+| **Cost of the scrapped machinery** and of the redesign — *specific to this event* | SW-11 price adjustment + SW-31 final certificate amount. **Partly resolved**: the tutor's video gives whole-project figures (≈$9.6m to ≈$102m), which can bound a declared `[A]` figure for this one variation, but not a real event-specific number | Murray, *The Saga of Sydney Opera House* (library, via RMIT); Hansard 1967 (Opera House debates); State Archives Public Works files |
+| Exact date of the **client's written instruction** (Hughes to architects) | Starts the chain: client letter to SW-12 | *Fabrications* article; State Archives; Webber (2012) |
 | Was the machinery contracted **directly by the client** or under the Stage III builder? | Decides whether it's an ABIC variation (J1) or a separate/owner-supplied item (Sched 8, K prime-cost) | NRS-12800 / 12801 agency notes; Murray |
 | Time impact on Stage III | SW-14 days | Murray; Hall/Webber |
 | The ABC's written requirements | Shows the client's reasons (Part B) | ABC archives; Review of Programme |

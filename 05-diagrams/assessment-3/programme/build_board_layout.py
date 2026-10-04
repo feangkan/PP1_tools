@@ -53,9 +53,9 @@ INK, NAVY, MUTED, RED, PAPER = "18202B", "1F4E78", "6B7280", "C00000", "FFFFFF"
 FACTOR = {"Scope": "C8413B", "Time": "E0A030", "Cost": "1F7A8C",
           "Quality": "5E9E6E", "Responsibility": "7B6AA8", "Baseline": "BFBFBF"}
 PHASES = [  # label, dates text, start, end (exclusive), tint
-    ("P1  Client brief → Tender", "Sep 1955 – Jun 1958", D(1955, 9, 1), D(1958, 6, 1), "E6ECF3"),
+    ("P1  Client brief to Tender", "Sep 1955 – Jun 1958", D(1955, 9, 1), D(1958, 6, 1), "E6ECF3"),
     ("P2", "Jun 1958 – Mar 1959", D(1958, 6, 1), D(1959, 3, 1), "F4EBDD"),
-    ("P3  Construction → Completion", "Mar 1959 – Oct 1973 (opening = PC)", D(1959, 3, 1), D(1973, 10, 1), "E8F1EA"),
+    ("P3  Construction to Completion", "Mar 1959 – Oct 1973 (opening = PC)", D(1959, 3, 1), D(1973, 10, 1), "E8F1EA"),
     ("Defects + final cert.", "Oct 1973 – 31 May 1975", D(1973, 10, 1), D(1975, 6, 1), "EEEEEE"),
 ]
 Y0, Y1 = 1954, 1978                      # grid years, inclusive
@@ -211,7 +211,7 @@ def with_form(form, n):
 def bar_text(it):
     n = clean(it["name"])
     if it["end"] and it["end"].year > Y1:
-        n += f"  → {it['end'].year}"
+        n += f" to {it['end'].year}"
     return with_form(it["form"], n)
 
 
@@ -418,13 +418,13 @@ def cover(ws, project):
               "each label.",
               "Add a milestone: copy a ◆ cell into the quarter, type the label in the next cell (or copy a whole "
               "existing milestone and edit it). Each lane has empty rows at the bottom for new events.",
-              "Add a bar: select the quarters, fill them with the factor colour (Home → Fill), type the label in the "
+              "Add a bar: select the quarters, fill them with the factor colour (Home to Fill), type the label in the "
               "first cell.",
               "Move an event: cut the ◆ cell and its label cell together and paste them in the new quarter.",
               "When you add or change an event on a timeline, change it in Events (data) and in the Register too, so "
               "the three stay the same.",
               "The Zoom sheet is formula-driven: type a new date in its Date column and the diamond moves.",
-              "Google Sheets: File → Import → Upload → this .xlsx."]:
+              "Google Sheets: File > Import > Upload > this .xlsx."]:
         put(ws, r, 2, "•", fnt(9))
         put(ws, r, 3, t, fnt(9), al=Alignment(wrap_text=True, vertical="top"))
         ws.row_dimensions[r].height = 26
@@ -587,7 +587,7 @@ def register(ws, rec, project):
 
 
 # ------------------------------------------------------------------ 5 event cards
-CARD_KEYS = ["E-ID  |  Date(s)", "Event", "Timeline  /  lane", "Phase", "Initiated by  →  must respond",
+CARD_KEYS = ["E-ID  |  Date(s)", "Event", "Timeline  /  lane", "Phase", "Initiated by / must respond",
              "Party (who acts)", "Factor changed", "[F] fact / [A] assumption + source", "Documents + clause",
              "Student  (lead / research / check)"]
 
@@ -634,15 +634,15 @@ def event_cards(ws, rec, R, project):
 
 # ------------------------------------------------------------------ 6 workflow
 WORKFLOW = [
-    "Research an event → write ONE event card",
-    "Classify: Design or Contract timeline → choose its lane",
+    "Research an event to write ONE event card",
+    "Classify: Design or Contract timeline to choose its lane",
     "Place it on the year axis: bar if a range, diamond if one date",
     "Colour by the factor that changed (Scope / Time / Cost / Quality / Responsibility); note the party who acts",
     "Tag [F] + source key, or [A] + reason (dashed outline / italic)",
-    "Note cause → consequence (which earlier card made this happen?)",
+    "Note cause to consequence (which earlier card made this happen?)",
     "Planned vs actual: grey dashed baseline under the actual bar",
     "Scenario events: red star + add them to the Zoom sheet (months)",
-    "Card issues a document? → add the Register row the same day",
+    "Card issues a document? to add the Register row the same day",
     "Weekly: each lead checks their lanes; the checker filters for [A] gaps",
 ]
 
@@ -719,7 +719,7 @@ def zoom(ws, rec, R, project):
         put(ws, hr, i, h, fnt(9, True, color=PAPER), fill("404040"), border=BOX)
     m0 = 7                                                      # first month column (G)
     ws.column_dimensions["F"].width = 10
-    put(ws, hr, 6, "Start →", fnt(8, True, color=MUTED))
+    put(ws, hr, 6, "Start", fnt(8, True, color=MUTED))
     put(ws, hr - 1, m0, D(1961, 1, 1), fnt(9, True, color="0000FF"), fill("FFFF00"), fmt="yyyy")
     put(ws, hr - 1, m0 + 1, "← first month of the grid (input)", fnt(8, italic=True, color=MUTED))
     for k in range(24):
@@ -775,7 +775,7 @@ def data_sheet(ws, rec, project):
           11)
     heads = [("Lane", 6), ("Date", 12), ("End", 12), ("Event", 40), ("Party", 15), ("Named party", 24),
              ("Summary — what happened and why it matters", 66), ("Factor", 13), ("Status", 14), ("Source keys", 10),
-             ("Link 1", 26), ("Link 2", 26), ("Link 3", 26), ("Form", 9), ("From → To", 22), ("Student", 26)]
+             ("Link 1", 26), ("Link 2", 26), ("Link 3", 26), ("Form", 9), ("From / To", 22), ("Student", 26)]
     table_head(ws, 4, heads)
     order = {ln["code"]: k for k, ln in enumerate(l for g in rec.groups for l in g["lanes"])}
     items = sorted(rec.items, key=lambda i: (order.get(i["code"], 99), i["start"])) if project else []

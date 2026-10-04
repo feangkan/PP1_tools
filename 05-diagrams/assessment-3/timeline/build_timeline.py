@@ -6,7 +6,7 @@ bars for date ranges, diamonds for milestones, colour by one column
 and a baseline (planned vs actual).
 
 Outputs (next to this script):
-  soh-timeline-template.svg / .png   empty board -> upload to Miro, lock as background
+  soh-timeline-template.svg / .png   empty board to upload to Miro, lock as background
   soh-timeline-scenario1.svg / .png  PROJECT board: Scenario 1 (additional piers), dates from the group's
                                      Document Register, team names per lane, task-assignment panel
 
@@ -19,7 +19,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 # ---------------------------------------------------------------- scale
 Y0, Y1 = 1954.0, 1975.0          # time axis (years)
-LEFT, W = 560, 7400              # label column width, total width
+LEFT, W = 700, 7540              # label column width, total width
 X_END = W - 80
 PX_PER_YEAR = (X_END - LEFT) / (Y1 - Y0)
 
@@ -29,7 +29,7 @@ def x(year):
 
 
 def ym(y, m=1, d=1):
-    """Calendar date -> decimal year."""
+    """Calendar date to decimal year."""
     return y + (m - 1) / 12 + (d - 1) / 365
 
 
@@ -49,20 +49,20 @@ MARKER = "#C8413B"
 # Phases = the three periods asked for. Boundaries are planned-sequence
 # defaults; move them once dates are verified.
 PHASES = [
-    ("P1  Client brief  ->  Tender", ym(1956), ym(1958, 6), "#E6ECF3"),
-    ("P2  Tender  ->  Start construction", ym(1958, 6), ym(1959, 3, 2), "#F4EBDD"),
-    ("P3  Construction  ->  Completion", ym(1959, 3, 2), ym(1973, 10, 20), "#E4EFE6"),
+    ("P1  Client brief to Tender", ym(1956), ym(1958, 6), "#E6ECF3"),
+    ("P2  Tender to Start construction", ym(1958, 6), ym(1959, 3, 2), "#F4EBDD"),
+    ("P3  Construction to Completion", ym(1959, 3, 2), ym(1973, 10, 20), "#E4EFE6"),
     ("Final cert.", ym(1973, 10, 20), ym(1975), "#EEEEEE"),
 ]
 
 # Lane owners follow the contributor/checker pattern in the group's Register (Week 10 PDF).
 # Lead 2 / Lead 3 are inferred from that pattern -- confirm with the group.
-TEAM = {"L1": "Frank", "L2": "Jerry", "L3": "Prani"}
+TEAM = {"L1": "Kankawee Maksomboon", "L2": "Yu-Chun Ho", "L3": "Prani Patton"}
 LANE_OWNER = {
-    "D0": "Lead 1: Frank  (check: Prani)", "D1": "Lead 1: Frank  (check: Prani)",
-    "D2": "Lead 1: Frank  (check: Prani)", "D3": "Lead 1: Frank  (check: Prani)",
-    "C1": "Lead 2: Jerry  (check: Frank)", "C2": "Lead 2: Jerry  (check: Frank)",
-    "C3": "Lead 3: Prani  (check: Jerry)", "REG": "All three",
+    "D0": "Lead 1: Kankawee Maksomboon  (check: Prani Patton)", "D1": "Lead 1: Kankawee Maksomboon  (check: Prani Patton)",
+    "D2": "Lead 1: Kankawee Maksomboon  (check: Prani Patton)", "D3": "Lead 1: Kankawee Maksomboon  (check: Prani Patton)",
+    "C1": "Lead 2: Yu-Chun Ho  (check: Kankawee Maksomboon)", "C2": "Lead 2: Yu-Chun Ho  (check: Kankawee Maksomboon)",
+    "C3": "Lead 3: Prani Patton  (check: Yu-Chun Ho)", "REG": "All three",
 }
 PROJECT = False   # set in build(); lane owner lines only show on the project board
 
@@ -90,7 +90,7 @@ REG_H = 150
 # ---------------------------------------------------------------- project events: Scenario 1
 # Dates follow the group's Document Register (Week 10/DOCUMENT REGISTER_PP1.pdf) and
 # ../programme/soh_scenario1_timeline.xlsx. Where the Register gives only a year, the month is
-# an assumption: tag "A" -> dashed outline.  kind: bar | milestone | gate | baseline
+# an assumption: tag "A" to dashed outline.  kind: bar | milestone | gate | baseline
 def E(lane, kind, a, b, label, factor, tag, star=False, track=0, row=None):
     return dict(lane=lane, kind=kind, a=a, b=b, label=label, factor=factor, tag=tag,
                 star=star, track=track, row=row)
@@ -105,10 +105,10 @@ EVENTS = [
     E("D0", "gate", ym(1959, 2), None, "Gate SKIPPED: works start before DD approved", "Scope", "A", star=True, row=1),
     E("D0", "bar", ym(1959, 3, 2), ym(1974, 11), "A.6 Contract Administration (construction + post-construction)", "Time", "A", track=0),
     # D1 client + brief  (Lead 1 documents)
-    E("D1", "milestone", ym(1957, 2), None, "Intro letter  [Frank / Prani]", "Scope", "A", star=True, row=0),
-    E("D1", "milestone", ym(1957, 2, 21), None, "CAA signed 21 Feb 1957 - must be CAA 2024  [Frank / Prani]", "Scope", "F", star=True, row=1),
-    E("D1", "milestone", ym(1959, 10), None, "NEW: client rep Cahill -> Askin (C.3)  [Frank]", "Responsibility", "A", row=0),
-    E("D1", "milestone", ym(1961, 7), None, "NEW: CAA D.8 extra services + fee  [Frank]", "Scope", "A", star=True, row=1),
+    E("D1", "milestone", ym(1957, 2), None, "Intro letter  [Kankawee Maksomboon / Prani Patton]", "Scope", "A", star=True, row=0),
+    E("D1", "milestone", ym(1957, 2, 21), None, "CAA signed 21 Feb 1957 - must be CAA 2024  [Kankawee Maksomboon / Prani Patton]", "Scope", "F", star=True, row=1),
+    E("D1", "milestone", ym(1959, 10), None, "NEW: client rep Cahill to Askin (C.3)  [Kankawee Maksomboon]", "Responsibility", "A", row=0),
+    E("D1", "milestone", ym(1961, 7), None, "NEW: CAA D.8 extra services + fee  [Kankawee Maksomboon]", "Scope", "A", star=True, row=1),
     E("D1", "milestone", ym(1966, 2, 28), None, "Utzon resigns", "Responsibility", "F", row=0),
     E("D1", "milestone", ym(1966, 4, 19), None, "Hall / Todd / Littlemore", "Responsibility", "F", row=1),
     # D2 design output
@@ -121,7 +121,7 @@ EVENTS = [
     # C1 procurement + cost  (Lead 2)
     E("C1", "milestone", ym(1958, 7), None, "Tender docs issued", "Cost", "A", row=0),
     E("C1", "milestone", ym(1959, 1), None, "Tender return", "Cost", "A", row=1),
-    E("C1", "milestone", ym(1959, 2, 19), None, "ABIC SW 2018 signed 19 Feb 1959  [Jerry / Frank]", "Cost", "F", star=True, row=2),
+    E("C1", "milestone", ym(1959, 2, 19), None, "ABIC SW 2018 signed 19 Feb 1959  [Yu-Chun Ho / Kankawee Maksomboon]", "Cost", "F", star=True, row=2),
     E("C1", "milestone", ym(1962, 3), None, "CP-06 cost plan (QS)", "Cost", "A", row=0),
     # C2 construction  (Lead 2)
     E("C2", "milestone", ym(1959, 3, 2), None, "F1 site possession 2 Mar 1959 [verify]", "Time", "F", row=0),
@@ -145,13 +145,13 @@ SCENARIO_MARK = (ym(1961, 6), "OUR SCENARIO 1: additional piers to support the r
 # zoom frame (project board): the chain month by month, with contributor / checker from the Register
 ZOOM = [  # (year, month, form, text, who, required)
     (1961, 6, "trigger", "Roof loads exceed podium columns (Arup)", "", False),
-    (1961, 7, "CAA D.8", "Extra services + fee -> client", "Frank", True),
-    (1961, 8, "SW-12", "Instruction for a Variation: piers", "Prani / Jerry", True),
+    (1961, 7, "CAA D.8", "Extra services + fee to client", "Kankawee Maksomboon", True),
+    (1961, 8, "SW-12", "Instruction for a Variation: piers", "Prani Patton / Yu-Chun Ho", True),
     (1961, 9, "SW-42", "Contractor's claim: 1 month, $5,000", "optional", False),
     (1961, 10, "SW-13", "Instruction to proceed", "optional", False),
-    (1961, 11, "SW-14", "Adjustment of time +1 month", "Prani / Jerry", True),
-    (1962, 3, "CP-06", "Cost plan (QS -> architect)", "Jerry?", False),
-    (1962, 4, "SW-11", "Contract price adjustment +$5,000", "Prani / Jerry", True),
+    (1961, 11, "SW-14", "Adjustment of time +1 month", "Prani Patton / Yu-Chun Ho", True),
+    (1962, 3, "CP-06", "Cost plan (QS to architect)", "Yu-Chun Ho?", False),
+    (1962, 4, "SW-11", "Contract price adjustment +$5,000", "Prani Patton / Yu-Chun Ho", True),
 ]
 
 
@@ -215,7 +215,7 @@ def lane_positions():
     # documents strip
     ops.append(rect(0, y, W, GROUP_H, "#3B4655"))
     ops.append(text(28, y + 40, "ARCHITECTS REGISTER", 30, "bold", PAPER))
-    ops.append(text(420, y + 40, "every card that issues a document  ->  one register row (Date | Document | Form No. | From/To | Details | Student)", 24, "normal", "#C9D3DF"))
+    ops.append(text(420, y + 40, "every card that issues a document to one register row (Date | Document | Form No. | From/To | Details | Student)", 24, "normal", "#C9D3DF"))
     y += GROUP_H
     ops.append(rect(0, y, W, REG_H, "#F7F8F9"))
     ops.append(text(80, y + 60, "Doc refs", 30, "bold"))
@@ -239,7 +239,7 @@ def build(example):
     sub = ("PROJECT - Scenario 1 (additional piers). Dates = group's Document Register; dashed outline = [A] month placeholder"
            if example else "TEMPLATE - lock this image as the background, then place cards / bars / diamonds on it")
     ops.append(text(28, 200, sub, 28, "bold", MARKER if example else INK))
-    grp = ("Group: Frank / Prani / Jerry     Lead 1: Frank     Lead 2: Jerry     Lead 3: Prani     "
+    grp = ("Group: Kankawee Maksomboon / Prani Patton / Yu-Chun Ho     Lead 1: Kankawee Maksomboon     Lead 2: Yu-Chun Ho     Lead 3: Prani Patton     "
            "Version: v1 / 29 Sep 2026   (Leads 2-3 inferred from the Register - confirm)") if example else           "Group: ____________    Lead 1: ________   Lead 2: ________   Lead 3: ________    Version / date: ________"
     ops.append(text(28, 250, grp, 26, "bold" if example else "normal", "#1F4E78" if example else MUTED))
 
@@ -277,8 +277,8 @@ def build(example):
         ops.append(text(x(a) + 16, TOP + 42, label, 28, "bold"))
         if (x(b) - x(a)) <= 700:
             rest = name.split("  ", 1)[1].strip() if "  " in name else ""
-            for j, part in enumerate(rest.split("->")):
-                ops.append(text(x(a) + 16, TOP + 72 + j * 26, part.strip() + (" ->" if j == 0 and "->" in rest else ""), 20, "normal", MUTED))
+            for j, part in enumerate(rest.split(" to ")):
+                ops.append(text(x(a) + 16, TOP + 72 + j * 26, part.strip() + (" to " if j == 0 and " to " in rest else ""), 20, "normal", MUTED))
         else:
             ops.append(text(x(a) + 16, TOP + 80, f"{fmt(a)}  to  {fmt(b)}  (default - adjust)", 20, "normal", MUTED))
     ops.append(text(28, TOP + 48, "PHASES", 26, "bold", MUTED))
@@ -399,20 +399,20 @@ def lower_panel(py0, project=False):
             ("E-ID  |  Date(s)", "S1-03  |  Aug 1961  [A] month (Register: 1961)"),
             ("Event", "Instruction for a Variation - strengthen columns, add piers"),
             ("Timeline  /  lane", "Contract  /  C3 Contract administration"),
-            ("Phase", "P3 Construction -> Completion"),
-            ("Initiated by  ->  must respond", "Architect (Utzon)  ->  Contractor (Civil & Civic)"),
+            ("Phase", "P3 Construction to Completion"),
+            ("Initiated by to must respond", "Architect (Utzon) to Contractor (Civil & Civic)"),
             ("Factor changed", "Scope   (+ Time 1 month, Cost $5,000)"),
             ("[F] fact / [A] assumption", "[A] month; figures = tutor's worked example"),
-            ("Documents + clause", "SW-12 (J1) -> SW-14 (H4/L1) -> SW-11 (H4/J5); CAA D.8"),
-            ("Student  (lead / research / check)", "Prani  /  ________  /  Jerry"),
+            ("Documents + clause", "SW-12 (J1) to SW-14 (H4/L1) to SW-11 (H4/J5); CAA D.8"),
+            ("Student  (lead / research / check)", "Prani Patton  /  ________  /  Yu-Chun Ho"),
         ]
     else:
         rows = [
             ("E-ID  |  Date(s)", "E11  |  Jun 1961 - Sep 1962"),
             ("Event", "Podium columns inadequate for final roof loads"),
             ("Timeline  /  lane", "Design  /  D3 Consultants"),
-            ("Phase", "P3 Construction -> Completion"),
-            ("Initiated by  ->  must respond", "Engineer (Arup)  ->  Architect, Client, Contractor"),
+            ("Phase", "P3 Construction to Completion"),
+            ("Initiated by to must respond", "Engineer (Arup) to Architect, Client, Contractor"),
             ("Factor changed", "Scope   (+ Time, Cost)"),
             ("[F] fact / [A] assumption", "[F]  source: SOH Project Info p._  [verify]"),
             ("Documents + clause", "SW-12 (J1), SW-14 (H4/L1), SW-11 (H4/J5); CAA D.8"),
@@ -429,15 +429,15 @@ def lower_panel(py0, project=False):
     wx = 1700
     ops.append(text(wx, py0, "WORKFLOW  (each research session)", 30, "bold"))
     steps = [
-        "Research an event -> write ONE card in the Inbox",
-        "Classify: Design or Contract timeline -> drop in its lane",
+        "Research an event to write ONE card in the Inbox",
+        "Classify: Design or Contract timeline to drop in its lane",
         "Place on the year axis: bar if a range, diamond if one date",
         "Colour by the factor that changed (Scope / Time / Cost / Quality / Resp.)",
         "Tag [F] + source, or [A] + reason (dashed outline)",
-        "Draw connectors cause -> consequence between cards",
+        "Draw connectors cause to consequence between cards",
         "Planned vs actual: grey dashed baseline under the actual bar",
         "Scenario events: red star + copy into the Zoom frame (months)",
-        "Card issues a document? -> add the Architects Register row the same day",
+        "Card issues a document? to add the Architects Register row the same day",
         "Weekly: lead checks their lanes; auditor filters by tag for gaps",
     ]
     for i, st in enumerate(steps):
@@ -452,17 +452,17 @@ def lower_panel(py0, project=False):
         ops.append(text(ix, py0, "TASK ASSIGNMENT  (from the Register)", 30, "bold"))
         ops.append(rect(ix, py0 + 30, 1300, 700, "#F7FAFD", "#1F4E78", 3, rx=10))
         tasks = [
-            ("LEAD 1 - FRANK", "lanes D0-D3  |  checker: Prani", [
+            ("LEAD 1 - FRANK", "lanes D0-D3  |  checker: Prani Patton", [
                 "Date the introductory letter (Register has no date)",
                 "Build the CAA on the 2024 template (Register says 2019)",
-                "Add row: client rep change Cahill -> Askin (CAA C.3)",
+                "Add row: client rep change Cahill to Askin (CAA C.3)",
                 "Add row: CAA D.8 extra-services notice, Jul 1961"]),
-            ("LEAD 2 - JERRY", "lanes C1-C2  |  checker: Frank", [
+            ("LEAD 2 - JERRY", "lanes C1-C2  |  checker: Kankawee Maksomboon", [
                 "Tender dates + contractor selection (Register: years only)",
                 "ABIC SW Schedule 1: contract sum, possession, PC date",
                 "Cost plan CP-06: name the QS or declare [A]"]),
-            ("LEAD 3 - PRANI", "lane C3  |  checker: Jerry", [
-                "SW-12 -> SW-14 (+1 month) -> SW-11 (+$5,000) -> SW-31",
+            ("LEAD 3 - PRANI", "lane C3  |  checker: Yu-Chun Ho", [
+                "SW-12 to SW-14 (+1 month) to SW-11 (+$5,000) to SW-31",
                 "Optional: SW-42 claim + SW-13 instruction to proceed"]),
             ("ALL THREE", "before the Week 12 presentation", [
                 "Agree the [A] months (dashed outlines on this board)",
@@ -530,7 +530,7 @@ def lower_panel(py0, project=False):
             ops.append(text(mx + 22, yy + 7, lbl, 19, "bold" if req else "normal", INK))
         ops.append(text(gx0, py0 + 718, "months placed inside the Register's years are [A] - agree them as a group; SW-31 (Nov 1974) is off this grid", 18, "normal", MUTED))
     else:
-        ops.append(text(zx + 34, py0 + 330, "WD = working days, BD = business days. Red = required by the brief, dashed = optional form or step. Form <-> clause [verify vs template forms]", 18, "normal", MUTED))
+        ops.append(text(zx + 34, py0 + 330, "WD = working days, BD = business days. Red = required by the brief, dashed = optional form or step. Form < to clause [verify vs template forms]", 18, "normal", MUTED))
         for yi, yr in enumerate(range(1961, 1964)):
             bx = zx + 40 + yi * 525
             ops.append(text(bx, py0 + 380, str(yr), 26, "bold", MARKER))
@@ -558,7 +558,7 @@ def phase_of(yr):
 
 
 def write_csv(name):
-    """One row per example event -> paste the 'Card text' column into Miro (one sticky per cell)."""
+    """One row per example event to paste the 'Card text' column into Miro (one sticky per cell)."""
     import csv
     lane_group = {lid: g for g, _, lanes in GROUPS for lid, _, _ in lanes}
     p = os.path.join(HERE, name)

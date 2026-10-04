@@ -54,7 +54,7 @@ The Client Architect Agreement is signed (Register: 21 Feb 1957). Our file must 
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf)
 
 **22 Oct 1959 — Premier Cahill dies; Heffron Premier — client rep changes (CAA C.3)**  
-*Party:* Client — Premier Cahill → Premier Heffron  
+*Party:* Client — Premier Cahill to Premier Heffron  
 Cahill dies in office on 22 Oct 1959 (ADB; the archive guide says 19 Oct) and Heffron becomes Premier. The client's representative changes, which CAA C.3 requires the client to notify.  
 *Sources:* [U: Australian Dictionary of Biography — Cahill, John Joseph (Joe)](https://adb.anu.edu.au/biography/cahill-john-joseph-joe-9659) · [W: Wikipedia — Robert Askin (premier dates; also Bob Heffron, Jack Renshaw, Tom Lewis pages)](https://en.wikipedia.org/wiki/Robert_Askin) · [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)
 
@@ -104,7 +104,7 @@ Premier Askin heads the Official Opening Committee (28 Feb 1972). The client now
 *Sources:* [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)
 
 **17 Jan 1973 — Hughes resigns; Leon Punch Minister for Public Works (CAA C.3)**  
-*Party:* Client — Davis Hughes → Leon Punch  
+*Party:* Client — Davis Hughes to Leon Punch  
 Davis Hughes leaves parliament on 17 Jan 1973 and Leon Punch becomes Minister for Public Works — another change of client representative (CAA C.3) shortly before completion.  
 *Sources:* [AD: Wikipedia — Davis Hughes](https://en.wikipedia.org/wiki/Davis_Hughes)
 
@@ -124,7 +124,7 @@ Utzon declines (1 Aug 1973): he could not be the Government's guest and also cri
 *Sources:* [AE: Museums of History NSW — The myth of a non-invitation (Utzon and the opening)](https://mhnsw.au/stories/general/the-myth-of-a-non-invitation-utzon/)
 
 **3 Jan 1975 — Askin resigns; Tom Lewis Premier (client at SW-31)**  
-*Party:* Client — Premier Askin → Premier Lewis  
+*Party:* Client — Premier Askin to Premier Lewis  
 Askin resigns on 3 Jan 1975 and Tom Lewis becomes Premier — the head of the client government when the final certificate (SW-31) is issued.  
 *Sources:* [W: Wikipedia — Robert Askin (premier dates; also Bob Heffron, Jack Renshaw, Tom Lewis pages)](https://en.wikipedia.org/wiki/Robert_Askin)
 
@@ -242,7 +242,7 @@ Tenders for Stage I come back. The Register gives only the year; Jan 1959 is ass
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf)
 
 **Feb 1959 — Contractor selection (Civil & Civic)**  `REG [A]`  
-*Party:* Client — NSW Government → Civil & Civic  
+*Party:* Client — NSW Government to Civil & Civic  
 Civil & Civic is selected for Stage I (podium). Month assumed from the Register's year.  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf) · [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)
 
@@ -294,7 +294,7 @@ The Fort Macquarie tram depot on Bennelong Point is demolished from Aug 1958 to 
 *Sources:* [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)
 
 **2 Mar 1959 — Site possession — construction ceremony, Stage I starts**  
-*Party:* Client — NSW Government → Civil & Civic  
+*Party:* Client — NSW Government to Civil & Civic  
 Cahill holds the construction ceremony on 2 Mar 1959; Civil & Civic starts Stage I. This is site possession under ABIC F1.  
 *Sources:* [A: Sydney Opera House — Construction begins](https://www.sydneyoperahouse.com/our-story/construction-begins) · [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)
 
@@ -341,7 +341,7 @@ Twelve months after practical completion for the contractor to fix defects (ABIC
 ## C3 — Contract administration
 
 **Aug 1961 — Instruction for a Variation — strengthen columns, add piers** · **SW-12**  `REG [A]`  
-*Party:* Architect — Jørn Utzon → Civil & Civic  
+*Party:* Architect — Jørn Utzon to Civil & Civic  
 SW-12: the architect instructs the contractor to strengthen the columns and add piers. This is the first form in our Scenario 1 chain.  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf) · tutor: Tutor's Assessment 3 instruction video (Canvas) — notes in 10-tutor-video-notes.md
 
@@ -392,7 +392,7 @@ Site work on the interiors and glass walls runs from 1968 to 1973 (SOH's own sto
 The glass walls go up on their steel frames and are nearly complete by 1971; over 6,200 m² of glass came from France.  
 *Sources:* [K: Google Arts & Culture (SOH) — The Final Stage](https://artsandculture.google.com/story/the-final-stage-sydney-opera-house/RwVhIfNkP9JCIA?hl=en) · [L: Google Arts & Culture (SOH) — Peter Hall](https://artsandculture.google.com/story/peter-hall-sydney-opera-house/CgWR3S-pZki0Ig?hl=en) · [F: Sydney Opera House — Peter Hall and the completion of the Opera House](https://www.sydneyoperahouse.com/our-story/peter-hall-and-completion-opera-house)
 
-**Jun 1969 – 30 May 1979 — Grand Organ — separate contract, to 30 May 1979 ($0.4m → $1.2m)**  
+**Jun 1969 – 30 May 1979 — Grand Organ — separate contract, to 30 May 1979 ($0.4m to $1.2m)**  
 *Party:* Supplier / manufacturer — Ronald Sharp (organ builder)  
 The Grand Organ is built under a separate contract and finished on 30 May 1979. Its budget rose from $400,000 to $1.2m; it is excluded from the $102m.  
 *Sources:* [O: Sydney Opera House — Preserving the Grand Organ](https://www.sydneyoperahouse.com/building/preserving-grand-organ) · [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)
@@ -443,7 +443,7 @@ A two-week festival of events around the opening, 17 Oct – 3 Nov 1973.
 |---|---|---|---|---|
 | Client | NSW Government | Owner; funds the build through the Opera House Lottery | 1954–75 | D, Z |
 | Client | Minister for Public Works | Constructing authority (from 1 Jan 1957); signs the building contracts | 1957–75 | D, E |
-| Client | Opera House Committee → Sydney Opera House Trust | Committee from 1954; the Trust (Act of 14 Mar 1961) operates the building | 1954–75 | D, V |
+| Client | Opera House Committee to Sydney Opera House Trust | Committee from 1954; the Trust (Act of 14 Mar 1961) operates the building | 1954–75 | D, V |
 | Client | Premier J.J. (Joe) Cahill | Champions the project; forces the early start | 1952 – 22 Oct 1959 | U |
 | Client | Premier Bob Heffron | Premier after Cahill | 23 Oct 1959 – 30 Apr 1964 | W |
 | Client | Premier Jack Renshaw | Premier before the 1965 election | 30 Apr 1964 – 13 May 1965 | W |

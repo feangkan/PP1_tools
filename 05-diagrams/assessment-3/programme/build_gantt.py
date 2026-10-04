@@ -86,7 +86,7 @@ for i, h in enumerate(headers, start=1):
 ws.row_dimensions[HEAD_ROW].height = 44
 
 # month-tick header (row 6), shared by every block below
-ws.cell(row=HEAD_ROW, column=GRID_START_COL - 1, value="Month →").font = WHITE_BOLD
+ws.cell(row=HEAD_ROW, column=GRID_START_COL - 1, value="Months").font = WHITE_BOLD
 ws.cell(row=HEAD_ROW, column=GRID_START_COL - 1).fill = GRID_HEADER_FILL
 for t in range(N_TICKS):
     v = t * TICK_STEP

@@ -16,7 +16,7 @@
 | Fact | Detail | Supersedes |
 |------|--------|-----------|
 | **Part B word count** | **1,000 words**, stated plainly twice ("a thousand words for part B", "1,000-word letter") | Resolves the brief's own 1000-vs-1200 contradiction — use **1000** |
-| **The only two client reps you need** | **John (Joseph) Cahill**, Premier of NSW, for the first **2 years**; then **Robert Askin** for the remaining **6 years**. The tutor gives you exactly these two — you don't need Heffron, Renshaw, Hughes/PWD in the file unless you want to | Simplifies `02-timeline-scaffold.md` E09/E15 — those rows can drop to just Cahill → Askin |
+| **The only two client reps you need** | **John (Joseph) Cahill**, Premier of NSW, for the first **2 years**; then **Robert Askin** for the remaining **6 years**. The tutor gives you exactly these two — you don't need Heffron, Renshaw, Hughes/PWD in the file unless you want to | Simplifies `02-timeline-scaffold.md` E09/E15 — those rows can drop to just Cahill to Askin |
 | **Consultants** | Ove Arup (engineer) | matches `01-parties-and-instruments-map.md` |
 | **Builders** | **Civil and Civic**, then **Hornibrook Limited**. Pick one for your Simple Works Contract; add the second only if you want to show the contract being re-let | matches `02-timeline-scaffold.md` |
 | **Architect continuity** | Utzon engaged, resigned partway; **Peter Hall (design), Lionel Todd (contract documentation), David Littlemore (contract admin)** engaged **April 1966**. "You can assume Utzon was the same architect the entire time... or you can decide you're demonstrating this after it's already changed hands" — **it's an explicit, sanctioned choice**, not something to avoid | confirms `01-parties-and-instruments-map.md`, `09-timeline-scenario-A.md` |
@@ -47,7 +47,7 @@ Naming conventions were shown on-screen but not read aloud — `[gap]`, ask the 
 | **11** | **Develop the forms**: variation, adjustment of time, contract price adjustment, final certificate. |
 | **Final week** | **Develop the ARBV statement + Architects Register.** Submit. |
 
-Our `05-weekly-plan.md` (W9→W15 with a consistency-audit week and a 2-day buffer) is compatible with this — it just spreads the same four stages across more weeks and adds a cross-check pass before submission. Keep both.
+Our `05-weekly-plan.md` (W9 to W15 with a consistency-audit week and a 2-day buffer) is compatible with this — it just spreads the same four stages across more weeks and adds a cross-check pass before submission. Keep both.
 
 ## The collaboration warning (strong — quote this to the group)
 
@@ -65,7 +65,7 @@ This matches (and sharpens) the brief's own line about rotating leads: *"Althoug
 
 ## Resources: how to actually get the documents
 
-Everything (Guide Letter 1, CAA + user guide, ABIC Simple Works Contract + user guide + template forms) comes from the **AIA Acumen website**, reached **through the RMIT Library** (log in, it should show "Good afternoon RMIT" once you're through) → **Acumen Practice Notes**. You can search it directly (e.g. search "introductory letter" or "guide letter") or browse the topic index. This is also where updated/current editions live — the tutor notes Guide Letter 1 on the public site was still 2009 at the time of recording, so **search Acumen itself for the CAA2024-current version**, don't assume the version in our `Assessment 3 resources` folder is final.
+Everything (Guide Letter 1, CAA + user guide, ABIC Simple Works Contract + user guide + template forms) comes from the **AIA Acumen website**, reached **through the RMIT Library** (log in, it should show "Good afternoon RMIT" once you're through) to **Acumen Practice Notes**. You can search it directly (e.g. search "introductory letter" or "guide letter") or browse the topic index. This is also where updated/current editions live — the tutor notes Guide Letter 1 on the public site was still 2009 at the time of recording, so **search Acumen itself for the CAA2024-current version**, don't assume the version in our `Assessment 3 resources` folder is final.
 
 **ABIC Simple Works Contract**: fill it in **Adobe** (some fields are text boxes, not fillable form fields like the CAA).
 
@@ -78,7 +78,7 @@ Everything (Guide Letter 1, CAA + user guide, ABIC Simple Works Contract + user 
 
 ## The three official example scenarios — fully worked, with the tutor's own numbers
 
-**Read this before finalising a scenario choice.** The tutor has already worked out the document chain and dollar/time figures for scenarios 1, 2 and 3 (the brief's own three examples) — but explicitly **not** for other scenarios, including our current pick (Scenario A, Major Hall → concert-only, in `07-scenario-options.md` / `08-scenario-A-evidence.md` / `09-timeline-scenario-A.md`). He says plainly: *"these figures are just estimates that I have made... we're piecing together this story, not with the actual documents... we don't have available to us the exact documents that were used to administer the contract... we're happy for the dates and the cost to be loose."*
+**Read this before finalising a scenario choice.** The tutor has already worked out the document chain and dollar/time figures for scenarios 1, 2 and 3 (the brief's own three examples) — but explicitly **not** for other scenarios, including our current pick (Scenario A, Major Hall to concert-only, in `07-scenario-options.md` / `08-scenario-A-evidence.md` / `09-timeline-scenario-A.md`). He says plainly: *"these figures are just estimates that I have made... we're piecing together this story, not with the actual documents... we don't have available to us the exact documents that were used to administer the contract... we're happy for the dates and the cost to be loose."*
 
 That changes the trade-off: picking 1, 2 or 3 gets your group **ready-made, tutor-sanctioned numbers** for every form. Scenario A is a stronger *story* but every number in it is still a research gap (see `08-scenario-A-evidence.md` §Gaps). **This is a decision for the group, not something to resolve here** — see the recommendation at the end.
 
@@ -98,7 +98,7 @@ That changes the trade-off: picking 1, 2 or 3 gets your group **ready-made, tuto
 | 6 | *(optional)* Progress claim | Includes the $5,000 — not required for submission |
 | 7 | **SW-31** Final Certificate | Refers to the SW-11 above; confirms the increase of $5,000 |
 
-**Part B angle:** construction began before proper construction documents were prepared → the project was **fast-tracked** → extra cost and time followed. Could argue that more design time before construction might have avoided the issue.
+**Part B angle:** construction began before proper construction documents were prepared to the project was **fast-tracked** to extra cost and time followed. Could argue that more design time before construction might have avoided the issue.
 
 ### Scenario 2 — Partial demolition of existing columns for a new design after construction commenced
 
@@ -118,7 +118,7 @@ That changes the trade-off: picking 1, 2 or 3 gets your group **ready-made, tuto
 
 **Part B angle:** the same fast-tracking issue as Scenario 1 — changing contract documents after construction starts has direct time and cost consequences; the architects and engineers were "forced to design whilst construction occurs."
 
-### Scenario 3 — Major/Minor Hall ceiling: plywood beams → steel; engineer vs architect conflict
+### Scenario 3 — Major/Minor Hall ceiling: plywood beams to steel; engineer vs architect conflict
 
 **Background (real, sourced — from Murray's *Saga of Sydney Opera House* via the tutor):** In **August 1965**, Arup reported to the Department of Public Works (the client) **preferring steel framing** over Utzon's boxed-plywood beam system, for several reasons: early erection of steelwork before the building is enclosed gives easier access for services; steel better accommodates the high stresses in the system; plywood is harder to form joints in; a possible **25% saving** in plywood area and a possible weight saving. **Utzon had already examined a steel truss system** and judged it would be expensive to erect **and**, because of the amount of lining still needed for acoustic performance, that the steel would end up redundant anyway — this was **Utzon's position as of January 1966**. A report titled *"Structural details of proposed Minor Hall auditorium ceiling"* was issued. The fully developed plywood system was never built; Utzon left before it was resolved; in the end **a steel design was pursued, with some plywood lining retained**.
 
@@ -127,7 +127,7 @@ That changes the trade-off: picking 1, 2 or 3 gets your group **ready-made, tuto
 | Step | Document | Content |
 |------|----------|---------|
 | 1 | **SW-12** Architect's Instruction for a Variation | New ceiling design from the engineers — quoted by the contractor |
-| 2 | Contractor's Detail of a Claim *(optional)* | Extension of time: **12 months** (delay to finalise the design, plywood → plywood/steel hybrid). Quote: **$10,000** for the ceiling + labour. Note: nothing has been built yet — this is a **design-stage** cost/time impact, not a demolition |
+| 2 | Contractor's Detail of a Claim *(optional)* | Extension of time: **12 months** (delay to finalise the design, plywood to plywood/steel hybrid). Quote: **$10,000** for the ceiling + labour. Note: nothing has been built yet — this is a **design-stage** cost/time impact, not a demolition |
 | 3 | Instruction to Proceed *(optional)* | Architect + engineer agree the quote |
 | 4 | **SW-11** Contract Price Adjustment | **+$10,000** |
 | 5 | **SW-14** Adjustment of Time | **+12 months** |
@@ -140,7 +140,7 @@ That changes the trade-off: picking 1, 2 or 3 gets your group **ready-made, tuto
 
 ## Recommendation: reconsider the scenario now that this exists
 
-Nothing here disqualifies **Scenario A** (Major Hall → concert-only) — it's still the strongest *story* for Part B, and Scenario 3's Arup-vs-Utzon ceiling background actually **feeds it directly**: both are the same acoustic/structural argument (Arup's engineering judgement vs Utzon's design intent), in the same era, and Scenario 3's plywood-vs-steel report (Aug 1965) sits right before our Scenario A's Review of Programme (Dec 1966). A group could genuinely run **A with Scenario 3's ceiling story folded in as supporting evidence** for Part B, while keeping A's own SW-12→31 chain built from real dates (once the missing cost figures are found — see `08-scenario-A-evidence.md` §Gaps).
+Nothing here disqualifies **Scenario A** (Major Hall to concert-only) — it's still the strongest *story* for Part B, and Scenario 3's Arup-vs-Utzon ceiling background actually **feeds it directly**: both are the same acoustic/structural argument (Arup's engineering judgement vs Utzon's design intent), in the same era, and Scenario 3's plywood-vs-steel report (Aug 1965) sits right before our Scenario A's Review of Programme (Dec 1966). A group could genuinely run **A with Scenario 3's ceiling story folded in as supporting evidence** for Part B, while keeping A's own SW-12 to 31 chain built from real dates (once the missing cost figures are found — see `08-scenario-A-evidence.md` §Gaps).
 
 But if the group is short on time or wants a lower-risk Part A, **Scenario 1, 2 or 3 alone now come with a complete, tutor-sanctioned set of numbers for every single form** — nothing left to find. That's a real trade-off against Scenario A's stronger but still partly unsourced Part B narrative.
 

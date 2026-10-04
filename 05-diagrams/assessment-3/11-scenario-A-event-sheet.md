@@ -31,17 +31,17 @@
 
 All rows in this section are `[A]`. They translate the sourced historical trigger into the CAA 2024 / ABIC SW 2018 documents required by the brief; they are not claims that these documents existed historically.
 
-| E-ID | Working date | Document / action | Doc no. | From → To | Clause / purpose | Status |
+| E-ID | Working date | Document / action | Doc no. | From / To | Clause / purpose | Status |
 |------|--------------|-------------------|---------|-----------|------------------|--------|
-| E-A07 | 31 Mar 1967 | Client instruction confirming the revised brief | `SOH-LTR-002` | NSW Government → Hall, Todd & Littlemore | Written client decision following Cabinet approval; starts the change chain | `[A—date]` |
-| E-A08 | 3 Apr 1967 | Architect notifies change to architectural services and fee/program consequences | `SOH-CAA-VAR-001` | Hall, Todd & Littlemore → NSW Government | CAA 2024 D.8; redesign is additional services | `[A—date, fee and program TBD]` |
-| E-A09 | 7 Apr 1967 | Architect's Instruction for a Variation: omit Major Hall opera-stage machinery and redesign the hall for concert-only use | `SOH-SW12-001` | Architect → contractor | ABIC SW J1; required SW-12 | `[A—date; contract scope issue unresolved]` |
-| E-A10 | 4 May 1967 | Contractor's notice of effect: abortive work, redesign interfaces, time and cost | `SOH-SW40-001` | Contractor → architect | ABIC SW J2.3 / L3; optional SW-40 | `[A—date, contractor and contents TBD]` |
-| E-A11 | 25 May 1967 | Contractor's details of claim | `SOH-SW42-001` | Contractor → architect | ABIC SW H1–H2; optional SW-42 | `[A—date, days and amount TBD]` |
-| E-A12 | 1 Jun 1967 | Instruction to proceed after review of the claim | `SOH-SW13-001` | Architect → contractor | ABIC SW J3; optional SW-13 | `[A—date]` |
-| E-A13 | 22 Jun 1967 | Adjustment of time | `SOH-SW14-001` | Architect → contractor and owner | ABIC SW H4 / L1–L2; required SW-14 | `[A—date and number of days TBD]` |
-| E-A14 | 22 Jun 1967 | Contract price adjustment | `SOH-SW11-001` | Architect → contractor and owner | ABIC SW H4 / J5; required SW-11 | `[A—date and amount TBD]` |
-| E-A15 | 1974 | Final certificate referring to `SOH-SW11-001` | `SOH-SW31-001` | Architect → contractor and owner | ABIC SW N11; required SW-31 | `[A—date and amount TBD]` |
+| E-A07 | 31 Mar 1967 | Client instruction confirming the revised brief | `SOH-LTR-002` | NSW Government to Hall, Todd & Littlemore | Written client decision following Cabinet approval; starts the change chain | `[A—date]` |
+| E-A08 | 3 Apr 1967 | Architect notifies change to architectural services and fee/program consequences | `SOH-CAA-VAR-001` | Hall, Todd & Littlemore to NSW Government | CAA 2024 D.8; redesign is additional services | `[A—date, fee and program TBD]` |
+| E-A09 | 7 Apr 1967 | Architect's Instruction for a Variation: omit Major Hall opera-stage machinery and redesign the hall for concert-only use | `SOH-SW12-001` | Architect to contractor | ABIC SW J1; required SW-12 | `[A—date; contract scope issue unresolved]` |
+| E-A10 | 4 May 1967 | Contractor's notice of effect: abortive work, redesign interfaces, time and cost | `SOH-SW40-001` | Contractor to architect | ABIC SW J2.3 / L3; optional SW-40 | `[A—date, contractor and contents TBD]` |
+| E-A11 | 25 May 1967 | Contractor's details of claim | `SOH-SW42-001` | Contractor to architect | ABIC SW H1–H2; optional SW-42 | `[A—date, days and amount TBD]` |
+| E-A12 | 1 Jun 1967 | Instruction to proceed after review of the claim | `SOH-SW13-001` | Architect to contractor | ABIC SW J3; optional SW-13 | `[A—date]` |
+| E-A13 | 22 Jun 1967 | Adjustment of time | `SOH-SW14-001` | Architect to contractor and owner | ABIC SW H4 / L1–L2; required SW-14 | `[A—date and number of days TBD]` |
+| E-A14 | 22 Jun 1967 | Contract price adjustment | `SOH-SW11-001` | Architect to contractor and owner | ABIC SW H4 / J5; required SW-11 | `[A—date and amount TBD]` |
+| E-A15 | 1974 | Final certificate referring to `SOH-SW11-001` | `SOH-SW31-001` | Architect to contractor and owner | ABIC SW N11; required SW-31 | `[A—date and amount TBD]` |
 
 ## Decisions that must be fixed before drafting the forms
 

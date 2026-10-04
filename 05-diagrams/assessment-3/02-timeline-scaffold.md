@@ -18,14 +18,14 @@
 | E08 | 2 Mar 1959 | **Site possession — Stage I (podium) starts**, contractor Civil & Civic — construction starts **before the roof design is resolved** (political pressure to start before the election) | Client | Time / Scope risk | [verify — site possession date in brief extract] |
 | E09 | Oct 1959 | Cahill dies; new premier (Heffron) — client representative changes | — | Responsibilities | [verify] |
 | E10 | 1961 | Roof geometry resolved — "spherical solution" (shells cut from a common sphere) | Architect + engineer | Scope / Quality | [verify] |
-| E11 | ~1961–62 | Podium columns/piers **inadequate for the final roof loads** → additional piers + **partial demolition and rebuilding** of columns (scenarios 1 + 2) | Design change → Architect instructs | Scope · Time · Cost | [verify dates + extent] |
+| E11 | ~1961–62 | Podium columns/piers **inadequate for the final roof loads** to additional piers + **partial demolition and rebuilding** of columns (scenarios 1 + 2) | Design change to Architect instructs | Scope · Time · Cost | [verify dates + extent] |
 | E12 | 26 Jan 1963 | **Original practical completion date** | Contract | Time | [verify — shown in brief extract; whole project or Stage I?] |
 | E13 | 1963 | Stage I complete (late); **Stage II (roof shells) — Hornibrook** | Client | Time | [verify] |
 | E14 | 1963–65 | Stage III design — plywood cladding/ceiling system (with Ralph Symonds), mock-ups; engineer–architect disagreement on hall ceilings (scenario 3) | Architect / Engineer | Scope · Quality · Cost | [verify] |
 | E15 | May 1965 | Askin government elected; **Davis Hughes, Minister for Public Works**, takes control of the project; fees/payments withheld; approvals refused | Client | Responsibilities · Cost | [verify] |
 | E16 | 28 Feb 1966 | **Utzon resigns** | Architect | Responsibilities | [verify — shown in brief extract] |
 | E17 | Apr 1966 | **Architect Team II engaged**: Peter Hall (design), Lionel Todd (contract documentation), David Littlemore (contract administration) | Client | Services | [verify — shown in brief extract] |
-| E18 | 1966–67 | Major Hall program changed from opera to concert hall; stage machinery removed; ceilings redesigned (plywood → steel etc.) | Client + Architect II | Scope | [verify] |
+| E18 | 1966–67 | Major Hall program changed from opera to concert hall; stage machinery removed; ceilings redesigned (plywood to steel etc.) | Client + Architect II | Scope | [verify] |
 | E19 | 1967 | Roof shells complete; Stage III (Hornibrook) proceeds | — | Time | [verify] |
 | E20 | 20 Oct 1973 | **Opened by Queen Elizabeth II** — adjusted practical completion | — | Time | [verify — shown in brief extract] |
 | E21 | 1973 | Final cost ~A$102m (vs ~£3.5m/A$7m estimate) | — | Cost | [verify] |

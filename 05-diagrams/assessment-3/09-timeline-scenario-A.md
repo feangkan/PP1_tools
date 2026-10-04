@@ -1,13 +1,13 @@
-# 09 — Timeline v1: Scenario A (Major Hall → concert hall only)
+# 09 — Timeline v1: Scenario A (Major Hall to concert hall only)
 
-- **Date:** 2026-09-26 (v01). Format: **Design timeline / Contract timeline** × **P1 Client brief → Tender · P2 Tender → Start construction · P3 Construction → Completion** (see `06-timeline-workflow.md`).
+- **Date:** 2026-09-26 (v01). Format: **Design timeline / Contract timeline** × **P1 Client brief to Tender · P2 Tender to Start construction · P3 Construction to Completion** (see `06-timeline-workflow.md`).
 - ★ = scenario event. Working draft for the group to verify. Not final wording.
 
 **Source codes:** **B** = brief's SOH extract · **ADB** = Australian Dictionary of Biography, *Hall, Peter Brian* · **GA** = SOH / Google Arts & Culture (*The Ghost of a Machine*, *The Concert Hall*) · **SA** = NSW State Archives NRS-12800 · **MH** = Museums of History NSW · **PN** = Parliament of NSW · **RS** = course Register sample · **V** = general knowledge, verify before use · **A** = our assumption (contemporary-instrument event; the group sets the date)
 
 ## DESIGN TIMELINE (client ↔ architect, CAA 2024)
 
-### P1 Client brief → Tender
+### P1 Client brief to Tender
 
 | Date | Event | Src |
 |------|-------|-----|
@@ -16,14 +16,14 @@
 | Mar 1957 | Architect engaged (Utzon), later recorded as a CAA 2024 | B, A |
 | 1958 | "Red Book" design report to the Premier and Opera House Committee (concept approval gate) | MH |
 
-### P2 Tender → Start construction
+### P2 Tender to Start construction
 
 | Date | Event | Src |
 |------|-------|-----|
 | 1958 | Stage I (podium) documentation prepared while the roof design is still unresolved | V |
 | 1958 | Tram depot on Bennelong Point demolished to clear the site | MH |
 
-### P3 Construction → Completion
+### P3 Construction to Completion
 
 | Date | Event | Src |
 |------|-------|-----|
@@ -42,14 +42,14 @@
 
 ## CONTRACT TIMELINE (client ↔ contractor, ABIC SW 2018, architect administers)
 
-### P1 Client brief → Tender
+### P1 Client brief to Tender
 
 | Date | Event | Src |
 |------|-------|-----|
 | 1955–57 | Design procured by competition; engineer (Ove Arup & Partners) engaged **directly by the client** | B |
 | 1958 | Stage I tender called | V |
 
-### P2 Tender → Start construction
+### P2 Tender to Start construction
 
 | Date | Event | Src |
 |------|-------|-----|
@@ -57,7 +57,7 @@
 | 2 Mar 1959 | **Site possession**, Stage I starts (ABIC F1) | B |
 | — | Original date for practical completion: **26 Jan 1963** (Sched 1 item 22) | B |
 
-### P3 Construction → Completion
+### P3 Construction to Completion
 
 | Date | Event | Src |
 |------|-------|-----|
@@ -66,7 +66,7 @@
 | 1963–67 | Stage II roof shells, **Hornibrook** | B, V |
 | Jan 1965 | Waagner-Biro stage-machinery assembly drawings (vol. 1) | SA |
 | 1967–73 | Stage III interiors, Hornibrook | B, V |
-| Mar–Apr 1967 | ★ **Client letter** instructing the change of use (Hughes → architects) | A (Cabinet Mar 1967) |
+| Mar–Apr 1967 | ★ **Client letter** instructing the change of use (Hughes to architects) | A (Cabinet Mar 1967) |
 | Apr 1967 | ★ **SW-12** Architect's Instruction for a Variation: omit Major Hall stage machinery; Major Hall redesigned as concert hall (J1) | A |
 | Apr–May 1967 | ★ Contractor's notice of effect (J2.3), then **SW-13** instruction to proceed (J3) | A |
 | mid-1967 | ★ **SW-42** Contractor's details of claim: time + cost, including abortive work (H1–H2) | A |

@@ -2,7 +2,7 @@
 
 - **Purpose:** first meeting of the group of three — do workshop steps 1–6 (see `../../03-weekly-resources/week-09/README.md`) and leave with roles, a workspace, a scenario-research split and a date for meeting #2.
 - **Length:** ~60 min. Bring laptops; open the Miro board.
-- **Before the meeting (everyone, 20 min):** read `../../02-assessment-tasks/assessment-3-brief.md`; skim the SOH Project Information PDF (Canvas → A3 → Resources); **watch or read the tutor's two instruction videos** (transcripts in `../../03-weekly-resources/week-09/tutor-video-transcripts/`) — they include fully worked examples for scenarios 1/2/3 with real dollar and time figures, summarised in `10-tutor-video-notes.md`. Group size (three) and due date (Fri 6 Nov) are confirmed in `12-official-tabs-confirmed.md`.
+- **Before the meeting (everyone, 20 min):** read `../../02-assessment-tasks/assessment-3-brief.md`; skim the SOH Project Information PDF (Canvas to A3 to Resources); **watch or read the tutor's two instruction videos** (transcripts in `../../03-weekly-resources/week-09/tutor-video-transcripts/`) — they include fully worked examples for scenarios 1/2/3 with real dollar and time figures, summarised in `10-tutor-video-notes.md`. Group size (three) and due date (Fri 6 Nov) are confirmed in `12-official-tabs-confirmed.md`.
 
 ---
 
@@ -22,7 +22,7 @@
 
 ## 1 · The brief in one breath
 
-> We build **one project file** for the Sydney Opera House, as if a contemporary architect ran it: an **intro letter** from Utzon to the NSW Government, a **CAA 2024** with the client, an **ABIC Simple Works 2018** contract with the builder, then one event (or connected series) run through **SW-12 variation → SW-14 time → SW-11 price → SW-31 final certificate**. A **Timeline** and a **Document Register** tie it together. Part B is a ~1000–1200-word statement **to the ARBV** that uses those documents as evidence of professional judgement. **50%, due Fri 6 Nov.** Two of five rubric criteria are about **consistency** across the file.
+> We build **one project file** for the Sydney Opera House, as if a contemporary architect ran it: an **intro letter** from Utzon to the NSW Government, a **CAA 2024** with the client, an **ABIC Simple Works 2018** contract with the builder, then one event (or connected series) run through **SW-12 variation to SW-14 time to SW-11 price to SW-31 final certificate**. A **Timeline** and a **Document Register** tie it together. Part B is a ~1000–1200-word statement **to the ARBV** that uses those documents as evidence of professional judgement. **50%, due Fri 6 Nov.** Two of five rubric criteria are about **consistency** across the file.
 
 ## 2 · Roles (rotating leads — all contribute to every stage)
 
@@ -30,7 +30,7 @@
 |------|-------|--------------|------------------------------|------|
 | Lead 1 | Design + Client Framework | W9–W10 | Timeline, brief, scope of services, **intro letter**, **CAA 2024**, client correspondence | |
 | Lead 2 | Procurement + Contract | W10–W11 | Procurement/tender assumptions, contract relationships, **ABIC SW 2018** particulars | |
-| Lead 3 | Contract Administration | W11–W13 | Scenario event → **SW-12, SW-14, SW-11, SW-31** (+ optional SW-40/42/13/49) | |
+| Lead 3 | Contract Administration | W11–W13 | Scenario event to **SW-12, SW-14, SW-11, SW-31** (+ optional SW-40/42/13/49) | |
 | **Everyone** | Part B + consistency audit | W12–W15 | ARBV statement, appendices, cross-check matrix | all |
 
 Suggested extra hats (so nothing falls between leads):
@@ -63,7 +63,7 @@ Use `01-parties-and-instruments-map.md` (who's contracted to whom) and `02-timel
 |---------|----------------------|-------|
 | A | S1 — additional piers for the roof, redesigned after construction commenced | `04-scenario-research-sheet.md` |
 | B | S2 — partial demolition of existing columns for a new design | same template |
-| C | S3 — Major/Minor Hall ceilings, plywood → steel, engineer vs architect | same template |
+| C | S3 — Major/Minor Hall ceilings, plywood to steel, engineer vs architect | same template |
 
 Everyone answers the recurring question on their sheet: **"Something changed. What would an architect need to do, communicate and record?"** Pick at meeting #2. Early read of the options is in `03-change-chain.md`.
 

@@ -28,7 +28,7 @@
 | 3 | **Stage II finish** | Last shell 17 Jan 1967 (F) vs "Stage II completed Mar 1967" (D) | Works to 17 Jan 1967 | Either is defensible; cite it |
 | 4 | **Stage III start** | Agreement Nov 1966 (C); "commenced 1966" (I); interiors begin after 17 Jan 1967 (F). Register says 1967 | Agreement Nov 1966; works from 17 Jan 1967 | Register's 1967 works if it means site work |
 | 5 | **Who engaged Arup** | D: **engaged by Utzon in London**. The brief's project extract: **engaged directly by the client** | Brief's version, flagged | Matters for CAA Schedule B Item 4 ("Client to engage") and the CAA E.1 point in Part B. **Ask the tutor** or follow the brief and note D |
-| 6 | **Final certificate date** | Register: 1974. D: **Architects' Certificate of Completion 31 May 1975**; final cost $102m May 1974 | SW-31 on **31 May 1975**, flagged | Stronger with a source: PC Oct 1973 → 12-month defects → final certificate May 1975 is also the right ABIC order. **Update the Register** if agreed |
+| 6 | **Final certificate date** | Register: 1974. D: **Architects' Certificate of Completion 31 May 1975**; final cost $102m May 1974 | SW-31 on **31 May 1975**, flagged | Stronger with a source: PC Oct 1973 to 12-month defects to final certificate May 1975 is also the right ABIC order. **Update the Register** if agreed |
 | 7 | **When the pier problem appeared** | B: no shell solution until late 1961; Yellow Book Jan 1962. Tutor's video: loads rose once the roof was split into separate structures | SW-12 Aug 1961 (Register: 1961) | Register's 1961 is possible; 1962 fits B better. No source dates the piers themselves |
 | 8 | **Cost plan figure** | G: £13.7m estimate in 1962 = **A$27.4m** after decimal currency (£1 = $2, 1966) | Register CP-06 A$27.5m | ✅ Consistent — cite G for the cost plan row |
 
@@ -52,7 +52,7 @@ Lanes as on the board: D = design / client (Lead 1), C = contract (Leads 2–3).
 | P2 | C2 | 2 Mar 1959 | Construction starts: foundations, Stage I podium by Civil & Civic | A, D |
 | P3 | D1 | 19 Oct 1959 | Premier Cahill dies in office — client representative changes | D (A) |
 | P3 | D2 | 1958–1961 | Roof geometry unresolved; no buildable solution by late 1961 | B |
-| P3 | ★ | 1961 | Podium columns can't carry the final roof loads → extra piers (SW-12 → SW-14) | Tutor's video; Register |
+| P3 | ★ | 1961 | Podium columns can't carry the final roof loads to extra piers (SW-12 to SW-14) | Tutor's video; Register |
 | P3 | D2 | Jan 1962 | Yellow Book: shell geometry fixed | B |
 | P3 | C1 | 1962 | Cost estimate £13.7m (= A$27.4m) — the cost plan | G; Register |
 | P3 | ★ | 1962 | Contract price adjustment +$5,000 (SW-11) | Register |
@@ -75,11 +75,11 @@ Lanes as on the board: D = design / client (Lead 1), C = contract (Leads 2–3).
 | P3 | C2 | 17 Dec 1972 | First test concert in the Concert Hall | D |
 | P3 | C3 | 20 Oct 1973 | Official opening = practical completion | J, D |
 | — | C1 | May 1974 | Final cost $102m | D |
-| — | C3 | 31 May 1975 | Architects' Certificate of Completion → our SW-31 final certificate | D |
+| — | C3 | 31 May 1975 | Architects' Certificate of Completion to our SW-31 final certificate | D |
 
 ## 4. Still not sourced (only the Register or the tutor)
 
 - Civil & Civic contract date (Register: 19 Feb 1959).
 - The piers / columns variation itself and its dates — only the tutor's video (drawing on Murray's *Saga*). Murray's book, via the RMIT Library, is the source to cite if you can find the page.
-- Premier after Cahill: Heffron (1959–64) and Renshaw (1964–65) appear in none of A–J; the tutor simplifies to Cahill → Askin.
+- Premier after Cahill: Heffron (1959–64) and Renshaw (1964–65) appear in none of A–J; the tutor simplifies to Cahill to Askin.
 - The introductory letter's date.
