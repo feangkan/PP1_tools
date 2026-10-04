@@ -1,21 +1,26 @@
-"""Board-layout timeline in Excel, laid out like ../timeline/soh-timeline-scenario1.png
-(the project board picture), not like the Option 1/2 Gantt table.
+"""Board-layout timeline in Excel, one section per sheet, so each part is easy to edit.
+Looks like ../timeline/soh-timeline-scenario1.png (the project board picture).
 
-Sheets
-  1 Template              - the empty layout: header, legend, phases, year axis, Design / Contract
-                            lanes, Architects Register lane, and the four bottom panels
-                            (event card, workflow, task assignment, zoom frame)
-  2 Board - Scenario 1    - the same layout filled with our project
-  3 Events (data)         - every event on the board as a table, with its source key
+Two files
+  soh_board_layout.xlsx    - our project (Scenario 1), filled in
+  soh_board_template.xlsx  - the same sheets, empty, for a fresh start or another scenario
 
-One source of truth: the events are read from build_scenario1_timeline.py (the lanes, bars,
-milestones, forms, owners and source keys there), so edit events in that file and re-run both.
+Sheets (same in both files)
+  1 Cover              title, project lines, colour + shape legend, sheet index, how to edit
+  2 Design timeline    lanes D0-D4 on a year axis (one column = one quarter)
+  3 Contract timeline  lanes C1-C4 on the same axis
+  4 Register           the Architects Register as a table (one row per document)
+  5 Event cards        one card per required form / scenario event
+  6 Workflow           the 10 steps of a research session, with a Done? dropdown
+  7 Tasks              who does what, due, status dropdown
+  8 Zoom 1961-62       the ABIC SW clock + the variation chain month by month; the diamonds are
+                       formulas, so changing a date moves its diamond
+  9 Events (data)      every event as a filterable table with its source key
 
-Excel / Google Sheets: one column per month. Bars are filled cells with the label written in the
-first cell (it overflows across the bar); milestones are a diamond with the label beside it.
-Rows inside a lane are packed so that labels never collide.
+One source of truth: the events are read from build_scenario1_timeline.py; edit events there and
+re-run both scripts. Editing directly in Excel also works (see the Cover sheet).
 
-Run:  py build_board_layout.py [output.xlsx]   (default: soh_board_layout.xlsx next to this file)
+Run:  py build_board_layout.py [project.xlsx [template.xlsx]]
 """
 import ast
 import datetime as dt
@@ -25,12 +30,15 @@ import re
 import sys
 
 import openpyxl
+from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
+from openpyxl.worksheet.datavalidation import DataValidation
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "build_scenario1_timeline.py")
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "soh_board_layout.xlsx")
+OUT_T = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "soh_board_template.xlsx")
 D = dt.date
 ARIAL = "Arial"
 
@@ -38,23 +46,31 @@ INK, NAVY, MUTED, RED, PAPER = "18202B", "1F4E78", "6B7280", "C00000", "FFFFFF"
 FACTOR = {"Scope": "C8413B", "Time": "E0A030", "Cost": "1F7A8C",
           "Quality": "5E9E6E", "Responsibility": "7B6AA8", "Baseline": "BFBFBF"}
 PHASES = [  # label, dates text, start, end (exclusive), tint
-    ("P1  Client brief → Tender", "Sep 1955 to Jun 1958", D(1955, 9, 1), D(1958, 6, 1), "E6ECF3"),
-    ("P2  Tender → Start", "Jun 1958 to Mar 1959", D(1958, 6, 1), D(1959, 3, 1), "F4EBDD"),
-    ("P3  Construction → Completion", "Mar 1959 to Oct 1973 (opening = PC)", D(1959, 3, 1), D(1973, 10, 1), "E8F1EA"),
-    ("Defects + final cert.", "Oct 1973 to 31 May 1975", D(1973, 10, 1), D(1975, 6, 1), "EEEEEE"),
+    ("P1  Client brief → Tender", "Sep 1955 – Jun 1958", D(1955, 9, 1), D(1958, 6, 1), "E6ECF3"),
+    ("P2", "Jun 1958 – Mar 1959", D(1958, 6, 1), D(1959, 3, 1), "F4EBDD"),
+    ("P3  Construction → Completion", "Mar 1959 – Oct 1973 (opening = PC)", D(1959, 3, 1), D(1973, 10, 1), "E8F1EA"),
+    ("Defects + final cert.", "Oct 1973 – 31 May 1975", D(1973, 10, 1), D(1975, 6, 1), "EEEEEE"),
 ]
-Y0, Y1 = 1954, 1976                      # grid years, inclusive
-NM = (Y1 - Y0 + 1) * 12                  # month columns
+Y0, Y1 = 1954, 1978                      # grid years, inclusive
+NQ = (Y1 - Y0 + 1) * 4                   # quarter columns
 G0 = 4                                   # first grid column (D)
-COL_W, COL_PX = 1.0, 12                  # month column width (chars) and its approx. pixels
+COL_W, COL_PX = 3.4, 29                  # quarter column width (chars) and its approx. pixels
 CHAR_PX = 7.0                            # Arial 8 as rendered, average glyph width incl. spacing
 SCENARIO = D(1961, 6, 1)
 REQUIRED = {"SW-12", "SW-14", "SW-11", "SW-31", "GL1", "CAA", "SW 2018"}
+CLAUSE = {"GL1": "Introductory letter", "CAA": "CAA 2024 (whole agreement)", "CAA D.8": "CAA D.8 additional services",
+          "SW 2018": "ABIC SW 2018 + Schedule 1", "SW-12": "ABIC J1 (variation)", "SW-42": "ABIC H1–H2 (claim)",
+          "SW-13": "ABIC J3 (instruction to proceed)", "SW-14": "ABIC H4 / L1 (adjustment of time)",
+          "SW-11": "ABIC H4 / J5 (contract price adjustment)", "SW-31": "ABIC N11 (final certificate)",
+          "CP-06": "Cost plan (QS)"}
+FACTORS = ["Scope", "Time", "Cost", "Quality", "Responsibility"]
 
 thin = Side(style="thin", color="D5D9DE")
-hair = Side(style="hair", color="D9D9D9")
+grid = Side(style="thin", color="BFBFBF")
+hair = Side(style="hair", color="D0D0D0")
 redline = Side(style="medium", color=RED)
 dash = Side(style="dashed", color="404040")
+BOX = Border(left=grid, right=grid, top=grid, bottom=grid)
 
 
 def fnt(size=9, bold=False, italic=False, color=INK):
@@ -65,23 +81,23 @@ def fill(hex_):
     return PatternFill(start_color=hex_, end_color=hex_, fill_type="solid")
 
 
-def mcol(d):
-    """Grid column of the month containing date d (clipped to the grid)."""
-    k = (d.year - Y0) * 12 + d.month - 1
-    return G0 + max(0, min(NM - 1, k))
+def lighten(hex_, k=0.55):
+    r, g, b = (int(hex_[i:i + 2], 16) for i in (0, 2, 4))
+    return "".join(f"{int(v + (255 - v) * k):02X}" for v in (r, g, b))
+
+
+def qcol(d):
+    """Grid column of the quarter containing date d (clipped to the grid)."""
+    k = (d.year - Y0) * 4 + (d.month - 1) // 3
+    return G0 + max(0, min(NQ - 1, k))
 
 
 def short(d):
     return d.strftime("%b %Y") if d.day == 1 else f"{d.day} {d.strftime('%b %Y')}"
 
 
-def label_cols(text, size=8, bold=False):
-    return math.ceil(len(text) * CHAR_PX * (1.12 if bold else 1.0) * size / 8 / COL_PX) + 1
-
-
-def ms_left(it):
-    """True when a milestone label would run off the right edge: write it to the left instead."""
-    return mcol(it["start"]) + 1 + label_cols(ms_text(it), bold=is_required(it) or is_assumed(it)) > G0 + NM - 1
+def label_cols(text, bold=False):
+    return math.ceil(len(text) * CHAR_PX * (1.12 if bold else 1.0) / COL_PX) + 1
 
 
 def add_months(d, n):
@@ -136,7 +152,6 @@ def load_events():
     exec(compile(text[a:b_], SRC, "exec"), ns)
     # resolve the builder's cell formulas to dates
     inputs = {"$F$6": D(1959, 3, 2), "$F$7": D(1963, 1, 26)}
-    eot = 1
     by_id = {it["id"]: it for it in rec.items}
     for it in rec.items:
         for key in ("start", "end"):
@@ -146,207 +161,16 @@ def load_events():
                     it[key] = inputs[v.lstrip("=")]
                 else:
                     m = re.match(r"=EDATE\(F(\d+),\$F\$8\)", v)
-                    it[key] = add_months(by_id[int(m.group(1))]["start"], eot)
+                    it[key] = add_months(by_id[int(m.group(1))]["start"], 1)
     tree = ast.parse(text)
     tasks = next(ast.literal_eval(n.value) for n in tree.body
                  if isinstance(n, ast.Assign) and getattr(n.targets[0], "id", "") == "tasks")
     return rec, ns["R"], tasks
 
 
-# ------------------------------------------------------------------ sheet painter
-class Sheet:
-    def __init__(self, ws):
-        self.ws = ws
-        ws.sheet_view.showGridLines = False
-        ws.column_dimensions["A"].width = 6
-        ws.column_dimensions["B"].width = 40
-        ws.column_dimensions["C"].width = 1.5
-        for k in range(NM):
-            ws.column_dimensions[get_column_letter(G0 + k)].width = COL_W
-        self.lane_rows = []          # every row inside a lane (for grid lines + scenario line)
-        self.lane_last = set()       # last row of each lane (bottom rule)
-
-    def put(self, r, c, v=None, font=None, fl=None, al=None):
-        cell = self.ws.cell(row=r, column=c)
-        if v is not None:
-            cell.value = v
-        if font:
-            cell.font = font
-        if fl:
-            cell.fill = fl
-        if al:
-            cell.alignment = al
-        return cell
-
-    def band(self, r, c0, c1, hex_):
-        for c in range(c0, c1 + 1):
-            self.ws.cell(row=r, column=c).fill = fill(hex_)
-
-    def merge(self, r0, c0, r1, c1):
-        if (r1, c1) != (r0, c0):
-            self.ws.merge_cells(start_row=r0, start_column=c0, end_row=r1, end_column=c1)
-
-    # ---- header
-    def header(self, title, lines, project_line, group_line, start_year_input=False):
-        ws = self.ws
-        self.put(1, 1, title, fnt(20, True))
-        self.put(2, 1, lines, fnt(9, color=MUTED))
-        self.put(3, 1, project_line, fnt(9, True, color=RED))
-        self.put(4, 1, group_line, fnt(9, True, color=NAVY))
-        ws.row_dimensions[1].height = 28
-        # legend, top right of the grid
-        lx = G0 + 120
-        self.put(1, lx, "COLOUR BY FACTOR", fnt(8, True, color=MUTED))
-        for i, k in enumerate(["Scope", "Time", "Cost", "Quality", "Responsibility"]):
-            c = lx + i * 20
-            self.band(2, c, c + 2, FACTOR[k])
-            self.put(2, c + 3, k, fnt(8))
-        self.put(3, lx, "SHAPES", fnt(8, True, color=MUTED))
-        shapes = [("bar", "bar = date range", "9DB4C8"), ("◆", "milestone = one date", None),
-                  ("base", "baseline (planned)", "EDEDED"), ("dash", "dashed = [A] assumption", None),
-                  ("★", "required form / scenario", None), ("|", "scenario marker", None),
-                  ("■", "CAA approval gate", None)]
-        for i, (sym, txt, col) in enumerate(shapes):
-            c = lx + i * 24
-            cell = self.put(4, c)
-            if sym in ("bar", "base"):
-                self.band(4, c, c + 2, col)
-                if sym == "base":
-                    for k in range(c, c + 3):
-                        ws.cell(row=4, column=k).border = Border(top=dash, bottom=dash)
-            elif sym == "dash":
-                for k in range(c, c + 3):
-                    ws.cell(row=4, column=k).border = Border(top=dash, bottom=dash,
-                                                             left=dash if k == c else None,
-                                                             right=dash if k == c + 2 else None)
-            elif sym == "|":
-                cell.border = Border(left=redline)
-            else:
-                cell.value = sym
-                cell.font = fnt(10, True, color=RED if sym == "★" else INK)
-                cell.alignment = Alignment(horizontal="center")
-            self.put(4, c + 3, txt, fnt(8))
-        if start_year_input:
-            self.put(5, 1, "Start", fnt(8, True, color=MUTED))
-            yc = self.put(5, 2, Y0, fnt(9, True, color="0000FF"), fill("FFFF00"), Alignment(horizontal="left"))
-            self.year_input = f"$B$5"
-            self.put(5, 3, None)
-            self.put(5, G0, "← first year of the grid (yellow cell): the year labels follow · one column = one month",
-                     fnt(8, italic=True, color=MUTED))
-
-    def phases(self, r, blank=False):
-        ws = self.ws
-        self.put(r, 2, "PHASES\nthe three periods", fnt(8, True, color=MUTED), al=Alignment(wrap_text=True, vertical="top"))
-        ws.row_dimensions[r].height = 30
-        for label, dates, a, b_, tint in PHASES:
-            c0, c1 = mcol(a), mcol(b_) - 1
-            self.band(r, c0, c1, tint)
-            for c in range(c0, c1 + 1):
-                ws.cell(row=r, column=c).border = Border(top=thin, bottom=thin,
-                                                         left=thin if c == c0 else None,
-                                                         right=thin if c == c1 else None)
-            self.merge(r, c0, r, c1)
-            narrow = c1 - c0 < 14
-            txt = label.split("  ")[0] if narrow else label
-            if not blank:
-                txt += "\n" + (dates.replace(" to ", "–").replace("19", "'") if narrow else dates)
-            self.put(r, c0, txt, fnt(8, True), al=Alignment(wrap_text=True, vertical="top", horizontal="left"))
-
-    def years(self, r, formula=False, label="YEAR"):
-        ws = self.ws
-        self.put(r, 2, label, fnt(8, True, color=MUTED))
-        for y in range(Y0, Y1 + 1):
-            c = G0 + (y - Y0) * 12
-            v = f'=TEXT({self.year_input}+{y - Y0},"0")' if formula else str(y)
-            self.put(r, c, v, fnt(8, y % 5 == 0, color=INK if y % 5 == 0 else MUTED), al=Alignment(horizontal="left"))
-            for k in range(c, c + 12):
-                ws.cell(row=r, column=k).border = Border(left=thin if k == c else None, bottom=thin)
-
-    def scenario_label(self, r, text):
-        c0 = mcol(SCENARIO)
-        self.band(r, c0, c0 + 56, "C8413B")
-        self.put(r, c0, text, fnt(8, True, color=PAPER))
-
-    def group_band(self, r, text, sub):
-        self.band(r, 1, G0 + NM - 1, INK)
-        self.put(r, 1, text, fnt(10, True, color=PAPER))
-        self.put(r, G0 + 1, sub, fnt(8, italic=True, color="C9D3DF"))
-        self.ws.row_dimensions[r].height = 18
-
-    def lane_block(self, r, code, name, sub, owner, nrows):
-        rows = list(range(r, r + nrows))
-        self.put(r, 1, code, fnt(9, True, color=MUTED))
-        self.put(r, 2, name, fnt(10, True))
-        self.put(r + 1, 2, sub, fnt(7, color=MUTED))
-        self.put(r + 2, 2, owner, fnt(8, True, color=NAVY))
-        for rr in rows:
-            self.band(rr, 1, 2, "F7F8FA")
-            for k in range(NM):
-                d = D(Y0 + k // 12, k % 12 + 1, 1)
-                tint = next((t for _, _, a, b_, t in PHASES if a <= d < b_), None)
-                if tint:
-                    self.ws.cell(row=rr, column=G0 + k).fill = fill(lighten(tint))
-            self.lane_rows.append(rr)
-        self.lane_last.add(rows[-1])
-        return rows
-
-    def finish_grid(self, scenario=True):
-        """Year grid lines, lane bottom rules and the red scenario line, merged with item borders."""
-        sc = mcol(SCENARIO)
-        for rr in self.lane_rows:
-            last = rr in self.lane_last
-            for c in [1, 2, 3] + list(range(G0, G0 + NM)):
-                cell = self.ws.cell(row=rr, column=c)
-                old = cell.border
-                left = old.left if old.left and old.left.style else None
-                if c >= G0 and (c - G0) % 12 == 0 and left is None:
-                    left = hair
-                if scenario and c == sc:
-                    left = redline
-                bottom = thin if last else (old.bottom if old.bottom and old.bottom.style else None)
-                cell.border = Border(left=left, right=old.right, top=old.top, bottom=bottom)
-
-    # ---- items
-    def bar(self, r, it):
-        ws = self.ws
-        c0, c1 = mcol(it["start"]), mcol(it["end"] - dt.timedelta(days=1)) if it["end"] > it["start"] else mcol(it["start"])
-        base = it["kind"] == "Baseline"
-        assumed = is_assumed(it)
-        col = "EDEDED" if base else FACTOR[it["factor"]]
-        for c in range(c0, c1 + 1):
-            cell = ws.cell(row=r, column=c)
-            cell.fill = fill(col)
-            if base or assumed:
-                cell.border = Border(top=dash, bottom=dash, left=dash if c == c0 else None,
-                                     right=dash if c == c1 else None)
-        text = bar_text(it)
-        inside = fits_inside(text, c0, c1)
-        if inside:
-            self.put(r, c0, text, fnt(8, True, color=INK if base else PAPER), al=Alignment(horizontal="left"))
-        else:
-            self.put(r, c1 + 1, text, fnt(8, False, assumed, color=INK), al=Alignment(horizontal="left"))
-
-    def milestone(self, r, it):
-        c = mcol(it["start"])
-        star = is_required(it)
-        if star:
-            self.put(r, c - 1, "★", fnt(9, True, color=RED), al=Alignment(horizontal="center"))
-        sym = "■" if it["kind"] == "Gate" else "◆"
-        self.put(r, c, sym, fnt(11, True, color=FACTOR[it["factor"]]), al=Alignment(horizontal="center"))
-        if ms_left(it):
-            self.put(r, c - 2, ms_text(it), fnt(8, star, is_assumed(it), color=INK), al=Alignment(horizontal="right"))
-        else:
-            self.put(r, c + 1, ms_text(it), fnt(8, star, is_assumed(it), color=INK), al=Alignment(horizontal="left"))
-
-
-def lighten(hex_, k=0.55):
-    r, g, b = (int(hex_[i:i + 2], 16) for i in (0, 2, 4))
-    return "".join(f"{int(v + (255 - v) * k):02X}" for v in (r, g, b))
-
-
+# ------------------------------------------------------------------ item text + packing
 def is_assumed(it):
-    s = it["status"]
-    return "[A]" in s or "verify" in s
+    return "[A]" in it["status"] or "verify" in it["status"]
 
 
 def is_required(it):
@@ -355,11 +179,6 @@ def is_required(it):
 
 def clean(name):
     return name.lstrip("★ ").strip()
-
-
-def fits_inside(text, c0, c1):
-    """White bold label inside the bar: bold runs ~20% wider than the packing estimate."""
-    return label_cols(text) * 1.2 + 1 <= c1 - c0 + 1
 
 
 def with_form(form, n):
@@ -376,25 +195,35 @@ def bar_text(it):
 
 
 def ms_text(it):
-    n = clean(it["name"])
-    n = with_form(it["form"], n)
     tag = "  [A]" if is_assumed(it) else ""
-    return f"{n}  · {short(it['start'])}{tag}"
+    return f"{with_form(it['form'], clean(it['name']))}  · {short(it['start'])}{tag}"
+
+
+def bar_cols(it):
+    c0 = qcol(it["start"])
+    c1 = qcol(it["end"] - dt.timedelta(days=1)) if it["end"] > it["start"] else c0
+    return c0, c1
+
+
+def fits_inside(text, c0, c1):
+    return label_cols(text) * 1.2 + 1 <= c1 - c0 + 1
+
+
+def ms_left(it):
+    return qcol(it["start"]) + 1 + label_cols(ms_text(it), True) > G0 + NQ - 1
 
 
 def extent(it):
-    """Columns an item occupies on its row, label included (for packing)."""
     if it["type"] == "ms":
-        c = mcol(it["start"])
-        n = label_cols(ms_text(it), bold=is_required(it) or is_assumed(it))
+        c = qcol(it["start"])
+        n = label_cols(ms_text(it), is_required(it) or is_assumed(it))
         return (c - 2 - n, c) if ms_left(it) else (c - 1, c + 1 + n)
-    c0 = mcol(it["start"])
-    c1 = mcol(it["end"] - dt.timedelta(days=1)) if it["end"] > it["start"] else c0
+    c0, c1 = bar_cols(it)
     t = bar_text(it)
     return (c0, c1) if fits_inside(t, c0, c1) else (c0, c1 + 1 + label_cols(t))
 
 
-def pack(items, min_rows=3):
+def pack(items, min_rows):
     rows = []
     for it in sorted(items, key=lambda i: (extent(i)[0], i["id"])):
         a, b_ = extent(it)
@@ -410,250 +239,532 @@ def pack(items, min_rows=3):
     return rows
 
 
-# ------------------------------------------------------------------ bottom panels
-EVENT_KEYS = ["E-ID  |  Date(s)", "Event", "Timeline  /  lane", "Phase", "Initiated by  →  must respond",
-              "Factor changed", "[F] fact / [A] assumption", "Documents + clause",
-              "Student  (lead / research / check)"]
-EVENT_SW12 = ["S1-03  |  Aug 1961  [A] month (Register: 1961)",
-              "Instruction for a Variation — strengthen columns, add piers",
-              "Contract  /  C3 Contract administration", "P3 Construction → Completion",
-              "Architect (Utzon)  →  Contractor (Civil & Civic)", "Scope   (+ Time 1 month, Cost $5,000)",
-              "[A] month; figures = tutor's worked example; lead source AC (Murray, Saga)",
-              "SW-12 (J1) → SW-14 (H4/L1) → SW-11 (H4/J5); CAA D.8", "Prani  /  ________  /  Jerry"]
-WORKFLOW = [
-    "Research an event → write ONE event card",
-    "Classify: Design or Contract timeline → choose its lane",
-    "Place on the month axis: bar if a range, diamond if one date",
-    "Colour by the factor that changed (Scope / Time / Cost / Quality / Resp.)",
-    "Tag [F] + source key, or [A] + reason (dashed outline / italic)",
-    "Note cause → consequence (which earlier card made this happen?)",
-    "Planned vs actual: grey dashed baseline under the actual bar",
-    "Scenario events: red star + copy into the Zoom frame (months)",
-    "Card issues a document? → add the Architects Register row the same day",
-    "Weekly: each lead checks their lanes; the checker filters for [A] gaps",
-]
-CLOCK = [("SW-12", "Variation", "J1", "before PC", True), ("notice", "Effect", "J2.3", "20 WD", False),
-         ("SW-13", "Proceed?", "J3", "5 WD", False), ("SW-42", "Claim", "H1-H2", "20 WD", False),
-         ("SW-14 / 11", "Decision", "H4", "20 WD", True), ("cert.", "Progress", "J5 / N4", "10 BD", False),
-         ("PC", "Notice", "M4", "5 WD", False), ("DLP", "Defects", "M13", "12 mo", False),
-         ("SW-49", "Final claim", "N10", "20 WD", False), ("SW-31", "Final cert.", "N11", "10 BD", True)]
+def phase_of(d):
+    for label, _, a, b_, _ in PHASES:
+        if a <= d < b_:
+            return label.replace("  ", " ")
+    return "after completion" if d >= PHASES[-1][3] else "before the brief"
 
 
-def box(sh, r0, c0, r1, c1, color, width="medium", dashed=False):
-    s = Side(style="dashed" if dashed else width, color=color)
-    for r in range(r0, r1 + 1):
-        for c in range(c0, c1 + 1):
-            cell = sh.ws.cell(row=r, column=c)
-            o = cell.border
-            cell.border = Border(left=s if c == c0 else o.left, right=s if c == c1 else o.right,
-                                 top=s if r == r0 else o.top, bottom=s if r == r1 else o.bottom)
+# ------------------------------------------------------------------ small sheet helpers
+def put(ws, r, c, v=None, font=None, fl=None, al=None, border=None, fmt=None):
+    cell = ws.cell(row=r, column=c)
+    if v is not None:
+        cell.value = v
+    if font:
+        cell.font = font
+    if fl:
+        cell.fill = fl
+    if al:
+        cell.alignment = al
+    if border:
+        cell.border = border
+    if fmt:
+        cell.number_format = fmt
+    return cell
 
 
-def panels(sh, r0, project, tasks=None, zoom_items=None):
-    ws = sh.ws
-    H = 25                                           # panel height in rows
-    for r in range(r0, r0 + H + 2):
-        ws.row_dimensions[r].height = 16
-    # 1 event card: label col B, values D..D+68
-    sh.put(r0, 1, "EVENT CARD  (one per event — copy the block)", fnt(10, True))
-    e0, e1 = G0, G0 + 68
-    box(sh, r0 + 1, 1, r0 + 2 + 2 * len(EVENT_KEYS), e1, INK)
-    for r in range(r0 + 1, r0 + 3 + 2 * len(EVENT_KEYS)):
-        ws.cell(row=r, column=1).fill = fill(FACTOR["Scope"])
-    for i, k in enumerate(EVENT_KEYS):
-        r = r0 + 2 + 2 * i
-        sh.put(r, 2, k, fnt(8, True, color=MUTED))
-        v = EVENT_SW12[i] if project else ""
-        sh.merge(r, e0, r, e1 - 1)
-        sh.put(r, e0, v, fnt(9, i == 1))
-        for c in range(2, e1):
-            ws.cell(row=r, column=c).border = Border(bottom=Side(style="thin", color="E3E7EB"))
-    # 2 workflow
-    w0 = G0 + 74
-    sh.put(r0, w0, "WORKFLOW  (each research session)", fnt(10, True))
-    for i, st in enumerate(WORKFLOW):
-        r = r0 + 2 + 2 * i
-        sh.put(r, w0, str(i + 1), fnt(8, True, color=PAPER), fill(INK), Alignment(horizontal="center"))
-        sh.merge(r, w0, r, w0 + 1)
-        sh.put(r, w0 + 3, st, fnt(9))
-    # 3 task assignment
-    t0, t1 = G0 + 140, G0 + 205
-    sh.put(r0, t0, "TASK ASSIGNMENT  (from the Register)", fnt(10, True))
-    box(sh, r0 + 1, t0, r0 + H, t1, NAVY)
-    for r in range(r0 + 1, r0 + H + 1):
-        sh.band(r, t0, t1, "F7FAFD")
-    leads = [("Lead 1", "LEAD 1 — FRANK", "lanes D0–D4  |  checker: Prani"),
-             ("Lead 2", "LEAD 2 — JERRY", "lanes C1–C2  |  checker: Frank"),
-             ("Lead 3", "LEAD 3 — PRANI", "lanes C3–C4  |  checker: Jerry"),
-             ("All", "ALL THREE", "before the Week 12 presentation")]
-    r = r0 + 2
-    for key, head, sub in leads:
-        sh.put(r, t0 + 1, head, fnt(9, True, color=NAVY))
-        sh.put(r, t0 + 20, sub, fnt(7, color=MUTED))
+def band(ws, r, c0, c1, hex_):
+    for c in range(c0, c1 + 1):
+        ws.cell(row=r, column=c).fill = fill(hex_)
+
+
+def title(ws, text, sub, width_cols):
+    put(ws, 1, 1, text, fnt(16, True))
+    put(ws, 2, 1, sub, fnt(9, italic=True, color=MUTED))
+    ws.row_dimensions[1].height = 24
+
+
+def table_head(ws, r, heads):
+    for i, (h, w) in enumerate(heads, start=1):
+        put(ws, r, i, h, fnt(9, True, color=PAPER), fill("404040"), Alignment(vertical="center", wrap_text=True),
+            BOX)
+        ws.column_dimensions[get_column_letter(i)].width = w
+    ws.row_dimensions[r].height = 20
+
+
+def page(ws, landscape=True, a3=False):
+    ws.page_setup.orientation = "landscape" if landscape else "portrait"
+    if a3:
+        ws.page_setup.paperSize = ws.PAPERSIZE_A3
+    ws.page_setup.fitToWidth, ws.page_setup.fitToHeight = 1, 0
+    ws.sheet_properties.pageSetUpPr.fitToPage = True
+
+
+def status_dv(ws, rng, options='"To do,Doing,Done"'):
+    dv = DataValidation(type="list", formula1=options, allow_blank=True)
+    ws.add_data_validation(dv)
+    dv.add(rng)
+    c0 = rng.split(":")[0]
+    col = re.match(r"[A-Z]+", c0).group(0)
+    row = re.search(r"\d+", c0).group(0)
+    ws.conditional_formatting.add(rng, FormulaRule(formula=[f'${col}{row}="Done"'], fill=fill("C6EFCE")))
+    ws.conditional_formatting.add(rng, FormulaRule(formula=[f'${col}{row}="Doing"'], fill=fill("FFEB9C")))
+
+
+# ------------------------------------------------------------------ 1 cover
+def cover(ws, project):
+    ws.sheet_view.showGridLines = False
+    ws.column_dimensions["A"].width = 3
+    ws.column_dimensions["B"].width = 26
+    ws.column_dimensions["C"].width = 90
+    if project:
+        put(ws, 2, 2, "SYDNEY OPERA HOUSE — PROJECT TIMELINE", fnt(22, True))
+        lines = [
+            ("PP1 Assessment 3  |  A1 Timeline of significant project events  |  historical dates, contemporary "
+             "instruments (CAA 2024 · ABIC Simple Works 2018)", MUTED, False),
+            ("PROJECT — Scenario 1 (additional piers to support the roof). Dates = the group's Document Register + "
+             "sources A–AF (see Events (data))", RED, True),
+            ("Group: Frank / Prani / Jerry     Lead 1: Frank     Lead 2: Jerry     Lead 3: Prani     "
+             "Version: v3 / 4 Oct 2026 (Leads 2–3 inferred from the Register — confirm)", NAVY, True),
+        ]
+    else:
+        put(ws, 2, 2, "PROJECT NAME — PROJECT TIMELINE", fnt(22, True))
+        lines = [("Unit · Assessment · A1 Timeline of significant project events", MUTED, False),
+                 ("PROJECT — scenario name. Dates = Document Register + sources", RED, True),
+                 ("Group: ______ / ______ / ______     Lead 1: ______     Lead 2: ______     Lead 3: ______     "
+                  "Version: __", NAVY, True)]
+    for i, (t, col, b) in enumerate(lines):
+        put(ws, 3 + i, 2, t, fnt(10, b, color=col))
+    ws.row_dimensions[2].height = 32
+    r = 8
+    put(ws, r, 2, "COLOUR BY FACTOR", fnt(9, True, color=MUTED))
+    r += 1
+    for k in FACTORS:
+        put(ws, r, 2, k, fnt(9, True, color=PAPER), fill(FACTOR[k]))
+        put(ws, r, 3, {"Scope": "what is being designed or built changed",
+                       "Time": "dates, programme, delays, extensions of time",
+                       "Cost": "budget, contract sum, fees, payments",
+                       "Quality": "standards, materials, testing, defects",
+                       "Responsibility": "who decides, who is engaged, who represents whom"}[k], fnt(9))
         r += 1
-        items = [t[4] for t in tasks if t[0] == key] if project else ["", ""]
-        for it in items:
-            sh.put(r, t0 + 2, "☐", fnt(9))
-            sh.put(r, t0 + 4, it, fnt(8))
-            r += 1
-    # 4 zoom frame
-    z0, z1 = G0 + 211, G0 + NM - 1
-    sh.put(r0, z0, "ZOOM FRAME  (scenario by month + ABIC SW clock)", fnt(10, True))
-    box(sh, r0 + 1, z0, r0 + H, z1, RED)
-    for r in range(r0 + 1, r0 + H + 1):
-        sh.band(r, z0, z1, "FFF7F6")
-    cw = (z1 - z0 - 2) // 5
-    for i, (form, name, cl, limit, req) in enumerate(CLOCK):
-        rr, cc = divmod(i, 5)
-        r = r0 + 2 + rr * 4
-        c = z0 + 1 + cc * cw
-        for k in range(3):
-            sh.band(r + k, c, c + cw - 2, PAPER)
-        box(sh, r, c, r + 2, c + cw - 2, RED if req else MUTED, "medium" if req else "thin", dashed=not req)
-        sh.put(r, c + 1, form, fnt(9, True, color=RED if req else INK))
-        sh.put(r + 1, c + 1, f"{name} ({cl})", fnt(7))
-        sh.put(r + 2, c + 1, f"limit {limit}", fnt(7, color=MUTED))
-    # month grid 1961-1962, two columns per month
-    gy = r0 + 11
-    gx = z0 + 2
-    for yi, yr in enumerate((1961, 1962)):
-        sh.put(gy, gx + yi * 24, str(yr), fnt(9, True, color=RED))
-        for mi, m in enumerate("J F M A M J J A S O N D".split()):
-            c = gx + (yi * 12 + mi) * 2
-            sh.put(gy + 1, c, m, fnt(7, color=MUTED))
-            for r in range(gy + 2, r0 + H):
-                ws.cell(row=r, column=c).border = Border(left=Side(style="hair", color="F0C8C3"))
-    if project:
-        for i, it in enumerate(zoom_items):
-            d = it["start"]
-            c = gx + ((d.year - 1961) * 12 + d.month - 1) * 2
-            r = gy + 2 + i
-            req = is_required(it)
-            sh.put(r, c, "◆", fnt(10, True, color=RED if req else MUTED), al=Alignment(horizontal="center"))
-            who = f"   [{it['who']}]" if it["who"] else ""
-            sh.put(r, c + 1, f"{it['form'] or ''}  {clean(it['name'])}{who}".strip(), fnt(7, req))
-    sh.put(r0 + H, z0 + 1, "WD = working days, BD = business days. Red = required by the brief; dashed = optional "
-                           "form or step. Months inside the Register's years are [A].", fnt(7, italic=True, color=MUTED))
-    return r0 + H + 1
+    r += 1
+    put(ws, r, 2, "SHAPES", fnt(9, True, color=MUTED))
+    r += 1
+    for sym, txt, col, brd in [("", "bar = a date range (filled cells, label in the first cell)", "9DB4C8", None),
+                               ("◆", "milestone = one date (diamond, label in the next cell)", None, None),
+                               ("■", "CAA client-approval gate", None, None),
+                               ("★", "required form or scenario event (red star left of the diamond)", None, None),
+                               ("", "dashed outline / italic label = [A] assumption or [verify]", None, "dash"),
+                               ("", "grey dashed = planned baseline", "EDEDED", "dash"),
+                               ("", "red line = our scenario (Jun 1961)", None, "red")]:
+        c = put(ws, r, 2, sym, fnt(11, True, color=RED if sym == "★" else INK), fill(col) if col else None,
+                Alignment(horizontal="center"))
+        if brd == "dash":
+            c.border = Border(left=dash, right=dash, top=dash, bottom=dash)
+        elif brd == "red":
+            c.border = Border(left=redline)
+        put(ws, r, 3, txt, fnt(9))
+        r += 1
+    r += 1
+    put(ws, r, 2, "SHEETS IN THIS FILE", fnt(9, True, color=MUTED))
+    r += 1
+    index = [("Design timeline", "lanes D0–D4: CAA stages, client + brief, design output, consultants, interiors"),
+             ("Contract timeline", "lanes C1–C4: procurement + cost, construction, contract administration, fit-out"),
+             ("Register", "the Architects Register: one row per document (course sample columns)"),
+             ("Event cards", "one card per required form / scenario event"),
+             ("Workflow", "the 10 steps of each research session"),
+             ("Tasks", "who does what, due, status"),
+             ("Zoom 1961-62", "the ABIC SW clock + the variation chain month by month (diamonds follow the dates)"),
+             ("Events (data)", "every event as a filterable table with its source key")]
+    for name, what in index:
+        c = put(ws, r, 2, name, fnt(10, True, color="0563C1"))
+        c.hyperlink = f"#'{name}'!A1"
+        put(ws, r, 3, what, fnt(9))
+        r += 1
+    r += 1
+    put(ws, r, 2, "HOW TO EDIT", fnt(9, True, color=MUTED))
+    r += 1
+    for t in ["Each section is its own sheet. Timelines: one column = one quarter; the exact date is written in "
+              "each label.",
+              "Add a milestone: copy a ◆ cell into the quarter, type the label in the next cell (or copy a whole "
+              "existing milestone and edit it). Each lane has empty rows at the bottom for new events.",
+              "Add a bar: select the quarters, fill them with the factor colour (Home → Fill), type the label in the "
+              "first cell.",
+              "Move an event: cut the ◆ cell and its label cell together and paste them in the new quarter.",
+              "When you add or change an event on a timeline, change it in Events (data) and in the Register too, so "
+              "the three stay the same.",
+              "The Zoom sheet is formula-driven: type a new date in its Date column and the diamond moves.",
+              "Google Sheets: File → Import → Upload → this .xlsx."]:
+        put(ws, r, 2, "•", fnt(9))
+        put(ws, r, 3, t, fnt(9), al=Alignment(wrap_text=True, vertical="top"))
+        ws.row_dimensions[r].height = 26
+        r += 1
+    page(ws, landscape=False)
 
 
-# ------------------------------------------------------------------ build one board
-def build(ws, rec, R, tasks, project):
-    sh = Sheet(ws)
+# ------------------------------------------------------------------ 2-3 timelines
+def timeline(ws, rec, groups, project, sheet_title, sheet_sub):
+    ws.sheet_view.showGridLines = False
+    ws.column_dimensions["A"].width = 5
+    ws.column_dimensions["B"].width = 36
+    ws.column_dimensions["C"].width = 1.5
+    for k in range(NQ):
+        ws.column_dimensions[get_column_letter(G0 + k)].width = COL_W
+    last = G0 + NQ - 1
+    title(ws, sheet_title, sheet_sub, last)
+    # phases (row 4), scenario (row 5), years (row 6)
+    put(ws, 4, 2, "PHASES", fnt(8, True, color=MUTED))
+    ws.row_dimensions[4].height = 40
+    for label, dates, a, b_, tint in PHASES:
+        c0, c1 = qcol(a), qcol(b_) - 1
+        band(ws, 4, c0, c1, tint)
+        ws.merge_cells(start_row=4, start_column=c0, end_row=4, end_column=c1)
+        put(ws, 4, c0, label if not project else f"{label}\n{dates}", fnt(8, True),
+            al=Alignment(wrap_text=True, vertical="top"))
+    sc = qcol(SCENARIO)
     if project:
-        sh.header("SYDNEY OPERA HOUSE — PROJECT TIMELINE",
-                  "PP1 Assessment 3  |  A1 Timeline of significant project events  |  historical dates, contemporary "
-                  "instruments (CAA 2024 · ABIC Simple Works 2018)  |  one column = one month",
-                  "PROJECT — Scenario 1 (additional piers). Dates = group's Document Register + sources A–AF "
-                  "(see Events sheet); dashed / italic = [A] month or [verify]",
-                  "Group: Frank / Prani / Jerry     Lead 1: Frank     Lead 2: Jerry     Lead 3: Prani     "
-                  "Version: v2 / 4 Oct 2026 (Leads 2–3 inferred from the Register — confirm)")
+        band(ws, 5, sc, sc + 19, "C8413B")
+        put(ws, 5, sc, "OUR SCENARIO 1: additional piers to support the roof (Jun 1961)", fnt(8, True, color=PAPER))
     else:
-        sh.header("PROJECT NAME — PROJECT TIMELINE",
-                  "Unit · Assessment · A1 Timeline of significant project events  |  one column = one month",
-                  "PROJECT — scenario name. Dates = Document Register + sources; dashed = [A] assumption",
-                  "Group: ______ / ______ / ______     Lead 1: ______     Lead 2: ______     Lead 3: ______     "
-                  "Version: __",
-                  start_year_input=True)
-    sh.phases(6, blank=not project)
-    if project:
-        sh.scenario_label(7, "OUR SCENARIO 1: additional piers to support the roof (Jun 1961)")
-    else:
-        sh.put(7, mcol(SCENARIO), "▼ scenario marker: move the red line to your scenario's month",
-               fnt(8, True, color=RED))
-    sh.years(8, formula=not project)
-    ws.freeze_panes = ws.cell(row=9, column=G0)
-    r = 9
+        put(ws, 5, sc, "▼ scenario: move the red line to your scenario's quarter", fnt(8, True, color=RED))
+
+    def years(r):
+        put(ws, r, 2, "YEAR", fnt(8, True, color=MUTED))
+        for y in range(Y0, Y1 + 1):
+            c = G0 + (y - Y0) * 4
+            ws.merge_cells(start_row=r, start_column=c, end_row=r, end_column=c + 3)
+            put(ws, r, c, y, fnt(8, y % 5 == 0, color=INK if y % 5 == 0 else MUTED),
+                al=Alignment(horizontal="left"), fmt="0")
+            for k in range(c, c + 4):
+                ws.cell(row=r, column=k).border = Border(left=thin if k == c else None, bottom=thin, top=thin)
+    years(6)
+    ws.freeze_panes = ws.cell(row=7, column=G0)
+
+    lane_rows, lane_last = [], set()
     by_lane = {}
     for it in rec.items:
         by_lane.setdefault(it["code"], []).append(it)
-    for g in rec.groups:
-        sh.group_band(r, g["text"], g["sub"])
+    r = 7
+    for g in groups:
+        band(ws, r, 1, last, INK)
+        put(ws, r, 1, g["text"], fnt(10, True, color=PAPER))
+        put(ws, r, G0 + 1, g["sub"], fnt(8, italic=True, color="C9D3DF"))
+        ws.row_dimensions[r].height = 18
         r += 1
         for ln in g["lanes"]:
-            rows = pack(by_lane.get(ln["code"], []) if project else [], 3 if project else 4)
-            rr = sh.lane_block(r, ln["code"], ln["name"], ln["sub"], ln["owner"] if project else "Lead _: ______",
-                               len(rows))
+            rows = pack(by_lane.get(ln["code"], []) if project else [], 3)
+            rows += [{"occ": [], "items": []}] * (2 if project else 3)      # spare rows for new events
+            put(ws, r, 1, ln["code"], fnt(9, True, color=MUTED))
+            put(ws, r, 2, ln["name"], fnt(10, True))
+            put(ws, r + 1, 2, ln["sub"], fnt(7, color=MUTED))
+            put(ws, r + 2, 2, ln["owner"] if project else "Lead _: ______  (check: ______)", fnt(8, True, color=NAVY))
             for k, row in enumerate(rows):
+                rr = r + k
+                band(ws, rr, 1, 2, "F7F8FA")
+                for q in range(NQ):
+                    d = D(Y0 + q // 4, (q % 4) * 3 + 1, 1)
+                    tint = next((t for _, _, a, b_, t in PHASES if a <= d < b_), None)
+                    if tint:
+                        ws.cell(row=rr, column=G0 + q).fill = fill(lighten(tint))
+                lane_rows.append(rr)
                 for it in row["items"]:
-                    (sh.bar if it["type"] == "bar" else sh.milestone)(rr[k], it)
+                    draw_item(ws, rr, it)
+            lane_last.add(r + len(rows) - 1)
             r += len(rows)
-    # architects register lane: the document numbers under their dates
-    sh.group_band(r, "ARCHITECTS REGISTER",
-                  "every card that issues a document → one Register row (Date | Document | Form No. | From/To | "
-                  "Details | Student contribution)")
-    r += 1
-    docs = [dict(it, type="ms", name=it["form"], form="", kind="Milestone", status="")
-            for it in rec.items if it["form"]] if project else []
-    rows = pack(docs, 3)
-    rr = sh.lane_block(r, "", "Doc refs", "form no. under the event date", "", len(rows))
-    for k, row in enumerate(rows):
-        for it in row["items"]:
-            c = mcol(it["start"])
-            sh.put(rr[k], c, "▪", fnt(9, True, color=MUTED), al=Alignment(horizontal="center"))
-            sh.put(rr[k], c + 1, f"{it['name']} · {short(it['start'])}", fnt(7, color=INK))
-    r += len(rows)
-    sh.finish_grid(scenario=project)
-    sh.years(r, formula=not project, label="")
-    r += 2
-    zoom = [rec.items[R[k]] for k in ("prob", "d8", "sw12", "sw42", "sw13", "work", "sw14", "cp06", "sw11")] \
-        if project else []
-    end = panels(sh, r, project, tasks, zoom)
-    if not project:
-        sh.put(end + 1, 1, "HOW TO USE: copy this sheet, rename it, type the first year (B5), then fill each lane: "
-                           "colour the month cells of a bar with its factor colour and write the label in the first "
-                           "cell; for a milestone type ◆ in its month and the label in the next cell. Keep one "
-                           "event per row inside a lane where labels would collide; add rows as needed.",
-               fnt(8, italic=True, color=MUTED))
-    ws.page_setup.orientation = "landscape"
-    ws.page_setup.paperSize = ws.PAPERSIZE_A3
-    ws.page_setup.fitToWidth, ws.page_setup.fitToHeight = 1, 1
-    ws.sheet_properties.pageSetUpPr.fitToPage = True
-    return sh
+    # grid lines, lane rules, scenario line
+    for rr in lane_rows:
+        is_last = rr in lane_last
+        for c in [1, 2, 3] + list(range(G0, last + 1)):
+            cell = ws.cell(row=rr, column=c)
+            o = cell.border
+            left = o.left if o.left and o.left.style else None
+            if c >= G0 and (c - G0) % 4 == 0 and left is None:
+                left = hair
+            if project and c == sc:
+                left = redline
+            bottom = thin if is_last else (o.bottom if o.bottom and o.bottom.style else None)
+            cell.border = Border(left=left, right=o.right, top=o.top, bottom=bottom)
+    years(r)
+    ws.print_title_rows = "4:6"
+    page(ws, a3=True)
 
 
-def data_sheet(ws, rec):
+def draw_item(ws, r, it):
+    if it["type"] == "bar":
+        c0, c1 = bar_cols(it)
+        base, assumed = it["kind"] == "Baseline", is_assumed(it)
+        col = "EDEDED" if base else FACTOR[it["factor"]]
+        for c in range(c0, c1 + 1):
+            cell = ws.cell(row=r, column=c)
+            cell.fill = fill(col)
+            if base or assumed:
+                cell.border = Border(top=dash, bottom=dash, left=dash if c == c0 else None,
+                                     right=dash if c == c1 else None)
+        t = bar_text(it)
+        if fits_inside(t, c0, c1):
+            put(ws, r, c0, t, fnt(8, True, color=INK if base else PAPER), al=Alignment(horizontal="left"))
+        else:
+            put(ws, r, c1 + 1, t, fnt(8, False, assumed), al=Alignment(horizontal="left"))
+        return
+    c = qcol(it["start"])
+    star = is_required(it)
+    if star:
+        put(ws, r, c - 1, "★", fnt(9, True, color=RED), al=Alignment(horizontal="right"))
+    put(ws, r, c, "■" if it["kind"] == "Gate" else "◆", fnt(11, True, color=FACTOR[it["factor"]]),
+        al=Alignment(horizontal="center"))
+    f = fnt(8, star, is_assumed(it))
+    if ms_left(it):
+        put(ws, r, c - 2, ms_text(it), f, al=Alignment(horizontal="right"))
+    else:
+        put(ws, r, c + 1, ms_text(it), f, al=Alignment(horizontal="left"))
+
+
+# ------------------------------------------------------------------ 4 register
+def register(ws, rec, project):
     ws.sheet_view.showGridLines = False
-    heads = [("Lane", 6), ("Type", 10), ("Event", 70), ("Form", 10), ("Start", 12), ("End", 12), ("Factor", 14),
-             ("Status", 16), ("Source", 12), ("From → To", 26), ("Student", 16)]
-    ws["A1"] = "EVENTS ON THE BOARD — generated from build_scenario1_timeline.py"
-    ws["A1"].font = fnt(13, True)
-    ws["A2"] = ("Source keys: A–J in 15-sources-A-J-verified.md · K–T in 17-interiors-1967-1975.md · U–AF in "
-                "18-miro-board-verified.md · REG = Document Register · tutor = instruction video")
-    ws["A2"].font = fnt(8, italic=True, color=MUTED)
-    for i, (h, w) in enumerate(heads, start=1):
-        c = ws.cell(row=4, column=i, value=h)
-        c.font, c.fill = fnt(9, True, color=PAPER), fill("404040")
+    title(ws, "ARCHITECTS REGISTER", "Every event that issues a document gets one row here (course sample columns). "
+                                     "Sorted by date. Yellow Status = [A] assumption or [verify].", 8)
+    heads = [("Date", 13), ("Document", 58), ("Form No.", 11), ("From / To", 26), ("Details / clause", 34),
+             ("Student contribution", 18), ("Status", 14), ("Source", 10)]
+    table_head(ws, 4, heads)
+    rows = sorted((it for it in rec.items if it["form"] and not it["form"].startswith("CAA A.")),
+                  key=lambda i: i["start"]) if project else []
+    r = 5
+    for it in rows:
+        vals = [it["start"], clean(it["name"]), it["form"], it["frm_to"], CLAUSE.get(it["form"], ""), it["who"],
+                it["status"], it["src"]]
+        for c, v in enumerate(vals, start=1):
+            put(ws, r, c, v, fnt(9, c == 3), border=BOX, fmt="d mmm yyyy" if c == 1 else None,
+                al=Alignment(vertical="center", wrap_text=c in (2, 5)))
+        if is_assumed(it):
+            ws.cell(row=r, column=7).fill = fill("FFF2CC")
+        r += 1
+    for _ in range(15 if project else 30):                       # empty rows to add documents
+        for c in range(1, len(heads) + 1):
+            put(ws, r, c, border=BOX, fmt="d mmm yyyy" if c == 1 else None)
+        r += 1
+    ws.freeze_panes = "A5"
+    ws.auto_filter.ref = f"A4:H{r - 1}"
+    page(ws)
+
+
+# ------------------------------------------------------------------ 5 event cards
+CARD_KEYS = ["E-ID  |  Date(s)", "Event", "Timeline  /  lane", "Phase", "Initiated by  →  must respond",
+             "Factor changed", "[F] fact / [A] assumption + source", "Documents + clause",
+             "Student  (lead / research / check)"]
+
+
+def event_cards(ws, rec, R, project):
+    ws.sheet_view.showGridLines = False
+    title(ws, "EVENT CARDS", "One card per required form or scenario event. Copy a block (11 rows) to add one.", 3)
+    ws.column_dimensions["A"].width = 3
+    ws.column_dimensions["B"].width = 32
+    ws.column_dimensions["C"].width = 80
+    lane_name = {ln["code"]: (g["text"].split()[0].title(), ln["name"]) for g in rec.groups for ln in g["lanes"]}
+    cards = []
+    if project:
+        picks = [it for it in rec.items if is_required(it) or it["form"] in ("SW-42", "SW-13", "CAA D.8")]
+        picks += [rec.items[R[k]] for k in ("prob", "work") if rec.items[R[k]] not in picks]
+        picks.sort(key=lambda i: i["start"])
+        for n, it in enumerate(picks, start=1):
+            tl, ln = lane_name[it["code"]]
+            dates = short(it["start"]) + (f" – {short(it['end'])}" if it["end"] else "")
+            cards.append((it["factor"], [
+                f"S1-{n:02d}  |  {dates}", clean(it["name"]), f"{tl}  /  {it['code']} {ln}", phase_of(it["start"]),
+                it["frm_to"] or "—", it["factor"], f"{it['status']}  ·  source {it['src'] or '—'}",
+                f"{it['form']}  {CLAUSE.get(it['form'], '')}".strip() or "—",
+                it["who"] or "________ / ________ / ________"]))
+    else:
+        cards = [("Scope", [""] * len(CARD_KEYS)) for _ in range(4)]
+    r = 4
+    for factor, vals in cards:
+        put(ws, r, 2, vals[1] if project else "EVENT CARD", fnt(10, True, color=PAPER), fill(FACTOR[factor]))
+        band(ws, r, 1, 3, FACTOR[factor])
+        r += 1
+        for k, v in zip(CARD_KEYS, vals):
+            ws.cell(row=r, column=1).fill = fill(FACTOR[factor])
+            put(ws, r, 2, k, fnt(8, True, color=MUTED), border=Border(bottom=thin))
+            put(ws, r, 3, v, fnt(9, k == "Event"), border=Border(bottom=thin), al=Alignment(wrap_text=True))
+            r += 1
+        r += 1
+    page(ws, landscape=False)
+
+
+# ------------------------------------------------------------------ 6 workflow
+WORKFLOW = [
+    "Research an event → write ONE event card",
+    "Classify: Design or Contract timeline → choose its lane",
+    "Place it on the year axis: bar if a range, diamond if one date",
+    "Colour by the factor that changed (Scope / Time / Cost / Quality / Responsibility)",
+    "Tag [F] + source key, or [A] + reason (dashed outline / italic)",
+    "Note cause → consequence (which earlier card made this happen?)",
+    "Planned vs actual: grey dashed baseline under the actual bar",
+    "Scenario events: red star + add them to the Zoom sheet (months)",
+    "Card issues a document? → add the Register row the same day",
+    "Weekly: each lead checks their lanes; the checker filters for [A] gaps",
+]
+
+
+def workflow(ws):
+    ws.sheet_view.showGridLines = False
+    title(ws, "WORKFLOW", "Each research session, in this order. Tick Done as you go.", 4)
+    table_head(ws, 4, [("#", 5), ("Step", 80), ("Who", 16), ("Done?", 10)])
+    for i, st in enumerate(WORKFLOW):
+        r = 5 + i
+        put(ws, r, 1, i + 1, fnt(9, True, color=PAPER), fill(INK), Alignment(horizontal="center"), BOX)
+        put(ws, r, 2, st, fnt(10), border=BOX)
+        put(ws, r, 3, border=BOX)
+        put(ws, r, 4, border=BOX)
+        ws.row_dimensions[r].height = 20
+    status_dv(ws, f"D5:D{4 + len(WORKFLOW)}", '"To do,Doing,Done"')
+    page(ws)
+
+
+# ------------------------------------------------------------------ 7 tasks
+def tasks_sheet(ws, tasks, project):
+    ws.sheet_view.showGridLines = False
+    title(ws, "TASK ASSIGNMENT", "From the Register and the timelines. Status is a dropdown (To do / Doing / Done). "
+                                 "Leads 2–3 inferred from the Register — confirm.", 7)
+    table_head(ws, 4, [("Lead", 10), ("Name", 11), ("Lanes owned", 26), ("Checker", 10), ("Task", 72), ("Due", 16),
+                       ("Status", 10)])
+    rows = [list(t) + ["To do"] for t in tasks] if project else []
+    rows += [[""] * 7 for _ in range(6 if project else 16)]
+    for i, row in enumerate(rows):
+        r = 5 + i
+        for c, v in enumerate(row, start=1):
+            put(ws, r, c, v or None, fnt(9, c == 2), border=BOX, al=Alignment(vertical="center", wrap_text=c == 5))
+    last = 4 + len(rows)
+    status_dv(ws, f"G5:G{last}")
+    for lead, col in [("Lead 1", "DDEBF7"), ("Lead 2", "E2EFDA"), ("Lead 3", "FCE4D6"), ("All", "EDEDED")]:
+        ws.conditional_formatting.add(f"A5:A{last}", FormulaRule(formula=[f'$A5="{lead}"'], fill=fill(col)))
+    ws.freeze_panes = "A5"
+    page(ws)
+
+
+# ------------------------------------------------------------------ 8 zoom
+CLOCK = [("SW-12", "Instruction for a variation", "J1", "before PC", "yes"),
+         ("notice", "Contractor notifies the effect", "J2.3", "20 WD", ""),
+         ("SW-13", "Instruction to proceed?", "J3", "5 WD", "optional"),
+         ("SW-42", "Contractor's claim", "H1–H2", "20 WD", "optional"),
+         ("SW-14 / SW-11", "Decision: time / price", "H4", "20 WD", "yes"),
+         ("cert.", "Progress certificate", "J5 / N4", "10 BD", ""),
+         ("PC", "Notice of practical completion", "M4", "5 WD", ""),
+         ("DLP", "Defects liability period", "M13", "12 months", ""),
+         ("SW-49", "Final claim", "N10", "20 WD", ""),
+         ("SW-31", "Final certificate", "N11", "10 BD", "yes")]
+
+
+def zoom(ws, rec, R, project):
+    ws.sheet_view.showGridLines = False
+    title(ws, "ZOOM 1961–62 — the variation chain month by month + the ABIC SW clock",
+          "Diamonds are formulas: type a new date in column D and its diamond moves. Required = red.", 30)
+    # ABIC clock table
+    put(ws, 4, 1, "ABIC SW CLOCK", fnt(10, True, color=RED))
+    for i, (h, w) in enumerate([("Form", 14), ("Step", 46), ("Clause", 10), ("Date", 13), ("Required?", 11)],
+                               start=1):
+        put(ws, 5, i, h, fnt(9, True, color=PAPER), fill("404040"), border=BOX)
         ws.column_dimensions[get_column_letter(i)].width = w
+    put(ws, 5, 6, "Time limit", fnt(9, True, color=PAPER), fill("404040"), border=BOX)
+    for k, (form, step, cl, limit, req) in enumerate(CLOCK):
+        r = 6 + k
+        for c, v in enumerate([form, step, cl, None, req, limit], start=1):
+            put(ws, r, c, v, fnt(9, c == 1, color=RED if req == "yes" and c == 1 else INK), border=BOX)
+    # month grid: event table + 24 month columns
+    top = 6 + len(CLOCK) + 2
+    put(ws, top, 1, "THE CHAIN", fnt(10, True, color=RED))
+    hr = top + 1
+    for i, h in enumerate(["Form", "Event", "Who", "Date", "Required?"], start=1):
+        put(ws, hr, i, h, fnt(9, True, color=PAPER), fill("404040"), border=BOX)
+    m0 = 7                                                      # first month column (G)
+    ws.column_dimensions["F"].width = 10
+    put(ws, hr, 6, "Start →", fnt(8, True, color=MUTED))
+    put(ws, hr - 1, m0, D(1961, 1, 1), fnt(9, True, color="0000FF"), fill("FFFF00"), fmt="yyyy")
+    put(ws, hr - 1, m0 + 1, "← first month of the grid (input)", fnt(8, italic=True, color=MUTED))
+    for k in range(24):
+        c = m0 + k
+        ws.column_dimensions[get_column_letter(c)].width = 4.2
+        v = f"={get_column_letter(m0)}{hr - 1}" if k == 0 else f"=EDATE({get_column_letter(c - 1)}{hr},1)"
+        put(ws, hr, c, v, fnt(8, True, color=PAPER), fill(RED if k % 12 == 0 else "404040"),
+            Alignment(horizontal="center"), BOX, fmt="mmm")
+    keys = ("prob", "d8", "sw12", "sw42", "sw13", "work", "sw14", "cp06", "sw11")
+    chain = [rec.items[R[k]] for k in keys] if project else []
+    n = len(chain) + (4 if project else 12)
+    for i in range(n):
+        r = hr + 1 + i
+        it = chain[i] if i < len(chain) else None
+        vals = [it["form"], clean(it["name"]), it["who"], it["start"], "yes" if is_required(it) else ""] if it \
+            else [None] * 5
+        for c, v in enumerate(vals, start=1):
+            put(ws, r, c, v, fnt(9, c == 1 or (c == 2 and bool(it) and is_required(it))), border=BOX,
+                fmt="d mmm yyyy" if c == 4 else None)
+        for k in range(24):
+            L = get_column_letter(m0 + k)
+            put(ws, r, m0 + k, f'=IF(AND($D{r}<>"",$D{r}>={L}${hr},$D{r}<EDATE({L}${hr},1)),"◆","")',
+                fnt(10, True, color=INK), al=Alignment(horizontal="center"),
+                border=Border(left=hair, bottom=Side(style="hair", color="EEEEEE")))
+    rng = f"{get_column_letter(m0)}{hr + 1}:{get_column_letter(m0 + 23)}{hr + n}"
+    first = f"{get_column_letter(m0)}{hr + 1}"
+    ws.conditional_formatting.add(rng, FormulaRule(formula=[f'AND({first}="◆",$E{hr + 1}="yes")'],
+                                                   fill=fill("F4C7C3"), font=Font(color=RED, bold=True)))
+    ws.conditional_formatting.add(rng, FormulaRule(formula=[f'{first}="◆"'], fill=fill("E7EBEF")))
+    put(ws, hr + n + 2, 1, "WD = working days, BD = business days. Months inside the Register's years are [A] — agree "
+                           "them as a group. SW-31 (31 May 1975) is outside this window.",
+        fnt(8, italic=True, color=MUTED))
+    ws.freeze_panes = ws.cell(row=hr + 1, column=m0)
+    page(ws)
+
+
+# ------------------------------------------------------------------ 9 data
+def data_sheet(ws, rec, project):
+    ws.sheet_view.showGridLines = False
+    title(ws, "EVENTS (DATA)", "Source keys: A–J in 15-sources-A-J-verified.md · K–T in 17-interiors-1967-1975.md · "
+                               "U–AF in 18-miro-board-verified.md · REG = Document Register · tutor = instruction video",
+          11)
+    heads = [("Lane", 6), ("Type", 10), ("Event", 66), ("Form", 10), ("Start", 12), ("End", 12), ("Factor", 14),
+             ("Status", 16), ("Source", 12), ("From → To", 26), ("Student", 16)]
+    table_head(ws, 4, heads)
     order = {ln["code"]: k for k, ln in enumerate(l for g in rec.groups for l in g["lanes"])}
-    items = sorted(rec.items, key=lambda i: (order.get(i["code"], 99), i["start"]))
-    for r, it in enumerate(items, start=5):
+    items = sorted(rec.items, key=lambda i: (order.get(i["code"], 99), i["start"])) if project else []
+    r = 5
+    for it in items:
         vals = [it["code"], it["kind"], clean(it["name"]), it["form"], it["start"], it["end"], it["factor"],
                 it["status"], it["src"], it["frm_to"], it["who"]]
         for c, v in enumerate(vals, start=1):
-            cell = ws.cell(row=r, column=c, value=v)
-            cell.font = fnt(9)
-            if c in (5, 6) and v:
-                cell.number_format = "d mmm yyyy"
+            put(ws, r, c, v, fnt(9), border=BOX, fmt="d mmm yyyy" if c in (5, 6) else None)
         ws.cell(row=r, column=7).fill = fill(lighten(FACTOR[it["factor"]], 0.6))
         if is_assumed(it):
             ws.cell(row=r, column=8).fill = fill("FFF2CC")
+        r += 1
+    for _ in range(10 if project else 40):
+        for c in range(1, len(heads) + 1):
+            put(ws, r, c, border=BOX, fmt="d mmm yyyy" if c in (5, 6) else None)
+        r += 1
+    dv = DataValidation(type="list", formula1='"' + ",".join(FACTORS + ["Baseline"]) + '"', allow_blank=True)
+    ws.add_data_validation(dv)
+    dv.add(f"G5:G{r - 1}")
     ws.freeze_panes = "A5"
-    ws.auto_filter.ref = f"A4:K{4 + len(items)}"
+    ws.auto_filter.ref = f"A4:K{r - 1}"
+    page(ws)
+
+
+# ------------------------------------------------------------------ assemble
+def workbook(rec, R, tasks, project, out):
+    wb = openpyxl.Workbook()
+    cover(wb.active, project)
+    wb.active.title = "Cover"
+    g = {grp["text"]: grp for grp in rec.groups}
+    timeline(wb.create_sheet("Design timeline"), rec, [g["DESIGN TIMELINE"]], project,
+             "DESIGN TIMELINE — architect's services · CAA 2024",
+             "Lead 1's lanes. One column = one quarter; the exact date is in each label. Frozen: lane names + years.")
+    timeline(wb.create_sheet("Contract timeline"), rec, [g["CONTRACT TIMELINE"]], project,
+             "CONTRACT TIMELINE — procurement + ABIC Simple Works 2018",
+             "Leads 2 and 3. One column = one quarter; the exact date is in each label. Frozen: lane names + years.")
+    register(wb.create_sheet("Register"), rec, project)
+    event_cards(wb.create_sheet("Event cards"), rec, R, project)
+    workflow(wb.create_sheet("Workflow"))
+    tasks_sheet(wb.create_sheet("Tasks"), tasks, project)
+    zoom(wb.create_sheet("Zoom 1961-62"), rec, R, project)
+    data_sheet(wb.create_sheet("Events (data)"), rec, project)
+    wb.save(out)
+    print("wrote", out)
 
 
 def main():
     rec, R, tasks = load_events()
-    wb = openpyxl.Workbook()
-    t = wb.active
-    t.title = "Template"
-    build(t, rec, R, tasks, project=False)
-    b = wb.create_sheet("Board - Scenario 1")
-    build(b, rec, R, tasks, project=True)
-    data_sheet(wb.create_sheet("Events (data)"), rec)
-    wb.active = 1
-    wb.save(OUT)
-    print("wrote", OUT, "-", len(rec.items), "events")
+    workbook(rec, R, tasks, True, OUT)
+    workbook(rec, R, tasks, False, OUT_T)
+    print(len(rec.items), "events")
 
 
 if __name__ == "__main__":
