@@ -25,6 +25,7 @@ week-XX/
 | [06](week-06/) | The Entrepreneur + The Collective — innovation/value-capture (Helen) + AI as leverage (Gwyl Jahn); also where Assessment 2 development began | Full pack — `05-diagrams/week-06/`; summary; feeds Assessment 2 (`05-diagrams/assessment-2/`) |
 | [07](week-07/) | The Architect as Worker (Helen) + Union for Architectural Workers (Tom Marshall, UAW) — structural vs individual responses, wellbeing research, FAF/RIBA case, union economics | Resources uploaded; summary/diagram pack not yet generated |
 | [09](week-09/) | Part 3 begins — Sydney Opera House Innovations (L18); Assessment 3 starts, Miro group workshop | Workshop photos + README; A3 pack in `05-diagrams/assessment-3/`; lecture slides not yet uploaded |
+| [10](week-10/) | CAA, Sketch Design and Design Development + Contract Documentation and Tendering (Helen, two lectures); A3 intro letter and CAA week | Slides + Canvas page + links; summary in `04-summaries/week-10-summary.md`; lecture script still to come |
 
 ## Agent prompts
 
