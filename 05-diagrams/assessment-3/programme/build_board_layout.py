@@ -15,7 +15,9 @@ Sheets (same in both files)
   6 Tasks              who does what, due, status dropdown
   7 Zoom 1961-62       the ABIC SW clock + the variation chain month by month; the diamonds are
                        formulas, so changing a date moves its diamond
-  8 Events (data)      every event as a filterable table with its source key
+  8 Events (data)      every event: summary, status, clickable source links
+  9 Sources            every source key with its title, type and link
+Also writes ../19-event-data.md, a reading copy of Events (data).
 
 One source of truth: the events are read from build_scenario1_timeline.py; edit events there and
 re-run both scripts. Editing directly in Excel also works (see the Cover sheet).
@@ -34,6 +36,8 @@ from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
+
+from event_notes import NOTES, SOURCES
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "build_scenario1_timeline.py")
@@ -366,7 +370,8 @@ def cover(ws, project):
              ("Workflow", "the 10 steps of each research session"),
              ("Tasks", "who does what, due, status"),
              ("Zoom 1961-62", "the ABIC SW clock + the variation chain month by month (diamonds follow the dates)"),
-             ("Events (data)", "every event as a filterable table with its source key")]
+             ("Events (data)", "every event with a short summary, status and clickable source links"),
+             ("Sources", "every source key: title, type (archive / official / scholarly / secondary), link")]
     for name, what in index:
         c = put(ws, r, 2, name, fnt(10, True, color="0563C1"))
         c.hyperlink = f"#'{name}'!A1"
@@ -705,37 +710,137 @@ def zoom(ws, rec, R, project):
     page(ws)
 
 
-# ------------------------------------------------------------------ 9 data
+# ------------------------------------------------------------------ 9 data + sources
+def src_keys(src):
+    return [k for k in re.split(r"[,/]\s*|\s+", src or "") if k and k in SOURCES]
+
+
+def note_for(it):
+    n = clean(it["name"])
+    keys = [k for k in NOTES if n.startswith(k)]
+    return NOTES[max(keys, key=len)] if keys else ""
+
+
 def data_sheet(ws, rec, project):
     ws.sheet_view.showGridLines = False
-    title(ws, "EVENTS (DATA)", "Source keys: A–J in 15-sources-A-J-verified.md · K–T in 17-interiors-1967-1975.md · "
-                               "U–AF in 18-miro-board-verified.md · REG = Document Register · tutor = instruction video",
-          11)
-    heads = [("Lane", 6), ("Type", 10), ("Event", 66), ("Form", 10), ("Start", 12), ("End", 12), ("Factor", 14),
-             ("Status", 16), ("Source", 12), ("From → To", 26), ("Student", 16)]
+    title(ws, "EVENTS (DATA)", "Every event on the Timeline, by lane and date, with a short summary and clickable "
+                               "source links. Source keys are explained on the Sources sheet. Yellow Status = [A] "
+                               "assumption or [verify].", 11)
+    heads = [("Lane", 6), ("Date", 12), ("End", 12), ("Event", 40), ("Summary — what happened and why it matters", 70),
+             ("Factor", 13), ("Status", 14), ("Source keys", 10), ("Link 1", 26), ("Link 2", 26), ("Link 3", 26),
+             ("Form", 9), ("From → To", 22), ("Student", 14)]
     table_head(ws, 4, heads)
     order = {ln["code"]: k for k, ln in enumerate(l for g in rec.groups for l in g["lanes"])}
     items = sorted(rec.items, key=lambda i: (order.get(i["code"], 99), i["start"])) if project else []
     r = 5
+    missing = []
     for it in items:
-        vals = [it["code"], it["kind"], clean(it["name"]), it["form"], it["start"], it["end"], it["factor"],
-                it["status"], it["src"], it["frm_to"], it["who"]]
+        summ = note_for(it)
+        if not summ:
+            missing.append(clean(it["name"]))
+        vals = [it["code"], it["start"], it["end"], clean(it["name"]), summ, it["factor"], it["status"], it["src"]]
         for c, v in enumerate(vals, start=1):
-            put(ws, r, c, v, fnt(9), border=BOX, fmt="d mmm yyyy" if c in (5, 6) else None)
-        ws.cell(row=r, column=7).fill = fill(lighten(FACTOR[it["factor"]], 0.6))
+            put(ws, r, c, v, fnt(9, c == 4), border=BOX, fmt="d mmm yyyy" if c in (2, 3) else None,
+                al=Alignment(vertical="top", wrap_text=c in (4, 5)))
+        keys = src_keys(it["src"])[:3]
+        for j in range(3):
+            cell = put(ws, r, 9 + j, border=BOX, al=Alignment(vertical="top", wrap_text=True))
+            if j < len(keys):
+                k = keys[j]
+                t, kind, url = SOURCES[k]
+                cell.value = f"{k} · {t}"
+                if url:
+                    cell.hyperlink = url
+                    cell.font = Font(name=ARIAL, size=8, color="0563C1", underline="single")
+                else:
+                    cell.font = fnt(8, italic=True, color=MUTED)
+        for c, v in enumerate([it["form"], it["frm_to"], it["who"]], start=12):
+            put(ws, r, c, v, fnt(9, c == 12), border=BOX, al=Alignment(vertical="top", wrap_text=True))
+        ws.cell(row=r, column=6).fill = fill(lighten(FACTOR[it["factor"]], 0.6))
         if is_assumed(it):
-            ws.cell(row=r, column=8).fill = fill("FFF2CC")
+            ws.cell(row=r, column=7).fill = fill("FFF2CC")
+        links_len = max([len(SOURCES[k][0]) for k in keys] or [0])
+        lines = max(math.ceil(len(summ) / 78), math.ceil(len(clean(it["name"])) / 42),
+                    math.ceil(links_len / 30), 2)
+        ws.row_dimensions[r].height = 12.5 * lines + 3
         r += 1
     for _ in range(10 if project else 40):
         for c in range(1, len(heads) + 1):
-            put(ws, r, c, border=BOX, fmt="d mmm yyyy" if c in (5, 6) else None)
+            put(ws, r, c, border=BOX, fmt="d mmm yyyy" if c in (2, 3) else None,
+                al=Alignment(vertical="top", wrap_text=c in (4, 5)))
         r += 1
     dv = DataValidation(type="list", formula1='"' + ",".join(FACTORS + ["Baseline"]) + '"', allow_blank=True)
     ws.add_data_validation(dv)
-    dv.add(f"G5:G{r - 1}")
+    dv.add(f"F5:F{r - 1}")
+    ws.freeze_panes = "E5"
+    ws.auto_filter.ref = f"A4:N{r - 1}"
+    page(ws, a3=True)
+    if missing:
+        print("events without a summary:", missing)
+    return items
+
+
+def sources_sheet(ws, project):
+    ws.sheet_view.showGridLines = False
+    title(ws, "SOURCES", "Every source key used on the Timeline and in Events (data). Verified in "
+                         "15-sources-A-J-verified.md (A–J), 17-interiors-1967-1975.md (K–T) and "
+                         "18-miro-board-verified.md (U–AF).", 4)
+    table_head(ws, 4, [("Key", 7), ("Source", 70), ("Type", 26), ("Link", 60)])
+    r = 5
+    for k, (t, kind, url) in (SOURCES.items() if project else []):
+        put(ws, r, 1, k, fnt(9, True), border=BOX)
+        put(ws, r, 2, t, fnt(9), border=BOX, al=Alignment(wrap_text=True))
+        put(ws, r, 3, kind, fnt(9, color=RED if kind == "Unverified" else INK), border=BOX)
+        cell = put(ws, r, 4, url or "— (no web link)", border=BOX)
+        if url:
+            cell.hyperlink = url
+            cell.font = Font(name=ARIAL, size=8, color="0563C1", underline="single")
+        else:
+            cell.font = fnt(8, italic=True, color=MUTED)
+        r += 1
+    for _ in range(5 if project else 25):
+        for c in range(1, 5):
+            put(ws, r, c, border=BOX)
+        r += 1
     ws.freeze_panes = "A5"
-    ws.auto_filter.ref = f"A4:K{r - 1}"
     page(ws)
+
+
+def write_markdown(items, rec, path):
+    """A reading copy of Events (data): one section per lane, summary + linked sources."""
+    lanes = {ln["code"]: ln["name"] for g in rec.groups for ln in g["lanes"]}
+    by = {}
+    for it in items:
+        by.setdefault(it["code"], []).append(it)
+    out = ["# 19 — Event data: what happened, why it matters, and the sources",
+           "",
+           "- **Generated** by `programme/build_board_layout.py` from `programme/build_scenario1_timeline.py` "
+           "(events) and `programme/event_notes.py` (summaries + source links). Edit those, then re-run; "
+           "don't edit this file by hand.",
+           "- Same content as the **Events (data)** and **Sources** sheets of `programme/soh_board_layout.xlsx`.",
+           "- `[A]` = our assumption · `[verify]` = not yet confirmed · REG = the group's Document Register · "
+           "tutor = instruction video (no web link).",
+           ""]
+    for code, its in by.items():
+        out += [f"## {code} — {lanes.get(code, '')}", ""]
+        for it in its:
+            when = short(it["start"]) + (f" – {short(it['end'])}" if it["end"] else "")
+            links = []
+            for k in src_keys(it["src"]):
+                t, kind, url = SOURCES[k]
+                links.append(f"[{k}: {t}]({url})" if url else f"{k}: {t}")
+            tag = f"  `{it['status']}`" if is_assumed(it) else ""
+            form = f" · **{it['form']}**" if it["form"] else ""
+            out.append(f"**{when} — {clean(it['name'])}**{form}{tag}  ")
+            out.append(f"{note_for(it)}  ")
+            out.append(f"*Sources:* {' · '.join(links) or '—'}")
+            out.append("")
+    out += ["## Source list", "", "| Key | Source | Type |", "|---|---|---|"]
+    for k, (t, kind, url) in SOURCES.items():
+        out.append(f"| {k} | {f'[{t}]({url})' if url else t} | {kind} |")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(out) + "\n")
+    print("wrote", os.path.normpath(path))
 
 
 # ------------------------------------------------------------------ assemble
@@ -753,15 +858,18 @@ def workbook(rec, R, tasks, project, out):
     workflow(wb.create_sheet("Workflow"))
     tasks_sheet(wb.create_sheet("Tasks"), tasks, project)
     zoom(wb.create_sheet("Zoom 1961-62"), rec, R, project)
-    data_sheet(wb.create_sheet("Events (data)"), rec, project)
+    items = data_sheet(wb.create_sheet("Events (data)"), rec, project)
+    sources_sheet(wb.create_sheet("Sources"), project)
     wb.save(out)
     print("wrote", out)
+    return items
 
 
 def main():
     rec, R, tasks = load_events()
-    workbook(rec, R, tasks, True, OUT)
+    items = workbook(rec, R, tasks, True, OUT)
     workbook(rec, R, tasks, False, OUT_T)
+    write_markdown(items, rec, os.path.join(HERE, "..", "19-event-data.md"))
     print(len(rec.items), "events")
 
 
