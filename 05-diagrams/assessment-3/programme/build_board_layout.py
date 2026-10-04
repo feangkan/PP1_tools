@@ -7,8 +7,11 @@ Two files
 
 Sheets (same in both files)
   1 Cover              title, project lines, colour + shape legend, sheet index, how to edit
-  2 Timeline           Design lanes D0-D4 above Contract lanes C1-C4, one shared year axis
-                       (one column = one quarter)
+  2 Parties            who is who by party (Client, Architect, Builder, Engineer, Specialist consultant,
+                       Supplier / manufacturer), years and sources
+  3 Timeline           Design lanes D0-D4 above Contract lanes C1-C4, one shared year axis
+                       (one column = one quarter), coloured by factor
+  4 Timeline by party  the same timeline coloured by the party who acts
   3 Register           the Architects Register as a table (one row per document)
   4 Event cards        one card per required form / scenario event
   5 Workflow           the 10 steps of a research session, with a Done? dropdown
@@ -37,7 +40,7 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
-from event_notes import NOTES, SOURCES
+from event_notes import NOTES, PARTIES, ROLE_COLOURS, ROLES, SOURCES
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "build_scenario1_timeline.py")
@@ -179,6 +182,20 @@ def is_assumed(it):
 
 def is_required(it):
     return it["name"].startswith("★") or it["form"] in REQUIRED
+
+
+def party_for(it):
+    """(party, named party) for an event: who acts in it. Longest matching ROLES prefix wins."""
+    n = it["name"].lstrip("★ ").strip()
+    keys = [k for k in ROLES if n.startswith(k)]
+    return ROLES[max(keys, key=len)] if keys else ("", "")
+
+
+def item_colour(it, mode):
+    if mode == "party":
+        party = party_for(it)[0]
+        return ROLE_COLOURS.get(party, "999999")
+    return FACTOR[it["factor"]]
 
 
 def clean(name):
@@ -343,6 +360,20 @@ def cover(ws, project):
                        "Responsibility": "who decides, who is engaged, who represents whom"}[k], fnt(9))
         r += 1
     r += 1
+    put(ws, r, 2, "COLOUR BY PARTY  (Timeline by party sheet — same colours as the Miro Parties panel)",
+        fnt(9, True, color=MUTED))
+    r += 1
+    for k, col in ROLE_COLOURS.items():
+        put(ws, r, 2, k, fnt(9, True, color=PAPER), fill(col))
+        put(ws, r, 3, {"Client": "NSW Government, Minister for Public Works, the Trust, Premiers and Ministers",
+                       "Architect": "Utzon; then Hall, Todd & Littlemore (with Farmer)",
+                       "Builder": "Civil & Civic (Stage I); M.R. Hornibrook (Stages II + III)",
+                       "Engineer": "Ove Arup & Partners — lead structural / civil",
+                       "Specialist consultant": "mechanical (Steensen & Varming), acoustics (Jordan), QS",
+                       "Supplier / manufacturer": "Symonds, Waagner-Biro, GEC-Philips, AWA, K.F. Plastics, Sharp, Coburn"}[k],
+            fnt(9))
+        r += 1
+    r += 1
     put(ws, r, 2, "SHAPES", fnt(9, True, color=MUTED))
     r += 1
     for sym, txt, col, brd in [("", "bar = a date range (filled cells, label in the first cell)", "9DB4C8", None),
@@ -363,8 +394,11 @@ def cover(ws, project):
     r += 1
     put(ws, r, 2, "SHEETS IN THIS FILE", fnt(9, True, color=MUTED))
     r += 1
-    index = [("Timeline", "Design lanes D0–D4 (CAA stages, client + brief, design output, consultants, interiors) "
+    index = [("Parties", "who is who: every party by category (Client, Architect, Builder, Engineer, Specialist "
+                         "consultant, Supplier / manufacturer), with years and sources"),
+             ("Timeline", "Design lanes D0–D4 (CAA stages, client + brief, design output, consultants, interiors) "
                           "above Contract lanes C1–C4 (procurement + cost, construction, contract admin, fit-out)"),
+             ("Timeline by party", "the same timeline, coloured by the party who acts in each event"),
              ("Register", "the Architects Register: one row per document (course sample columns)"),
              ("Event cards", "one card per required form / scenario event"),
              ("Workflow", "the 10 steps of each research session"),
@@ -399,7 +433,7 @@ def cover(ws, project):
 
 
 # ------------------------------------------------------------------ 2-3 timelines
-def timeline(ws, rec, groups, project, sheet_title, sheet_sub):
+def timeline(ws, rec, groups, project, sheet_title, sheet_sub, mode="factor"):
     ws.sheet_view.showGridLines = False
     ws.column_dimensions["A"].width = 5
     ws.column_dimensions["B"].width = 36
@@ -408,6 +442,14 @@ def timeline(ws, rec, groups, project, sheet_title, sheet_sub):
         ws.column_dimensions[get_column_letter(G0 + k)].width = COL_W
     last = G0 + NQ - 1
     title(ws, sheet_title, sheet_sub, last)
+    # legend (row 3): factor or party colours
+    legend = ROLE_COLOURS if mode == "party" else {k: FACTOR[k] for k in FACTORS}
+    put(ws, 3, 2, "COLOUR = PARTY WHO ACTS" if mode == "party" else "COLOUR = FACTOR THAT CHANGED",
+        fnt(8, True, color=MUTED))
+    for i, (k, col) in enumerate(legend.items()):
+        c = G0 + i * 9
+        band(ws, 3, c, c + 7, col)
+        put(ws, 3, c, k, fnt(8, True, color=PAPER))
     # phases (row 4), scenario (row 5), years (row 6)
     put(ws, 4, 2, "PHASES", fnt(8, True, color=MUTED))
     ws.row_dimensions[4].height = 40
@@ -464,7 +506,7 @@ def timeline(ws, rec, groups, project, sheet_title, sheet_sub):
                         ws.cell(row=rr, column=G0 + q).fill = fill(lighten(tint))
                 lane_rows.append(rr)
                 for it in row["items"]:
-                    draw_item(ws, rr, it)
+                    draw_item(ws, rr, it, mode)
             lane_last.add(r + len(rows) - 1)
             r += len(rows)
     # grid lines, lane rules, scenario line
@@ -485,11 +527,11 @@ def timeline(ws, rec, groups, project, sheet_title, sheet_sub):
     page(ws, a3=True)
 
 
-def draw_item(ws, r, it):
+def draw_item(ws, r, it, mode="factor"):
     if it["type"] == "bar":
         c0, c1 = bar_cols(it)
         base, assumed = it["kind"] == "Baseline", is_assumed(it)
-        col = "EDEDED" if base else FACTOR[it["factor"]]
+        col = "EDEDED" if base else item_colour(it, mode)
         for c in range(c0, c1 + 1):
             cell = ws.cell(row=r, column=c)
             cell.fill = fill(col)
@@ -506,7 +548,7 @@ def draw_item(ws, r, it):
     star = is_required(it)
     if star:
         put(ws, r, c - 1, "★", fnt(9, True, color=RED), al=Alignment(horizontal="right"))
-    put(ws, r, c, "■" if it["kind"] == "Gate" else "◆", fnt(11, True, color=FACTOR[it["factor"]]),
+    put(ws, r, c, "■" if it["kind"] == "Gate" else "◆", fnt(11, True, color=item_colour(it, mode)),
         al=Alignment(horizontal="center"))
     f = fnt(8, star, is_assumed(it))
     if ms_left(it):
@@ -546,13 +588,13 @@ def register(ws, rec, project):
 
 # ------------------------------------------------------------------ 5 event cards
 CARD_KEYS = ["E-ID  |  Date(s)", "Event", "Timeline  /  lane", "Phase", "Initiated by  →  must respond",
-             "Factor changed", "[F] fact / [A] assumption + source", "Documents + clause",
+             "Party (who acts)", "Factor changed", "[F] fact / [A] assumption + source", "Documents + clause",
              "Student  (lead / research / check)"]
 
 
 def event_cards(ws, rec, R, project):
     ws.sheet_view.showGridLines = False
-    title(ws, "EVENT CARDS", "One card per required form or scenario event. Copy a block (11 rows) to add one.", 3)
+    title(ws, "EVENT CARDS", "One card per required form or scenario event. Copy a block (12 rows) to add one.", 3)
     ws.column_dimensions["A"].width = 3
     ws.column_dimensions["B"].width = 32
     ws.column_dimensions["C"].width = 80
@@ -567,7 +609,7 @@ def event_cards(ws, rec, R, project):
             dates = short(it["start"]) + (f" – {short(it['end'])}" if it["end"] else "")
             cards.append((it["factor"], [
                 f"S1-{n:02d}  |  {dates}", clean(it["name"]), f"{tl}  /  {it['code']} {ln}", phase_of(it["start"]),
-                it["frm_to"] or "—", it["factor"], f"{it['status']}  ·  source {it['src'] or '—'}",
+                it["frm_to"] or "—", "  —  ".join(x for x in party_for(it) if x), it["factor"], f"{it['status']}  ·  source {it['src'] or '—'}",
                 f"{it['form']}  {CLAUSE.get(it['form'], '')}".strip() or "—",
                 it["who"] or "________ / ________ / ________"]))
     else:
@@ -580,7 +622,11 @@ def event_cards(ws, rec, R, project):
         for k, v in zip(CARD_KEYS, vals):
             ws.cell(row=r, column=1).fill = fill(FACTOR[factor])
             put(ws, r, 2, k, fnt(8, True, color=MUTED), border=Border(bottom=thin))
-            put(ws, r, 3, v, fnt(9, k == "Event"), border=Border(bottom=thin), al=Alignment(wrap_text=True))
+            cell = put(ws, r, 3, v, fnt(9, k == "Event"), border=Border(bottom=thin), al=Alignment(wrap_text=True))
+            if k == "Party (who acts)" and v:
+                party = v.split("  —  ")[0]
+                if party in ROLE_COLOURS:
+                    cell.fill = fill(lighten(ROLE_COLOURS[party], 0.7))
             r += 1
         r += 1
     page(ws, landscape=False)
@@ -591,7 +637,7 @@ WORKFLOW = [
     "Research an event → write ONE event card",
     "Classify: Design or Contract timeline → choose its lane",
     "Place it on the year axis: bar if a range, diamond if one date",
-    "Colour by the factor that changed (Scope / Time / Cost / Quality / Responsibility)",
+    "Colour by the factor that changed (Scope / Time / Cost / Quality / Responsibility); note the party who acts",
     "Tag [F] + source key, or [A] + reason (dashed outline / italic)",
     "Note cause → consequence (which earlier card made this happen?)",
     "Planned vs actual: grey dashed baseline under the actual bar",
@@ -723,12 +769,13 @@ def note_for(it):
 
 def data_sheet(ws, rec, project):
     ws.sheet_view.showGridLines = False
-    title(ws, "EVENTS (DATA)", "Every event on the Timeline, by lane and date, with a short summary and clickable "
-                               "source links. Source keys are explained on the Sources sheet. Yellow Status = [A] "
-                               "assumption or [verify].", 11)
-    heads = [("Lane", 6), ("Date", 12), ("End", 12), ("Event", 40), ("Summary — what happened and why it matters", 70),
-             ("Factor", 13), ("Status", 14), ("Source keys", 10), ("Link 1", 26), ("Link 2", 26), ("Link 3", 26),
-             ("Form", 9), ("From → To", 22), ("Student", 14)]
+    title(ws, "EVENTS (DATA)", "Every event on the Timeline, by lane and date: the party who acts, a short summary "
+                               "and clickable source links. Source keys are explained on the Sources sheet. Yellow "
+                               "Status = [A] assumption or [verify]. Filter the Party column to see one party's events.",
+          11)
+    heads = [("Lane", 6), ("Date", 12), ("End", 12), ("Event", 40), ("Party", 15), ("Named party", 24),
+             ("Summary — what happened and why it matters", 66), ("Factor", 13), ("Status", 14), ("Source keys", 10),
+             ("Link 1", 26), ("Link 2", 26), ("Link 3", 26), ("Form", 9), ("From → To", 22), ("Student", 14)]
     table_head(ws, 4, heads)
     order = {ln["code"]: k for k, ln in enumerate(l for g in rec.groups for l in g["lanes"])}
     items = sorted(rec.items, key=lambda i: (order.get(i["code"], 99), i["start"])) if project else []
@@ -736,15 +783,20 @@ def data_sheet(ws, rec, project):
     missing = []
     for it in items:
         summ = note_for(it)
-        if not summ:
+        party, named = party_for(it)
+        if not summ or not party:
             missing.append(clean(it["name"]))
-        vals = [it["code"], it["start"], it["end"], clean(it["name"]), summ, it["factor"], it["status"], it["src"]]
+        vals = [it["code"], it["start"], it["end"], clean(it["name"]), party, named, summ, it["factor"],
+                it["status"], it["src"]]
         for c, v in enumerate(vals, start=1):
             put(ws, r, c, v, fnt(9, c == 4), border=BOX, fmt="d mmm yyyy" if c in (2, 3) else None,
-                al=Alignment(vertical="top", wrap_text=c in (4, 5)))
+                al=Alignment(vertical="top", wrap_text=c in (4, 6, 7)))
+        if party in ROLE_COLOURS:
+            ws.cell(row=r, column=5).fill = fill(ROLE_COLOURS[party])
+            ws.cell(row=r, column=5).font = fnt(9, True, color=PAPER)
         keys = src_keys(it["src"])[:3]
         for j in range(3):
-            cell = put(ws, r, 9 + j, border=BOX, al=Alignment(vertical="top", wrap_text=True))
+            cell = put(ws, r, 11 + j, border=BOX, al=Alignment(vertical="top", wrap_text=True))
             if j < len(keys):
                 k = keys[j]
                 t, kind, url = SOURCES[k]
@@ -754,30 +806,74 @@ def data_sheet(ws, rec, project):
                     cell.font = Font(name=ARIAL, size=8, color="0563C1", underline="single")
                 else:
                     cell.font = fnt(8, italic=True, color=MUTED)
-        for c, v in enumerate([it["form"], it["frm_to"], it["who"]], start=12):
-            put(ws, r, c, v, fnt(9, c == 12), border=BOX, al=Alignment(vertical="top", wrap_text=True))
-        ws.cell(row=r, column=6).fill = fill(lighten(FACTOR[it["factor"]], 0.6))
+        for c, v in enumerate([it["form"], it["frm_to"], it["who"]], start=14):
+            put(ws, r, c, v, fnt(9, c == 14), border=BOX, al=Alignment(vertical="top", wrap_text=True))
+        ws.cell(row=r, column=8).fill = fill(lighten(FACTOR[it["factor"]], 0.6))
         if is_assumed(it):
-            ws.cell(row=r, column=7).fill = fill("FFF2CC")
+            ws.cell(row=r, column=9).fill = fill("FFF2CC")
         links_len = max([len(SOURCES[k][0]) for k in keys] or [0])
-        lines = max(math.ceil(len(summ) / 78), math.ceil(len(clean(it["name"])) / 42),
-                    math.ceil(links_len / 30), 2)
+        lines = max(math.ceil(len(summ) / 74), math.ceil(len(clean(it["name"])) / 42),
+                    math.ceil(len(named) / 24), math.ceil(links_len / 30), 2)
         ws.row_dimensions[r].height = 12.5 * lines + 3
         r += 1
     for _ in range(10 if project else 40):
         for c in range(1, len(heads) + 1):
             put(ws, r, c, border=BOX, fmt="d mmm yyyy" if c in (2, 3) else None,
-                al=Alignment(vertical="top", wrap_text=c in (4, 5)))
+                al=Alignment(vertical="top", wrap_text=c in (4, 6, 7)))
         r += 1
     dv = DataValidation(type="list", formula1='"' + ",".join(FACTORS + ["Baseline"]) + '"', allow_blank=True)
     ws.add_data_validation(dv)
-    dv.add(f"F5:F{r - 1}")
+    dv.add(f"H5:H{r - 1}")
+    dv2 = DataValidation(type="list", formula1='"' + ",".join(ROLE_COLOURS) + '"', allow_blank=True)
+    ws.add_data_validation(dv2)
+    dv2.add(f"E5:E{r - 1}")
+    for party, col in ROLE_COLOURS.items():          # new rows pick up the colour too
+        ws.conditional_formatting.add(f"E5:E{r - 1}", FormulaRule(formula=[f'$E5="{party}"'], fill=fill(col),
+                                                                   font=Font(color=PAPER, bold=True)))
     ws.freeze_panes = "E5"
-    ws.auto_filter.ref = f"A4:N{r - 1}"
+    ws.auto_filter.ref = f"A4:P{r - 1}"
     page(ws, a3=True)
     if missing:
-        print("events without a summary:", missing)
+        print("events without a summary or party:", missing)
     return items
+
+
+def parties_sheet(ws, project):
+    ws.sheet_view.showGridLines = False
+    title(ws, "PARTIES", "Who is who, by category — the group's Miro Parties panel, corrected and sourced "
+                         "(18-miro-board-verified.md). Colours match the Timeline by party sheet.", 6)
+    table_head(ws, 4, [("Party", 22), ("Named party", 40), ("Role on the project", 64), ("Years", 24),
+                       ("Source keys", 12), ("Link", 40)])
+    r = 5
+    for party, named, role, years, src in (PARTIES if project else []):
+        put(ws, r, 1, party, fnt(9, True, color=PAPER), fill(ROLE_COLOURS[party]), Alignment(vertical="top"), BOX)
+        put(ws, r, 2, named, fnt(9, True), border=BOX, al=Alignment(wrap_text=True, vertical="top"))
+        put(ws, r, 3, role, fnt(9), border=BOX, al=Alignment(wrap_text=True, vertical="top"))
+        put(ws, r, 4, years, fnt(9), border=BOX, al=Alignment(vertical="top"))
+        put(ws, r, 5, src, fnt(9), border=BOX, al=Alignment(vertical="top"))
+        keys = src_keys(src)
+        cell = put(ws, r, 6, border=BOX, al=Alignment(wrap_text=True, vertical="top"))
+        if keys and SOURCES[keys[0]][2]:
+            cell.value = f"{keys[0]} · {SOURCES[keys[0]][0]}"
+            cell.hyperlink = SOURCES[keys[0]][2]
+            cell.font = Font(name=ARIAL, size=8, color="0563C1", underline="single")
+        link_len = len(SOURCES[keys[0]][0]) + 5 if keys else 0
+        ws.row_dimensions[r].height = 12.5 * max(math.ceil(len(role) / 62), math.ceil(len(named) / 38),
+                                                 math.ceil(link_len / 44), 1) + 4
+        r += 1
+    for _ in range(6 if project else 30):
+        for c in range(1, 7):
+            put(ws, r, c, border=BOX)
+        r += 1
+    dv = DataValidation(type="list", formula1='"' + ",".join(ROLE_COLOURS) + '"', allow_blank=True)
+    ws.add_data_validation(dv)
+    dv.add(f"A5:A{r - 1}")
+    for party, col in ROLE_COLOURS.items():
+        ws.conditional_formatting.add(f"A5:A{r - 1}", FormulaRule(formula=[f'$A5="{party}"'], fill=fill(col),
+                                                                   font=Font(color=PAPER, bold=True)))
+    ws.freeze_panes = "A5"
+    ws.auto_filter.ref = f"A4:F{r - 1}"
+    page(ws)
 
 
 def sources_sheet(ws, project):
@@ -812,7 +908,7 @@ def write_markdown(items, rec, path):
     by = {}
     for it in items:
         by.setdefault(it["code"], []).append(it)
-    out = ["# 19 — Event data: what happened, why it matters, and the sources",
+    out = ["# 19 — Event data: what happened, who acted, why it matters, and the sources",
            "",
            "- **Generated** by `programme/build_board_layout.py` from `programme/build_scenario1_timeline.py` "
            "(events) and `programme/event_notes.py` (summaries + source links). Edit those, then re-run; "
@@ -831,11 +927,17 @@ def write_markdown(items, rec, path):
                 links.append(f"[{k}: {t}]({url})" if url else f"{k}: {t}")
             tag = f"  `{it['status']}`" if is_assumed(it) else ""
             form = f" · **{it['form']}**" if it["form"] else ""
+            party, named = party_for(it)
             out.append(f"**{when} — {clean(it['name'])}**{form}{tag}  ")
+            out.append(f"*Party:* {party} — {named}  ")
             out.append(f"{note_for(it)}  ")
             out.append(f"*Sources:* {' · '.join(links) or '—'}")
             out.append("")
-    out += ["## Source list", "", "| Key | Source | Type |", "|---|---|---|"]
+    out += ["## Parties", "", "| Party | Named party | Role on the project | Years | Sources |",
+            "|---|---|---|---|---|"]
+    for party, named, role, years, src in PARTIES:
+        out.append(f"| {party} | {named} | {role} | {years} | {src} |")
+    out += ["", "## Source list", "", "| Key | Source | Type |", "|---|---|---|"]
     for k, (t, kind, url) in SOURCES.items():
         out.append(f"| {k} | {f'[{t}]({url})' if url else t} | {kind} |")
     with open(path, "w", encoding="utf-8") as f:
@@ -848,11 +950,16 @@ def workbook(rec, R, tasks, project, out):
     wb = openpyxl.Workbook()
     cover(wb.active, project)
     wb.active.title = "Cover"
+    parties_sheet(wb.create_sheet("Parties"), project)
     g = {grp["text"]: grp for grp in rec.groups}
     timeline(wb.create_sheet("Timeline"), rec, [g["DESIGN TIMELINE"], g["CONTRACT TIMELINE"]], project,
              "PROJECT TIMELINE — Design (CAA 2024) + Contract (ABIC Simple Works 2018)",
              "Design lanes D0–D4 = Lead 1; Contract lanes C1–C2 = Lead 2, C3 = Lead 3. One column = one quarter; "
              "the exact date is in each label. Frozen: lane names + years.")
+    timeline(wb.create_sheet("Timeline by party"), rec, [g["DESIGN TIMELINE"], g["CONTRACT TIMELINE"]], project,
+             "PROJECT TIMELINE BY PARTY — who acts in each event",
+             "Design lanes D0–D4 = Lead 1; Contract lanes C1–C2 = Lead 2, C3 = Lead 3. One column = one quarter; "
+             "the exact date is in each label. Frozen: lane names + years.", mode="party")
     register(wb.create_sheet("Register"), rec, project)
     event_cards(wb.create_sheet("Event cards"), rec, R, project)
     workflow(wb.create_sheet("Workflow"))
