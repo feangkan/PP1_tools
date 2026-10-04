@@ -7,15 +7,15 @@ Two files
 
 Sheets (same in both files)
   1 Cover              title, project lines, colour + shape legend, sheet index, how to edit
-  2 Design timeline    lanes D0-D4 on a year axis (one column = one quarter)
-  3 Contract timeline  lanes C1-C4 on the same axis
-  4 Register           the Architects Register as a table (one row per document)
-  5 Event cards        one card per required form / scenario event
-  6 Workflow           the 10 steps of a research session, with a Done? dropdown
-  7 Tasks              who does what, due, status dropdown
-  8 Zoom 1961-62       the ABIC SW clock + the variation chain month by month; the diamonds are
+  2 Timeline           Design lanes D0-D4 above Contract lanes C1-C4, one shared year axis
+                       (one column = one quarter)
+  3 Register           the Architects Register as a table (one row per document)
+  4 Event cards        one card per required form / scenario event
+  5 Workflow           the 10 steps of a research session, with a Done? dropdown
+  6 Tasks              who does what, due, status dropdown
+  7 Zoom 1961-62       the ABIC SW clock + the variation chain month by month; the diamonds are
                        formulas, so changing a date moves its diamond
-  9 Events (data)      every event as a filterable table with its source key
+  8 Events (data)      every event as a filterable table with its source key
 
 One source of truth: the events are read from build_scenario1_timeline.py; edit events there and
 re-run both scripts. Editing directly in Excel also works (see the Cover sheet).
@@ -359,8 +359,8 @@ def cover(ws, project):
     r += 1
     put(ws, r, 2, "SHEETS IN THIS FILE", fnt(9, True, color=MUTED))
     r += 1
-    index = [("Design timeline", "lanes D0–D4: CAA stages, client + brief, design output, consultants, interiors"),
-             ("Contract timeline", "lanes C1–C4: procurement + cost, construction, contract administration, fit-out"),
+    index = [("Timeline", "Design lanes D0–D4 (CAA stages, client + brief, design output, consultants, interiors) "
+                          "above Contract lanes C1–C4 (procurement + cost, construction, contract admin, fit-out)"),
              ("Register", "the Architects Register: one row per document (course sample columns)"),
              ("Event cards", "one card per required form / scenario event"),
              ("Workflow", "the 10 steps of each research session"),
@@ -744,12 +744,10 @@ def workbook(rec, R, tasks, project, out):
     cover(wb.active, project)
     wb.active.title = "Cover"
     g = {grp["text"]: grp for grp in rec.groups}
-    timeline(wb.create_sheet("Design timeline"), rec, [g["DESIGN TIMELINE"]], project,
-             "DESIGN TIMELINE — architect's services · CAA 2024",
-             "Lead 1's lanes. One column = one quarter; the exact date is in each label. Frozen: lane names + years.")
-    timeline(wb.create_sheet("Contract timeline"), rec, [g["CONTRACT TIMELINE"]], project,
-             "CONTRACT TIMELINE — procurement + ABIC Simple Works 2018",
-             "Leads 2 and 3. One column = one quarter; the exact date is in each label. Frozen: lane names + years.")
+    timeline(wb.create_sheet("Timeline"), rec, [g["DESIGN TIMELINE"], g["CONTRACT TIMELINE"]], project,
+             "PROJECT TIMELINE — Design (CAA 2024) + Contract (ABIC Simple Works 2018)",
+             "Design lanes D0–D4 = Lead 1; Contract lanes C1–C2 = Lead 2, C3 = Lead 3. One column = one quarter; "
+             "the exact date is in each label. Frozen: lane names + years.")
     register(wb.create_sheet("Register"), rec, project)
     event_cards(wb.create_sheet("Event cards"), rec, R, project)
     workflow(wb.create_sheet("Workflow"))
