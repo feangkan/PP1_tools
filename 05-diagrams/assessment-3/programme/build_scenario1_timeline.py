@@ -345,17 +345,36 @@ b.milestone("D1", "★ Introductory letter", D(1957, 2, 1), "Scope", "REG [A]", 
             who=F1, src="REG")
 b.milestone("D1", "★ CAA signed — must be the 2024 edition (Register says 2019)", D(1957, 2, 21), "Scope", "REG",
             form="CAA", frm_to="Architect → Client", who=F1, src="REG")
-b.milestone("D1", "Premier Cahill dies — client representative changes (CAA C.3)", D(1959, 10, 19), "Responsibility",
-            "NEW [F]", frm_to="Client → Architect", who="Frank", src="D")
+b.milestone("D1", "Premier Cahill dies; Heffron Premier — client rep changes (CAA C.3)", D(1959, 10, 22), "Responsibility",
+            "NEW [F] D: 19 Oct", frm_to="Client → Architect", who="Frank", src="U, W, D")
 R["d8"] = b.milestone("D1", "★ Architect notifies client: extra services + fee (CAA D.8)", D(1961, 7, 1), "Scope",
                       "NEW [A]", form="CAA D.8", frm_to="Architect → Client", who="Frank", src="—")
-b.milestone("D1", "Askin government: Minister Hughes takes over payments", D(1965, 5, 1), "Responsibility", "[F]",
-            frm_to="Client", src="D, G")
+b.milestone("D1", "Askin government: Minister Hughes takes over payments", D(1965, 5, 13), "Responsibility", "[F]",
+            frm_to="Client", src="D, G, AD")
+b.milestone("D1", "Sydney Opera House Act 1960: Minister for Public Works = constructing authority", D(1960, 1, 1),
+            "Responsibility", "[F] year", frm_to="Client", src="D, Z")
+b.milestone("D1", "Trust Act 1961: Sydney Opera House Trust set up", D(1961, 3, 14), "Responsibility", "[F]",
+            frm_to="Client", src="V")
 b.milestone("D1", "Utzon resigns", D(1966, 2, 28), "Responsibility", "[F]", frm_to="Architect → Client", src="D, G")
 b.milestone("D1", "Hall / Todd / Littlemore appointed (with Farmer)", D(1966, 4, 19), "Responsibility", "[F]",
             frm_to="Client → Architects", src="D, G")
+b.milestone("D1", "Govt pays $160,000 for 130 of Utzon's Stage III drawings", D(1966, 5, 17), "Cost", "[F]",
+            frm_to="Client → Utzon's office", src="D")
 b.milestone("D1", "Review of Program — change to the use of the halls", D(1966, 12, 12), "Scope", "[F]",
             frm_to="Architects → Client", src="D")
+
+b.milestone("D1", "Opening Committee headed by Premier Askin", D(1972, 2, 28), "Responsibility", "[F]",
+            frm_to="Client", src="D")
+b.milestone("D1", "Hughes resigns; Leon Punch Minister for Public Works (CAA C.3)", D(1973, 1, 17), "Responsibility",
+            "[F]", frm_to="Client → Architects", src="AD")
+b.milestone("D1", "Premier Askin formally invites Utzon to the opening", D(1973, 6, 20), "Responsibility", "[F]",
+            frm_to="Client → Utzon", src="AE")
+b.milestone("D1", "Building handed to the Trust + Minister for Cultural Activities (Freudenstein)", D(1973, 7, 1),
+            "Responsibility", "[F] year", frm_to="Client → operator", src="D")
+b.milestone("D1", "Utzon declines the invitation", D(1973, 8, 1), "Responsibility", "[F]", frm_to="Utzon → Premier",
+            src="AE")
+b.milestone("D1", "Askin resigns; Tom Lewis Premier (client at SW-31)", D(1975, 1, 3), "Responsibility", "[F]",
+            frm_to="Client", src="W")
 
 b.lane("D2", "Architect — design output", "competition, Red Book, Yellow Book", "Lead 1: Frank (check: Prani)")
 b.bar("D2", "Competition design phase", D(1955, 9, 13), D(1957, 1, 29), "Scope", "REG [F]",
@@ -371,6 +390,12 @@ R["yellow"] = b.milestone("D2", "Yellow Book — spherical shell geometry fixed"
 b.lane("D3", "Consultants", "Ove Arup & Partners · CAA E.1", "Lead 1: Frank (check: Prani)")
 b.milestone("D3", "Ove Arup & Partners engaged (by client per brief; by Utzon per D)", D(1957, 6, 1),
             "Responsibility", "[A] date / conflict", frm_to="→ Arup", src="D / brief")
+b.milestone("D3", "Steensen & Varming appointed mechanical engineers", D(1957, 6, 1), "Responsibility", "[F] year",
+            frm_to="→ Steensen & Varming", src="AA")
+b.bar("D3", "Utzon develops plywood mullions + ceilings with Ralph Symonds Ltd", D(1961, 10, 1), D(1966, 2, 28),
+      "Quality", "[F]", frm_to="Architect ↔ supplier", src="Y, X")
+b.milestone("D3", "Ralph Symonds Ltd in receivership", D(1964, 2, 26), "Responsibility", "[verify]",
+            frm_to="Supplier", src="X")
 R["prob"] = b.milestone("D3", "★ Problem found: final roof loads exceed podium columns", D(1961, 6, 1), "Scope",
                         "[A] verify", frm_to="Arup → Architect", src="tutor")
 
@@ -396,6 +421,8 @@ b.milestone("D4", "Coburn tapestry curtains hung (Opera + Drama theatres)", D(19
 # ---------------- CONTRACT TIMELINE
 b.group("CONTRACT TIMELINE", "procurement + ABIC Simple Works 2018")
 b.lane("C1", "Procurement + cost", "tender, contracts signed, cost plan", "Lead 2: Jerry (check: Frank)")
+b.milestone("C1", "Opera House Lottery starts — funds the build", D(1957, 11, 25), "Cost", "[F]",
+            frm_to="NSW Govt", src="Z")
 b.milestone("C1", "Stage I tender documents: conditions of contract + bills of quantities", D(1958, 12, 1), "Cost",
             "REG [F]", frm_to="Architect → Contractor", who="Jerry?", src="C")
 b.milestone("C1", "Tender return", D(1959, 1, 1), "Cost", "REG [A]", frm_to="Contractor → Architect", who="Jerry?",
@@ -403,13 +430,19 @@ b.milestone("C1", "Tender return", D(1959, 1, 1), "Cost", "REG [A]", frm_to="Con
 b.milestone("C1", "Contractor selection (Civil & Civic)", D(1959, 2, 1), "Cost", "REG [A]", src="REG, D")
 b.milestone("C1", "★ Simple Works Contract signed", D(1959, 2, 19), "Cost", "REG", form="SW 2018",
             frm_to="Architect → Contractor", who=J2, src="REG")
+b.milestone("C1", "Stage machinery contract: Waagner-Biro", D(1961, 4, 1), "Cost", "[F]", frm_to="Client ↔ supplier",
+            src="C")
 R["cp06"] = b.milestone("C1", "Cost plan issued — £13.7m (= A$27.4m)", D(1962, 3, 1), "Cost", "REG [A] month",
                         form="CP-06", frm_to="QS → Architect", who="Jerry?", src="G")
 b.milestone("C1", "Stage II agreement: Minister for Public Works + Hornibrook", D(1962, 10, 18), "Cost", "[F]",
             frm_to="Client ↔ Contractor", src="E, C")
 b.milestone("C1", "Stage III agreement: Minister for Public Works + Hornibrook", D(1966, 11, 1), "Cost", "[F]",
             frm_to="Client ↔ Contractor", src="C")
-b.milestone("C1", "Final cost $102m", D(1974, 5, 1), "Cost", "[F]", src="D")
+b.milestone("C1", "A$22.9m spent so far", D(1966, 10, 1), "Cost", "[F]", src="AC")
+b.milestone("C1", "New estimate: a further $85m, finish end 1972", D(1968, 9, 1), "Cost", "[verify]",
+            frm_to="Architects → Minister", src="search")
+b.milestone("C1", "Final cost $102m (excl. organ + car park) — Public Works statement", D(1974, 5, 1), "Cost", "[F]",
+            src="D")
 
 b.lane("C2", "Construction works", "site › Stage I › II › III › defects", "Lead 2: Jerry (check: Frank)")
 b.bar("C2", "Tram depot demolished — site cleared", D(1958, 8, 1), D(1959, 3, 1), "Time", "[F] start", src="D")
@@ -465,6 +498,7 @@ b.milestone("C4", "First test concert in the Concert Hall (for the builders)", D
             src="D, M")
 b.milestone("C4", "First opera: War and Peace (Opera Theatre) — use before opening", D(1973, 9, 28), "Time", "[F]",
             src="Q")
+b.bar("C4", "Opening festival (two weeks)", D(1973, 10, 17), D(1973, 11, 3), "Time", "[F]", src="J")
 b.milestone("C4", "First public Concert Hall concert", D(1973, 9, 29), "Time", "[F]", src="D, Q")
 b.bar("C4", "Grand Organ — separate contract, to 30 May 1979 ($0.4m → $1.2m)", D(1969, 6, 1), D(1979, 5, 30), "Cost",
       "[F]", src="O, D")
@@ -481,6 +515,7 @@ notes(ws, b.row, "Reading the board", [
     "Source column: keys A–J are the group's source sheet, each verified in 15-sources-A-J-verified.md; "
     "REG = Document Register; tutor = instruction video. Conflicts (Stage I Feb/Mar 1963, who engaged Arup, "
     "SW-31 1974 vs 31 May 1975) are listed there. 16-event-summaries.md explains every event in plain words.",
+    "The group's Miro board is checked note by note in 18-miro-board-verified.md (sources U–AF), including the 1973–75 run-out to the 31 May 1975 certificate.",
     "Lanes D4 and C4 (after 1967) are context for the final certificate and Part B, not Scenario 1 — sources K–T and a summary of each interior event are in 17-interiors-1967-1975.md.",
 ], span=NC + 30)
 page_setup(ws)
