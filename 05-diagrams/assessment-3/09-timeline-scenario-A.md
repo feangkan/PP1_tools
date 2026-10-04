@@ -5,7 +5,7 @@
 
 **Source codes:** **B** = brief's SOH extract · **ADB** = Australian Dictionary of Biography, *Hall, Peter Brian* · **GA** = SOH / Google Arts & Culture (*The Ghost of a Machine*, *The Concert Hall*) · **SA** = NSW State Archives NRS-12800 · **MH** = Museums of History NSW · **PN** = Parliament of NSW · **RS** = course Register sample · **V** = general knowledge, verify before use · **A** = our assumption (contemporary-instrument event; the group sets the date)
 
-## DESIGN TIMELINE (client ↔ architect, CAA 2024)
+## DESIGN TIMELINE (between client and architect, CAA 2024)
 
 ### P1 Client brief to Tender
 
@@ -40,7 +40,7 @@
 | 1967 | ★ Architect's additional services: redesign Major Hall as the Concert Hall; change to Services + fee (CAA D.8) | A |
 | 1967–73 | Concert Hall designed and documented by Hall (brush box, white birch, Grand Organ, acoustic clouds) | GA |
 
-## CONTRACT TIMELINE (client ↔ contractor, ABIC SW 2018, architect administers)
+## CONTRACT TIMELINE (between client and contractor, ABIC SW 2018, architect administers)
 
 ### P1 Client brief to Tender
 

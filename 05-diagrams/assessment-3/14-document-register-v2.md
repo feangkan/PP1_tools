@@ -1,7 +1,7 @@
 # 14 — Document Register v2 (A2 deliverable — continuation)
 
 - **Date:** 2026-09-27 (v01). Owner: **Kankawee Maksomboon, Lead 1** — this pass adds Lead 1's own rows and flags gaps; it does **not** change anything Prani Patton or Yu-Chun Ho already entered.
-- **Base:** `D:\RMIT_SEM2 26_PROPRAC 1\Week 10\DOCUMENT REGISTER_PP1.pdf` — your team's live register. Every existing row is reproduced **exactly** below. New or edited cells are marked `NEW` / `← suggested`.
+- **Base:** `D:\RMIT_SEM2 26_PROPRAC 1\Week 10\DOCUMENT REGISTER_PP1.pdf` — your team's live register. Every existing row is reproduced **exactly** below. New or edited cells are marked `NEW` / `(suggested)`.
 - **Columns match the PDF exactly**: Date · Title of Form · Form No. · From · To · Action · Contributor · Checker. A paste-back CSV is at `document-register-v2.csv`.
 - Colour key (from the PDF): grey = milestone, no document · blue = client-facing (letter/CAA) · purple = construction contract signing · green = SW form chain (required forms, per the course's own instruction to highlight them).
 
@@ -15,24 +15,24 @@
 | Date | Title of Form | Form No. | From | To | Action | Contributor | Checker |
 |------|---------------|----------|------|----|--------|--------------|---------|
 | 1956 | Competition Design Phase | | | | | | |
-| *early 1957 ← suggested* | Introductory letter | | Architect | Client | Architect to send | Kankawee Maksomboon | Prani Patton |
-| 21.02.1957 | Client Architect Agreement | ~~CAA 2019~~ **CAA 2024** ← flagged, not changed | Architect | Client | Client to sign | Kankawee Maksomboon | Prani Patton |
-| *1959 ← NEW* | **Client representative change** (Cahill to Askin) | — | Client | — | Client to notify | Kankawee Maksomboon ← suggested | |
-| 1958 | Tender documents Issued | | Architect | Contractor | Architect to issue | *Yu-Chun Ho ← suggested* | |
-| 1959 | Tender Return | | Contractor | Architect | Architect to review | *Yu-Chun Ho ← suggested* | |
+| *early 1957 (suggested)* | Introductory letter | | Architect | Client | Architect to send | Kankawee Maksomboon | Prani Patton |
+| 21.02.1957 | Client Architect Agreement | ~~CAA 2019~~ **CAA 2024** (flagged, not changed) | Architect | Client | Client to sign | Kankawee Maksomboon | Prani Patton |
+| *1959 (NEW)* | **Client representative change** (Cahill to Askin) | — | Client | — | Client to notify | Kankawee Maksomboon (suggested) | |
+| 1958 | Tender documents Issued | | Architect | Contractor | Architect to issue | *Yu-Chun Ho (suggested)* | |
+| 1959 | Tender Return | | Contractor | Architect | Architect to review | *Yu-Chun Ho (suggested)* | |
 | 1959 | Contractor selection | | | | | | |
 | 19.02.1959 | Simple Works Contract | SW 2018 | Architect | Contractor | Architect to issue | Yu-Chun Ho | Kankawee Maksomboon |
 | 1959 | Stage I Commences | | | | | | |
-| *1961 ← NEW* | **Change to architectural services** (CAA D.8 — podium redesign is additional design work) | — | Architect | Client | Architect to notify | Kankawee Maksomboon ← suggested | |
+| *1961 (NEW)* | **Change to architectural services** (CAA D.8 — podium redesign is additional design work) | — | Architect | Client | Architect to notify | Kankawee Maksomboon (suggested) | |
 | 1961 | Instruction- for a Variation | SW-12 | Architect | Contractor | Architect to issue | Prani Patton | Yu-Chun Ho |
 | 1961 | Instruction- Adjustment of Time | SW-14 | Architect | Contractor | Architect to issue | Prani Patton | Yu-Chun Ho |
-| 1962 | Cost Plan Issued | CP-06 | QS | Architect | Architect to review | *Yu-Chun Ho ← suggested* | |
+| 1962 | Cost Plan Issued | CP-06 | QS | Architect | Architect to review | *Yu-Chun Ho (suggested)* | |
 | 1962 | Contract Price Adjustment | SW-11 | Architect | Contractor | Architect to Issue | Prani Patton | Yu-Chun Ho |
 | 1962 | Stage II Commences | | | | | | |
-| 1962 | Stage 2 Contract drawings | | Architect | Contractor | Architect to Issue | *Yu-Chun Ho ← suggested* | |
+| 1962 | Stage 2 Contract drawings | | Architect | Contractor | Architect to Issue | *Yu-Chun Ho (suggested)* | |
 | 1967 | Stage III Commences | | | | | | |
-| 1968 | Stage 3 Contract drawings | | Architect | Contractor | Architect to Issue | *Yu-Chun Ho ← suggested* | |
-| 1973 | Practical Completion Certificate | | Architect | Contractor | Architect to Issue | *Prani Patton ← suggested* | |
+| 1968 | Stage 3 Contract drawings | | Architect | Contractor | Architect to Issue | *Yu-Chun Ho (suggested)* | |
+| 1973 | Practical Completion Certificate | | Architect | Contractor | Architect to Issue | *Prani Patton (suggested)* | |
 | 1974 | Final Certificate | SW-31 | Architect | Contractor | Architect to Issue | Prani Patton | Yu-Chun Ho |
 
 **Contributor suggestions follow the pattern already in the register**: client/brief-facing rows to Kankawee Maksomboon (Lead 1); procurement/tender/cost rows to Yu-Chun Ho (looks like Lead 2, given he owns the SW contract signing); contract-administration rows to Prani Patton (looks like Lead 3, given she owns SW-12/14/11). **These are suggestions, not decisions** — confirm with Yu-Chun Ho and Prani Patton rather than assuming.

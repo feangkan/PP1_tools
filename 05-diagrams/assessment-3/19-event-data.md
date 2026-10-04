@@ -49,7 +49,7 @@ Our first required document (GL1): the architect introduces the practice and the
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf)
 
 **21 Feb 1957 — CAA signed — must be the 2024 edition (Register says 2019)** · **CAA**  
-*Party:* Architect — Jørn Utzon ↔ NSW Government  
+*Party:* Architect — Jørn Utzon and NSW Government  
 The Client Architect Agreement is signed (Register: 21 Feb 1957). Our file must use the CAA 2024 template — the Register currently says CAA 2019.  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf)
 
@@ -247,7 +247,7 @@ Civil & Civic is selected for Stage I (podium). Month assumed from the Register'
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf) · [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)
 
 **19 Feb 1959 — Simple Works Contract signed** · **SW 2018**  
-*Party:* Client — NSW Government ↔ Civil & Civic  
+*Party:* Client — NSW Government and Civil & Civic  
 The building contract is signed with Civil & Civic (Register: 19 Feb 1959). In our file this is the ABIC Simple Works 2018 contract. Stage I value £1,397,878 (NSW Treasury).  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf)
 
@@ -262,7 +262,7 @@ By 1962 the estimate has reached £13.7m (about A$27.4m), against the original �
 *Sources:* [G: Sydney Opera House — Utzon departs the House](https://www.sydneyoperahouse.com/our-story/utzon-departs-the-house)
 
 **18 Oct 1962 — Stage II agreement: Minister for Public Works + Hornibrook**  
-*Party:* Client — Minister for Public Works ↔ Hornibrook  
+*Party:* Client — Minister for Public Works and Hornibrook  
 The Minister for Public Works signs the Stage II (roof) agreement with M.R. Hornibrook (NSW) Pty Ltd on 18 Oct 1962.  
 *Sources:* [E: NSW State Archives NRS-12781 — Agreement, Stage 2 (Minister + Hornibrook, 18 Oct 1962)](https://researchdata.edu.au/nrs-12781-agreement-stage-2/178986) · [C: Museums of History NSW — Public Works archives: contracts (Sydney Opera House)](https://concise.mhnsw.au/pr/pwd00024.htm)
 
@@ -272,7 +272,7 @@ By Oct 1966 only A$22.9m had been spent — less than a quarter of the final cos
 *Sources:* [AC: Wikipedia — Sydney Opera House (cites Murray, The Saga of Sydney Opera House)](https://en.wikipedia.org/wiki/Sydney_Opera_House)
 
 **Nov 1966 — Stage III agreement: Minister for Public Works + Hornibrook**  
-*Party:* Client — Minister for Public Works ↔ Hornibrook  
+*Party:* Client — Minister for Public Works and Hornibrook  
 The Stage III (interiors) agreement with Hornibrook is signed in Nov 1966, after Utzon has left.  
 *Sources:* [C: Museums of History NSW — Public Works archives: contracts (Sydney Opera House)](https://concise.mhnsw.au/pr/pwd00024.htm)
 

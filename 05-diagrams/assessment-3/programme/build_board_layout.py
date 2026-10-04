@@ -721,7 +721,7 @@ def zoom(ws, rec, R, project):
     ws.column_dimensions["F"].width = 10
     put(ws, hr, 6, "Start", fnt(8, True, color=MUTED))
     put(ws, hr - 1, m0, D(1961, 1, 1), fnt(9, True, color="0000FF"), fill("FFFF00"), fmt="yyyy")
-    put(ws, hr - 1, m0 + 1, "← first month of the grid (input)", fnt(8, italic=True, color=MUTED))
+    put(ws, hr - 1, m0 + 1, "Input: first month of the grid", fnt(8, italic=True, color=MUTED))
     for k in range(24):
         c = m0 + k
         ws.column_dimensions[get_column_letter(c)].width = 4.2

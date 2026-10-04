@@ -80,7 +80,7 @@ Both `⚠` flags across the repo have been removed and replaced with these facts
 | CAA 2024 User Guide | `caa2024_user_guide.pdf` | supporting — **not yet in our folder** |
 | ABIC SW 2018 contract | **`SW-2018-ABIC_Contract-1.pdf`** | **REQUIRED** — already in our folder |
 | ABIC SW 2018 User Guide | `SW-2018-ABIC_Contract_User_Guide.pdf` | supporting — **not yet in our folder** |
-| ABIC SW 2018 template forms, architects | **`ABIC SW 2018 Template forms [Architects Only] (WORD)`** | **REQUIRED** — **not yet in our folder; this is the single biggest gap closed by this read** (form ↔ clause links in `assessment-3-resources.md` can now be checked against the real forms once downloaded) |
+| ABIC SW 2018 template forms, architects | **`ABIC SW 2018 Template forms [Architects Only] (WORD)`** | **REQUIRED** — **not yet in our folder; this is the single biggest gap closed by this read** (form-to-clause links in `assessment-3-resources.md` can now be checked against the real forms once downloaded) |
 | ABIC SW 2018 template forms, contractor | `ABIC SW 2018 C Forms_reference only.pdf` | reference only |
 | Sample Architects Register | **`Assessment Task 3- Architects Register-2.docx`** | **REQUIRED** — **different filename** from our `Document Register Sample 2026-1.docx`; re-download to check if it's a newer/different version |
 | Architects Regulations 2015 | <https://www.legislation.vic.gov.au/in-force/statutory-rules/architects-regulations-2015/001> | official legislation, direct link |
@@ -97,5 +97,5 @@ Both `⚠` flags across the repo have been removed and replaced with these facts
 ## What to do next
 
 1. **Download from Canvas** (not fetchable from outside the LMS): the SOH Project Information PDF, CAA2024 User Guide, ABIC SW User Guide, **ABIC SW 2018 template forms (Word)**, the Cochrane PDF, and re-check `Guide letter 1 Introductory letter.doc` and `Assessment Task 3- Architects Register-2.docx` against our existing copies.
-2. Once the template forms are downloaded, verify the form↔clause table in `../../02-assessment-tasks/assessment-3-resources.md` against the real form fields.
+2. Once the template forms are downloaded, verify the form-to-clause table in `../../02-assessment-tasks/assessment-3-resources.md` against the real form fields.
 3. Ask the tutor the file-naming question (§Submission above) — it's the one open item this read didn't resolve.

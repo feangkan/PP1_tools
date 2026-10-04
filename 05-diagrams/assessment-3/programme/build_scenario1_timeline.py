@@ -393,7 +393,7 @@ b.milestone("D3", "Ove Arup & Partners engaged (by client per brief; by Utzon pe
 b.milestone("D3", "Steensen & Varming appointed mechanical engineers", D(1957, 6, 1), "Responsibility", "[F] year",
             frm_to="to Steensen & Varming", src="AA")
 b.bar("D3", "Utzon develops plywood mullions + ceilings with Ralph Symonds Ltd", D(1961, 10, 1), D(1966, 2, 28),
-      "Quality", "[F]", frm_to="Architect ↔ supplier", src="Y, X")
+      "Quality", "[F]", frm_to="Architect and supplier", src="Y, X")
 b.milestone("D3", "Ralph Symonds Ltd in receivership", D(1964, 2, 26), "Responsibility", "[verify]",
             frm_to="Supplier", src="X")
 R["prob"] = b.milestone("D3", "★ Problem found: final roof loads exceed podium columns", D(1961, 6, 1), "Scope",
@@ -430,14 +430,14 @@ b.milestone("C1", "Tender return", D(1959, 1, 1), "Cost", "REG [A]", frm_to="Con
 b.milestone("C1", "Contractor selection (Civil & Civic)", D(1959, 2, 1), "Cost", "REG [A]", src="REG, D")
 b.milestone("C1", "★ Simple Works Contract signed", D(1959, 2, 19), "Cost", "REG", form="SW 2018",
             frm_to="Architect to Contractor", who=J2, src="REG")
-b.milestone("C1", "Stage machinery contract: Waagner-Biro", D(1961, 4, 1), "Cost", "[F]", frm_to="Client ↔ supplier",
+b.milestone("C1", "Stage machinery contract: Waagner-Biro", D(1961, 4, 1), "Cost", "[F]", frm_to="Client and supplier",
             src="C")
 R["cp06"] = b.milestone("C1", "Cost plan issued — £13.7m (= A$27.4m)", D(1962, 3, 1), "Cost", "REG [A] month",
                         form="CP-06", frm_to="QS to Architect", who="Yu-Chun Ho?", src="G")
 b.milestone("C1", "Stage II agreement: Minister for Public Works + Hornibrook", D(1962, 10, 18), "Cost", "[F]",
-            frm_to="Client ↔ Contractor", src="E, C")
+            frm_to="Client and Contractor", src="E, C")
 b.milestone("C1", "Stage III agreement: Minister for Public Works + Hornibrook", D(1966, 11, 1), "Cost", "[F]",
-            frm_to="Client ↔ Contractor", src="C")
+            frm_to="Client and Contractor", src="C")
 b.milestone("C1", "A$22.9m spent so far", D(1966, 10, 1), "Cost", "[F]", src="AC")
 b.milestone("C1", "New estimate: a further $85m, finish end 1972", D(1968, 9, 1), "Cost", "[verify]",
             frm_to="Architects to Minister", src="search")
@@ -487,9 +487,9 @@ b.milestone("C4", "Waterproofing specification", D(1967, 3, 1), "Quality", "[F]"
 b.bar("C4", "Stage III interiors + glass walls on site", D(1968, 1, 1), D(1973, 10, 20), "Time", "[F] year", src="K")
 b.bar("C4", "Glass walls built (near complete 1971)", D(1968, 7, 1), D(1971, 12, 31), "Time", "[A] months", src="K, L, F")
 b.milestone("C4", "Light-fittings agreement: architects + GEC-Philips", D(1969, 8, 1), "Cost", "[F]",
-            frm_to="Architects ↔ supplier", src="C")
+            frm_to="Architects and supplier", src="C")
 b.milestone("C4", "Electronic services subcontract: Hornibrook + AWA", D(1970, 3, 1), "Cost", "[F]",
-            frm_to="Contractor ↔ subcontractor", src="C")
+            frm_to="Contractor and subcontractor", src="C")
 b.bar("C4", "Acoustic reflectors made (K.F. Plastics) + installed", D(1972, 3, 1), D(1972, 9, 5), "Quality", "[F]",
       src="M")
 b.milestone("C4", "Opera Theatre stage machinery drawings (Waagner-Biro vol. 2)", D(1972, 12, 1), "Scope", "[F]",

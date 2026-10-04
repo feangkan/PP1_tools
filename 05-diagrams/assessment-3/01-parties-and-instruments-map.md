@@ -74,7 +74,7 @@ flowchart TB
 
 ## What the map makes visible
 
-1. **The architect administers a contract they are not party to.** Under ABIC SW the contract is client ↔ contractor; the architect instructs, assesses and certifies. That's the *integrity, fairness and impartiality* duty the brief quotes from Architects Regulations 2015 reg 5.2 — the core Part B mechanism.
+1. **The architect administers a contract they are not party to.** Under ABIC SW the contract is between client and contractor; the architect instructs, assesses and certifies. That's the *integrity, fairness and impartiality* duty the brief quotes from Architects Regulations 2015 reg 5.2 — the core Part B mechanism.
 2. **The engineer was engaged directly by the client**, not through the architect. The architect coordinates a consultant they have no contract with — scenario 3's engineer-vs-architect conflict lives on this dashed line. (Link to A2: this is *responsibility without authority* in a concrete case — use only if it helps Part B, don't import the frame.)
 3. **One event produces two change chains.** A redesign after construction starts changes the **construction contract** (SW-12 to SW-14 to SW-11 to SW-31) *and* the **architect's own services** (extra design work under the CAA — rubric C2). The file needs both. See `03-change-chain.md`.
 4. **The client changed.** Cahill (d. 1959) to later premiers to Askin government 1965 with Davis Hughes as Minister for Public Works `[verify]`. A change of client representative is itself a change the file should record.
