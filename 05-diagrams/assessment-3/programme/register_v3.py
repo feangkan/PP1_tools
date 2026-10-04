@@ -95,3 +95,62 @@ HEADS = ["Date", "Title of Form", "Form No.", "From", "To", "Action", "Contribut
 KIND_FILL = {"milestone": "D9D9D9", "client": "BDD7EE", "contract": "D9C3E9", "sw": "C6E0B4", "": None}
 KIND_LABEL = {"milestone": "grey = milestone, no document", "client": "blue = client-facing (letter / CAA / notice)",
               "contract": "purple = construction contract signing", "sw": "green = SW form chain (required forms)"}
+
+# ---------------------------------------------------------------- tutor's format
+# Document Register Sample 2026-1.docx: Date · Document · Form No. · From/To · Details (cost etc) ·
+# Student Contribution; grey = milestone, green = forms that are part of our assessment, white = other.
+TUTOR_HEADS = ["Date", "Document", "Form No.", "From/To", "Details (cost etc)", "Student Contribution"]
+ASSESSMENT_FORMS = {"GL1", "CAA 2024", "SW 2018", "SW-12", "SW-42", "SW-13", "SW-14", "SW-11", "SW-31"}
+TUTOR_FILL = {"milestone": "D9D9D9", "form": "C5E0B3", "": None}
+
+# title prefix maps to the Details (cost etc) cell. Contract figures are the tutor's worked example
+# (contract sum $9,600,000; SW-14 +1 month; SW-11 +$5,000), as in soh_scenario1_timeline.xlsx.
+DETAILS = {
+    "Competition Design Phase": "Announced by Premier Cahill; 233 entries from 32 countries",
+    "Competition winner": "First prize £5,000",
+    "Introductory letter": "Introduces the practice and its services",
+    "Client Architect Agreement": "2024 edition (the Register had CAA 2019)",
+    "Tender documents": "Stage I conditions of contract + bills of quantities",
+    "Tender Return": "",
+    "Contractor selection": "Civil & Civic Pty Ltd",
+    "Simple Works Contract": "Contract sum $9,600,000; date for practical completion 26.01.1963",
+    "Stage I Commences": "Site possession; foundations begin",
+    "Client representative change (Cahill": "CAA C.3 notice; Premier Heffron",
+    "Engineer's advice": "Ove Arup & Partners",
+    "Change to architectural services": "Additional design services and fee (CAA D.8)",
+    "Instruction- for a Variation": "Strengthen podium columns, add piers",
+    "Contractor's details of claim": "Claims +1 month and +$5,000",
+    "Instruction to proceed": "Proceed with the varied work",
+    "Instruction- Adjustment of Time": "+1 month: date for practical completion 26.02.1963",
+    "Cost Plan Issued": "£13.7m (A$27,400,000)",
+    "Contract Price Adjustment": "+$5,000: contract sum $9,605,000",
+    "Stage II Contract signed": "M.R. Hornibrook (NSW) Pty Ltd: roof shells",
+    "Stage 2 Contract drawings": "Roof shells (Yellow Book geometry)",
+    "Stage I Completed": "Podium, two years late",
+    "Stage II Commences": "Roof shells, Hornibrook",
+    "Client representative change (Askin": "CAA C.3 notice; Minister Davis Hughes",
+    "Architect resigns": "Fee dispute with Minister Hughes",
+    "Replacement architects": "Hall (design), Todd (documents), Littlemore (supervision), Farmer",
+    "Stage III Contract signed": "Hornibrook: interiors + glass walls",
+    "Stage II Completed": "Last (2,194th) shell segment placed",
+    "Stage III Commences": "Interiors",
+    "Stage 3 Contract drawings": "Stage III working drawings",
+    "Client representative change (Hughes": "CAA C.3 notice; Minister Leon Punch",
+    "Practical Completion Certificate": "Official opening by the Queen",
+    "End of defects liability period": "12 months (ABIC M13)",
+    "Final Certificate": "Refers to SW-11: final contract sum $9,605,000. Project final cost $102m (May 1974)",
+}
+
+
+def tutor_rows():
+    """REGISTER in the tutor's 6 columns: (values, fill kind, contribution is a suggestion, date assumed)."""
+    out = []
+    for row in REGISTER:
+        date, title, form, frm, to, action, contrib, checker, kind, assumed = row[:10]
+        detail = next((v for k, v in DETAILS.items() if title.startswith(k)), "")
+        frm_to = f"{frm} to {to}" if frm and to else (frm or to)
+        suggested = "(suggested)" in contrib
+        student = contrib.replace(" (suggested)", "")
+        fill_kind = "form" if form in ASSESSMENT_FORMS else ("milestone" if kind == "milestone" else "")
+        out.append(([date, title, form, frm_to, detail, student], fill_kind, suggested, assumed))
+    return out

@@ -399,7 +399,7 @@ def cover(ws, project):
              ("Timeline", "Design lanes D0–D4 (CAA stages, client + brief, design output, consultants, interiors) "
                           "above Contract lanes C1–C4 (procurement + cost, construction, contract admin, fit-out)"),
              ("Timeline by party", "the same timeline, coloured by the party who acts in each event"),
-             ("Register", "the Document Register in the group's original format, every date matched to the timeline"),
+             ("Register", "the Architects Register in the tutor's format, every date matched to the timeline"),
              ("Event cards", "one card per required form / scenario event"),
              ("Workflow", "the 10 steps of each research session"),
              ("Tasks", "who does what, due, status"),
@@ -559,11 +559,11 @@ def draw_item(ws, r, it, mode="factor"):
 
 # ------------------------------------------------------------------ 4 register
 def register(ws, rec, project):
-    """The Document Register in the group's original 8-column format (register_v3.py), dates matched to the
+    """The Document Register in the tutor's format (register_v3.py), dates matched to the
     timeline by build_register_v3.py."""
     from build_register_v3 import write_register_sheet
-    from register_v3 import REGISTER
-    write_register_sheet(ws, REGISTER if project else [], blank_rows=10 if project else 30)
+    from register_v3 import tutor_rows
+    write_register_sheet(ws, tutor_rows() if project else [], blank_rows=10 if project else 30)
 
 
 # ------------------------------------------------------------------ 5 event cards
