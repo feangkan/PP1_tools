@@ -336,7 +336,7 @@ def cover(ws, project):
              "instruments (CAA 2024 · ABIC Simple Works 2018)", MUTED, False),
             ("PROJECT — Scenario 1 (additional piers to support the roof). Dates = the group's Document Register + "
              "sources A–AF (see Events (data))", RED, True),
-            ("Group: Frank / Prani / Jerry     Lead 1: Frank     Lead 2: Jerry     Lead 3: Prani     "
+            ("Group: Kankawee Maksomboon / Prani Patton / Yu-Chun Ho     Lead 1: Kankawee Maksomboon     Lead 2: Yu-Chun Ho     Lead 3: Prani Patton     "
              "Version: v3 / 4 Oct 2026 (Leads 2–3 inferred from the Register — confirm)", NAVY, True),
         ]
     else:
@@ -667,7 +667,7 @@ def tasks_sheet(ws, tasks, project):
     ws.sheet_view.showGridLines = False
     title(ws, "TASK ASSIGNMENT", "From the Register and the timelines. Status is a dropdown (To do / Doing / Done). "
                                  "Leads 2–3 inferred from the Register — confirm.", 7)
-    table_head(ws, 4, [("Lead", 10), ("Name", 11), ("Lanes owned", 26), ("Checker", 10), ("Task", 72), ("Due", 16),
+    table_head(ws, 4, [("Lead", 10), ("Name", 22), ("Lanes owned", 26), ("Checker", 22), ("Task", 72), ("Due", 16),
                        ("Status", 10)])
     rows = [list(t) + ["To do"] for t in tasks] if project else []
     rows += [[""] * 7 for _ in range(6 if project else 16)]
@@ -702,7 +702,7 @@ def zoom(ws, rec, R, project):
           "Diamonds are formulas: type a new date in column D and its diamond moves. Required = red.", 30)
     # ABIC clock table
     put(ws, 4, 1, "ABIC SW CLOCK", fnt(10, True, color=RED))
-    for i, (h, w) in enumerate([("Form", 14), ("Step", 46), ("Clause", 10), ("Date", 13), ("Required?", 11)],
+    for i, (h, w) in enumerate([("Form", 14), ("Step", 46), ("Clause", 26), ("Date", 13), ("Required?", 11)],
                                start=1):
         put(ws, 5, i, h, fnt(9, True, color=PAPER), fill("404040"), border=BOX)
         ws.column_dimensions[get_column_letter(i)].width = w
@@ -775,7 +775,7 @@ def data_sheet(ws, rec, project):
           11)
     heads = [("Lane", 6), ("Date", 12), ("End", 12), ("Event", 40), ("Party", 15), ("Named party", 24),
              ("Summary — what happened and why it matters", 66), ("Factor", 13), ("Status", 14), ("Source keys", 10),
-             ("Link 1", 26), ("Link 2", 26), ("Link 3", 26), ("Form", 9), ("From → To", 22), ("Student", 14)]
+             ("Link 1", 26), ("Link 2", 26), ("Link 3", 26), ("Form", 9), ("From → To", 22), ("Student", 26)]
     table_head(ws, 4, heads)
     order = {ln["code"]: k for k, ln in enumerate(l for g in rec.groups for l in g["lanes"])}
     items = sorted(rec.items, key=lambda i: (order.get(i["code"], 99), i["start"])) if project else []

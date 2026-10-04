@@ -262,7 +262,7 @@ ws["A1"].font = fnt(14, True)
 ws["A2"] = ("PP1 Assessment 3 · A1 Timeline · Scenario 1: additional piers to support the roof · dates from the "
             "group's Document Register and sources A–J (Source column) · Status [A] (yellow) = assumed / not yet sourced")
 ws["A2"].font = fnt(9, italic=True, color=MUTED)
-ws["A3"] = ("Group: Frank / Prani / Jerry     Lead 1: Frank     Lead 2: Jerry     Lead 3: Prani     "
+ws["A3"] = ("Group: Kankawee Maksomboon / Prani Patton / Yu-Chun Ho     Lead 1: Kankawee Maksomboon     Lead 2: Yu-Chun Ho     Lead 3: Prani Patton     "
             "(Leads 2–3 inferred from the Register — confirm)")
 ws["A3"].font = fnt(10, True, color=NAVY)
 
@@ -318,13 +318,13 @@ ws.cell(row=6, column=L0 + 20, value="Intro letter · CAA 2024 · ABIC SW 2018 �
 ws.cell(row=7, column=L0 + 20, value="Optional: SW-42 claim · SW-13 instruction to proceed").font = fnt(9, italic=True, color=MUTED)
 
 R = {}
-F1, J2, P3 = "Frank / Prani", "Jerry / Frank", "Prani / Jerry"
+F1, J2, P3 = "Kankawee Maksomboon / Prani Patton", "Yu-Chun Ho / Kankawee Maksomboon", "Prani Patton / Yu-Chun Ho"
 # Source keys A-J = the group's source sheet, verified in ../15-sources-A-J-verified.md.
 # REG = the group's Document Register; tutor = the tutor's instruction video.
 # ---------------- DESIGN TIMELINE
 b.group("DESIGN TIMELINE", "architect's services · CAA 2024")
 b.lane("D0", "CAA services stage", "Sched A: A.1 Concept › A.2 DD › A.4 CD › A.6 + client approval gates",
-       "Lead 1: Frank (check: Prani)")
+       "Lead 1: Kankawee Maksomboon (check: Prani Patton)")
 b.bar("D0", "A.1 Concept design (ends with the Red Book)", D(1957, 3, 1), D(1958, 3, 1), "Scope", "[A] start",
       form="CAA A.1", who=F1, src="B")
 b.milestone("D0", "Gate: concept approved by client in writing", D(1958, 3, 1), "Scope", "[A]", gate=True, who=F1,
@@ -338,7 +338,7 @@ b.milestone("D0", "★ Gate SKIPPED: works start before DD approved", D(1959, 2,
 b.bar("D0", "A.6 Contract administration (construction + post-construction)", f"={POSS}", D(1975, 5, 31), "Time",
       "[F]", form="CAA A.6", who=F1, src="A, D")
 
-b.lane("D1", "Client + brief", "decisions, approvals, representatives (C.3)", "Lead 1: Frank (check: Prani)")
+b.lane("D1", "Client + brief", "decisions, approvals, representatives (C.3)", "Lead 1: Kankawee Maksomboon (check: Prani Patton)")
 b.milestone("D1", "Competition announced by Premier Cahill (two halls)", D(1955, 9, 13), "Scope", "[F]",
             frm_to="NSW Govt → public", src="D")
 b.milestone("D1", "★ Introductory letter", D(1957, 2, 1), "Scope", "REG [A]", form="GL1", frm_to="Architect → Client",
@@ -346,9 +346,9 @@ b.milestone("D1", "★ Introductory letter", D(1957, 2, 1), "Scope", "REG [A]", 
 b.milestone("D1", "★ CAA signed — must be the 2024 edition (Register says 2019)", D(1957, 2, 21), "Scope", "REG",
             form="CAA", frm_to="Architect → Client", who=F1, src="REG")
 b.milestone("D1", "Premier Cahill dies; Heffron Premier — client rep changes (CAA C.3)", D(1959, 10, 22), "Responsibility",
-            "NEW [F] D: 19 Oct", frm_to="Client → Architect", who="Frank", src="U, W, D")
+            "NEW [F] D: 19 Oct", frm_to="Client → Architect", who="Kankawee Maksomboon", src="U, W, D")
 R["d8"] = b.milestone("D1", "★ Architect notifies client: extra services + fee (CAA D.8)", D(1961, 7, 1), "Scope",
-                      "NEW [A]", form="CAA D.8", frm_to="Architect → Client", who="Frank", src="—")
+                      "NEW [A]", form="CAA D.8", frm_to="Architect → Client", who="Kankawee Maksomboon", src="—")
 b.milestone("D1", "Askin government: Minister Hughes takes over payments", D(1965, 5, 13), "Responsibility", "[F]",
             frm_to="Client", src="D, G, AD")
 b.milestone("D1", "Sydney Opera House Act 1960: Minister for Public Works = constructing authority", D(1960, 1, 1),
@@ -376,7 +376,7 @@ b.milestone("D1", "Utzon declines the invitation", D(1973, 8, 1), "Responsibilit
 b.milestone("D1", "Askin resigns; Tom Lewis Premier (client at SW-31)", D(1975, 1, 3), "Responsibility", "[F]",
             frm_to="Client", src="W")
 
-b.lane("D2", "Architect — design output", "competition, Red Book, Yellow Book", "Lead 1: Frank (check: Prani)")
+b.lane("D2", "Architect — design output", "competition, Red Book, Yellow Book", "Lead 1: Kankawee Maksomboon (check: Prani Patton)")
 b.bar("D2", "Competition design phase", D(1955, 9, 13), D(1957, 1, 29), "Scope", "REG [F]",
       frm_to="NSW Govt → entrants", src="D, I")
 b.milestone("D2", "Utzon wins first prize (£5,000; 233 entries)", D(1957, 1, 29), "Scope", "[F]", src="D, I")
@@ -387,7 +387,7 @@ R["roof"] = b.bar("D2", "Roof / shell design — unresolved, overlaps Stage I", 
 R["yellow"] = b.milestone("D2", "Yellow Book — spherical shell geometry fixed", D(1962, 1, 1), "Quality", "[F]",
                           frm_to="Architect → Client", src="B")
 
-b.lane("D3", "Consultants", "Ove Arup & Partners · CAA E.1", "Lead 1: Frank (check: Prani)")
+b.lane("D3", "Consultants", "Ove Arup & Partners · CAA E.1", "Lead 1: Kankawee Maksomboon (check: Prani Patton)")
 b.milestone("D3", "Ove Arup & Partners engaged (by client per brief; by Utzon per D)", D(1957, 6, 1),
             "Responsibility", "[A] date / conflict", frm_to="→ Arup", src="D / brief")
 b.milestone("D3", "Steensen & Varming appointed mechanical engineers", D(1957, 6, 1), "Responsibility", "[F] year",
@@ -420,12 +420,12 @@ b.milestone("D4", "Coburn tapestry curtains hung (Opera + Drama theatres)", D(19
 
 # ---------------- CONTRACT TIMELINE
 b.group("CONTRACT TIMELINE", "procurement + ABIC Simple Works 2018")
-b.lane("C1", "Procurement + cost", "tender, contracts signed, cost plan", "Lead 2: Jerry (check: Frank)")
+b.lane("C1", "Procurement + cost", "tender, contracts signed, cost plan", "Lead 2: Yu-Chun Ho (check: Kankawee Maksomboon)")
 b.milestone("C1", "Opera House Lottery starts — funds the build", D(1957, 11, 25), "Cost", "[F]",
             frm_to="NSW Govt", src="Z")
 b.milestone("C1", "Stage I tender documents: conditions of contract + bills of quantities", D(1958, 12, 1), "Cost",
-            "REG [F]", frm_to="Architect → Contractor", who="Jerry?", src="C")
-b.milestone("C1", "Tender return", D(1959, 1, 1), "Cost", "REG [A]", frm_to="Contractor → Architect", who="Jerry?",
+            "REG [F]", frm_to="Architect → Contractor", who="Yu-Chun Ho?", src="C")
+b.milestone("C1", "Tender return", D(1959, 1, 1), "Cost", "REG [A]", frm_to="Contractor → Architect", who="Yu-Chun Ho?",
             src="REG")
 b.milestone("C1", "Contractor selection (Civil & Civic)", D(1959, 2, 1), "Cost", "REG [A]", src="REG, D")
 b.milestone("C1", "★ Simple Works Contract signed", D(1959, 2, 19), "Cost", "REG", form="SW 2018",
@@ -433,7 +433,7 @@ b.milestone("C1", "★ Simple Works Contract signed", D(1959, 2, 19), "Cost", "R
 b.milestone("C1", "Stage machinery contract: Waagner-Biro", D(1961, 4, 1), "Cost", "[F]", frm_to="Client ↔ supplier",
             src="C")
 R["cp06"] = b.milestone("C1", "Cost plan issued — £13.7m (= A$27.4m)", D(1962, 3, 1), "Cost", "REG [A] month",
-                        form="CP-06", frm_to="QS → Architect", who="Jerry?", src="G")
+                        form="CP-06", frm_to="QS → Architect", who="Yu-Chun Ho?", src="G")
 b.milestone("C1", "Stage II agreement: Minister for Public Works + Hornibrook", D(1962, 10, 18), "Cost", "[F]",
             frm_to="Client ↔ Contractor", src="E, C")
 b.milestone("C1", "Stage III agreement: Minister for Public Works + Hornibrook", D(1966, 11, 1), "Cost", "[F]",
@@ -444,7 +444,7 @@ b.milestone("C1", "New estimate: a further $85m, finish end 1972", D(1968, 9, 1)
 b.milestone("C1", "Final cost $102m (excl. organ + car park) — Public Works statement", D(1974, 5, 1), "Cost", "[F]",
             src="D")
 
-b.lane("C2", "Construction works", "site › Stage I › II › III › defects", "Lead 2: Jerry (check: Frank)")
+b.lane("C2", "Construction works", "site › Stage I › II › III › defects", "Lead 2: Yu-Chun Ho (check: Kankawee Maksomboon)")
 b.bar("C2", "Tram depot demolished — site cleared", D(1958, 8, 1), D(1959, 3, 1), "Time", "[F] start", src="D")
 b.milestone("C2", "Site possession — construction ceremony, Stage I starts", f"={POSS}", "Time", "REG [F]",
             frm_to="Client → Contractor", src="A, D")
@@ -466,7 +466,7 @@ b.milestone("C2", "Stage III working drawings dated", D(1968, 7, 1), "Time", "RE
 b.bar("C2", "Defects liability period — 12 months (ABIC M13)", D(1973, 10, 20), D(1974, 10, 20), "Quality", "[A]",
       kind="Period", src="—")
 
-b.lane("C3", "Contract administration", "J1 SW-12 › H4 SW-14 / SW-11 › N11 SW-31", "Lead 3: Prani (check: Jerry)")
+b.lane("C3", "Contract administration", "J1 SW-12 › H4 SW-14 / SW-11 › N11 SW-31", "Lead 3: Prani Patton (check: Yu-Chun Ho)")
 R["sw12"] = b.milestone("C3", "★ Instruction for a Variation — strengthen columns, add piers", D(1961, 8, 1), "Scope",
                         "REG [A]", form="SW-12", frm_to="Architect → Contractor", who=P3, src="REG, tutor")
 R["sw42"] = b.milestone("C3", "Contractor's details of claim — 1 month, $5,000 (optional)", D(1961, 9, 1), "Time",
@@ -505,7 +505,7 @@ b.bar("C4", "Grand Organ — separate contract, to 30 May 1979 ($0.4m → $1.2m)
 b.scenario_marker(SCENARIO_DATE, "OUR SCENARIO 1: additional piers (Jun 1961)")
 
 notes(ws, b.row, "Reading the board", [
-    "Design timeline D0–D3 is Lead 1's (Frank); Contract timeline C1–C2 is Lead 2's (Jerry); C3 is Lead 3's (Prani). "
+    "Design timeline D0–D3 is Lead 1's (Kankawee Maksomboon); Contract timeline C1–C2 is Lead 2's (Yu-Chun Ho); C3 is Lead 3's (Prani Patton). "
     "The Task Assignment tab lists each person's jobs.",
     "Colour = the factor that changed. ★ = required form or scenario event. The red column edge marks our scenario (Jun 1961).",
     "The design bars (D0 A.2, D2 roof) run over Stage I construction until 1961 — building started before the design was "
@@ -547,7 +547,7 @@ zb.group("★ SCENARIO 1 CHAIN", "tutor's worked example: 1 month, $5,000")
 zb.milestone("D3", "Problem found: final roof loads exceed podium columns", link(S_COL, "prob"), "Scope", "[A] verify",
              frm_to="Arup → Architect", linked=True, src="tutor")
 zb.milestone("D1", "Architect notifies client: extra services + fee", link(S_COL, "d8"), "Scope", "NEW [A]",
-             form="CAA D.8", frm_to="Architect → Client", who="Frank", linked=True, src="—")
+             form="CAA D.8", frm_to="Architect → Client", who="Kankawee Maksomboon", linked=True, src="—")
 zb.milestone("C3", "Instruction for a Variation — strengthen columns, add piers", link(S_COL, "sw12"), "Scope", "REG [A]",
              form="SW-12", frm_to="Architect → Contractor", who=P3, linked=True, src="REG, tutor")
 zb.milestone("C3", "Contractor's details of claim — 1 month, $5,000 (optional)", link(S_COL, "sw42"), "Time",
@@ -559,7 +559,7 @@ zb.bar("C2", "Piers work on site — the extra time", link(S_COL, "work"), link(
 zb.milestone("C3", "Adjustment of time — +1 month", link(S_COL, "sw14"), "Time", "REG [A]", form="SW-14",
              frm_to="Architect → Contractor", who=P3, linked=True, src="REG, tutor")
 zb.milestone("C1", "Cost plan issued", link(S_COL, "cp06"), "Cost", "REG [A]", form="CP-06", frm_to="QS → Architect",
-             who="Jerry?", linked=True, src="G")
+             who="Yu-Chun Ho?", linked=True, src="G")
 zb.milestone("C3", "Contract Price Adjustment — +$5,000", link(S_COL, "sw11"), "Cost", "REG [A]", form="SW-11",
              frm_to="Architect → Contractor", who=P3, linked=True, src="REG, tutor")
 notes(z, zb.row, "Reading the chain", [
@@ -582,15 +582,15 @@ for i, (h, w) in enumerate(heads, start=1):
     c.font, c.fill, c.border = fnt(bold=True, color="FFFFFF"), fill("404040"), BORDER
     t.column_dimensions[get_column_letter(i)].width = w
 tasks = [
-    ("Lead 1", "Frank", "D0–D3 design", "Prani", "Date the introductory letter (the Register has no date)", "Week 10"),
-    ("Lead 1", "Frank", "D0–D3 design", "Prani", "Build the CAA on the 2024 template (the Register says CAA 2019)", "Week 10"),
-    ("Lead 1", "Frank", "D0–D3 design", "Prani", "Add Register row: client representative change Cahill → Askin (CAA C.3)", "Week 10"),
-    ("Lead 1", "Frank", "D0–D3 design", "Prani", "Add Register row: CAA D.8 extra-services notice, Jul 1961", "Week 10"),
-    ("Lead 2", "Jerry", "C1–C2 procurement + construction", "Frank", "Tender dates and contractor selection (Register gives years only)", "Week 10–11"),
-    ("Lead 2", "Jerry", "C1–C2 procurement + construction", "Frank", "ABIC SW Schedule 1: contract sum, site possession, date for PC", "Week 11"),
-    ("Lead 2", "Jerry", "C1–C2 procurement + construction", "Frank", "Cost plan CP-06: name the quantity surveyor or declare [A]", "Week 11"),
-    ("Lead 3", "Prani", "C3 contract administration", "Jerry", "SW-12 → SW-14 (+1 month) → SW-11 (+$5,000) → SW-31", "Week 11"),
-    ("Lead 3", "Prani", "C3 contract administration", "Jerry", "Optional: SW-42 contractor's claim + SW-13 instruction to proceed", "Week 11"),
+    ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Date the introductory letter (the Register has no date)", "Week 10"),
+    ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Build the CAA on the 2024 template (the Register says CAA 2019)", "Week 10"),
+    ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Add Register row: client representative change Cahill → Askin (CAA C.3)", "Week 10"),
+    ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Add Register row: CAA D.8 extra-services notice, Jul 1961", "Week 10"),
+    ("Lead 2", "Yu-Chun Ho", "C1–C2 procurement + construction", "Kankawee Maksomboon", "Tender dates and contractor selection (Register gives years only)", "Week 10–11"),
+    ("Lead 2", "Yu-Chun Ho", "C1–C2 procurement + construction", "Kankawee Maksomboon", "ABIC SW Schedule 1: contract sum, site possession, date for PC", "Week 11"),
+    ("Lead 2", "Yu-Chun Ho", "C1–C2 procurement + construction", "Kankawee Maksomboon", "Cost plan CP-06: name the quantity surveyor or declare [A]", "Week 11"),
+    ("Lead 3", "Prani Patton", "C3 contract administration", "Yu-Chun Ho", "SW-12 → SW-14 (+1 month) → SW-11 (+$5,000) → SW-31", "Week 11"),
+    ("Lead 3", "Prani Patton", "C3 contract administration", "Yu-Chun Ho", "Optional: SW-42 contractor's claim + SW-13 instruction to proceed", "Week 11"),
     ("All", "All three", "—", "—", "Confirm lead roles and Scenario 1", "Next meeting"),
     ("All", "All three", "—", "—", "Agree the [A] months (yellow Status cells on the board)", "Before Week 12"),
     ("All", "All three", "—", "—", "Premier to name in 1961: tutor's Askin or historical Heffron?", "Before Week 12"),
