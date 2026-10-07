@@ -6,7 +6,7 @@ Every figure (including the $10,000 Mobilisation Fee and the two program options
 Assumptions are listed in ../22-caa-2024-notes.md.
 
 Run:  py build_caa.py   (writes "CAA 2024 - Sydney Opera House - draft v1.pdf" next to this file)
-Signatures and client initials are left blank: they are signed by hand.
+Signature boxes and client initials are left for the signers (add with Acrobat Fill & Sign).
 """
 import re
 import sys
@@ -28,16 +28,19 @@ SPLIT = {"A.1": 15, "A.2": 15, "A.3": 0, "A.4": 35, "A.5": 5, "A.6": 30}   # sha
 TEXT = {
     "Agreement made on date": "21", "Agreement made on month": "02", "Agreement made on year": "1957",
     "Client name": "The Government of New South Wales",
-    "Client ABN": "n/a (1957)",
+    "Client ABN": "00 000 000 000",
     "Client representative": "The Hon. J. J. Cahill MLA, Premier of NSW",
-    "Client address": "Premier's Department, Sydney NSW",
-    "Client mobile": "n/a", "Client email": "n/a",
+    "Client address": "Parliament House, Macquarie Street, Sydney NSW 2000",
+    "Client mobile": "(02) 5550 0100", "Client email": "premier@placeholder.example",
     "Architect name": "Jørn Utzon, Architect",
-    "Architect reg no": "to be confirmed",
-    "Architect ABN": "n/a (1957)",
+    "Architect reg no": "0001",
+    "Architect ABN": "00 000 000 001",
     "Architect representative": "Jørn Utzon",
-    "Architect address": "Hellebæk, Denmark",
-    "Architect mobile": "n/a", "Architect email": "n/a",
+    "Architect address": "Hellebæk, Denmark (office); c/o Sydney agent [A]",
+    "Architect mobile": "+45 5550 0100", "Architect email": "utzon@placeholder.example",
+    # the Government signs as a corporation (two signatories); Utzon signs as an individual
+    "corp client signature date": "21/02/1957", "corp client signature date 2": "21/02/1957",
+    "Individual architect signature date": "21/02/1957",
     "the project": ("National Opera House (now the Sydney Opera House): a large hall (about 3,000 seats) and a small "
                     "hall (about 1,200 seats) for opera, concerts, ballet, drama and public meetings, with rehearsal, "
                     "restaurant and back-of-house areas, on a raised podium under a roof of shell vaults. Built in "

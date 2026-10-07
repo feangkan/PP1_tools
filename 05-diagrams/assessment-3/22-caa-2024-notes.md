@@ -70,3 +70,13 @@ The letter's assumptions (fee 6%, the stage split, A.3 excluded, contingency, Ri
 - **CAA D.8 row (Jul 1961, Register):** the Schedule C D.8 condition says in advance how the Scenario 1 redesign of the podium is handled.
 - **C.3 rows (1959, 1965, 1973):** the Schedule C C.2 condition names the representative as "the Premier or a Minister he nominates", so each change is a C.3 notice.
 - **SW 2018 (file 5):** Schedule C says each stage uses the ABIC Simple Works 2018 and the architect administers it (A.6 included). The SW contract sum is $9,600,000, matching the Cost of Works.
+
+## v2 (2026-10-08): party details and signing dates
+
+Compared with the example submission, v1 looked unfinished because it said "n/a" in every personal field. v2 fills them in, the way a real job file would:
+
+- **Placeholder details (clearly fictional, all `[A]`):** ABNs `00 000 000 000` and `00 000 000 001`, phone numbers `(02) 5550 0100` and `+45 5550 0100`, emails `...@placeholder.example`, registration no. `0001`. They are obvious placeholders so they cannot be mistaken for a real person's or business's details. The example used real-looking numbers; we don't, to avoid using someone else's real ABN or phone.
+- **Addresses:** Client = Parliament House, Macquarie Street, Sydney `[verify]`; Architect = Hellebæk, Denmark (office) plus a Sydney agent `[A]`.
+- **Dates:** every signing date is **21/02/1957**, the same as the agreement date, the Register and the timeline. (The example's CAA has three different dates: 26.03.1957 in the Register, 26/03 on page 1 and 01/02/1965 beside the signatures.)
+- **Signature boxes are left empty on purpose.** They are digital-signature fields and a script cannot fill them. The example's signatures were added in Acrobat with **Fill & Sign**. Do the same: Tools > Fill & Sign > Sign yourself > type or draw a name, then place it in the box. Client: option 2 (corporation), two signatories: the Premier and the Minister for Public Works `[A]`. Architect: option 1 (individual), Jørn Utzon. Only add a name the file's story needs, as a typed or drawn signature, and mark it as a course exercise if the tutor asks.
+- File: `caa/CAA 2024 - Sydney Opera House - draft v2.pdf` (v1 stays for the record).
