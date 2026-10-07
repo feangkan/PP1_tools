@@ -453,7 +453,7 @@ def lower_panel(py0, project=False):
         ops.append(rect(ix, py0 + 30, 1300, 700, "#F7FAFD", "#1F4E78", 3, rx=10))
         tasks = [
             ("LEAD 1 - FRANK", "lanes D0-D3  |  checker: Prani Patton", [
-                "Date the introductory letter (Register has no date)",
+                "Introductory letter dated 11 Feb 1957 [A]: confirm fee 6% + $10,000 Mobilisation Fee",
                 "Build the CAA on the 2024 template (Register says 2019)",
                 "Add row: client rep change Cahill to Askin (CAA C.3)",
                 "Add row: CAA D.8 extra-services notice, Jul 1961"]),

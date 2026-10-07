@@ -97,9 +97,12 @@ NOTES = {
         "Bennelong Point: two halls (3,000–3,500 and 1,200 seats), a restaurant and meeting rooms. This is the "
         "original client brief.",
     "Introductory letter": "Our first required document (GL1): the architect introduces the practice and the "
-        "services to the client. The Register has no date; Feb 1957 (after the win) is our assumption.",
-    "CAA signed": "The Client Architect Agreement is signed (Register: 21 Feb 1957). Our file must use the CAA 2024 "
-        "template — the Register currently says CAA 2019.",
+        "services to the client. Utzon writes to the Government (Premier Cahill). It sets the Cost of Works at $9.6m, "
+        "a 6% fee ($576,000, including a $10,000 Mobilisation Fee) and two ways to run the project (staged or "
+        "sequential). The Register has no date; 11 Feb 1957 (after the win) is our assumption.",
+    "CAA signed": "The Client Architect Agreement is signed (Register: 21 Feb 1957). Our file uses the CAA 2024 template "
+        "(the Register said CAA 2019). It repeats the letter: Cost of Works $9.6m, 6% fee, $10,000 Mobilisation "
+        "Fee, staged program with the early-start risk recorded in Schedule C.",
     "Premier Cahill dies": "Cahill dies in office on 22 Oct 1959 (ADB; the archive guide says 19 Oct) and Heffron "
         "becomes Premier. The client's representative changes, which CAA C.3 requires the client to notify.",
     "Architect notifies client": "Our constructed event: the extra piers mean extra design work for the architect, "

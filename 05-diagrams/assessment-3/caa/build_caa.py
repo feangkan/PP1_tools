@@ -2,7 +2,7 @@
 
 Source: D:\\RMIT_SEM2 26_PROPRAC 1\\Assessment 3 resources\\
         (4.Complete a Client Architect Agreement 2024 with the client) caa2024_fullservices_digital.pdf
-Every figure matches the GL1 letter (letters/build_intro_letter.py), the Register and the timeline.
+Every figure (including the $10,000 Mobilisation Fee and the two program options) matches the GL1 letter (letters/build_intro_letter.py), the Register and the timeline.
 Assumptions are listed in ../22-caa-2024-notes.md.
 
 Run:  py build_caa.py   (writes "CAA 2024 - Sydney Opera House - draft v1.pdf" next to this file)
@@ -81,6 +81,10 @@ COMMENTS = {
 ITEM1 = {k: f"{FEE_PCT * v / 100:.2f}" for k, v in SPLIT.items()}
 ITEM1.update({"B.1": "", "B.2": "", "B.3": "", "B.4": "", "B.5": "", "B.6": "",
               "Total % fee": f"{FEE_PCT:.2f}"})
+MOBILISATION = 10_000      # A.0: advance on the fee (= the £5,000 first prize at £1 = A$2); inside the 6%
+LUMP = {"Lum sum fee A.0": f"{MOBILISATION:,.0f}", "Total lump Sum fee (GST)": f"{MOBILISATION:,.0f}",
+        "GST as calculated on the above": f"{MOBILISATION * 0.1:,.0f}",
+        "total lump sume fee (inclu. GST)": f"{MOBILISATION * 1.1:,.0f}"}
 ITEM1_TIME_BASED = ["Check Box 10", "Check Box 12"]      # B.4 and B.6 rows: time-based rates apply
 
 RATES = [("Principal/director", 350), ("Team leader", 250), ("Senior architect", 200), ("architect", 170),
@@ -134,8 +138,12 @@ ITEMS_5_7 = {
 
 # ---- Schedule C special conditions: (clause, text) — wrapped over the form's lines ------------------
 SPECIAL = [
-    ("A.4", "Program: the building work is delivered in three stages (Stage I podium; Stage II roof shells; "
+    ("A.4", "Program (the letter's Option 1, staged): the building work is delivered in three stages (Stage I podium; Stage II roof shells; "
             "Stage III interiors), each under its own building contract."),
+    ("A.1", "Mobilisation Fee of $10,000 (excl. GST), payable within 5 business days of signing, is an advance on "
+            "the Fee and is deducted from the A.1 Concept design component."),
+    ("A.3", "The Architect will report in writing when approved variations exceed 5% of the building contract "
+            "sum, with their effect on the forecast Cost of Works."),
     ("A.4", "The Client requires Stage I to start on site before the roof design is resolved. The Architect has "
             "advised in writing (letter of 11.02.1957) that this risks redesign of the podium, with extra time "
             "and cost."),
@@ -217,6 +225,8 @@ def main():
                     pick_radio(group, x_target=COLUMN_X[choice])
             elif name in ITEM1 and page.number == 13:
                 set_text(w, ITEM1[name])
+            elif name in LUMP and page.number == 13:
+                set_text(w, LUMP[name])
             elif name in ITEM1_TIME_BASED:
                 w.field_value = True
                 w.update()

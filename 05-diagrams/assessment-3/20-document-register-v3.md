@@ -11,8 +11,8 @@
 |---|---|---|---|---|---|
 | 13.09.1955 | Competition Design Phase |  |  | Announced by Premier Cahill; 233 entries from 32 countries |  |
 | 29.01.1957 | Competition winner announced (Jørn Utzon) |  |  | First prize £5,000 |  |
-| *02.1957* | **Introductory letter** | GL1 | Architect to Client | Introduces the practice and its services | Kankawee Maksomboon |
-| 21.02.1957 | **Client Architect Agreement** | CAA 2024 | Architect to Client | 2024 edition (the Register had CAA 2019) | Kankawee Maksomboon |
+| *11.02.1957* | **Introductory letter** | GL1 | Architect to Client | Cost of Works $9,600,000; fee 6% = $576,000 incl. $10,000 Mobilisation Fee; staged or sequential program | Kankawee Maksomboon |
+| 21.02.1957 | **Client Architect Agreement** | CAA 2024 | Architect to Client | 2024 edition (the Register had CAA 2019); Cost of Works $9,600,000; fee 6%; Mobilisation Fee $10,000 | Kankawee Maksomboon |
 | 12.1958 | Tender documents Issued |  | Architect to Contractor | Stage I conditions of contract + bills of quantities | Yu-Chun Ho *(suggested)* |
 | *01.1959* | Tender Return |  | Contractor to Architect |  | Yu-Chun Ho *(suggested)* |
 | *02.1959* | Contractor selection |  |  | Civil & Civic Pty Ltd |  |
@@ -53,7 +53,7 @@ Format: switched from the group's 8-column Register (From and To split; Action; 
 |---|---|---|---|
 | 13.09.1955 | Competition Design Phase | Date 1956 to 13.09.1955: the competition was announced on 13 Sep 1955 (entries were submitted in 1956) | [D](https://mhnsw.au/guides/sydney-opera-house/), [I](https://concise.mhnsw.au/pr/pwd00027.htm) |
 | 29.01.1957 | Competition winner announced (Jørn Utzon) | NEW: on the timeline (D2) | [D](https://mhnsw.au/guides/sydney-opera-house/), [I](https://concise.mhnsw.au/pr/pwd00027.htm) |
-| 02.1957 | Introductory letter | Date 'early 1957' to 02.1957 [A]; Form No. GL1 added (the guide letter template) | REG |
+| 11.02.1957 | Introductory letter | Date 'early 1957' to 11.02.1957 [A]; Form No. GL1 added (the guide letter template) | REG |
 | 21.02.1957 | Client Architect Agreement | Form No. CAA 2019 to CAA 2024 (the brief requires the 2024 edition) | REG |
 | 12.1958 | Tender documents Issued | Date 1958 to 12.1958: conditions of contract + bills of quantities dated Dec 1958 | [C](https://concise.mhnsw.au/pr/pwd00024.htm) |
 | 01.1959 | Tender Return | Date 1959 to 01.1959 [A] | REG |

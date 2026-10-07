@@ -341,7 +341,7 @@ b.bar("D0", "A.6 Contract administration (construction + post-construction)", f"
 b.lane("D1", "Client + brief", "decisions, approvals, representatives (C.3)", "Lead 1: Kankawee Maksomboon (check: Prani Patton)")
 b.milestone("D1", "Competition announced by Premier Cahill (two halls)", D(1955, 9, 13), "Scope", "[F]",
             frm_to="NSW Govt to public", src="D")
-b.milestone("D1", "★ Introductory letter", D(1957, 2, 1), "Scope", "REG [A]", form="GL1", frm_to="Architect to Client",
+b.milestone("D1", "★ Introductory letter", D(1957, 2, 11), "Scope", "REG [A]", form="GL1", frm_to="Architect to Client",
             who=F1, src="REG")
 b.milestone("D1", "★ CAA signed — must be the 2024 edition (Register says 2019)", D(1957, 2, 21), "Scope", "REG",
             form="CAA", frm_to="Architect to Client", who=F1, src="REG")
@@ -582,7 +582,7 @@ for i, (h, w) in enumerate(heads, start=1):
     c.font, c.fill, c.border = fnt(bold=True, color="FFFFFF"), fill("404040"), BORDER
     t.column_dimensions[get_column_letter(i)].width = w
 tasks = [
-    ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Date the introductory letter (the Register has no date)", "Week 10"),
+    ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Introductory letter drafted, dated 11 Feb 1957 [A]: confirm the fee (6%) and the $10,000 Mobilisation Fee", "Week 10"),
     ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Build the CAA on the 2024 template (the Register says CAA 2019)", "Week 10"),
     ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Add Register row: client representative change Cahill to Askin (CAA C.3)", "Week 10"),
     ("Lead 1", "Kankawee Maksomboon", "D0–D3 design", "Prani Patton", "Add Register row: CAA D.8 extra-services notice, Jul 1961", "Week 10"),

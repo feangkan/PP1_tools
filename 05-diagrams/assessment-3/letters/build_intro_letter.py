@@ -38,7 +38,8 @@ SPLIT = [                          # share of the fee per CAA Schedule B Item 1 
     ("A.5", "Contractor selection", 5),
     ("A.6", "Contract administration", 30),
 ]
-CONTINGENCY = "10%"
+CONTINGENCY = "30%"
+MOBILISATION = 10_000              # = the £5,000 first prize at £1 = A$2 (timeline sources D, I, G)
 
 def money(v):
     return f"${v:,.0f}"
@@ -207,7 +208,10 @@ put(P[68], "As discussed, you are responsible for managing the Total Project Cos
            "fees) should be factored in your budget.")
 put(P[70], f"We also recommend that you include in the Total Project Cost budget a contingency sum of say "
            f"{{{{{CONTINGENCY}}}}}, to allow for unforeseen expenses that may eventuate as the project proceeds. "
-           f"Given the unresolved roof and the untested ground, we consider this the minimum prudent allowance.")
+           f"The roof has no precedent and the ground is untested, so we recommend a larger allowance than for an "
+           "ordinary building. Part of that allowance should be held against variations: we will report to you in "
+           "writing whenever the variations approved under the building contract add up to more than {{5%}} of the "
+           "contract sum, with their effect on the Cost of Works forecast (clause A.3.2).")
 
 # Fees
 put(P[84], "The scope of these Services is listed in Schedule A: Section A of the draft CAA (page 9). Please note "
@@ -218,7 +222,10 @@ put(P[86], f"We propose a percentage Fee of {{{{{FEE_PCT:g}%}}}} of the Cost of 
 put(P[88], f"{{{{{FEE_PCT:g}%}}}} of {money(COST_OF_WORKS)} (forecast Cost of Works excluding GST) = "
            f"{money(FEE)} (excluding GST)", bold_all=True)
 put(P[90], "The breakdown of these fees across the stages of the Core Architectural Services is set out in "
-           "Schedule B: Item 1 of the draft CAA (page 13), as follows. No Mobilisation Fee is proposed.")
+           "Schedule B: Item 1 of the draft CAA (page 13), as follows. Our fee includes a Mobilisation Fee of "
+           f"**{money(MOBILISATION)}** (excluding GST), an advance payment on the fees payable for the services "
+           "(see Section M), payable within 5 business days after we sign the agreement. It matches the prize "
+           "money for the competition, and is deducted from the A.1 Concept design fee below.")
 # fee breakdown table: a copy of the template's table, placed after P[90]
 fee_tbl = copy.deepcopy(d.tables[0]._tbl)
 P[90]._element.addnext(fee_tbl)
@@ -226,7 +233,11 @@ fee_rows = [("Schedule B item", "Service", "Share of fee", "% of Cost of Works /
 for code, name, share in SPLIT:
     if share:
         pct = FEE_PCT * share / 100
-        fee_rows.append((code, name, f"{share}%", f"{pct:.2f}% = {money(COST_OF_WORKS * pct / 100)}"))
+        amount = COST_OF_WORKS * pct / 100
+        note = f"{pct:.2f}% = {money(amount)}"
+        if code == "A.1":
+            note += f" (incl. {money(MOBILISATION)} Mobilisation Fee)"
+        fee_rows.append((code, name, f"{share}%", note))
     else:
         fee_rows.append((code, name, "Excluded", "{{Crown project: approvals by the Government}}"))
 fee_rows.append(("Total", "Core Architectural Services", "100%", f"{FEE_PCT:.2f}% = {money(FEE)}"))
@@ -284,26 +295,38 @@ put(P[118], "Because our office is in Hellebæk, Denmark, the main disbursements
             "budget.")
 
 # Program of services
-put(P[121], "We estimate that the design and documentation of the first stage of the works (the podium) can "
-            "feasibly be delivered over about {{18 to 24 months}}, with a presentation of the developed scheme "
-            "to you in {{early 1958}}.")
-put(P[123], "We understand that your Government wishes to start work on site as early as possible. We must advise "
-            "that the structure of the roof shells is not yet resolved, and that the roof's loads will govern the "
-            "design of the podium and its columns. Starting the podium before the roof design is complete "
-            "carries a real risk of later redesign, with extra time and cost. If an early start is required, we "
-            "recommend dividing the building work into stages (podium; roof; interiors), each with its own "
-            "building contract, and recording this risk in the program and in the contingency above.")
-put(P[125], "However, this will depend on several factors critical to the timeframe for delivery of these stages, "
-            "such as the time it takes to obtain the necessary Government approvals and to resolve the roof "
-            "structure with the engineers. At this point in time, it is not feasible to forecast exactly how long "
-            "these will take.")
+put(P[121], "You have told us that you want to start building as soon as possible. The roof structure is not yet "
+            "resolved, and its loads will govern the design of the podium and its columns. We therefore set out two "
+            "ways of running the project, so that you can choose with the risk in front of you. We have prepared "
+            "the draft CAA on Option 1 because it is your stated preference.")
+put(P[123], "**Option 1: staged (fast-track).** The work is divided into three stages (podium; roof shells; "
+            "interiors), each with its own design, documentation and building contract. The podium is designed "
+            "and documented in about {{18 to 24 months}}, with a presentation of the developed scheme to you in "
+            "{{early 1958}}, and building starts while the roof is still being designed. The podium takes about "
+            "{{4 years}} to build. **Risk:** the roof's real loads may exceed those assumed for the podium, so "
+            "columns already built may have to be strengthened or rebuilt. That would be a variation to the "
+            "building contract and a change to our services (clause D.8), with extra time and cost, and the later "
+            "stages each repeat the tendering process.")
+q = P[123]
+new = copy.deepcopy(P[123]._element)
+q._element.addnext(new)
+put(docx.text.paragraph.Paragraph(new, q._parent),
+    "**Option 2: sequential.** The roof structure and the whole building are resolved with the engineers, "
+    "documented and tendered before building starts. We estimate {{5 to 6 years}} of design and "
+    "documentation, then {{6 to 8 years}} of construction. **Benefit:** the podium is built once, to the "
+    "final loads, and the cost forecast is much firmer when you commit. **Cost:** the building opens later, "
+    "and your Government waits longer to see work on site.")
+spacer = copy.deepcopy(P[124]._element)
+q._element.addnext(spacer)
+put(P[125], "Both options depend on factors we cannot forecast: the time to obtain the necessary Government "
+            "approvals, and the time to resolve the roof structure with the engineers. If you choose Option 1, "
+            "we recommend you record the risk above in the program and in the contingency, and we will tell "
+            "you promptly, in writing, if the design shows that built work must change.")
 put(P[127], "In addition, contributing to the indicated timeframe, there are the necessary approvals for building "
             "work to commence and the selection of the contractor. Similarly, we are not in a position to forecast "
             "the time involved before the construction work can begin.")
-put(P[129], "Generally, after the building contractor is selected, a building contract signed, and approvals and "
-            "finance are secured, construction work can start. We forecast that when construction work starts, "
-            "it will take about {{4 years}} to reach practical completion of the first stage (the podium), with "
-            "the roof and the interiors following as later stages.")
+put(P[129], "Generally, after the building contractor is selected, a building contract signed, and approvals "
+            "and finance are secured, construction work can start.")
 
 # New section: communication, changes and variations (Week 10: justify how communications and variations work)
 heading = clone_after(P[129], "")

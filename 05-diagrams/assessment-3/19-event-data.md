@@ -43,14 +43,14 @@ The architect administers the building contract from site possession (2 Mar 1959
 Premier Cahill announces an international design competition for an opera house at Bennelong Point: two halls (3,000–3,500 and 1,200 seats), a restaurant and meeting rooms. This is the original client brief.  
 *Sources:* [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)
 
-**Feb 1957 — Introductory letter** · **GL1**  `REG [A]`  
+**11 Feb 1957 — Introductory letter** · **GL1**  `REG [A]`  
 *Party:* Architect — Jørn Utzon  
-Our first required document (GL1): the architect introduces the practice and the services to the client. The Register has no date; Feb 1957 (after the win) is our assumption.  
+Our first required document (GL1): the architect introduces the practice and the services to the client. Utzon writes to the Government (Premier Cahill). It sets the Cost of Works at $9.6m, a 6% fee ($576,000, including a $10,000 Mobilisation Fee) and two ways to run the project (staged or sequential). The Register has no date; 11 Feb 1957 (after the win) is our assumption.  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf)
 
 **21 Feb 1957 — CAA signed — must be the 2024 edition (Register says 2019)** · **CAA**  
 *Party:* Architect — Jørn Utzon and NSW Government  
-The Client Architect Agreement is signed (Register: 21 Feb 1957). Our file must use the CAA 2024 template — the Register currently says CAA 2019.  
+The Client Architect Agreement is signed (Register: 21 Feb 1957). Our file uses the CAA 2024 template (the Register said CAA 2019). It repeats the letter: Cost of Works $9.6m, 6% fee, $10,000 Mobilisation Fee, staged program with the early-start risk recorded in Schedule C.  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf)
 
 **22 Oct 1959 — Premier Cahill dies; Heffron Premier — client rep changes (CAA C.3)**  
