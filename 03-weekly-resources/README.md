@@ -26,6 +26,7 @@ week-XX/
 | [07](week-07/) | The Architect as Worker (Helen) + Union for Architectural Workers (Tom Marshall, UAW) — structural vs individual responses, wellbeing research, FAF/RIBA case, union economics | Resources uploaded; summary/diagram pack not yet generated |
 | [09](week-09/) | Part 3 begins — Sydney Opera House Innovations (L18); Assessment 3 starts, Miro group workshop | Workshop photos + README; A3 pack in `05-diagrams/assessment-3/`; lecture slides not yet uploaded |
 | [10](week-10/) | CAA, Sketch Design and Design Development + Contract Documentation and Tendering (Helen, two lectures); A3 intro letter and CAA week | Slides + Canvas page + links; summary in `04-summaries/week-10-summary.md`; lecture script still to come |
+| [11](week-11/) | Contract administration: ABIC Simple Works 2018 + forms (Helen, two lectures) and site visits, substitutions, defects (video); Harvard Design Magazine reading | Slides (71 + 15), video transcript, Canvas page, links; not yet summarised; A3 file 5 next |
 
 ## Agent prompts
 
