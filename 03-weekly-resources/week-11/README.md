@@ -33,11 +33,11 @@
 ## My notes / questions
 
 - Pre-reading question from Canvas (for A3): **what relationship or responsibility is each of your contract documents making explicit?** Good prompt for the Part B ARBV letter.
-- Lecture recordings (Echo 360) and the lecture script are **not yet uploaded**. A summary can be written from the slides and the transcript once Kankawee Maksomboon asks.
-- Slide decks not yet summarised; the SW 2018 PDF in `Assessment 3 resources` is the contract to fill in (file 5).
+- Summary of both decks and the video: [`04-summaries/week-11-summary.md`](../../04-summaries/week-11-summary.md). It was written from the slides only; check the `[script]` items once the lecture script is uploaded.
+- **Before filling the SW 2018 (file 5):** read the summary's "What this means for our A3" section. Our SW-31 and practical completion dates are for the whole building, but our contract is Stage I only.
 
 ## Agent outputs from this week
 
 | Output | Path |
 |--------|------|
-| _None yet_ | A3 file 5 (ABIC SW 2018) is the next build |
+| Lecture summary (both decks + video) with A3 checks | `04-summaries/week-11-summary.md` |
