@@ -13,41 +13,53 @@ OUT = r"D:\RMIT_SEM2 26_PROPRAC 1\Week 12\Ready to submit\Checklist - fixes by l
 TOOLS = r"D:\Claude code\PP1_tools\05-diagrams\assessment-3"
 
 # (priority, status, where, problem, fix)
-LEAD1 = [
-    ("High", "TO DO", "Group review copy of the CAA (separate file)",
+LEAD1 = [  # Lead 1 reviewed and approved on 04.11.2026
+    ("High", "DONE", "Group review copy of the CAA (separate file)",
      "The 12 sticky-note questions on the CAA now have green answers beside them.",
-     "Read each answer. If you disagree with one, tell Lead 1, and the CAA is changed and rebuilt."),
-    ("High", "TO DO", "b Introductory letter, p.9-13",
-     "The 14 yellow assumption highlights have been removed, but the assumptions themselves were never confirmed: "
-     "11 Feb 1957, Premier's Department address, 30% contingency, 5% variation report, 6% fee, Rider Hunt & Partners, "
-     "18-24 months, early 1958, 4 years, 5-6 years, 6-8 years.",
-     "Confirm each one. Any change must also go in the CAA (Schedule B Item 1, Schedule C), the Register (p.4) and "
-     "the Timeline (p.8)."),
+     "APPROVED by Lead 1 as the group's answers (04.11.2026). Other leads: tell Kankawee if you disagree with one."),
+    ("High", "DONE", "b Introductory letter, p.9-13",
+     "The 14 former highlights (11 Feb 1957, Premier's Department address, 30% contingency, 5% variation report, "
+     "6% fee, Rider Hunt & Partners, 18-24 months, early 1958, 4 years, 5-6 and 6-8 years) needed confirming.",
+     "ACCEPTED by Lead 1. Checked against Leads 2 and 3: no major issue. The 4-year podium matches the ABIC "
+     "(02.03.1959 to 26.01.1963); the design period to tender (22 months) is inside 18-24; the fee, contingency "
+     "and QS match the CAA. Two minor points are noted below."),
+    ("Low", "NOTE", "b letter p.9 against c CAA p.15 and d ABIC p.36 (addresses)",
+     "The letter goes to the 'Premier's Department, Sydney NSW'. The CAA and ABIC give the notice address as "
+     "'Parliament House, Macquarie Street'.",
+     "Acceptable: a letter can go to the Premier's office while the contracts give a notice address. Optional "
+     "one-line fix: use Parliament House in the letter too."),
+    ("Low", "NOTE", "b letter p.9-10 and c CAA p.15 against d ABIC p.37 (Item 4)",
+     "The letter and CAA give $9.6m as the Cost of Works for the whole project. The ABIC uses the same $9.6m for the "
+     "Stage I contract alone.",
+     "Acceptable: it is the tutor's figure, declared on p.2. Lead 2 item 6: say so in the ARBV letter."),
     ("Med", "DONE", "c CAA p.15 (CAA page 1)",
      "ABN and registration no. were placeholders (00 000 000 000, 0001), which clashed with 'N/A' in the ABIC. The "
      "architect's signing date was missing. The project name did not match the letter.",
-     "Now: ABN 'N/A (1957)', registration no. 'N/A [A]', architect's date 21/02/1957, 'National Opera House (now the "
-     "Sydney Opera House)'. Check that it reads correctly."),
+     "APPROVED. Now: ABN 'N/A (1957)', registration no. 'N/A [A]', architect's date 21/02/1957, 'National Opera "
+     "House (now the Sydney Opera House)'."),
     ("Med", "DONE", "c CAA p.15",
      "Empty signature boxes, while the ABIC says 'Signature omitted - academic simulation'.",
-     "The same wording is now stamped in the CAA's client and architect boxes. Check that it reads correctly."),
+     "APPROVED. The same wording is now stamped in the CAA's client and architect boxes."),
     ("Med", "DONE", "c CAA p.26 (Schedule A, B.2) and p.27 (Schedule B Item 1)",
      "Group comment: 'points 2 and 5 should be included'.",
-     "B.2 lines 2 and 5 are now ticked Additional, and the B.2 time-based box is ticked (B.2 has no % fee). Check."),
+     "APPROVED. B.2 lines 2 and 5 are now Additional, at time-based rates (B.2 has no % fee)."),
     ("Med", "DONE", "c CAA p.29 (Schedule B Item 4)",
      "The land surveyor was ticked but had no note.",
-     "The note 'To be appointed' was added. Check."),
+     "APPROVED. Note 'To be appointed' added."),
     ("Med", "DONE", "c CAA p.30 (Schedule C)",
      "Comments asked who gets approvals if A.3/B.3 are excluded, how disputes are handled, and what illustration costs.",
-     "New rows: A.3 (Crown project: the Minister for Public Works approves; we supply the drawings), B.2/B.6 "
-     "(Additional at Item 2 rates; planning tribunal excluded), B.4 (Item 2 rates). Check the wording."),
-    ("Low", "TO DO", "c CAA p.16-31 (client initials on each page)",
-     "The client initials boxes are blank. They are blank in the ABIC too.",
-     "Leave them blank in both (consistent), or initial both. Don't do one and not the other."),
-    ("Low", "TO DO", "a Register p.4-6 (CAA, D.8 and C.3 rows)",
-     "Some contributions are grey '(suggested)' names, not yet confirmed.",
-     "Confirm or correct your rows in programme/register_v3.py, then run py build_register_v3.py."),
-    ("Info", "TO DO", "How to edit the CAA",
+     "APPROVED. New rows: A.3 (Crown project: the Minister approves; we supply the drawings), B.2/B.6 (Additional "
+     "at Item 2 rates; planning tribunal excluded), B.4 (Item 2 rates)."),
+    ("Low", "DONE", "c CAA p.16-31 and d ABIC schedules (initials boxes)",
+     "The client initials boxes are blank, in the ABIC too.",
+     "DECIDED: leave them blank in both. This is consistent, and matches 'signature omitted'."),
+    ("Low", "DONE", "a Register p.5-6 (C.3, D.8, engineer's advice, resignation, replacement rows)",
+     "7 contributions were grey '(suggested)' names.",
+     "CONFIRMED as Kankawee Maksomboon (now shown in black)."),
+    ("Med", "DONE", "a Timeline, p.8",
+     "The Timeline page was coloured by factor.",
+     "Now the 'Timeline by party' sheet: the same lanes and events, coloured by the party who acts."),
+    ("Info", "NOTE", "How to edit the CAA",
      "The CAA in the submission is rebuilt by a script from the Week 12 file. Hand edits to the output are lost.",
      "Edit the Week 12 CAA (or tell Kankawee what to change), then run py build_submission.py."),
 ]
@@ -162,7 +174,7 @@ p { margin: 2pt 0 4pt 0; } .sub { color: #555; font-size: 9pt; }
 table { border-collapse: collapse; width: 100%; margin-top: 4pt; }
 th { color: #1a6b35; text-align: left; padding: 3pt; font-size: 8.5pt; border-bottom: 1.2pt solid #1a6b35; }
 td { border-bottom: 0.5pt solid #bbb; padding: 3pt; vertical-align: top; }
-.done { color: #1a6b35; font-weight: bold; } .todo { color: #c00; font-weight: bold; }
+.done { color: #1a6b35; font-weight: bold; } .note { color: #8a6d00; font-weight: bold; } .todo { color: #c00; font-weight: bold; }
 .box { font-family: monospace; font-size: 10pt; }
 .w { width: 135pt; } .p { width: 205pt; } .f { width: 240pt; }
 tr { page-break-inside: avoid; }
@@ -172,7 +184,7 @@ tr { page-break-inside: avoid; }
 def table(items):
     rows = []
     for i, (pri, status, where, problem, fix) in enumerate(items, 1):
-        cls = "done" if status == "DONE" else "todo"
+        cls = {"DONE": "done", "NOTE": "note"}.get(status, "todo")
         rows.append(f"<tr><td class='box'>[&nbsp;]</td><td>{i}</td><td>{pri}</td><td class='{cls}'>{status.replace(' ', '&nbsp;')}</td>"
                     f"<td class='w'>{where}</td><td class='p'>{problem}</td><td class='f'>{fix}</td></tr>")
     return ("<table><tr><th>Check</th><th>#</th><th>Priority</th><th>Status</th><th>Where</th>"
@@ -189,14 +201,14 @@ def cover():
     return f"""<h1>Assessment 3: fix checklist by lead</h1>
 <p class="sub">Sydney Opera House, Scenario 1 (additional piers). Built 04.11.2026 from the submission audit. Due Fri 6 Nov 2026, 23:59.</p>
 <p><b>How to read it.</b> Each lead has a section of their own. <span class="done">DONE</span> = already fixed in the compiled PDF; the lead
-only checks it and ticks the box. <span class="todo">TO DO</span> = the lead still has to act. <b>p.</b> = page of the compiled file
+only checks it and ticks the box. <span class="note">NOTE</span> = minor, accepted as is. <span class="todo">TO DO</span> = the lead still has to act. <b>p.</b> = page of the compiled file
 <i>Assessment Task 3_Maksomboon_Kankawee_Patton_Prani_Ho_Yu-Chun - DRAFT (slots to fill).pdf</i>. The checker reviews the lead's section after the fixes.</p>
 <table><tr><th>Part</th><th>Owner</th><th>Checker</th><th>Covers</th><th>To do</th><th>Done</th><th>High to do</th></tr>{rows}</table>
 <p style="margin-top:8pt"><b>Compiled file map:</b> p.1 Contents &middot; p.2 Conventions and assumptions &middot; p.3 ARBV letter (slot) &middot;
-p.4-7 Register &middot; p.8 Timeline &middot; p.9-13 Introductory letter &middot; p.14-31 CAA 2024 &middot; p.32-94 ABIC SW 2018 &middot;
+p.4-7 Register &middot; p.8 Timeline by party &middot; p.9-13 Introductory letter &middot; p.14-31 CAA 2024 &middot; p.32-94 ABIC SW 2018 &middot;
 p.95-98 SW-12, SW-14, SW-11, SW-31 (slots).</p>
 <p><b>Decisions already made</b> (Kankawee, 04.11.2026): SW-31 stays 31.05.1975 (declared on p.2); SW-11 stays +$5,000 excl. GST, with ABIC
-Item 18 set to $275 incl. GST to match; the ARBV letter and SW forms are written by the group.</p>
+Item 18 set to $275 incl. GST to match; the ARBV letter and SW forms are written by the group. Lead 1 part reviewed and approved; Timeline shown by party.</p>
 <p><b>Files and tools:</b> Ready to submit\\README.txt &middot; full audit {TOOLS}\\23-submission-audit.md &middot;
 rebuild with <i>py build_submission.py</i> in {TOOLS}\\submission.</p>"""
 

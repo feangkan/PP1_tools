@@ -18,9 +18,9 @@
 | *02.1959* | Contractor selection |  |  | Civil & Civic Pty Ltd |  |
 | 19.02.1959 | **Simple Works Contract** | SW 2018 | Architect to Contractor | Contract price $9,600,000 excl. GST ($10,560,000 incl. GST); Stage I podium; date for practical completion 26.01.1963 | Yu-Chun Ho |
 | 02.03.1959 | Stage I Commences |  |  | Site possession; foundations begin |  |
-| 22.10.1959 | Client representative change (Cahill to Heffron) |  | Client to Architect | CAA C.3 notice; Premier Heffron | Kankawee Maksomboon *(suggested)* |
-| *06.1961* | Engineer's advice: final roof loads exceed podium columns |  | Engineer to Architect | Ove Arup & Partners | Kankawee Maksomboon *(suggested)* |
-| *07.1961* | Change to architectural services (CAA D.8) |  | Architect to Client | Additional design services and fee (CAA D.8) | Kankawee Maksomboon *(suggested)* |
+| 22.10.1959 | Client representative change (Cahill to Heffron) |  | Client to Architect | CAA C.3 notice; Premier Heffron | Kankawee Maksomboon |
+| *06.1961* | Engineer's advice: final roof loads exceed podium columns |  | Engineer to Architect | Ove Arup & Partners | Kankawee Maksomboon |
+| *07.1961* | Change to architectural services (CAA D.8) |  | Architect to Client | Additional design services and fee (CAA D.8) | Kankawee Maksomboon |
 | *08.1961* | **Instruction- for a Variation** | SW-12 | Architect to Contractor | Strengthen podium columns, add piers | Prani Patton |
 | *09.1961* | **Contractor's details of claim (optional)** | SW-42 | Contractor to Architect | Claims +1 month (20 working days) and +$5,000 excl. GST | Prani Patton *(suggested)* |
 | *10.1961* | **Instruction to proceed (optional)** | SW-13 | Architect to Contractor | Proceed with the varied work | Prani Patton *(suggested)* |
@@ -31,14 +31,14 @@
 | 18.10.1962 | Stage 2 Contract drawings |  | Architect to Contractor | Roof shells (Yellow Book geometry) | Yu-Chun Ho *(suggested)* |
 | 03.1963 | Stage I Completed |  |  | Podium (historically two years behind the original program) |  |
 | 04.1963 | Stage II Commences |  |  | Roof shells, Hornibrook |  |
-| 13.05.1965 | Client representative change (Askin government; Minister Hughes takes over payments) |  | Client to Architect | CAA C.3 notice; Minister Davis Hughes | Kankawee Maksomboon *(suggested)* |
-| 28.02.1966 | Architect resigns (Utzon) |  | Architect to Client | Fee dispute with Minister Hughes | Kankawee Maksomboon *(suggested)* |
-| 19.04.1966 | Replacement architects appointed (Hall, Todd & Littlemore) |  | Client to Architect | Hall (design), Todd (documents), Littlemore (supervision), Farmer | Kankawee Maksomboon *(suggested)* |
+| 13.05.1965 | Client representative change (Askin government; Minister Hughes takes over payments) |  | Client to Architect | CAA C.3 notice; Minister Davis Hughes | Kankawee Maksomboon |
+| 28.02.1966 | Architect resigns (Utzon) |  | Architect to Client | Fee dispute with Minister Hughes | Kankawee Maksomboon |
+| 19.04.1966 | Replacement architects appointed (Hall, Todd & Littlemore) |  | Client to Architect | Hall (design), Todd (documents), Littlemore (supervision), Farmer | Kankawee Maksomboon |
 | 11.1966 | Stage III Contract signed (Minister for Public Works and Hornibrook) |  | Client to Contractor | Hornibrook: interiors + glass walls | Yu-Chun Ho *(suggested)* |
 | 17.01.1967 | Stage II Completed |  |  | Last (2,194th) shell segment placed |  |
 | 17.01.1967 | Stage III Commences |  |  | Interiors |  |
 | 07.1968 | Stage 3 Contract drawings |  | Architect to Contractor | Stage III working drawings | Yu-Chun Ho *(suggested)* |
-| 17.01.1973 | Client representative change (Hughes to Punch) |  | Client to Architect | CAA C.3 notice; Minister Leon Punch | Kankawee Maksomboon *(suggested)* |
+| 17.01.1973 | Client representative change (Hughes to Punch) |  | Client to Architect | CAA C.3 notice; Minister Leon Punch | Kankawee Maksomboon |
 | 20.10.1973 | Practical Completion Certificate |  | Architect to Contractor | Official opening by the Queen | Prani Patton *(suggested)* |
 | *20.10.1974* | End of defects liability period |  |  | 12 months (ABIC M13) |  |
 | 31.05.1975 | **Final Certificate** | SW-31 | Architect to Contractor | Refers to SW-11: final contract price $9,605,000 excl. GST ($10,565,500 incl.). Project final cost $102m (May 1974) | Prani Patton |

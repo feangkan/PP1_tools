@@ -175,7 +175,7 @@ def build_register():
 
 def build_timeline():
     pdf = os.path.join(PARTS, "a2 Timeline.pdf")
-    office("-Xlsx", SRC_TIMELINE, "-Sheet", "Timeline", "-Out", pdf)
+    office("-Xlsx", SRC_TIMELINE, "-Sheet", "Timeline by party", "-Out", pdf)
     return pdf
 
 
@@ -288,7 +288,7 @@ def compile_all(parts):
             pieces[key] = slot(title, what); missing.append(fname)
     order = [("arbv", "1 Letter to the ARBV", pieces["arbv"]),
              ("a", "a Architect's Register", pymupdf.open(parts["a1"])),
-             ("a2", "a Timeline of significant project events", pymupdf.open(parts["a2"])),
+             ("a2", "a Timeline of significant project events (by party)", pymupdf.open(parts["a2"])),
              ("b", "b Introductory letter", pymupdf.open(parts["b"])),
              ("c", "c Client Architect Agreement 2024", pymupdf.open(parts["c"])),
              ("d", "d ABIC SW 2018 contract", pymupdf.open(parts["d"]))]
@@ -305,7 +305,7 @@ def compile_all(parts):
     toc = [[1, "Contents", 1], [1, "Conventions and assumptions", 2]]
     for key, label, d in order:
         if key == "a2":
-            toc.append([2, "Timeline of significant project events", pages[key]])
+            toc.append([2, "Timeline of significant project events (by party)", pages[key]])
         else:
             if key == "a":
                 toc.append([1, "2 Appendices", pages[key]])
