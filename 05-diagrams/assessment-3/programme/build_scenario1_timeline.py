@@ -343,7 +343,7 @@ b.milestone("D1", "Competition announced by Premier Cahill (two halls)", D(1955,
             frm_to="NSW Govt to public", src="D")
 b.milestone("D1", "★ Introductory letter", D(1957, 2, 11), "Scope", "REG [A]", form="GL1", frm_to="Architect to Client",
             who=F1, src="REG")
-b.milestone("D1", "★ CAA signed — must be the 2024 edition (Register says 2019)", D(1957, 2, 21), "Scope", "REG",
+b.milestone("D1", "★ CAA 2024 signed", D(1957, 2, 21), "Scope", "REG",
             form="CAA", frm_to="Architect to Client", who=F1, src="REG")
 b.milestone("D1", "Premier Cahill dies; Heffron Premier — client rep changes (CAA C.3)", D(1959, 10, 22), "Responsibility",
             "NEW [F] D: 19 Oct", frm_to="Client to Architect", who="Kankawee Maksomboon", src="U, W, D")

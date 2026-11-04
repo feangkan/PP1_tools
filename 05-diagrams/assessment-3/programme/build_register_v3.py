@@ -46,7 +46,7 @@ def parse(d):
 # ---------------------------------------------------------------- consistency check vs the timeline
 CHECK = {  # register title start -> timeline event name start
     "Competition Design Phase": "Competition design phase", "Competition winner": "Utzon wins first prize",
-    "Introductory letter": "★ Introductory letter", "Client Architect Agreement": "★ CAA signed",
+    "Introductory letter": "★ Introductory letter", "Client Architect Agreement": "★ CAA 2024 signed",
     "Tender documents": "Stage I tender documents", "Tender Return": "Tender return",
     "Contractor selection": "Contractor selection", "Simple Works Contract": "★ Simple Works Contract signed",
     "Stage I Commences": "Site possession", "Client representative change (Cahill": "Premier Cahill dies",

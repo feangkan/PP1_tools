@@ -48,7 +48,7 @@ Premier Cahill announces an international design competition for an opera house 
 Our first required document (GL1): the architect introduces the practice and the services to the client. Utzon writes to the Government (Premier Cahill). It sets the Cost of Works at $9.6m, a 6% fee ($576,000, including a $10,000 Mobilisation Fee) and two ways to run the project (staged or sequential). The Register has no date; 11 Feb 1957 (after the win) is our assumption.  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf)
 
-**21 Feb 1957 — CAA signed — must be the 2024 edition (Register says 2019)** · **CAA**  
+**21 Feb 1957 — CAA 2024 signed** · **CAA**  
 *Party:* Architect — Jørn Utzon and NSW Government  
 The Client Architect Agreement is signed (Register: 21 Feb 1957). Our file uses the CAA 2024 template (the Register said CAA 2019). It repeats the letter: Cost of Works $9.6m, 6% fee, $10,000 Mobilisation Fee, staged program with the early-start risk recorded in Schedule C.  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf)

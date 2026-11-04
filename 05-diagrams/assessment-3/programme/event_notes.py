@@ -100,7 +100,7 @@ NOTES = {
         "services to the client. Utzon writes to the Government (Premier Cahill). It sets the Cost of Works at $9.6m, "
         "a 6% fee ($576,000, including a $10,000 Mobilisation Fee) and two ways to run the project (staged or "
         "sequential). The Register has no date; 11 Feb 1957 (after the win) is our assumption.",
-    "CAA signed": "The Client Architect Agreement is signed (Register: 21 Feb 1957). Our file uses the CAA 2024 template "
+    "CAA 2024 signed": "The Client Architect Agreement is signed (Register: 21 Feb 1957). Our file uses the CAA 2024 template "
         "(the Register said CAA 2019). It repeats the letter: Cost of Works $9.6m, 6% fee, $10,000 Mobilisation "
         "Fee, staged program with the early-start risk recorded in Schedule C.",
     "Premier Cahill dies": "Cahill dies in office on 22 Oct 1959 (ADB; the archive guide says 19 Oct) and Heffron "
@@ -277,7 +277,7 @@ ROLES = {
     "A.6 Contract administration": ("Architect", "Utzon to 1966; Hall, Todd & Littlemore from 1966"),
     "Competition announced": ("Client", "Premier J.J. Cahill"),
     "Introductory letter": ("Architect", "Jørn Utzon"),
-    "CAA signed": ("Architect", "Jørn Utzon and NSW Government"),
+    "CAA 2024 signed": ("Architect", "Jørn Utzon and NSW Government"),
     "Premier Cahill dies": ("Client", "Premier Cahill to Premier Heffron"),
     "Architect notifies client": ("Architect", "Jørn Utzon"),
     "Askin government": ("Client", "Premier Askin; Minister Davis Hughes"),
