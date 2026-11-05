@@ -450,8 +450,8 @@ b.milestone("C2", "Site possession — construction ceremony, Stage I starts", f
             frm_to="Client to Contractor", src="A, D")
 b.bar("C2", "Planned programme at signing (baseline)", f"={POSS}", f"={PC}", "Baseline", "[F] tutor", kind="Baseline",
       src="tutor")
-R["st1"] = b.bar("C2", "Stage I — podium (Civil & Civic); 2 years late", f"={POSS}", D(1963, 3, 1), "Time",
-                 "[F] Feb/Mar", src="A, D")
+R["st1"] = b.bar("C2", "Stage I — podium (Civil & Civic); PC 18 Mar 1963, 20 days late: LDs $20,000", f"={POSS}", D(1963, 3, 18), "Time",
+                 "[F] Feb/Mar [A] day", src="A, D")
 r_work = b.row
 R["work"] = b.bar("C2", "★ Piers work on site — the extra time", D(1961, 10, 1), f"=EDATE({S_COL}{r_work},{EOT})", "Time",
                   "[A]", frm_to="Contractor", kind="Work", src="tutor")
@@ -468,19 +468,21 @@ b.bar("C2", "Defects liability period — 12 months (ABIC M13)", D(1973, 10, 20)
 
 b.lane("C3", "Contract administration", "J1 SW-12 › H4 SW-14 / SW-11 › N11 SW-31", "Lead 3: Prani Patton (check: Yu-Chun Ho)")
 R["sw12"] = b.milestone("C3", "★ Instruction for a Variation — strengthen columns, add piers", D(1961, 8, 1), "Scope",
-                        "REG [A]", form="SW-12", frm_to="Architect to Contractor", who=P3, src="REG, tutor")
-R["sw42"] = b.milestone("C3", "Contractor's details of claim — 1 month, $5,000 (optional)", D(1961, 9, 1), "Time",
-                        "[A] optional", form="SW-42", frm_to="Contractor to Architect", src="tutor")
+                        "REG (form)", form="SW-12", frm_to="Architect to Contractor", who=P3, src="REG, tutor")
+R["sw42"] = b.milestone("C3", "Contractor's details of claim No. 03 — 1 month, $5,000 (optional)", D(1961, 9, 12), "Time",
+                        "optional", form="SW-42", frm_to="Contractor to Architect", src="tutor")
 R["sw13"] = b.milestone("C3", "Instruction to proceed with the variation (optional)", D(1961, 10, 1), "Scope",
                         "[A] optional", form="SW-13", frm_to="Architect to Contractor", src="tutor")
-R["sw14"] = b.milestone("C3", "★ Adjustment of time — +1 month", D(1961, 11, 1), "Time", "REG [A]", form="SW-14",
+R["sw14"] = b.milestone("C3", "★ Adjustment of time — +1 month (14 working days after the claim)", D(1961, 10, 2), "Time", "REG (form)", form="SW-14",
                         frm_to="Architect to Contractor", who=P3, src="REG, tutor")
-R["sw11"] = b.milestone("C3", "★ Contract Price Adjustment — +$5,000", D(1962, 4, 1), "Cost", "REG [A]", form="SW-11",
+R["sw11"] = b.milestone("C3", "★ Contract Price Adjustment — +$5,000 (after the J5 period, kept on purpose)", D(1962, 4, 2), "Cost", "REG (form)", form="SW-11",
                         frm_to="Architect to Contractor", who=P3, src="REG, tutor")
-b.milestone("C3", "Practical completion — official opening", D(1973, 10, 20), "Time", "REG [F]",
+b.milestone("C3", "Notice to contractor: Hall, Todd & Littlemore now administer the contract", D(1966, 4, 20),
+            "Responsibility", "[A] day", frm_to="Client to Contractor", who=P3, src="D, G")
+b.milestone("C3", "Practical completion (whole building) — official opening", D(1973, 10, 20), "Time", "REG [F]",
             frm_to="Architect to Contractor", src="J, D")
-b.milestone("C3", "★ Final Certificate — refers to SW-11 (Architects' Certificate of Completion)", D(1975, 5, 31),
-            "Cost", "[F] REG: 1974", form="SW-31", frm_to="Architect to Contractor", who=P3, src="D")
+b.milestone("C3", "★ Final Certificate — refers to SW-11; LDs $20,000 (Architects' Certificate of Completion)", D(1975, 5, 31),
+            "Cost", "[F]", form="SW-31", frm_to="Architect to Contractor", who=P3, src="D")
 b.lane("C4", "Interior works + fit-out (after 1967)", "Hornibrook + specialist packages — see 17-interiors",
        "Context — all three")
 b.milestone("C4", "Waterproofing specification", D(1967, 3, 1), "Quality", "[F]", src="C")

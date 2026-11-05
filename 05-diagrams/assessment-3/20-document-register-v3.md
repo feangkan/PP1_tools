@@ -21,27 +21,28 @@
 | 22.10.1959 | Client representative change (Cahill to Heffron) |  | Client to Architect | CAA C.3 notice; Premier Heffron | Kankawee Maksomboon |
 | *06.1961* | Engineer's advice: final roof loads exceed podium columns |  | Engineer to Architect | Ove Arup & Partners | Kankawee Maksomboon |
 | *07.1961* | Change to architectural services (CAA D.8) |  | Architect to Client | Additional design services and fee (CAA D.8) | Kankawee Maksomboon |
-| *08.1961* | **Instruction- for a Variation** | SW-12 | Architect to Contractor | Strengthen podium columns, add piers | Prani Patton |
-| *09.1961* | **Contractor's details of claim (optional)** | SW-42 | Contractor to Architect | Claims +1 month (20 working days) and +$5,000 excl. GST | Prani Patton *(suggested)* |
+| 01.08.1961 | **Instruction- for a Variation** | SW-12 | Architect to Contractor | Strengthen podium columns, add piers | Prani Patton |
+| 12.09.1961 | **Contractor's details of claim (optional)** | SW-42 | Contractor to Architect | Claims +1 month (20 working days) and +$5,000 excl. GST | Prani Patton *(suggested)* |
 | *10.1961* | **Instruction to proceed (optional)** | SW-13 | Architect to Contractor | Proceed with the varied work | Prani Patton *(suggested)* |
-| *11.1961* | **Instruction- Adjustment of Time** | SW-14 | Architect to Contractor | +1 month (20 working days): date for practical completion 26.02.1963 | Prani Patton |
+| 02.10.1961 | **Instruction- Adjustment of Time** | SW-14 | Architect to Contractor | +1 month (20 working days): date for practical completion 26.02.1963; time costs $5,500 incl. GST (Item 18) | Prani Patton |
 | *03.1962* | Cost Plan Issued | CP-06 | QS to Architect | £13.7m (A$27,400,000) | Yu-Chun Ho *(suggested)* |
-| *04.1962* | **Contract Price Adjustment** | SW-11 | Architect to Contractor | +$5,000 excl. GST (time costs: 20 working days x $275 incl. GST, ABIC Item 18): contract price $9,605,000 excl. GST ($10,565,500 incl.) | Prani Patton |
+| 02.04.1962 | **Contract Price Adjustment** | SW-11 | Architect to Contractor | +$5,000 excl. GST (time costs: 20 working days x $275 incl. GST, ABIC Item 18): contract price $9,605,000 excl. GST ($10,565,500 incl.) | Prani Patton |
 | 18.10.1962 | Stage II Contract signed (Minister for Public Works and Hornibrook) |  | Client to Contractor | M.R. Hornibrook (NSW) Pty Ltd: roof shells | Yu-Chun Ho *(suggested)* |
 | 18.10.1962 | Stage 2 Contract drawings |  | Architect to Contractor | Roof shells (Yellow Book geometry) | Yu-Chun Ho *(suggested)* |
-| 03.1963 | Stage I Completed |  |  | Podium (historically two years behind the original program) |  |
+| *18.03.1963* | Stage I Completed |  |  | Practical completion 18.03.1963 [A], 20 days after the adjusted date 26.02.1963: liquidated damages $20,000 (Item 24) |  |
 | 04.1963 | Stage II Commences |  |  | Roof shells, Hornibrook |  |
 | 13.05.1965 | Client representative change (Askin government; Minister Hughes takes over payments) |  | Client to Architect | CAA C.3 notice; Minister Davis Hughes | Kankawee Maksomboon |
 | 28.02.1966 | Architect resigns (Utzon) |  | Architect to Client | Fee dispute with Minister Hughes | Kankawee Maksomboon |
 | 19.04.1966 | Replacement architects appointed (Hall, Todd & Littlemore) |  | Client to Architect | Hall (design), Todd (documents), Littlemore (supervision), Farmer | Kankawee Maksomboon |
+| *20.04.1966* | Notice to contractor of replacement architects (Hall, Todd & Littlemore) |  | Client to Contractor | Hall, Todd & Littlemore administer the Stage I contract from 04.1966 | Prani Patton *(suggested)* |
 | 11.1966 | Stage III Contract signed (Minister for Public Works and Hornibrook) |  | Client to Contractor | Hornibrook: interiors + glass walls | Yu-Chun Ho *(suggested)* |
 | 17.01.1967 | Stage II Completed |  |  | Last (2,194th) shell segment placed |  |
 | 17.01.1967 | Stage III Commences |  |  | Interiors |  |
 | 07.1968 | Stage 3 Contract drawings |  | Architect to Contractor | Stage III working drawings | Yu-Chun Ho *(suggested)* |
 | 17.01.1973 | Client representative change (Hughes to Punch) |  | Client to Architect | CAA C.3 notice; Minister Leon Punch | Kankawee Maksomboon |
-| 20.10.1973 | Practical Completion Certificate |  | Architect to Contractor | Official opening by the Queen | Prani Patton *(suggested)* |
+| 20.10.1973 | Practical Completion Certificate |  | Architect to Contractor | Whole building (Stage III, Hornibrook); official opening by the Queen | Prani Patton *(suggested)* |
 | *20.10.1974* | End of defects liability period |  |  | 12 months (ABIC M13) |  |
-| 31.05.1975 | **Final Certificate** | SW-31 | Architect to Contractor | Refers to SW-11: final contract price $9,605,000 excl. GST ($10,565,500 incl.). Project final cost $102m (May 1974) | Prani Patton |
+| 31.05.1975 | **Final Certificate** | SW-31 | Architect to Contractor | Stage I contract (Civil & Civic). Refers to SW-11: final contract price $10,565,500 incl. GST ($9,605,000 excl.), less liquidated damages $20,000: $20,000 due to the owner. Issued by Hall, Todd & Littlemore [A] | Prani Patton |
 
 *All Architect to Contractor issuances under the SW form series are issued on behalf of the client.
 
@@ -62,19 +63,20 @@ Format: switched from the group's 8-column Register (From and To split; Action; 
 | 22.10.1959 | Client representative change (Cahill to Heffron) | Was 'Cahill to Askin, 1959': Cahill died 22 Oct 1959 and Heffron became Premier; Askin came in 1965 (own row below). To = Architect (CAA C.3 notice) | [U](https://adb.anu.edu.au/biography/cahill-john-joseph-joe-9659), [W](https://en.wikipedia.org/wiki/Robert_Askin), [D](https://mhnsw.au/guides/sydney-opera-house/) |
 | 06.1961 | Engineer's advice: final roof loads exceed podium columns | NEW: the trigger for Scenario 1 (timeline D3) | tutor, [AC](https://en.wikipedia.org/wiki/Sydney_Opera_House) |
 | 07.1961 | Change to architectural services (CAA D.8) | Date 1961 to 07.1961 [A] | — |
-| 08.1961 | Instruction- for a Variation | Date 1961 to 08.1961 [A] | REG, tutor |
-| 09.1961 | Contractor's details of claim (optional) | NEW: optional form in the tutor's worked example (1 month, $5,000) | tutor |
+| 01.08.1961 | Instruction- for a Variation | Date 1961 to 01.08.1961, as issued on Lead 3's SW-12 | REG, tutor |
+| 12.09.1961 | Contractor's details of claim (optional) | NEW: optional form in the tutor's worked example (1 month, $5,000); dated 12.09.1961, claim No. 03, as SW-14 and SW-11 refer to it | tutor |
 | 10.1961 | Instruction to proceed (optional) | NEW: optional form in the tutor's worked example | tutor |
-| 11.1961 | Instruction- Adjustment of Time | Date 1961 to 11.1961 [A] | REG, tutor |
+| 02.10.1961 | Instruction- Adjustment of Time | Date 1961 to 02.10.1961: SW-14 as issued (01.10.1961 was a Sunday); 14 working days after the claim, inside the 20 of H4 | REG, tutor |
 | 03.1962 | Cost Plan Issued | Date 1962 to 03.1962 [A]; £13.7m (A$27.4m) | [G](https://www.sydneyoperahouse.com/our-story/utzon-departs-the-house) |
-| 04.1962 | Contract Price Adjustment | Date 1962 to 04.1962 [A] | REG, tutor |
+| 02.04.1962 | Contract Price Adjustment | Date 1962 to 02.04.1962: SW-11 as issued (01.04.1962 was a Sunday). Later than the J5 progress certificate, kept on purpose by Lead 3 (explained in the ARBV letter) | REG, tutor |
 | 18.10.1962 | Stage II Contract signed (Minister for Public Works and Hornibrook) | NEW: Stage II agreement | [E](https://researchdata.edu.au/nrs-12781-agreement-stage-2/178986), [C](https://concise.mhnsw.au/pr/pwd00024.htm) |
 | 18.10.1962 | Stage 2 Contract drawings | Date 1962 to 18.10.1962 (with the Stage II agreement) | REG, [E](https://researchdata.edu.au/nrs-12781-agreement-stage-2/178986) |
-| 03.1963 | Stage I Completed | NEW: podium complete, two years late (A says Feb 1963, D says Mar 1963) | [A](https://www.sydneyoperahouse.com/our-story/construction-begins), [D](https://mhnsw.au/guides/sydney-opera-house/) |
+| 18.03.1963 | Stage I Completed | NEW: practical completion 18.03.1963 [A], 20 days after the adjusted date 26.02.1963, so liquidated damages $20,000 (Item 24) are deducted in SW-31 (sources: A Feb 1963, D Mar 1963) | [A](https://www.sydneyoperahouse.com/our-story/construction-begins), [D](https://mhnsw.au/guides/sydney-opera-house/) |
 | 04.1963 | Stage II Commences | Date 1962 to 04.1963: 1962 was the agreement (row above); roof works started Apr 1963 | [D](https://mhnsw.au/guides/sydney-opera-house/) |
 | 13.05.1965 | Client representative change (Askin government; Minister Hughes takes over payments) | NEW: second change of client representative | [D](https://mhnsw.au/guides/sydney-opera-house/), [G](https://www.sydneyoperahouse.com/our-story/utzon-departs-the-house), [AD](https://en.wikipedia.org/wiki/Davis_Hughes) |
 | 28.02.1966 | Architect resigns (Utzon) | NEW | [D](https://mhnsw.au/guides/sydney-opera-house/), [G](https://www.sydneyoperahouse.com/our-story/utzon-departs-the-house) |
 | 19.04.1966 | Replacement architects appointed (Hall, Todd & Littlemore) | NEW | [D](https://mhnsw.au/guides/sydney-opera-house/), [G](https://www.sydneyoperahouse.com/our-story/utzon-departs-the-house) |
+| 20.04.1966 | Notice to contractor of replacement architects (Hall, Todd & Littlemore) | NEW (Lead 3 item 4): the Stage I contractor is told who now administers its contract, so SW-31 can be issued by Hall, Todd & Littlemore | [D](https://mhnsw.au/guides/sydney-opera-house/), [G](https://www.sydneyoperahouse.com/our-story/utzon-departs-the-house) |
 | 11.1966 | Stage III Contract signed (Minister for Public Works and Hornibrook) | NEW: Stage III agreement | [C](https://concise.mhnsw.au/pr/pwd00024.htm) |
 | 17.01.1967 | Stage II Completed | NEW: last (2,194th) shell segment placed | [F](https://www.sydneyoperahouse.com/our-story/peter-hall-and-completion-opera-house) |
 | 17.01.1967 | Stage III Commences | Date 1967 to 17.01.1967 (interiors start once the shells are finished; site work from 1968) | [F](https://www.sydneyoperahouse.com/our-story/peter-hall-and-completion-opera-house), [K](https://artsandculture.google.com/story/the-final-stage-sydney-opera-house/RwVhIfNkP9JCIA?hl=en) |

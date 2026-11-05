@@ -208,8 +208,10 @@ NOTES = {
         "site possession under ABIC F1.",
     "Planned programme at signing": "The baseline: practical completion planned for 26 Jan 1963 when the contract was "
         "signed. The grey bar shows how far reality drifted from the plan.",
-    "Stage I": "The podium, by Civil & Civic, finishes in Feb/Mar 1963 — two years late. The ground needed about "
-        "700 bored concrete shafts nobody had planned for.",
+    "Stage I": "The podium, by Civil & Civic, finishes in Feb/Mar 1963 — two years late against the historical "
+        "programme. Under our contract it reaches practical completion on 18 Mar 1963 (assumed day), 20 days after the "
+        "adjusted date, so $20,000 of liquidated damages are deducted in SW-31. The ground needed about 700 bored "
+        "concrete shafts nobody had planned for.",
     "Piers work on site": "Our scenario on site: the contractor strengthens columns and adds piers, taking the extra "
         "month granted by SW-14. Dates assumed from the tutor's example.",
     "Stage II contract drawings": "The Stage II contract drawings, dated with the Stage II agreement (Oct 1962).",
@@ -228,6 +230,9 @@ NOTES = {
     "Adjustment of time": "SW-14: the architect grants 1 extra month, moving the date for practical completion.",
     "Contract Price Adjustment": "SW-11: the contract price goes up by $5,000. The final certificate (SW-31) must "
         "refer back to this.",
+    "Notice to contractor": "After Utzon resigns, the client tells Civil & Civic in writing that Hall, Todd & Littlemore "
+        "now administer the Stage I contract (20 Apr 1966, assumed day). This is why they can issue the final "
+        "certificate (SW-31) in 1975.",
     "Practical completion": "The Queen opens the building on 20 Oct 1973. We treat this as practical completion; "
         "the defects period starts here.",
     "Final Certificate": "SW-31: the Architects' Certificate of Completion, 31 May 1975, issued by Hall, Todd & "
@@ -338,6 +343,7 @@ ROLES = {
     "Instruction to proceed": ("Architect", "Jørn Utzon"),
     "Adjustment of time": ("Architect", "Jørn Utzon"),
     "Contract Price Adjustment": ("Architect", "Jørn Utzon"),
+    "Notice to contractor": ("Client", "NSW Government to Civil & Civic"),
     "Practical completion": ("Architect", "Hall, Todd & Littlemore (opening by the Queen)"),
     "Final Certificate": ("Architect", "Hall, Todd & Littlemore"),
     "Waterproofing specification": ("Architect", "Hall, Todd & Littlemore"),

@@ -303,9 +303,9 @@ Cahill holds the construction ceremony on 2 Mar 1959; Civil & Civic starts Stage
 The baseline: practical completion planned for 26 Jan 1963 when the contract was signed. The grey bar shows how far reality drifted from the plan.  
 *Sources:* tutor: Tutor's Assessment 3 instruction video (Canvas) — notes in 10-tutor-video-notes.md
 
-**2 Mar 1959 – Mar 1963 — Stage I — podium (Civil & Civic); 2 years late**  
+**2 Mar 1959 – 18 Mar 1963 — Stage I — podium (Civil & Civic); PC 18 Mar 1963, 20 days late: LDs $20,000**  `[F] Feb/Mar [A] day`  
 *Party:* Builder — Civil & Civic  
-The podium, by Civil & Civic, finishes in Feb/Mar 1963 — two years late. The ground needed about 700 bored concrete shafts nobody had planned for.  
+The podium, by Civil & Civic, finishes in Feb/Mar 1963 — two years late against the historical programme. Under our contract it reaches practical completion on 18 Mar 1963 (assumed day), 20 days after the adjusted date, so $20,000 of liquidated damages are deducted in SW-31. The ground needed about 700 bored concrete shafts nobody had planned for.  
 *Sources:* [A: Sydney Opera House — Construction begins](https://www.sydneyoperahouse.com/our-story/construction-begins) · [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)
 
 **Oct 1961 – Nov 1961 — Piers work on site — the extra time**  `[A]`  
@@ -340,12 +340,12 @@ Twelve months after practical completion for the contractor to fix defects (ABIC
 
 ## C3 — Contract administration
 
-**Aug 1961 — Instruction for a Variation — strengthen columns, add piers** · **SW-12**  `REG [A]`  
+**Aug 1961 — Instruction for a Variation — strengthen columns, add piers** · **SW-12**  
 *Party:* Architect — Jørn Utzon to Civil & Civic  
 SW-12: the architect instructs the contractor to strengthen the columns and add piers. This is the first form in our Scenario 1 chain.  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf) · tutor: Tutor's Assessment 3 instruction video (Canvas) — notes in 10-tutor-video-notes.md
 
-**Sep 1961 — Contractor's details of claim — 1 month, $5,000 (optional)** · **SW-42**  `[A] optional`  
+**12 Sep 1961 — Contractor's details of claim No. 03 — 1 month, $5,000 (optional)** · **SW-42**  
 *Party:* Builder — Civil & Civic  
 SW-42 (optional): the contractor claims 1 month and $5,000 for the variation.  
 *Sources:* tutor: Tutor's Assessment 3 instruction video (Canvas) — notes in 10-tutor-video-notes.md
@@ -355,22 +355,27 @@ SW-42 (optional): the contractor claims 1 month and $5,000 for the variation.
 SW-13 (optional): the architect tells the contractor to go ahead with the varied work.  
 *Sources:* tutor: Tutor's Assessment 3 instruction video (Canvas) — notes in 10-tutor-video-notes.md
 
-**Nov 1961 — Adjustment of time — +1 month** · **SW-14**  `REG [A]`  
+**2 Oct 1961 — Adjustment of time — +1 month (14 working days after the claim)** · **SW-14**  
 *Party:* Architect — Jørn Utzon  
 SW-14: the architect grants 1 extra month, moving the date for practical completion.  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf) · tutor: Tutor's Assessment 3 instruction video (Canvas) — notes in 10-tutor-video-notes.md
 
-**Apr 1962 — Contract Price Adjustment — +$5,000** · **SW-11**  `REG [A]`  
+**2 Apr 1962 — Contract Price Adjustment — +$5,000 (after the J5 period, kept on purpose)** · **SW-11**  
 *Party:* Architect — Jørn Utzon  
 SW-11: the contract price goes up by $5,000. The final certificate (SW-31) must refer back to this.  
 *Sources:* REG: The group's Document Register (Week 10 / DOCUMENT REGISTER_PP1.pdf) · tutor: Tutor's Assessment 3 instruction video (Canvas) — notes in 10-tutor-video-notes.md
 
-**20 Oct 1973 — Practical completion — official opening**  
+**20 Apr 1966 — Notice to contractor: Hall, Todd & Littlemore now administer the contract**  `[A] day`  
+*Party:* Client — NSW Government to Civil & Civic  
+After Utzon resigns, the client tells Civil & Civic in writing that Hall, Todd & Littlemore now administer the Stage I contract (20 Apr 1966, assumed day). This is why they can issue the final certificate (SW-31) in 1975.  
+*Sources:* [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/) · [G: Sydney Opera House — Utzon departs the House](https://www.sydneyoperahouse.com/our-story/utzon-departs-the-house)
+
+**20 Oct 1973 — Practical completion (whole building) — official opening**  
 *Party:* Architect — Hall, Todd & Littlemore (opening by the Queen)  
 The Queen opens the building on 20 Oct 1973. We treat this as practical completion; the defects period starts here.  
 *Sources:* [J: Museums of History NSW — Opening of the Sydney Opera House](https://mhnsw.au/opening-of-the-sydney-opera-house/) · [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)
 
-**31 May 1975 — Final Certificate — refers to SW-11 (Architects' Certificate of Completion)** · **SW-31**  
+**31 May 1975 — Final Certificate — refers to SW-11; LDs $20,000 (Architects' Certificate of Completion)** · **SW-31**  
 *Party:* Architect — Hall, Todd & Littlemore  
 SW-31: the Architects' Certificate of Completion, 31 May 1975, issued by Hall, Todd & Littlemore. It must refer to SW-11. The Register says 1974 — update it if the group agrees.  
 *Sources:* [D: Museums of History NSW — Sydney Opera House guide (chronology)](https://mhnsw.au/guides/sydney-opera-house/)

@@ -137,8 +137,17 @@ ABIC_FIX = [  # (page 1-based, old span text, clip rect, new text, font size)
 ]
 
 
+ABIC_ADD = [  # (page 1-based, baseline point, text, font size): text placed on blank lines
+    (14, (60, 460.5), "Bills of quantities (provisional), Rider Hunt & Partners, December 1958", 9),  # Sched. 3 item 6
+]
+
+
 def build_abic():
     doc = pymupdf.open(SRC_ABIC)
+    for pno, pt, text, size in ABIC_ADD:
+        page = doc[pno - 1]
+        page.insert_font(fontname="arial", fontfile=ARIAL)
+        page.insert_text(pt, text, fontname="arial", fontsize=size, color=(0.137, 0.122, 0.125))
     for pno, old, clip, new, size in ABIC_FIX:
         page = doc[pno - 1]
         hits = page.search_for(old, clip=pymupdf.Rect(clip))
@@ -224,13 +233,20 @@ ASSUMPTIONS = [
     ("Money", "Australian dollars throughout. Figures are stated excl. GST with GST shown alongside, although GST did not "
               "exist in 1957-75. Cost of Works forecast $9,600,000 (the tutor's original-budget figure), used also as "
               "the Stage I contract price, $9,600,000 + GST = $10,560,000."),
-    ("Variation chain", "SW-12 (08.1961) strengthen podium columns and add piers; SW-14 (11.1961) +1 month (20 working "
-                        "days), practical completion 26.01.1963 to 26.02.1963; SW-11 (04.1962) +$5,000 excl. GST = "
-                        "20 working days x $275 incl. GST (ABIC Item 18); SW-31 (31.05.1975) refers to SW-11: "
-                        "$9,605,000 excl. GST ($10,565,500 incl.)."),
+    ("Variation chain", "SW-12 (01.08.1961) add piers to strengthen the podium columns; contractor's claim No. 03 "
+                        "(12.09.1961); SW-14 (02.10.1961, 14 working days later, inside H4) +1 month (20 working days), "
+                        "practical completion 26.01.1963 to 26.02.1963, time costs 20 x $275 incl. GST (ABIC Item 18) = "
+                        "$5,500; SW-11 (02.04.1962) +$5,000 excl. GST: contract price $9,605,000 excl. GST "
+                        "($10,565,500 incl.). SW-11 is later than the next progress certificate (J5); the date is kept "
+                        "as the record shows it and the delay is discussed in the ARBV letter."),
+    ("Completion", "Stage I reached practical completion on 18.03.1963 [A], 20 days after the adjusted date, so "
+                   "liquidated damages of $20,000 ($1,000 per day, Item 24) are deducted in the final certificate."),
     ("Final certificate", "The Stage I final account is held over and certified at overall completion, 31.05.1975, by "
                           "the replacement architects (Hall, Todd & Littlemore), who took over contract administration "
-                          "after 28.02.1966 [A]."),
+                          "after 28.02.1966; the contractor was notified on 20.04.1966 [A]. SW-31 refers to SW-11: "
+                          "$10,565,500 incl. GST, less $20,000 liquidated damages; all progress certificates are "
+                          "assumed paid in full [A], so $20,000 is due to the owner. No cash retention (struck out in "
+                          "the ABIC); the $264,000 guarantee is returned."),
     ("Parties", "Client: the Government of New South Wales; representative under CAA C.2, the Premier or a Minister he "
                 "nominates (Cahill, then Heffron, Askin/Hughes, Punch: each change a C.3 notice). Contractor for Stage I: "
                 "Civil & Civic Pty Ltd. Named individuals in the ABIC who are not in the historical record (owner's "
@@ -332,13 +348,13 @@ FORMS = [
      "&amp; Partners (06.1961). Cause: the roof design was resolved after Stage I started (CAA Schedule C, A.4 and D.8; "
      "ABIC special condition 3). Contractor to give notice of the effect on price and time within 20 working days (J2.3). "
      "Issued on behalf of the owner; copy to the owner."),
-    ("SW-42 (optional)", "01.09.1961 [A]", "H1, H2",
+    ("SW-42 (optional)", "12.09.1961 (claim No. 03)", "H1, H2",
      "Contractor claims +20 working days (1 month) and +$5,000 excl. GST for the varied work."),
     ("SW-13 (optional)", "02.10.1961 [A]", "J3", "Instruction to proceed with the varied work."),
-    ("SW-14", "01.11.1961 [A] (Register 11.1961)", "H4, L1.1c",
+    ("SW-14", "02.10.1961", "H4, L1.1c (and f)",
      "Delay caused by an architect's instruction (a delay with costs). +20 working days: date for practical completion "
      "26.01.1963 becomes 26.02.1963. Adjustment of time costs 20 x $275 incl. GST (Schedule 1 Item 18) = $5,500 incl. GST."),
-    ("SW-11", "02.04.1962 [A] (Register 04.1962)", "H4, H5",
+    ("SW-11", "02.04.1962", "H4, H5",
      "Refers to SW-14. +$5,000 excl. GST + $500 GST = +$5,500. Contract price $10,560,000 incl. GST becomes "
      "$10,565,500 incl. GST ($9,605,000 excl.)."),
     ("SW-31", "31.05.1975 (Register)", "N11",
