@@ -10,7 +10,7 @@ Writes  D:\\RMIT_SEM2 26_PROPRAC 1\\Week 12\\Ready to submit\\Ver.1 - Lead 3 for
 Each version folder has an inputs\\ folder. Save the group's "ARBV letter.pdf" there and re-run: the red slot page
 goes and the file name loses its "(ARBV letter to insert)" suffix.
 """
-import os, shutil, sys
+import os, re, shutil, sys
 import pymupdf
 
 import build_submission as bs
@@ -53,7 +53,11 @@ def compile_version(folder, label, parts):
     bs.compile_all(parts)
     built = [f for f in os.listdir(folder) if f.startswith("Assessment Task 3_") and f.endswith(".pdf")][0]
     arbv = os.path.exists(os.path.join(inputs, "ARBV letter.pdf"))
-    final = f"Assessment Task 3_{SURNAMES}.pdf" if arbv else f"Assessment Task 3_{SURNAMES} - {label} (ARBV letter to insert).pdf"
+    final = (f"Assessment Task 3_{SURNAMES}_{label}.pdf" if arbv
+             else f"Assessment Task 3_{SURNAMES}_{label} (ARBV letter to insert).pdf")
+    for old in os.listdir(folder):
+        if old.startswith("Assessment Task 3_") and old.endswith(".pdf") and old != built:
+            os.remove(os.path.join(folder, old))
     os.replace(os.path.join(folder, built), os.path.join(folder, final))
     doc = pymupdf.open(os.path.join(folder, final))
     print(f"{label}: {final}  ({doc.page_count} pages)")
@@ -65,7 +69,7 @@ REPORT_CSS = """
 h1 { font-size: 15px; margin: 0 0 3px 0; } h2 { font-size: 11.5px; margin: 12px 0 4px 0; color: #1a6b35; }
 p, td, th, li { font-size: 8.6px; line-height: 1.32; } .sub { font-size: 9.5px; color: #555; margin: 0 0 8px 0; }
 table { border-collapse: collapse; width: 100%; margin-bottom: 6px; }
-th { background: #404040; color: #fff; text-align: left; padding: 3px 4px; font-size: 8.3px; }
+th, td.hd { color: #1a6b35; text-align: left; padding: 3px 4px; font-size: 8.3px; font-weight: bold; border-bottom: 1.2px solid #1a6b35; }
 td { border-bottom: 0.5px solid #bbb; padding: 3px 4px; vertical-align: top; }
 .H { color: #b00000; font-weight: bold; } .M { color: #b06000; font-weight: bold; } .L { color: #555; font-weight: bold; }
 .done { color: #1a6b35; font-weight: bold; } .todo { color: #b00000; font-weight: bold; } .kept { color: #1f4e78; font-weight: bold; }
@@ -74,15 +78,27 @@ td { border-bottom: 0.5px solid #bbb; padding: 3px 4px; vertical-align: top; }
 
 
 def html_pdf(html, path, landscape=True):
+    """Lay the report out section by section (split at <h2>), continuing down the page. Laying out the whole report
+    as one story can loop forever when a block cannot break at a page end, so each section is its own story and
+    the page count is capped."""
     rect = pymupdf.paper_rect("a4-l" if landscape else "a4")
-    story = pymupdf.Story(html=html, user_css=REPORT_CSS)
+    body = rect + (36, 36, -36, -40)
+    chunks = [c for c in re.split(r"(?=<h2>)", html) if c.strip()]
     writer = pymupdf.DocumentWriter(path)
-    more, n = 1, 0
-    while more:
-        dev = writer.begin_page(rect)
-        more, _ = story.place(rect + (36, 36, -36, -40))
-        story.draw(dev)
-        writer.end_page(); n += 1
+    dev, y, n = writer.begin_page(rect), body.y0, 1
+    for chunk in chunks:
+        story = pymupdf.Story(html=chunk, user_css=REPORT_CSS)
+        more = 1
+        while more:
+            if body.y1 - y < 60:                                   # too little room left: next page
+                writer.end_page(); dev, y, n = writer.begin_page(rect), body.y0, n + 1
+            more, filled = story.place(pymupdf.Rect(body.x0, y, body.x1, body.y1))
+            story.draw(dev)
+            y = filled[3] + 18
+            if more:
+                writer.end_page(); dev, y, n = writer.begin_page(rect), body.y0, n + 1
+            assert n < 40, "report layout runaway"
+    writer.end_page()
     writer.close()
     doc = pymupdf.open(path)
     for i, page in enumerate(doc, start=1):
@@ -93,12 +109,39 @@ def html_pdf(html, path, landscape=True):
 
 
 def table(rows, heads):
-    th = "".join(f"<th>{h}</th>" for h in heads)
+    th = "".join(f"<td class='hd'>{h}</td>" for h in heads)
     tr = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in rows)
     return f"<table><tr>{th}</tr>{tr}</table>"
 
 
 # ------------------------------------------------------------------ Ver.1
+# The Conventions and assumptions page as it was on 04.11.2026 (before the Ver.2 corrections).
+V1_ASSUMPTIONS = [
+    ("Instruments", "Today's documents (GL1 letter, CAA 2024, ABIC SW 2018 and its forms) are applied to the historical "
+                    "events, as the brief requires. The general conditions bound into Appendix d are the copy supplied "
+                    "by the course (SW 2018 H Vic edition)."),
+    ("Money", "Australian dollars throughout. Figures are stated excl. GST with GST shown alongside, although GST did not "
+              "exist in 1957-75. Cost of Works forecast $9,600,000 (the tutor's original-budget figure), used also as "
+              "the Stage I contract price, $9,600,000 + GST = $10,560,000."),
+    ("Variation chain", "SW-12 (08.1961) strengthen podium columns and add piers; SW-14 (11.1961) +1 month (20 working "
+                        "days), practical completion 26.01.1963 to 26.02.1963; SW-11 (04.1962) +$5,000 excl. GST = "
+                        "20 working days x $275 incl. GST (ABIC Item 18); SW-31 (31.05.1975) refers to SW-11: "
+                        "$9,605,000 excl. GST ($10,565,500 incl.)."),
+    ("Final certificate", "The Stage I final account is held over and certified at overall completion, 31.05.1975, by "
+                          "the replacement architects (Hall, Todd & Littlemore), who took over contract administration "
+                          "after 28.02.1966 [A]."),
+    ("Parties", "Client: the Government of New South Wales; representative under CAA C.2, the Premier or a Minister he "
+                "nominates (Cahill, then Heffron, Askin/Hughes, Punch: each change a C.3 notice). Contractor for Stage I: "
+                "Civil & Civic Pty Ltd. Named individuals in the ABIC who are not in the historical record (owner's "
+                "and contractor's representatives, witness, guarantor bank and attorney) are invented [A]."),
+    ("Identifiers", "ABNs and registration numbers are 'N/A': they did not exist, or are not known, for 1957-59. "
+                    "Utzon was not registered in NSW (a point taken up in the ARBV letter)."),
+    ("Signatures", "No signature is reproduced. Signature boxes read 'Signature omitted - academic simulation'; "
+                   "signing dates are those of the Register."),
+    ("Dates", "Dates in italics in the Register are months we placed inside a year the sources give [A]. "
+              "Sources for every fact are keyed in the Register and in the Timeline workbook's Sources sheet."),
+]
+
 V1_ISSUES = [  # (priority, form, where, problem, suggestion)
     ("H", "SW-31", "Contractor, A to E",
      "Issued to <b>M.R. Hornibrook</b> and certifies the whole project ($102m, all stages as 'adjustments'). Our ABIC "
@@ -188,16 +231,23 @@ def ver1():
     parts = {"a1": "a1 Architects Register.pdf", "a2": "a2 Timeline.pdf", "b": "b Introductory letter.pdf",
              "c": "c CAA 2024.pdf", "d": "d ABIC SW 2018.pdf"}
     parts = {k: os.path.join(bs.PARTS, v) for k, v in parts.items()}
+    letter = os.path.join(VER2, "inputs", "ARBV letter.pdf")
+    if os.path.exists(letter):
+        shutil.copy(letter, os.path.join(VER1, "inputs", "ARBV letter.pdf"))
+    saved, bs.ASSUMPTIONS = bs.ASSUMPTIONS, V1_ASSUMPTIONS
     name, pages, arbv = compile_version(VER1, "Ver.1", parts)
+    bs.ASSUMPTIONS = saved
     order = {"H": 0, "M": 1, "L": 2}
     issues = sorted(V1_ISSUES, key=lambda r: order[r[0]])
     rows = [(f"<span class='{p}'>{ {'H': 'High', 'M': 'Med', 'L': 'Low'}[p] }</span>", f, w, prob, sug)
             for p, f, w, prob, sug in issues]
     html = f"""<h1>Ver.1 — Lead 3's forms combined: suggestion fix report</h1>
 <p class="sub">Built 05.11.2026 · {DUE} · File: <b>{name}</b> ({pages} pages) in <i>Ready to submit\\Ver.1 - Lead 3 forms combined</i></p>
-<div class="box"><b>Not ready to submit yet.</b> The <b>ARBV letter (Part B, about 1,000 words)</b> is still a red slot page
-(page 3). Save it as <i>inputs\\ARBV letter.pdf</i> and run <i>py build_versions.py 1</i>. The forms are combined
-<b>as received</b>: the only change is that Lead 3's 11 review comments and highlights were taken off (listed at the end).</div>
+<div class="box"><b>Ver.1 = Lead 3's forms as received</b> (only their 11 review comments taken off, listed at the end), with
+the ARBV letter draft v1 (pages 3-4). <b>The letter was written for the corrected figures of Ver.2</b>, so in Ver.1 it
+contradicts the forms below (for example SW-31 to Hornibrook for $112.2m, SW-14 time costs $1,000). Ver.2 is the
+consistent version. The letter the group tried was the example submission's own letter almost word for word:
+do not submit that one.</div>
 <h2>Suggested fixes to the forms, highest first</h2>
 {table(rows, ["Priority", "Form", "Where", "Problem", "Suggestion"])}
 <h2>Good decisions in Lead 3's forms (keep them)</h2><ul>{''.join(f'<li>{k}</li>' for k in V1_KEPT)}</ul>
@@ -209,7 +259,7 @@ confirm the grey (suggested) names in the Register; ask the tutor whether one pe
 <h2>Lead 3's review comments (removed from the submission copy, kept here)</h2>
 {table([(k, p, t, c) for k, p, t, c in notes], ["Form", "Page", "Type", "Comment"])}
 <p><b>Ver.2</b> (<i>Ready to submit\\Ver.2 - revised</i>) applies every fix above, keeping Lead 3's content and decisions.</p>"""
-    html_pdf(html, os.path.join(VER1, "Ver.1 - Suggestion fix report.pdf"))
+    html_pdf(html, os.path.join(VER1, "Ver.1 - Suggestion fix report (not for submission).pdf"))
 
 
 # ------------------------------------------------------------------ Ver.2: corrected forms
@@ -446,6 +496,30 @@ LEAD3_V2 = [
 ]
 
 
+ARBV_MISSING = """<div class="box"><b>Still to add before submitting:</b> the <b>ARBV letter</b> (Part B, about 1,000 words;
+page 3 is a red slot). Save it as <i>Ver.2 - revised\\inputs\\ARBV letter.pdf</i> and run <i>py build_versions.py 2</i>.</div>"""
+ARBV_BOX = """<div class="box"><b>ARBV letter (Part B): draft v1 is in (pages 3-4), 1,016 words.</b> It is a new letter written
+from our own file, not from the example submission. The letter the group tried was the example submission's own
+ARBV letter almost word for word (Skilbeck and Howard: 'Utzon and Arup Partnership', 1 December 1964, $40,000
+provisional sum, $129,000 variation): submitting it would be plagiarism, and it did not fit our project. <b>Read the
+draft together, change anything you would say differently, and check the course's Use of Gen AI page before
+submitting.</b> Edit <i>letters\\ARBV letter - draft v1.docx</i> in Word, save it as PDF to
+<i>Ver.2 - revised\\inputs\\ARBV letter.pdf</i>, then run <i>py build_versions.py 2</i>.</div>"""
+ARBV_SECTION = """<h2>5. ARBV letter: what each paragraph rests on</h2>
+<table><tr><th>Para.</th><th>Claim</th><th>Evidence in the file</th><th>Code (2026; 2015 cl 5 = cl 10)</th></tr>
+<tr><td>1</td><td>Terms set before work: letter 11.02.1957, CAA 21.02.1957 (8 business days later); D.8 set in advance</td><td>b letter; c CAA Schedule C; a Register</td><td>cl 6(1)-(2)</td></tr>
+<tr><td>1</td><td>Registration number 'N/A' declared as a gap</td><td>c CAA page 1; p.2 assumptions</td><td>cl 6(4)(c)</td></tr>
+<tr><td>2</td><td>Client told in writing of extra services (07.1961) before the work; SW-12 01.08.1961 with reason, J2.3 notice, copy to owner</td><td>a Register (D.8 row); e SW-12</td><td>cl 6(4)(g),(l); cl 9(a)-(c)</td></tr>
+<tr><td>3</td><td>Claim 12.09.1961 assessed in 14 working days (H4); causes L1.1(c) and (f); time costs at Item 18</td><td>e SW-14; d ABIC Item 18</td><td>cl 10(2)(a),(b)</td></tr>
+<tr><td>4</td><td>SW-11 late against J5 (02.04.1962): accepted as a failure of promptness</td><td>e SW-11; p.2 assumptions</td><td>cl 10(2)(b); ARBV guidance</td></tr>
+<tr><td>5</td><td>Liquidated damages $20,000: Stage I 20 days late</td><td>a Register; d ABIC Item 24; e SW-31</td><td>cl 10(2)(a)</td></tr>
+<tr><td>6</td><td>Contractor notified of the new architects 20.04.1966; SW-31 refers to SW-11; final account held too long</td><td>a Register; e SW-31</td><td>cl 9(f); cl 10(2)(c)</td></tr>
+<tr><td>7</td><td>One record, one set of figures</td><td>a Register and Timeline</td><td>cl 15</td></tr></table>
+<p>The 2015 Regulations named in the brief have expired: the ARBV's new Code (Architects Regulations 2026, Schedule 1) took
+effect on 25 April 2026, and the contract-administration duty is now clause 10 (clause 5 in 2015). The letter cites the
+2026 Code and notes the 2015 number. Ask the tutor if the 2015 numbering is required.</p>"""
+
+
 def html_escape(t):
     return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
@@ -475,10 +549,7 @@ def ver2():
                               for n, s, w, d in items], ["#", "Status", "Item", "What was done"])
     html = f"""<h1>Ver.2 — revised: fix report</h1>
 <p class="sub">Built 05.11.2026 · {DUE} · File: <b>{name}</b> ({pages} pages) in <i>Ready to submit\\Ver.2 - revised</i></p>
-<div class="box"><b>Still to add before submitting:</b> the <b>ARBV letter</b> (Part B, about 1,000 words; page 3 is a red
-slot). Save it as <i>Ver.2 - revised\\inputs\\ARBV letter.pdf</i> and run <i>py build_versions.py 2</i>. It should also
-explain: SW-11 dated after the J5 period (kept on purpose), $9.6m used for Stage I, and SW-31 issued in 1975 by Hall,
-Todd &amp; Littlemore.</div>
+{ARBV_BOX if arbv else ARBV_MISSING}
 <div class="ok"><b>Approach.</b> Lead 3's forms keep their layout, wording and decisions; values were corrected in their own
 fonts and missing items added. Kept as Lead 3 decided: SW-11 in April 1962 (J5 delay, for Part B), liquidated damages
 $20,000, SW-14 within 20 working days, SW-31 by Hall, Todd &amp; Littlemore on 31/05/1975, instruction and reference
@@ -495,12 +566,13 @@ refers to SW-11, less $20,000 liquidated damages, $20,000 due to the owner.</li>
 basis. The date check between Register and Timeline passes.</li></ul>
 <h2>3. Lead 2 checklist (Yu-Chun Ho)</h2>{tl(LEAD2_V2)}
 <h2>4. Lead 3 checklist (Prani Patton)</h2>{tl(LEAD3_V2)}
-<h2>5. Still for the group</h2><ul><li>Write the ARBV letter (above).</li>
+{ARBV_SECTION if arbv else ""}
+<h2>{6 if arbv else 5}. Still for the group</h2><ul><li>{"Read the ARBV letter together and make it your own (above)." if arbv else "Write the ARBV letter (above)."}</li>
 <li>Confirm the grey (suggested) names in the Register (Student Contribution): each person confirms their own.</li>
 <li>Ask the tutor whether one person submits for the group.</li></ul>
 <h2>Lead 3's review comments (removed from the submission copy)</h2>
 {table([(k, p, t, c) for k, p, t, c in notes], ["Form", "Page", "Type", "Comment"])}"""
-    html_pdf(html, os.path.join(VER2, "Ver.2 - Fix report.pdf"))
+    html_pdf(html, os.path.join(VER2, "Ver.2 - Fix report (not for submission).pdf"))
 
 
 if __name__ == "__main__":
